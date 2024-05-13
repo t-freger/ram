@@ -18,3 +18,4 @@ mobile/libisar.dylib
 open-api/typescript-sdk/build
 mobile/android/fastlane/report.xml
 mobile/ios/fastlane/report.xml
+e2e/test-assets
