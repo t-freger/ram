@@ -1,20 +1,20 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/providers/album/album.provider.dart';
-import 'package:immich_mobile/providers/album/shared_album.provider.dart';
-import 'package:immich_mobile/services/background.service.dart';
-import 'package:immich_mobile/models/backup/backup_state.model.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/providers/backup/ios_background_settings.provider.dart';
-import 'package:immich_mobile/providers/backup/manual_upload.provider.dart';
-import 'package:immich_mobile/providers/authentication.provider.dart';
-import 'package:immich_mobile/providers/memory.provider.dart';
-import 'package:immich_mobile/providers/gallery_permission.provider.dart';
-import 'package:immich_mobile/providers/notification_permission.provider.dart';
-import 'package:immich_mobile/providers/asset.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/tab.provider.dart';
-import 'package:immich_mobile/providers/websocket.provider.dart';
-import 'package:immich_mobile/services/immich_logger.service.dart';
+import 'package:ram_mobile/providers/album/album.provider.dart';
+import 'package:ram_mobile/providers/album/shared_album.provider.dart';
+import 'package:ram_mobile/services/background.service.dart';
+import 'package:ram_mobile/models/backup/backup_state.model.dart';
+import 'package:ram_mobile/providers/backup/backup.provider.dart';
+import 'package:ram_mobile/providers/backup/ios_background_settings.provider.dart';
+import 'package:ram_mobile/providers/backup/manual_upload.provider.dart';
+import 'package:ram_mobile/providers/authentication.provider.dart';
+import 'package:ram_mobile/providers/memory.provider.dart';
+import 'package:ram_mobile/providers/gallery_permission.provider.dart';
+import 'package:ram_mobile/providers/notification_permission.provider.dart';
+import 'package:ram_mobile/providers/asset.provider.dart';
+import 'package:ram_mobile/providers/server_info.provider.dart';
+import 'package:ram_mobile/providers/tab.provider.dart';
+import 'package:ram_mobile/providers/websocket.provider.dart';
+import 'package:ram_mobile/services/ram_logger.service.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 enum AppLifeCycleEnum {
@@ -93,7 +93,7 @@ class AppLifeCycleNotifier extends StateNotifier<AppLifeCycleEnum> {
       _ref.read(backupProvider.notifier).cancelBackup();
     }
     _ref.read(websocketProvider.notifier).disconnect();
-    ImmichLogger().flush();
+    ramLogger().flush();
   }
 
   void handleAppDetached() {

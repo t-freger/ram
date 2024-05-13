@@ -6,7 +6,7 @@
     type UserResponseDto,
     updateAlbumUser,
     AlbumUserRole,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import { mdiDotsVertical } from '@mdi/js';
   import { createEventDispatcher, onMount } from 'svelte';
   import { getContextMenuPosition } from '../../utils/context-menu';
@@ -88,7 +88,7 @@
 
 {#if !selectedRemoveUser}
   <FullScreenModal id="share-info-modal" title="Options" {onClose}>
-    <section class="immich-scrollbar max-h-[400px] overflow-y-auto pb-4">
+    <section class="ram-scrollbar max-h-[400px] overflow-y-auto pb-4">
       <div class="flex w-full place-items-center justify-between gap-4 p-5">
         <div class="flex place-items-center gap-4">
           <UserAvatar user={album.owner} size="md" />
@@ -142,7 +142,7 @@
             {:else if user.id == currentUser?.id}
               <button
                 on:click={() => (selectedRemoveUser = user)}
-                class="text-sm font-medium text-immich-primary transition-colors hover:text-immich-primary/75 dark:text-immich-dark-primary"
+                class="text-sm font-medium text-ram-primary transition-colors hover:text-ram-primary/75 dark:text-ram-dark-primary"
                 >Leave</button
               >
             {/if}

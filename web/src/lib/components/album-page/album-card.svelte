@@ -1,7 +1,7 @@
 <script lang="ts">
   import { locale } from '$lib/stores/preferences.store';
   import { user } from '$lib/stores/user.store';
-  import type { AlbumResponseDto } from '@immich/sdk';
+  import type { AlbumResponseDto } from '@ram/sdk';
   import { mdiDotsVertical } from '@mdi/js';
   import { getContextMenuPosition, type ContextMenuPosition } from '$lib/utils/context-menu';
   import { getShortDateRange } from '$lib/utils/date-time';
@@ -48,7 +48,7 @@
 
   <div class="mt-4">
     <p
-      class="w-full leading-6 text-lg line-clamp-2 font-semibold text-black dark:text-white group-hover:text-immich-primary dark:group-hover:text-immich-dark-primary"
+      class="w-full leading-6 text-lg line-clamp-2 font-semibold text-black dark:text-white group-hover:text-ram-primary dark:group-hover:text-ram-dark-primary"
       data-testid="album-name"
       title={album.albumName}
     >
@@ -56,7 +56,7 @@
     </p>
 
     {#if showDateRange && album.startDate && album.endDate}
-      <p class="flex text-sm dark:text-immich-dark-fg capitalize">
+      <p class="flex text-sm dark:text-ram-dark-fg capitalize">
         {getShortDateRange(album.startDate, album.endDate)}
       </p>
     {/if}

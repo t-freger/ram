@@ -15,7 +15,7 @@
 {#if $isDownloading}
   <div
     transition:fly={{ x: -100, duration: 350 }}
-    class="absolute bottom-10 left-2 z-[10000] max-h-[270px] w-[315px] rounded-2xl border bg-immich-bg p-4 text-sm shadow-sm"
+    class="absolute bottom-10 left-2 z-[10000] max-h-[270px] w-[315px] rounded-2xl border bg-ram-bg p-4 text-sm shadow-sm"
   >
     <p class="mb-2 text-xs text-gray-500">DOWNLOADING</p>
     <div class="my-2 mb-2 flex max-h-[200px] flex-col overflow-y-auto text-sm">
@@ -31,10 +31,10 @@
             </div>
             <div class="flex place-items-center gap-2">
               <div class="h-[7px] w-full rounded-full bg-gray-200 dark:bg-gray-700">
-                <div class="h-[7px] rounded-full bg-immich-primary" style={`width: ${download.percentage}%`} />
+                <div class="h-[7px] rounded-full bg-ram-primary" style={`width: ${download.percentage}%`} />
               </div>
               <p class="min-w-[4em] whitespace-nowrap text-right">
-                <span class="text-immich-primary">{download.percentage}%</span>
+                <span class="text-ram-primary">{download.percentage}%</span>
               </p>
             </div>
           </div>
@@ -44,7 +44,7 @@
               on:click={() => abort(downloadKey, download)}
               size="20"
               icon={mdiClose}
-              class="dark:text-immich-dark-gray"
+              class="dark:text-ram-dark-gray"
             />
           </div>
         </div>

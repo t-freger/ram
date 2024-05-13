@@ -3,16 +3,16 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/album/album.provider.dart';
-import 'package:immich_mobile/providers/album/shared_album.provider.dart';
-import 'package:immich_mobile/services/album.service.dart';
-import 'package:immich_mobile/widgets/album/add_to_album_sliverlist.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/entities/album.entity.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/widgets/common/drag_sheet.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/album/album.provider.dart';
+import 'package:ram_mobile/providers/album/shared_album.provider.dart';
+import 'package:ram_mobile/services/album.service.dart';
+import 'package:ram_mobile/widgets/album/add_to_album_sliverlist.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/entities/album.entity.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/widgets/common/drag_sheet.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
 
 class AddToAlbumBottomSheet extends HookConsumerWidget {
   /// The asset to add to an album
@@ -48,14 +48,14 @@ class AddToAlbumBottomSheet extends HookConsumerWidget {
 
       if (result != null) {
         if (result.alreadyInAlbum.isNotEmpty) {
-          ImmichToast.show(
+          ramToast.show(
             context: context,
             msg: 'add_to_album_bottom_sheet_already_exists'.tr(
               namedArgs: {"album": album.name},
             ),
           );
         } else {
-          ImmichToast.show(
+          ramToast.show(
             context: context,
             msg: 'add_to_album_bottom_sheet_added'.tr(
               namedArgs: {"album": album.name},

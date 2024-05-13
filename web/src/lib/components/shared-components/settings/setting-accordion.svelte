@@ -29,18 +29,18 @@
 <div class="border-b-[1px] border-gray-200 py-4 dark:border-gray-700">
   <button on:click={() => (isOpen = !isOpen)} class="flex w-full place-items-center justify-between text-left">
     <div>
-      <h2 class="font-medium text-immich-primary dark:text-immich-dark-primary">
+      <h2 class="font-medium text-ram-primary dark:text-ram-dark-primary">
         {title}
       </h2>
 
       <slot name="subtitle">
-        <p class="text-sm dark:text-immich-dark-fg">{subtitle}</p>
+        <p class="text-sm dark:text-ram-dark-fg">{subtitle}</p>
       </slot>
     </div>
 
     <button
       aria-expanded={isOpen}
-      class="immich-circle-icon-button flex place-content-center place-items-center rounded-full p-3 transition-all hover:bg-immich-primary/10 dark:text-immich-dark-fg hover:dark:bg-immich-dark-primary/20"
+      class="ram-circle-icon-button flex place-content-center place-items-center rounded-full p-3 transition-all hover:bg-ram-primary/10 dark:text-ram-dark-fg hover:dark:bg-ram-dark-primary/20"
     >
       <svg
         style="tran"

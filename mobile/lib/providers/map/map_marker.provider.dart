@@ -1,6 +1,6 @@
-import 'package:immich_mobile/models/map/map_marker.model.dart';
-import 'package:immich_mobile/providers/map/map_service.provider.dart';
-import 'package:immich_mobile/providers/map/map_state.provider.dart';
+import 'package:ram_mobile/models/map/map_marker.model.dart';
+import 'package:ram_mobile/providers/map/map_service.provider.dart';
+import 'package:ram_mobile/providers/map/map_state.provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'map_marker.provider.g.dart';

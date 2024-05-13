@@ -12,7 +12,7 @@ import {
   unlinkOAuthAccount,
   type SharedLinkResponseDto,
   type UserResponseDto,
-} from '@immich/sdk';
+} from '@ram/sdk';
 import { mdiCogRefreshOutline, mdiDatabaseRefreshOutline, mdiImageRefreshOutline } from '@mdi/js';
 
 interface DownloadRequestOptions<T = unknown> {

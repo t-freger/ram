@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/utils/bytes_units.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/utils/bytes_units.dart';
 
 class ExifImageProperties extends StatelessWidget {
   final Asset asset;

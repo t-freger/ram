@@ -3,16 +3,16 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/album/album_sort_by_options.provider.dart';
-import 'package:immich_mobile/providers/album/shared_album.provider.dart';
-import 'package:immich_mobile/widgets/album/album_thumbnail_card.dart';
-import 'package:immich_mobile/providers/partner.provider.dart';
-import 'package:immich_mobile/widgets/partner/partner_list.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_app_bar.dart';
-import 'package:immich_mobile/widgets/common/immich_thumbnail.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/album/album_sort_by_options.provider.dart';
+import 'package:ram_mobile/providers/album/shared_album.provider.dart';
+import 'package:ram_mobile/widgets/album/album_thumbnail_card.dart';
+import 'package:ram_mobile/providers/partner.provider.dart';
+import 'package:ram_mobile/widgets/partner/partner_list.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/providers/user.provider.dart';
+import 'package:ram_mobile/widgets/common/ram_app_bar.dart';
+import 'package:ram_mobile/widgets/common/ram_thumbnail.dart';
 
 @RoutePage()
 class SharingPage extends HookConsumerWidget {
@@ -72,7 +72,7 @@ class SharingPage extends HookConsumerWidget {
               contentPadding: const EdgeInsets.symmetric(horizontal: 12),
               leading: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
-                child: ImmichThumbnail(
+                child: ramThumbnail(
                   asset: album.thumbnail.value,
                   width: 60,
                   height: 60,
@@ -225,7 +225,7 @@ class SharingPage extends HookConsumerWidget {
         ref.read(sharedAlbumProvider.notifier).getAllSharedAlbums();
       },
       child: Scaffold(
-        appBar: ImmichAppBar(
+        appBar: ramAppBar(
           action: sharePartnerButton(),
         ),
         body: CustomScrollView(

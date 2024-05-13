@@ -1,4 +1,4 @@
-# Immich Machine Learning
+# ram Machine Learning
 
 - Clasificación de imágenes
 - Incorporación de CLIP

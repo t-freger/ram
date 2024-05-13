@@ -42,7 +42,7 @@
   alt={altText}
   {title}
   class="object-cover transition duration-300 {border
-    ? 'border-[3px] border-immich-dark-primary/80 hover:border-immich-primary'
+    ? 'border-[3px] border-ram-dark-primary/80 hover:border-ram-primary'
     : ''}"
   class:rounded-xl={curve}
   class:shadow-lg={shadow}

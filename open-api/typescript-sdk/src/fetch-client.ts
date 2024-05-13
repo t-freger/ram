@@ -1,5 +1,5 @@
 /**
- * Immich
+ * ram
  * 1.103.1
  * DO NOT MODIFY - This file has been generated using oazapfts.
  * See https://www.npmjs.com/package/oazapfts
@@ -1530,9 +1530,9 @@ export function getAssetThumbnail({ format, id, key }: {
         ...opts
     }));
 }
-export function uploadFile({ key, xImmichChecksum, createAssetDto }: {
+export function uploadFile({ key, xramChecksum, createAssetDto }: {
     key?: string;
-    xImmichChecksum?: string;
+    xramChecksum?: string;
     createAssetDto: CreateAssetDto;
 }, opts?: Oazapfts.RequestOpts) {
     return oazapfts.ok(oazapfts.fetchJson<{
@@ -1545,7 +1545,7 @@ export function uploadFile({ key, xImmichChecksum, createAssetDto }: {
         method: "POST",
         body: createAssetDto,
         headers: oazapfts.mergeHeaders(opts?.headers, {
-            "x-immich-checksum": xImmichChecksum
+            "x-ram-checksum": xramChecksum
         })
     })));
 }

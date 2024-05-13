@@ -16,7 +16,7 @@
     type ActivityResponseDto,
     type AssetTypeEnum,
     type UserResponseDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import { mdiClose, mdiDotsVertical, mdiHeart, mdiSend } from '@mdi/js';
   import * as luxon from 'luxon';
   import { createEventDispatcher, onMount } from 'svelte';
@@ -154,20 +154,20 @@
 </script>
 
 <div class="overflow-y-hidden relative h-full" bind:offsetHeight={innerHeight}>
-  <div class="dark:bg-immich-dark-bg dark:text-immich-dark-fg w-full h-full">
+  <div class="dark:bg-ram-dark-bg dark:text-ram-dark-fg w-full h-full">
     <div
-      class="flex w-full h-fit dark:bg-immich-dark-bg dark:text-immich-dark-fg p-2 bg-white"
+      class="flex w-full h-fit dark:bg-ram-dark-bg dark:text-ram-dark-fg p-2 bg-white"
       bind:clientHeight={activityHeight}
     >
       <div class="flex place-items-center gap-2">
         <CircleIconButton on:click={() => dispatch('close')} icon={mdiClose} title="Close" />
 
-        <p class="text-lg text-immich-fg dark:text-immich-dark-fg">Activity</p>
+        <p class="text-lg text-ram-fg dark:text-ram-dark-fg">Activity</p>
       </div>
     </div>
     {#if innerHeight}
       <div
-        class="overflow-y-auto immich-scrollbar relative w-full px-2"
+        class="overflow-y-auto ram-scrollbar relative w-full px-2"
         style="height: {divHeight}px;padding-bottom: {chatHeight}px"
       >
         {#each reactions as reaction, index (reaction.id)}
@@ -200,7 +200,7 @@
               <div>
                 {#if showDeleteReaction[index]}
                   <button
-                    class="absolute right-6 rounded-xl items-center bg-gray-300 dark:bg-slate-100 py-3 px-6 text-left text-sm font-medium text-immich-fg hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-inset dark:text-immich-dark-bg dark:hover:bg-red-100 transition-colors"
+                    class="absolute right-6 rounded-xl items-center bg-gray-300 dark:bg-slate-100 py-3 px-6 text-left text-sm font-medium text-ram-fg hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-inset dark:text-ram-dark-bg dark:hover:bg-red-100 transition-colors"
                     use:clickOutside
                     on:outclick={() => (showDeleteReaction[index] = false)}
                     on:click={() => handleDeleteReaction(reaction, index)}
@@ -252,7 +252,7 @@
                 <div>
                   {#if showDeleteReaction[index]}
                     <button
-                      class="absolute right-6 rounded-xl items-center bg-gray-300 dark:bg-slate-100 py-3 px-6 text-left text-sm font-medium text-immich-fg hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-inset dark:text-immich-dark-bg dark:hover:bg-red-100 transition-colors"
+                      class="absolute right-6 rounded-xl items-center bg-gray-300 dark:bg-slate-100 py-3 px-6 text-left text-sm font-medium text-ram-fg hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-inset dark:text-ram-dark-bg dark:hover:bg-red-100 transition-colors"
                       use:clickOutside
                       on:outclick={() => (showDeleteReaction[index] = false)}
                       on:click={() => handleDeleteReaction(reaction, index)}
@@ -279,7 +279,7 @@
 
   <div class="absolute w-full bottom-0">
     <div class="flex items-center justify-center p-2" bind:clientHeight={chatHeight}>
-      <div class="flex p-2 gap-4 h-fit bg-gray-200 text-immich-dark-gray rounded-3xl w-full">
+      <div class="flex p-2 gap-4 h-fit bg-gray-200 text-ram-dark-gray rounded-3xl w-full">
         <div>
           <UserAvatar {user} size="md" showTitle={false} />
         </div>
@@ -309,7 +309,7 @@
             </div>
           {:else if message}
             <div class="flex items-end w-fit ml-0">
-              <CircleIconButton title="Send message" size="15" icon={mdiSend} class="dark:text-immich-dark-gray" />
+              <CircleIconButton title="Send message" size="15" icon={mdiSend} class="dark:text-ram-dark-gray" />
             </div>
           {/if}
         </form>

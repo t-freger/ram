@@ -16,7 +16,7 @@
 
 <th class="text-sm font-medium {option.columnStyle}">
   <button
-    class="rounded-lg p-2 hover:bg-immich-dark-primary hover:dark:bg-immich-dark-primary/50"
+    class="rounded-lg p-2 hover:bg-ram-dark-primary hover:dark:bg-ram-dark-primary/50"
     on:click={handleSort}
   >
     {#if $albumViewSettings.sortBy === option.id}

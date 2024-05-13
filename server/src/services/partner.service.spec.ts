@@ -29,8 +29,8 @@ const responseDto = {
     quotaUsageInBytes: 0,
   },
   user1: <PartnerResponseDto>{
-    email: 'immich@test.com',
-    name: 'immich_name',
+    email: 'ram@test.com',
+    name: 'ram_name',
     id: 'user-id',
     isAdmin: false,
     oauthId: '',

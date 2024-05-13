@@ -64,8 +64,8 @@ import Timeline, { DateType, Item } from '../components/timeline';
 const items: Item[] = [
   {
     icon: mdiHandshakeOutline,
-    description: 'Joined Futo and Immich core team goes full-time',
-    title: 'Immich joins FUTO!',
+    description: 'Joined Futo and ram core team goes full-time',
+    title: 'ram joins FUTO!',
     date: new Date(2024, 4, 1),
     dateType: DateType.DATE,
   },
@@ -89,7 +89,7 @@ const items: Item[] = [
   },
   {
     icon: mdiFlowerPoppy,
-    description: 'Immich got its new logo',
+    description: 'ram got its new logo',
     title: 'New logo',
     release: 'v1.98.0',
     tag: 'v1.98.0',
@@ -107,7 +107,7 @@ const items: Item[] = [
   },
   {
     icon: mdiScaleBalance,
-    description: 'Immich switches to AGPLv3 license',
+    description: 'ram switches to AGPLv3 license',
     title: 'AGPL License',
     release: 'v1.95.0',
     tag: 'v1.95.0',
@@ -134,7 +134,7 @@ const items: Item[] = [
   },
   {
     icon: mdiAccountGroupOutline,
-    description: '250 amazing people contributed to Immich',
+    description: '250 amazing people contributed to ram',
     title: '250 unique contributors',
     release: 'v1.93.0',
     tag: 'v1.93.0',
@@ -171,7 +171,7 @@ const items: Item[] = [
   },
   {
     icon: mdiBash,
-    description: 'Version 2 of the Immich CLI is released, replacing the legacy v1 CLI.',
+    description: 'Version 2 of the ram CLI is released, replacing the legacy v1 CLI.',
     title: 'CLI v2',
     release: 'v1.88.0',
     tag: 'v1.88.0',
@@ -226,7 +226,7 @@ const items: Item[] = [
   {
     icon: mdiBookSearchOutline,
     title: 'External Libraries',
-    description: 'Automatically import media into Immich based on imports paths and ignore patterns.',
+    description: 'Automatically import media into ram based on imports paths and ignore patterns.',
     release: 'v1.79.0',
     tag: 'v1.79.0',
     date: new Date(2023, 8, 21),
@@ -244,7 +244,7 @@ const items: Item[] = [
   {
     icon: mdiFile,
     title: 'Configuration File',
-    description: 'Auto-configure an Immich installation via a configuration file.',
+    description: 'Auto-configure an ram installation via a configuration file.',
     release: 'v1.75.0',
     tag: 'v1.75.0',
     date: new Date(2023, 7, 26),
@@ -549,8 +549,8 @@ const items: Item[] = [
   },
   {
     icon: mdiCakeVariant,
-    title: 'Immich Turns 1',
-    description: 'Immich is officially one year old.',
+    title: 'ram Turns 1',
+    description: 'ram is officially one year old.',
     release: 'v1.43.0',
     tag: 'v1.43.0',
     date: new Date(2023, 1, 3),
@@ -703,7 +703,7 @@ const items: Item[] = [
   {
     icon: mdiPartyPopper,
     title: 'First Commit',
-    description: 'First commit on GitHub, Immich is born.',
+    description: 'First commit on GitHub, ram is born.',
     release: 'v1.0.0',
     date: new Date(2022, 1, 3),
     dateType: DateType.DATE,
@@ -712,9 +712,9 @@ const items: Item[] = [
 
 export default function MilestonePage(): JSX.Element {
   return (
-    <Layout title="Milestones" description="History of Immich">
+    <Layout title="Milestones" description="History of ram">
       <section className="my-8">
-        <h1 className="md:text-6xl text-center mb-10 text-immich-primary dark:text-immich-dark-primary px-2">
+        <h1 className="md:text-6xl text-center mb-10 text-ram-primary dark:text-ram-dark-primary px-2">
           Major Milestones
         </h1>
         <p className="text-center text-xl px-2">

@@ -3,7 +3,7 @@
   import { Theme } from '$lib/constants';
   import { colorTheme, mapSettings } from '$lib/stores/preferences.store';
   import { getAssetThumbnailUrl, getKey, handlePromiseError } from '$lib/utils';
-  import { getMapStyle, MapTheme, type MapMarkerResponseDto } from '@immich/sdk';
+  import { getMapStyle, MapTheme, type MapMarkerResponseDto } from '@ram/sdk';
   import { mdiCog, mdiMapMarker } from '@mdi/js';
   import type { Feature, GeoJsonProperties, Geometry, Point } from 'geojson';
   import type { GeoJSONSource, LngLatLike, StyleSpecification } from 'maplibre-gl';
@@ -162,7 +162,7 @@
         on:click={(event) => handlePromiseError(handleClusterClick(event.detail.feature.properties?.cluster_id, map))}
       >
         <div
-          class="rounded-full w-[40px] h-[40px] bg-immich-primary text-immich-gray flex justify-center items-center font-mono font-bold shadow-lg hover:bg-immich-dark-primary transition-all duration-200 hover:text-immich-dark-bg opacity-90"
+          class="rounded-full w-[40px] h-[40px] bg-ram-primary text-ram-gray flex justify-center items-center font-mono font-bold shadow-lg hover:bg-ram-dark-primary transition-all duration-200 hover:text-ram-dark-bg opacity-90"
         >
           {feature.properties?.point_count}
         </div>
@@ -179,12 +179,12 @@
           <Icon
             path={mdiMapMarker}
             size="50px"
-            class="location-pin dark:text-immich-dark-primary text-immich-primary"
+            class="location-pin dark:text-ram-dark-primary text-ram-primary"
           />
         {:else}
           <img
             src={getAssetThumbnailUrl(feature.properties?.id, undefined)}
-            class="rounded-full w-[60px] h-[60px] border-2 border-immich-primary shadow-lg hover:border-immich-dark-primary transition-all duration-200 hover:scale-150 object-cover bg-immich-primary"
+            class="rounded-full w-[60px] h-[60px] border-2 border-ram-primary shadow-lg hover:border-ram-dark-primary transition-all duration-200 hover:scale-150 object-cover bg-ram-primary"
             alt={feature.properties?.city && feature.properties.country
               ? `Map marker for images taken in ${feature.properties.city}, ${feature.properties.country}`
               : 'Map marker with image'}

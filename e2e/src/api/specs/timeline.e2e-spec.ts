@@ -1,4 +1,4 @@
-import { AssetFileUploadResponseDto, LoginResponseDto, SharedLinkType, TimeBucketSize } from '@immich/sdk';
+import { AssetFileUploadResponseDto, LoginResponseDto, SharedLinkType, TimeBucketSize } from '@ram/sdk';
 import { DateTime } from 'luxon';
 import { createUserDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';

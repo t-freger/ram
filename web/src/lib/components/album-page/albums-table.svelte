@@ -1,6 +1,6 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
-  import type { AlbumResponseDto } from '@immich/sdk';
+  import type { AlbumResponseDto } from '@ram/sdk';
   import { AlbumGroupBy, albumViewSettings } from '$lib/stores/preferences.store';
   import type { ContextMenuPosition } from '$lib/utils/context-menu';
   import { mdiChevronRight } from '@mdi/js';
@@ -22,7 +22,7 @@
 
 <table class="mt-2 w-full text-left">
   <thead
-    class="mb-4 flex h-12 w-full rounded-md border bg-gray-50 text-immich-primary dark:border-immich-dark-gray dark:bg-immich-dark-gray dark:text-immich-dark-primary"
+    class="mb-4 flex h-12 w-full rounded-md border bg-gray-50 text-ram-primary dark:border-ram-dark-gray dark:bg-ram-dark-gray dark:text-ram-dark-primary"
   >
     <tr class="flex w-full place-items-center p-2 md:p-5">
       {#each sortOptionsMetadata as option, index (index)}
@@ -31,7 +31,7 @@
     </tr>
   </thead>
   {#if albumGroupOption === AlbumGroupBy.None}
-    <tbody class="block w-full overflow-y-auto rounded-md border dark:border-immich-dark-gray dark:text-immich-dark-fg">
+    <tbody class="block w-full overflow-y-auto rounded-md border dark:border-ram-dark-gray dark:text-ram-dark-fg">
       {#each groupedAlbums[0].albums as album (album.id)}
         <AlbumTableRow {album} {onShowContextMenu} />
       {/each}
@@ -43,7 +43,7 @@
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <tbody
-        class="block w-full overflow-y-auto rounded-md border dark:border-immich-dark-gray dark:text-immich-dark-fg mt-4 hover:cursor-pointer"
+        class="block w-full overflow-y-auto rounded-md border dark:border-ram-dark-gray dark:text-ram-dark-fg mt-4 hover:cursor-pointer"
         on:click={() => toggleAlbumGroupCollapsing(albumGroup.id)}
       >
         <tr class="flex w-full place-items-center p-2 md:pl-5 md:pr-5 md:pt-3 md:pb-3">
@@ -60,7 +60,7 @@
       </tbody>
       {#if !isCollapsed}
         <tbody
-          class="block w-full overflow-y-auto rounded-md border dark:border-immich-dark-gray dark:text-immich-dark-fg mt-4"
+          class="block w-full overflow-y-auto rounded-md border dark:border-ram-dark-gray dark:text-ram-dark-fg mt-4"
           transition:slide={{ duration: 300 }}
         >
           {#each albumGroup.albums as album (album.id)}

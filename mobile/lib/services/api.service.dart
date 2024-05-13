@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/utils/url_helper.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/utils/url_helper.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 import 'package:http/http.dart';
@@ -82,7 +82,7 @@ class ApiService {
       throw ApiException(503, "Server is not reachable");
     }
 
-    // Check for /.well-known/immich
+    // Check for /.well-known/ram
     final wellKnownEndpoint = await _getWellKnownEndpoint(url);
     if (wellKnownEndpoint.isNotEmpty) return wellKnownEndpoint;
 
@@ -129,7 +129,7 @@ class ApiService {
 
     try {
       final res = await client.get(
-        Uri.parse("$baseUrl/.well-known/immich"),
+        Uri.parse("$baseUrl/.well-known/ram"),
         headers: {"Accept": "application/json"},
       );
 
@@ -144,7 +144,7 @@ class ApiService {
         return endpoint;
       }
     } catch (e) {
-      debugPrint("Could not locate /.well-known/immich at $baseUrl");
+      debugPrint("Could not locate /.well-known/ram at $baseUrl");
     }
 
     return "";
@@ -152,7 +152,7 @@ class ApiService {
 
   setAccessToken(String accessToken) {
     _accessToken = accessToken;
-    _apiClient.addDefaultHeader('x-immich-user-token', accessToken);
+    _apiClient.addDefaultHeader('x-ram-user-token', accessToken);
   }
 
   ApiClient get apiClient => _apiClient;

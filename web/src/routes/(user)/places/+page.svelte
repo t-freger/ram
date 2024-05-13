@@ -6,7 +6,7 @@
   import { mdiMapMarkerOff } from '@mdi/js';
   import type { PageData } from './$types';
   import { getMetadataSearchQuery } from '$lib/utils/metadata-search';
-  import type { AssetResponseDto } from '@immich/sdk';
+  import type { AssetResponseDto } from '@ram/sdk';
 
   export let data: PageData;
 

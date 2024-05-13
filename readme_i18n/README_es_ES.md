@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Iniciar sesión con URL personalizada">
+<img src="../design/ram-logo-stacked-light.svg" width="300" title="Iniciar sesión con URL personalizada">
 </p>
-<h3 align="center">Immich: Una solución Self-Hosted de copia de seguridad de fotos y videos de alto rendimiento</h3>
+<h3 align="center">ram: Una solución Self-Hosted de copia de seguridad de fotos y videos de alto rendimiento</h3>
 <br/>
-<a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Captura de pantalla principal">
+<a href="https://ram.app">
+<img src="../design/ram-screenshots.png" title="Captura de pantalla principal">
 </a>
 <br/>
 <p align="center">
@@ -40,27 +40,27 @@
 
 ## Contenido
 
-- [Documentación oficial](https://immich.app/docs)
-- [Hoja de ruta](https://github.com/orgs/immich-app/projects/1)
+- [Documentación oficial](https://ram.app/docs)
+- [Hoja de ruta](https://github.com/orgs/ram-app/projects/1)
 - [Demostración](#demo)
 - [Funciones](#features)
-- [Introducción](https://immich.app/docs/overview/introduction)
-- [Instalación](https://immich.app/docs/install/requirements)
-- [Directrices para contribuir](https://immich.app/docs/overview/support-the-project)
+- [Introducción](https://ram.app/docs/overview/introduction)
+- [Instalación](https://ram.app/docs/install/requirements)
+- [Directrices para contribuir](https://ram.app/docs/overview/support-the-project)
 
 ## Documentación
 
-Puedes encontrar la documentación principal, incluidas las guías de instalación, en <https://immich.app/>.
+Puedes encontrar la documentación principal, incluidas las guías de instalación, en <https://ram.app/>.
 
 ## Demostración
 
-Puedes acceder a la demostración web en <https://demo.immich.app>
+Puedes acceder a la demostración web en <https://demo.ram.app>
 
-Para la aplicación móvil, puedes usar `https://demo.immich.app/api` como `URL de la terminal del servidor`.
+Para la aplicación móvil, puedes usar `https://demo.ram.app/api` como `URL de la terminal del servidor`.
 
 ```bash title="Credenciales de la demostración"
 Las credenciales son
-correo electrónico: demo@immich.app
+correo electrónico: demo@ram.app
 contraseña: demo
 ```
 

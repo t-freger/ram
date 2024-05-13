@@ -6,26 +6,26 @@ module.exports = {
     extend: {
       colors: {
         // Light Theme
-        'immich-primary': 'rgb(var(--immich-primary) / <alpha-value>)',
-        'immich-bg': 'rgb(var(--immich-bg) / <alpha-value>)',
-        'immich-fg': 'rgb(var(--immich-fg) / <alpha-value>)',
-        'immich-gray': 'rgb(var(--immich-gray) / <alpha-value>)',
-        'immich-error': 'rgb(var(--immich-error) / <alpha-value>)',
-        'immich-success': 'rgb(var(--immich-success) / <alpha-value>)',
-        'immich-warning': 'rgb(var(--immich-warning) / <alpha-value>)',
+        'ram-primary': 'rgb(var(--ram-primary) / <alpha-value>)',
+        'ram-bg': 'rgb(var(--ram-bg) / <alpha-value>)',
+        'ram-fg': 'rgb(var(--ram-fg) / <alpha-value>)',
+        'ram-gray': 'rgb(var(--ram-gray) / <alpha-value>)',
+        'ram-error': 'rgb(var(--ram-error) / <alpha-value>)',
+        'ram-success': 'rgb(var(--ram-success) / <alpha-value>)',
+        'ram-warning': 'rgb(var(--ram-warning) / <alpha-value>)',
 
         // Dark Theme
-        'immich-dark-primary': 'rgb(var(--immich-dark-primary) / <alpha-value>)',
-        'immich-dark-bg': 'rgb(var(--immich-dark-bg) / <alpha-value>)',
-        'immich-dark-fg': 'rgb(var(--immich-dark-fg) / <alpha-value>)',
-        'immich-dark-gray': 'rgb(var(--immich-dark-gray) / <alpha-value>)',
-        'immich-dark-error': 'rgb(var(--immich-dark-error) / <alpha-value>)',
-        'immich-dark-success': 'rgb(var(--immich-dark-success) / <alpha-value>)',
-        'immich-dark-warning': 'rgb(var(--immich-dark-warning) / <alpha-value>)',
+        'ram-dark-primary': 'rgb(var(--ram-dark-primary) / <alpha-value>)',
+        'ram-dark-bg': 'rgb(var(--ram-dark-bg) / <alpha-value>)',
+        'ram-dark-fg': 'rgb(var(--ram-dark-fg) / <alpha-value>)',
+        'ram-dark-gray': 'rgb(var(--ram-dark-gray) / <alpha-value>)',
+        'ram-dark-error': 'rgb(var(--ram-dark-error) / <alpha-value>)',
+        'ram-dark-success': 'rgb(var(--ram-dark-success) / <alpha-value>)',
+        'ram-dark-warning': 'rgb(var(--ram-dark-warning) / <alpha-value>)',
       },
       fontFamily: {
-        'immich-title': ['Snowburst One', 'cursive'],
-        'immich-mono': ['Overpass Mono', 'monospace'],
+        'ram-title': ['Snowburst One', 'cursive'],
+        'ram-mono': ['Overpass Mono', 'monospace'],
       },
       spacing: {
         18: '4.5rem',

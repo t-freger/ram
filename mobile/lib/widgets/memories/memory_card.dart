@@ -2,11 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/pages/common/video_viewer.page.dart';
-import 'package:immich_mobile/utils/hooks/blurhash_hook.dart';
-import 'package:immich_mobile/widgets/common/immich_image.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/pages/common/video_viewer.page.dart';
+import 'package:ram_mobile/utils/hooks/blurhash_hook.dart';
+import 'package:ram_mobile/widgets/common/ram_image.dart';
 
 class MemoryCard extends StatelessWidget {
   final Asset asset;
@@ -58,7 +58,7 @@ class MemoryCard extends StatelessWidget {
               if (asset.isImage) {
                 return Hero(
                   tag: 'memory-${asset.id}',
-                  child: ImmichImage(
+                  child: ramImage(
                     asset,
                     fit: fit,
                     height: double.infinity,
@@ -73,7 +73,7 @@ class MemoryCard extends StatelessWidget {
                     asset: asset,
                     showDownloadingIndicator: false,
                     placeholder: SizedBox.expand(
-                      child: ImmichImage(
+                      child: ramImage(
                         asset,
                         fit: fit,
                       ),
@@ -128,14 +128,14 @@ class _BlurredBackdrop extends HookWidget {
       );
     } else {
       // Fall back to using a more expensive image filtered
-      // Since the ImmichImage is already precached, we can
+      // Since the ramImage is already precached, we can
       // safely use that as the image provider
       return ImageFiltered(
         imageFilter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: ImmichImage.imageProvider(
+              image: ramImage.imageProvider(
                 asset: asset,
               ),
               fit: BoxFit.cover,

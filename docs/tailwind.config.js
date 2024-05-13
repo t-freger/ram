@@ -10,19 +10,19 @@ module.exports = {
     extend: {
       colors: {
         // Light Theme
-        'immich-primary': '#4250af',
-        'immich-bg': 'white',
-        'immich-fg': 'black',
-        'immich-gray': '#F6F6F4',
+        'ram-primary': '#4250af',
+        'ram-bg': 'white',
+        'ram-fg': 'black',
+        'ram-gray': '#F6F6F4',
 
         // Dark Theme
-        'immich-dark-primary': '#adcbfa',
-        'immich-dark-bg': 'black',
-        'immich-dark-fg': '#e5e7eb',
-        'immich-dark-gray': '#212121',
+        'ram-dark-primary': '#adcbfa',
+        'ram-dark-bg': 'black',
+        'ram-dark-fg': '#e5e7eb',
+        'ram-dark-gray': '#212121',
       },
       fontFamily: {
-        'immich-title': ['Snowburst One', 'cursive'],
+        'ram-title': ['Snowburst One', 'cursive'],
       },
     },
   },

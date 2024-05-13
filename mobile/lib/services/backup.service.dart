@@ -5,16 +5,16 @@ import 'dart:io';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/entities/backup_album.entity.dart';
-import 'package:immich_mobile/models/backup/current_upload_asset.model.dart';
-import 'package:immich_mobile/entities/duplicated_asset.entity.dart';
-import 'package:immich_mobile/models/backup/error_upload_asset.model.dart';
-import 'package:immich_mobile/providers/app_settings.provider.dart';
-import 'package:immich_mobile/services/app_settings.service.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/providers/api.provider.dart';
-import 'package:immich_mobile/providers/db.provider.dart';
-import 'package:immich_mobile/services/api.service.dart';
+import 'package:ram_mobile/entities/backup_album.entity.dart';
+import 'package:ram_mobile/models/backup/current_upload_asset.model.dart';
+import 'package:ram_mobile/entities/duplicated_asset.entity.dart';
+import 'package:ram_mobile/models/backup/error_upload_asset.model.dart';
+import 'package:ram_mobile/providers/app_settings.provider.dart';
+import 'package:ram_mobile/services/app_settings.service.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/providers/api.provider.dart';
+import 'package:ram_mobile/providers/db.provider.dart';
+import 'package:ram_mobile/services/api.service.dart';
 import 'package:isar/isar.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
@@ -302,7 +302,7 @@ class BackupService {
             onProgress: ((bytes, totalBytes) =>
                 uploadProgressCb(bytes, totalBytes)),
           );
-          req.headers["x-immich-user-token"] = Store.get(StoreKey.accessToken);
+          req.headers["x-ram-user-token"] = Store.get(StoreKey.accessToken);
           req.headers["Transfer-Encoding"] = "chunked";
 
           req.fields['deviceAssetId'] = entity.id;

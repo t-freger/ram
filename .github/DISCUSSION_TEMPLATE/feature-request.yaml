@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Please use this form to request new feature for Immich
+        Please use this form to request new feature for ram
 
   - type: checkboxes
     attributes:

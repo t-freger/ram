@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/entities/album.entity.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/utils/image_url_builder.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/entities/album.entity.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/utils/image_url_builder.dart';
 import 'package:openapi/api.dart';
 
 class AlbumThumbnailListTile extends StatelessWidget {
@@ -49,7 +49,7 @@ class AlbumThumbnailListTile extends StatelessWidget {
           type: ThumbnailFormat.WEBP,
         ),
         httpHeaders: {
-          "x-immich-user-token": Store.get(StoreKey.accessToken),
+          "x-ram-user-token": Store.get(StoreKey.accessToken),
         },
         cacheKey: getAlbumThumbNailCacheKey(album, type: ThumbnailFormat.WEBP),
         errorWidget: (context, url, error) =>

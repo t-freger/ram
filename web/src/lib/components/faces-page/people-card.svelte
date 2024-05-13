@@ -2,7 +2,7 @@
   import { AppRoute, QueryParameter } from '$lib/constants';
   import { getPeopleThumbnailUrl } from '$lib/utils';
   import { getContextMenuPosition } from '$lib/utils/context-menu';
-  import { type PersonResponseDto } from '@immich/sdk';
+  import { type PersonResponseDto } from '@ram/sdk';
   import {
     mdiAccountEditOutline,
     mdiAccountMultipleCheckOutline,

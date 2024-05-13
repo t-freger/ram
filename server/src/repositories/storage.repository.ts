@@ -10,8 +10,8 @@ import { ILoggerRepository } from 'src/interfaces/logger.interface';
 import {
   DiskUsage,
   IStorageRepository,
-  ImmichReadStream,
-  ImmichZipStream,
+  ramReadStream,
+  ramZipStream,
   WatchEvents,
 } from 'src/interfaces/storage.interface';
 import { Instrumentation } from 'src/utils/instrumentation';
@@ -48,7 +48,7 @@ export class StorageRepository implements IStorageRepository {
     return fs.utimes(filepath, atime, mtime);
   }
 
-  createZipStream(): ImmichZipStream {
+  createZipStream(): ramZipStream {
     const archive = archiver('zip', { store: true });
 
     const addFile = (input: string, filename: string) => {
@@ -60,7 +60,7 @@ export class StorageRepository implements IStorageRepository {
     return { stream: archive, addFile, finalize };
   }
 
-  async createReadStream(filepath: string, mimeType?: string | null): Promise<ImmichReadStream> {
+  async createReadStream(filepath: string, mimeType?: string | null): Promise<ramReadStream> {
     const { size } = await fs.stat(filepath);
     await fs.access(filepath, constants.R_OK);
     return {

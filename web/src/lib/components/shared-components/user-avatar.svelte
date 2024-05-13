@@ -4,7 +4,7 @@
 
 <script lang="ts">
   import { getProfileImageUrl } from '$lib/utils';
-  import { type UserAvatarColor } from '@immich/sdk';
+  import { type UserAvatarColor } from '@ram/sdk';
   import { onMount, tick } from 'svelte';
 
   interface User {
@@ -38,16 +38,16 @@
   });
 
   const colorClasses: Record<UserAvatarColor, string> = {
-    primary: 'bg-immich-primary dark:bg-immich-dark-primary text-immich-dark-fg dark:text-immich-fg',
-    pink: 'bg-pink-400 text-immich-bg',
-    red: 'bg-red-500 text-immich-bg',
-    yellow: 'bg-yellow-500 text-immich-bg',
-    blue: 'bg-blue-500 text-immich-bg',
-    green: 'bg-green-600 text-immich-bg',
-    purple: 'bg-purple-600 text-immich-bg',
-    orange: 'bg-orange-600 text-immich-bg',
-    gray: 'bg-gray-600 text-immich-bg',
-    amber: 'bg-amber-600 text-immich-bg',
+    primary: 'bg-ram-primary dark:bg-ram-dark-primary text-ram-dark-fg dark:text-ram-fg',
+    pink: 'bg-pink-400 text-ram-bg',
+    red: 'bg-red-500 text-ram-bg',
+    yellow: 'bg-yellow-500 text-ram-bg',
+    blue: 'bg-blue-500 text-ram-bg',
+    green: 'bg-green-600 text-ram-bg',
+    purple: 'bg-purple-600 text-ram-bg',
+    orange: 'bg-orange-600 text-ram-bg',
+    gray: 'bg-gray-600 text-ram-bg',
+    amber: 'bg-amber-600 text-ram-bg',
   };
 
   const sizeClasses: Record<Size, string> = {
@@ -64,7 +64,7 @@
   $: sizeClass = sizeClasses[size];
   $: title = label ?? `${user.name} (${user.email})`;
   $: interactiveClass = interactive
-    ? 'border-2 border-immich-primary hover:border-immich-dark-primary dark:hover:border-immich-primary dark:border-immich-dark-primary transition-colors'
+    ? 'border-2 border-ram-primary hover:border-ram-dark-primary dark:hover:border-ram-primary dark:border-ram-dark-primary transition-colors'
     : '';
 </script>
 

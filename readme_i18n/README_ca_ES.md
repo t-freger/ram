@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Iniciar sessió amb URL personalitzada">
+<img src="../design/ram-logo-stacked-light.svg" width="300" title="Iniciar sessió amb URL personalitzada">
 </p>
-<h3 align="center">Immich - Solució de còpia de seguretat d'alta rendiment per a fotos i vídeos auto-allotjada</h3>
+<h3 align="center">ram - Solució de còpia de seguretat d'alta rendiment per a fotos i vídeos auto-allotjada</h3>
 <br/>
-<a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Captura de pantalla principal">
+<a href="https://ram.app">
+<img src="../design/ram-screenshots.png" title="Captura de pantalla principal">
 </a>
 <br/>
 <p align="center">
@@ -40,27 +40,27 @@
 
 ## Contingut
 
-- [Documentació oficial](https://immich.app/docs)
-- [Mapa de ruta](https://github.com/orgs/immich-app/projects/1)
+- [Documentació oficial](https://ram.app/docs)
+- [Mapa de ruta](https://github.com/orgs/ram-app/projects/1)
 - [Demo](#demo)
 - [Funcionalitats](#funcionalitats)
-- [Introducció](https://immich.app/docs/overview/introduction)
-- [Instal·lació](https://immich.app/docs/install/requirements)
-- [Directrius de contribució](https://immich.app/docs/overview/support-the-project)
+- [Introducció](https://ram.app/docs/overview/introduction)
+- [Instal·lació](https://ram.app/docs/install/requirements)
+- [Directrius de contribució](https://ram.app/docs/overview/support-the-project)
 
 ## Documentació
 
-Podeu trobar la documentació principal, incloent les guies d'instal·lació, a https://immich.app/.
+Podeu trobar la documentació principal, incloent les guies d'instal·lació, a https://ram.app/.
 
 ## Demo
 
-Podeu accedir a la demostració web a https://demo.immich.app
+Podeu accedir a la demostració web a https://demo.ram.app
 
-Per a l'aplicació mòbil, podeu utilitzar `https://demo.immich.app/api` com a "URL de punt final del servidor".
+Per a l'aplicació mòbil, podeu utilitzar `https://demo.ram.app/api` com a "URL de punt final del servidor".
 
 ```bash title="Credencials de la demo"
 Les credencials
-email: demo@immich.app
+email: demo@ram.app
 contrasenya: demo
 ```
 ```

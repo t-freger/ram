@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login With Custom URL">
+<img src="../design/ram-logo-stacked-light.svg" width="300" title="Login With Custom URL">
 </p>
-<h3 align="center">Immich - Soluzione self-hosted ad alte prestazioni per backup di foto e video</h3>
+<h3 align="center">ram - Soluzione self-hosted ad alte prestazioni per backup di foto e video</h3>
 <br/>
-<a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Main Screenshot">
+<a href="https://ram.app">
+<img src="../design/ram-screenshots.png" title="Main Screenshot">
 </a>
 <br/>
 <p align="center">
@@ -41,27 +41,27 @@
 
 ## Contenuto
 
-- [Documentazione Ufficiale](https://immich.app/docs)
-- [Roadmap](https://github.com/orgs/immich-app/projects/1)
+- [Documentazione Ufficiale](https://ram.app/docs)
+- [Roadmap](https://github.com/orgs/ram-app/projects/1)
 - [Demo](#demo)
 - [Funzionalità](#features)
-- [Introduzione](https://immich.app/docs/overview/introduction)
-- [Installazione](https://immich.app/docs/install/requirements)
-- [Linee Guida per Contribuire](https://immich.app/docs/overview/support-the-project)
+- [Introduzione](https://ram.app/docs/overview/introduction)
+- [Installazione](https://ram.app/docs/install/requirements)
+- [Linee Guida per Contribuire](https://ram.app/docs/overview/support-the-project)
 
 ## Documentazione
 
-La documentazione ufficiale, inclusa la guida all'installazione, è disponibile qui: https://immich.app/.
+La documentazione ufficiale, inclusa la guida all'installazione, è disponibile qui: https://ram.app/.
 
 ## Demo
 
-Prova la demo del progetto https://demo.immich.app
+Prova la demo del progetto https://demo.ram.app
 
-Sull'app mobile, imposta `https://demo.immich.app/api` come `Server Endpoint URL`
+Sull'app mobile, imposta `https://demo.ram.app/api` come `Server Endpoint URL`
 
 ```bash title="Demo Credential"
 Credenziali di accesso
-email: demo@immich.app
+email: demo@ram.app
 password: demo
 ```
 

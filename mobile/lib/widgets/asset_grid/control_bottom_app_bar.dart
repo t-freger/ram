@@ -2,17 +2,17 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/album/album.provider.dart';
-import 'package:immich_mobile/providers/album/shared_album.provider.dart';
-import 'package:immich_mobile/widgets/album/add_to_album_sliverlist.dart';
-import 'package:immich_mobile/models/asset_selection_state.dart';
-import 'package:immich_mobile/widgets/asset_grid/delete_dialog.dart';
-import 'package:immich_mobile/widgets/asset_grid/upload_dialog.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/widgets/common/drag_sheet.dart';
-import 'package:immich_mobile/entities/album.entity.dart';
-import 'package:immich_mobile/utils/draggable_scroll_controller.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/album/album.provider.dart';
+import 'package:ram_mobile/providers/album/shared_album.provider.dart';
+import 'package:ram_mobile/widgets/album/add_to_album_sliverlist.dart';
+import 'package:ram_mobile/models/asset_selection_state.dart';
+import 'package:ram_mobile/widgets/asset_grid/delete_dialog.dart';
+import 'package:ram_mobile/widgets/asset_grid/upload_dialog.dart';
+import 'package:ram_mobile/providers/server_info.provider.dart';
+import 'package:ram_mobile/widgets/common/drag_sheet.dart';
+import 'package:ram_mobile/entities/album.entity.dart';
+import 'package:ram_mobile/utils/draggable_scroll_controller.dart';
 
 final controlBottomAppBarNotifier = ControlBottomAppBarNotifier();
 
@@ -173,8 +173,8 @@ class ControlBottomAppBar extends HookConsumerWidget {
             child: ControlBoxButton(
               iconData: Icons.cloud_off_outlined,
               label: trashEnabled
-                  ? "control_bottom_app_bar_trash_from_immich".tr()
-                  : "control_bottom_app_bar_delete_from_immich".tr(),
+                  ? "control_bottom_app_bar_trash_from_ram".tr()
+                  : "control_bottom_app_bar_delete_from_ram".tr(),
               onPressed: enabled
                   ? () => handleRemoteDelete(
                         !trashEnabled,

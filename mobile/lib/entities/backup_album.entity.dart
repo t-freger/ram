@@ -1,4 +1,4 @@
-import 'package:immich_mobile/utils/hash.dart';
+import 'package:ram_mobile/utils/hash.dart';
 import 'package:isar/isar.dart';
 
 part 'backup_album.entity.g.dart';

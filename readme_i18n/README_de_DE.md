@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login mit eigener URL">
+<img src="../design/ram-logo-stacked-light.svg" width="300" title="Login mit eigener URL">
 </p>
-<h3 align="center">Immich - Hoch performante, selbst gehostete Backup-Lösung für Fotos und Videos</h3>
+<h3 align="center">ram - Hoch performante, selbst gehostete Backup-Lösung für Fotos und Videos</h3>
 <br/>
-<a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Haupt-Screenshot">
+<a href="https://ram.app">
+<img src="../design/ram-screenshots.png" title="Haupt-Screenshot">
 </a>
 <br/>
 <p align="center">
@@ -41,27 +41,27 @@
 
 ## Inhalt
 
-- [Offizielle Dokumentation](https://immich.app/docs)
-- [Roadmap](https://github.com/orgs/immich-app/projects/1)
+- [Offizielle Dokumentation](https://ram.app/docs)
+- [Roadmap](https://github.com/orgs/ram-app/projects/1)
 - [Demo](#demo)
 - [Funktionen](#funktionen)
-- [Einführung](https://immich.app/docs/overview/introduction)
-- [Installation](https://immich.app/docs/install/requirements)
-- [Beitragsrichtlinien](https://immich.app/docs/overview/support-the-project)
+- [Einführung](https://ram.app/docs/overview/introduction)
+- [Installation](https://ram.app/docs/install/requirements)
+- [Beitragsrichtlinien](https://ram.app/docs/overview/support-the-project)
 
 ## Dokumentation
 
-Die Hauptdokumentation, inklusive Installationsanleitungen, ist unter https://immich.app zu finden.
+Die Hauptdokumentation, inklusive Installationsanleitungen, ist unter https://ram.app zu finden.
 
 ## Demo
 
-Die Web-Demo kannst Du unter https://demo.immich.app finden.
+Die Web-Demo kannst Du unter https://demo.ram.app finden.
 
-Für die Handy-App kannst Du `https://demo.immich.app/api` als `Server Endpoint URL` angeben.
+Für die Handy-App kannst Du `https://demo.ram.app/api` als `Server Endpoint URL` angeben.
 
 ```bash title="Demo Credential"
 Die Anmeldedaten
-email: demo@immich.app
+email: demo@ram.app
 passwort: demo
 ```
 
@@ -101,6 +101,6 @@ Spec: Free-tier Oracle VM - Amsterdam - 2.4Ghz quad-core ARM64 CPU, 24GB RAM
 | Gestapelte Bilder                                    | Ja     | Ja    |
 
 ## Mitwirkende
-<a href="https://github.com/alextran1502/immich/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=immich-app/immich" width="100%"/>
+<a href="https://github.com/alextran1502/ram/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ram-app/ram" width="100%"/>
 </a>

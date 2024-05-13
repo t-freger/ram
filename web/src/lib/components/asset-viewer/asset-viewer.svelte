@@ -33,7 +33,7 @@
     type ActivityResponseDto,
     type AlbumResponseDto,
     type AssetResponseDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import { mdiChevronLeft, mdiChevronRight, mdiImageBrokenVariant } from '@mdi/js';
   import { createEventDispatcher, onDestroy, onMount } from 'svelte';
   import { fly } from 'svelte/transition';
@@ -560,7 +560,7 @@
 
 <FocusTrap>
   <section
-    id="immich-asset-viewer"
+    id="ram-asset-viewer"
     class="fixed left-0 top-0 z-[1001] grid h-screen w-screen grid-cols-4 grid-rows-[64px_1fr] overflow-hidden bg-black"
   >
     <!-- Top navigation bar -->
@@ -645,7 +645,7 @@
           {#if !asset.resized}
             <div class="flex h-full w-full justify-center">
               <div
-                class="px-auto flex aspect-square h-full items-center justify-center bg-gray-100 dark:bg-immich-dark-gray"
+                class="px-auto flex aspect-square h-full items-center justify-center bg-gray-100 dark:bg-ram-dark-gray"
               >
                 <Icon path={mdiImageBrokenVariant} size="25%" />
               </div>
@@ -702,7 +702,7 @@
       <div
         transition:fly={{ duration: 150 }}
         id="detail-panel"
-        class="z-[1002] row-start-1 row-span-4 w-[360px] overflow-y-auto bg-immich-bg transition-all dark:border-l dark:border-l-immich-dark-gray dark:bg-immich-dark-bg"
+        class="z-[1002] row-start-1 row-span-4 w-[360px] overflow-y-auto bg-ram-bg transition-all dark:border-l dark:border-l-ram-dark-gray dark:bg-ram-dark-bg"
         translate="yes"
       >
         <DetailPanel
@@ -757,7 +757,7 @@
       <div
         transition:fly={{ duration: 150 }}
         id="activity-panel"
-        class="z-[1002] row-start-1 row-span-5 w-[360px] md:w-[460px] overflow-y-auto bg-immich-bg transition-all dark:border-l dark:border-l-immich-dark-gray dark:bg-immich-dark-bg"
+        class="z-[1002] row-start-1 row-span-5 w-[360px] md:w-[460px] overflow-y-auto bg-ram-bg transition-all dark:border-l dark:border-l-ram-dark-gray dark:bg-ram-dark-bg"
         translate="yes"
       >
         <ActivityViewer
@@ -806,7 +806,7 @@
 </FocusTrap>
 
 <style>
-  #immich-asset-viewer {
+  #ram-asset-viewer {
     contain: layout;
   }
 

@@ -1,4 +1,4 @@
-import 'package:immich_mobile/entities/album.entity.dart';
+import 'package:ram_mobile/entities/album.entity.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'current_album.provider.g.dart';

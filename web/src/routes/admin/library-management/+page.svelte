@@ -31,7 +31,7 @@
     type LibraryResponseDto,
     type LibraryStatsResponseDto,
     type UserResponseDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import { mdiDatabase, mdiDotsVertical, mdiPlusBoxOutline, mdiSync, mdiUpload } from '@mdi/js';
   import { onMount } from 'svelte';
   import { fade, slide } from 'svelte/transition';
@@ -305,7 +305,7 @@
   <ConfirmDialogue
     id="warning-modal"
     title="Warning!"
-    prompt="Are you sure you want to delete this library? This will delete all {deleteAssetCount} contained assets from Immich and cannot be undone. Files will remain on disk."
+    prompt="Are you sure you want to delete this library? This will delete all {deleteAssetCount} contained assets from ram and cannot be undone. Files will remain on disk."
     onConfirm={handleDelete}
     onClose={() => (confirmDeleteLibrary = null)}
   />
@@ -340,7 +340,7 @@
       {#if libraries.length > 0}
         <table class="w-full text-left">
           <thead
-            class="mb-4 flex h-12 w-full rounded-md border bg-gray-50 text-immich-primary dark:border-immich-dark-gray dark:bg-immich-dark-gray dark:text-immich-dark-primary"
+            class="mb-4 flex h-12 w-full rounded-md border bg-gray-50 text-ram-primary dark:border-ram-dark-gray dark:bg-ram-dark-gray dark:text-ram-dark-primary"
           >
             <tr class="grid grid-cols-6 w-full place-items-center">
               <th class="text-center text-sm font-medium">Type</th>
@@ -351,13 +351,13 @@
               <th class="text-center text-sm font-medium" />
             </tr>
           </thead>
-          <tbody class="block overflow-y-auto rounded-md border dark:border-immich-dark-gray">
+          <tbody class="block overflow-y-auto rounded-md border dark:border-ram-dark-gray">
             {#each libraries as library, index (library.id)}
               <tr
-                class={`grid grid-cols-6 h-[80px] w-full place-items-center text-center dark:text-immich-dark-fg ${
+                class={`grid grid-cols-6 h-[80px] w-full place-items-center text-center dark:text-ram-dark-fg ${
                   index % 2 == 0
-                    ? 'bg-immich-gray dark:bg-immich-dark-gray/75'
-                    : 'bg-immich-bg dark:bg-immich-dark-gray/50'
+                    ? 'bg-ram-gray dark:bg-ram-dark-gray/75'
+                    : 'bg-ram-bg dark:bg-ram-dark-gray/50'
                 }`}
               >
                 <td class=" px-10 text-sm">

@@ -6,26 +6,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/models/albums/asset_selection_page_result.model.dart';
-import 'package:immich_mobile/providers/album/album.provider.dart';
-import 'package:immich_mobile/providers/album/current_album.provider.dart';
-import 'package:immich_mobile/providers/album/shared_album.provider.dart';
-import 'package:immich_mobile/utils/immich_loading_overlay.dart';
-import 'package:immich_mobile/services/album.service.dart';
-import 'package:immich_mobile/widgets/album/album_action_outlined_button.dart';
-import 'package:immich_mobile/widgets/album/album_viewer_editable_title.dart';
-import 'package:immich_mobile/providers/multiselect.provider.dart';
-import 'package:immich_mobile/providers/authentication.provider.dart';
-import 'package:immich_mobile/widgets/album/album_viewer_appbar.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/entities/album.entity.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/providers/asset.provider.dart';
-import 'package:immich_mobile/widgets/asset_grid/multiselect_grid.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/widgets/common/user_circle_avatar.dart';
+import 'package:ram_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/models/albums/asset_selection_page_result.model.dart';
+import 'package:ram_mobile/providers/album/album.provider.dart';
+import 'package:ram_mobile/providers/album/current_album.provider.dart';
+import 'package:ram_mobile/providers/album/shared_album.provider.dart';
+import 'package:ram_mobile/utils/ram_loading_overlay.dart';
+import 'package:ram_mobile/services/album.service.dart';
+import 'package:ram_mobile/widgets/album/album_action_outlined_button.dart';
+import 'package:ram_mobile/widgets/album/album_viewer_editable_title.dart';
+import 'package:ram_mobile/providers/multiselect.provider.dart';
+import 'package:ram_mobile/providers/authentication.provider.dart';
+import 'package:ram_mobile/widgets/album/album_viewer_appbar.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/entities/album.entity.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/providers/asset.provider.dart';
+import 'package:ram_mobile/widgets/asset_grid/multiselect_grid.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
+import 'package:ram_mobile/widgets/common/user_circle_avatar.dart';
 
 @RoutePage()
 class AlbumViewerPage extends HookConsumerWidget {
@@ -55,7 +55,7 @@ class AlbumViewerPage extends HookConsumerWidget {
               .removeAssetFromAlbum(a, assets);
 
       if (!isSuccess) {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: "album_viewer_appbar_share_err_remove".tr(),
           toastType: ToastType.error,

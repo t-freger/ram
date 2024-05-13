@@ -6,7 +6,7 @@
   import { mdiClose, mdiMagnify, mdiTune } from '@mdi/js';
   import SearchHistoryBox from './search-history-box.svelte';
   import SearchFilterBox from './search-filter-box.svelte';
-  import type { MetadataSearchDto, SmartSearchDto } from '@immich/sdk';
+  import type { MetadataSearchDto, SmartSearchDto } from '@ram/sdk';
   import { getMetadataSearchQuery } from '$lib/utils/metadata-search';
   import { handlePromiseError } from '$lib/utils';
   import { shortcuts } from '$lib/utils/shortcut';
@@ -111,8 +111,8 @@
       name="q"
       id="main-search-bar"
       class="w-full {grayTheme
-        ? 'dark:bg-immich-dark-gray'
-        : 'dark:bg-immich-dark-bg'} px-14 py-4 text-immich-fg/75 dark:text-immich-dark-fg {(showHistory &&
+        ? 'dark:bg-ram-dark-gray'
+        : 'dark:bg-ram-dark-bg'} px-14 py-4 text-ram-fg/75 dark:text-ram-dark-fg {(showHistory &&
         $savedSearchTerms.length > 0) ||
       showFilter
         ? 'rounded-t-3xl border  border-gray-200 bg-white dark:border-gray-800'

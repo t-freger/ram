@@ -12,7 +12,7 @@
   import { serverConfig } from '$lib/stores/server-config.store';
   import { copyToClipboard, makeSharedLinkUrl } from '$lib/utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { getAllSharedLinks, removeSharedLink, type SharedLinkResponseDto } from '@immich/sdk';
+  import { getAllSharedLinks, removeSharedLink, type SharedLinkResponseDto } from '@ram/sdk';
   import { mdiArrowLeft } from '@mdi/js';
   import { onMount } from 'svelte';
 
@@ -59,12 +59,12 @@
 </ControlAppBar>
 
 <section class="mt-[120px] flex flex-col pb-[120px]">
-  <div class="m-auto mb-4 w-[50%] dark:text-immich-gray">
+  <div class="m-auto mb-4 w-[50%] dark:text-ram-gray">
     <p>Manage shared links</p>
   </div>
   {#if sharedLinks.length === 0}
     <div
-      class="m-auto flex w-[50%] place-content-center place-items-center rounded-lg bg-gray-100 dark:bg-immich-dark-gray dark:text-immich-gray p-12"
+      class="m-auto flex w-[50%] place-content-center place-items-center rounded-lg bg-gray-100 dark:bg-ram-dark-gray dark:text-ram-gray p-12"
     >
       <p>You don't have any shared links</p>
     </div>

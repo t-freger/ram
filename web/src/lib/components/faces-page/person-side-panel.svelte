@@ -14,7 +14,7 @@
     reassignFacesById,
     type AssetFaceResponseDto,
     type PersonResponseDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import { mdiArrowLeftThin, mdiMinus, mdiRestart } from '@mdi/js';
   import { createEventDispatcher, onMount } from 'svelte';
   import { linear } from 'svelte/easing';
@@ -180,16 +180,16 @@
 
 <section
   transition:fly={{ x: 360, duration: 100, easing: linear }}
-  class="absolute top-0 z-[2000] h-full w-[360px] overflow-x-hidden p-2 bg-immich-bg dark:bg-immich-dark-bg dark:text-immich-dark-fg"
+  class="absolute top-0 z-[2000] h-full w-[360px] overflow-x-hidden p-2 bg-ram-bg dark:bg-ram-dark-bg dark:text-ram-dark-fg"
 >
   <div class="flex place-items-center justify-between gap-2">
     <div class="flex items-center gap-2">
       <CircleIconButton icon={mdiArrowLeftThin} title="Back" on:click={handleBackButton} />
-      <p class="flex text-lg text-immich-fg dark:text-immich-dark-fg">Edit faces</p>
+      <p class="flex text-lg text-ram-fg dark:text-ram-dark-fg">Edit faces</p>
     </div>
     {#if !isShowLoadingDone}
       <button
-        class="justify-self-end rounded-lg p-2 hover:bg-immich-dark-primary hover:dark:bg-immich-dark-primary/50"
+        class="justify-self-end rounded-lg p-2 hover:bg-ram-dark-primary hover:dark:bg-ram-dark-primary/50"
         on:click={() => handleEditFaces()}
       >
         Done

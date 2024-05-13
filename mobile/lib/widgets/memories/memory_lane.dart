@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/widgets/asset_grid/thumbnail_placeholder.dart';
-import 'package:immich_mobile/providers/memory.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/providers/haptic_feedback.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_image.dart';
+import 'package:ram_mobile/widgets/asset_grid/thumbnail_placeholder.dart';
+import 'package:ram_mobile/providers/memory.provider.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/providers/haptic_feedback.provider.dart';
+import 'package:ram_mobile/widgets/common/ram_image.dart';
 
 class MemoryLane extends HookConsumerWidget {
   const MemoryLane({super.key});
@@ -58,7 +58,7 @@ class MemoryLane extends HookConsumerWidget {
                                 ),
                                 child: Hero(
                                   tag: 'memory-${memory.assets[0].id}',
-                                  child: ImmichImage(
+                                  child: ramImage(
                                     memory.assets[0],
                                     fit: BoxFit.cover,
                                     width: 130,

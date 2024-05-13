@@ -49,7 +49,7 @@
   };
 
   onMount(() => {
-    // if the browser theme changes, changes the Immich theme too
+    // if the browser theme changes, changes the ram theme too
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleChangeTheme);
   });
 
@@ -82,7 +82,7 @@
 </script>
 
 <svelte:head>
-  <title>{$page.data.meta?.title || 'Web'} - Immich</title>
+  <title>{$page.data.meta?.title || 'Web'} - ram</title>
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="currentColor" />
   <AppleHeader />
@@ -105,10 +105,10 @@
 </svelte:head>
 
 <noscript
-  class="absolute z-[1000] flex h-screen w-screen place-content-center place-items-center bg-immich-bg dark:bg-immich-dark-bg dark:text-immich-dark-fg"
+  class="absolute z-[1000] flex h-screen w-screen place-content-center place-items-center bg-ram-bg dark:bg-ram-dark-bg dark:text-ram-dark-fg"
 >
-  <FullscreenContainer title="Welcome to Immich">
-    To use Immich, you must enable JavaScript or use a JavaScript compatible browser.
+  <FullscreenContainer title="Welcome to ram">
+    To use ram, you must enable JavaScript or use a JavaScript compatible browser.
   </FullscreenContainer>
 </noscript>
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/widgets/common/immich_thumbnail.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/widgets/common/ram_thumbnail.dart';
 
 class SharedAlbumThumbnailImage extends HookConsumerWidget {
   final Asset asset;
@@ -16,7 +16,7 @@ class SharedAlbumThumbnailImage extends HookConsumerWidget {
       },
       child: Stack(
         children: [
-          ImmichThumbnail(
+          ramThumbnail(
             asset: asset,
             width: 500,
             height: 500,

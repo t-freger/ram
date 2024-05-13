@@ -5,7 +5,7 @@ import {
   ScanLibraryDto,
   getAllLibraries,
   scanLibrary,
-} from '@immich/sdk';
+} from '@ram/sdk';
 import { cpSync, existsSync } from 'node:fs';
 import { Socket } from 'socket.io-client';
 import { userDto, uuidDto } from 'src/fixtures';

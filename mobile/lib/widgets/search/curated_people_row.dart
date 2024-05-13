@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/models/search/search_curated_content.model.dart';
-import 'package:immich_mobile/widgets/search/thumbnail_with_info.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/utils/image_url_builder.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/models/search/search_curated_content.model.dart';
+import 'package:ram_mobile/widgets/search/thumbnail_with_info.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/utils/image_url_builder.dart';
 
 class CuratedPeopleRow extends StatelessWidget {
   final List<SearchCuratedContent> content;
@@ -51,7 +51,7 @@ class CuratedPeopleRow extends StatelessWidget {
       itemBuilder: (context, index) {
         final person = content[index];
         final headers = {
-          "x-immich-user-token": Store.get(StoreKey.accessToken),
+          "x-ram-user-token": Store.get(StoreKey.accessToken),
         };
         return Padding(
           padding: const EdgeInsets.only(right: 18.0),

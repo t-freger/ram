@@ -12,7 +12,7 @@ import { ExifEntity } from 'src/entities/exif.entity';
 import { GeodataPlacesEntity } from 'src/entities/geodata-places.entity';
 import { SystemMetadataKey } from 'src/entities/system-metadata.entity';
 import { ILoggerRepository } from 'src/interfaces/logger.interface';
-import { GeoPoint, IMetadataRepository, ImmichTags, ReverseGeocodeResult } from 'src/interfaces/metadata.interface';
+import { GeoPoint, IMetadataRepository, ramTags, ReverseGeocodeResult } from 'src/interfaces/metadata.interface';
 import { ISystemMetadataRepository } from 'src/interfaces/system-metadata.interface';
 import { Instrumentation } from 'src/utils/instrumentation';
 import { DataSource, QueryRunner, Repository } from 'typeorm';
@@ -180,7 +180,7 @@ export class MetadataRepository implements IMetadataRepository {
     return { country, state, city };
   }
 
-  readTags(path: string): Promise<ImmichTags | null> {
+  readTags(path: string): Promise<ramTags | null> {
     return exiftool
       .read(path, undefined, {
         ...DefaultReadTaskOptions,
@@ -196,7 +196,7 @@ export class MetadataRepository implements IMetadataRepository {
       .catch((error) => {
         this.logger.warn(`Error reading exif data (${path}): ${error}`, error?.stack);
         return null;
-      }) as Promise<ImmichTags | null>;
+      }) as Promise<ramTags | null>;
   }
 
   extractBinaryTag(path: string, tagName: string): Promise<Buffer> {

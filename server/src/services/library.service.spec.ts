@@ -557,7 +557,7 @@ describe(LibraryService.name, () => {
 
     it('should import an asset that is missing a file extension', async () => {
       // This tests for the case where the file extension is missing from the asset path.
-      // This happened in previous versions of Immich
+      // This happened in previous versions of ram
       const mockLibraryJob: ILibraryFileJob = {
         id: libraryStub.externalLibrary1.id,
         ownerId: mockUser.id,
@@ -1546,17 +1546,17 @@ describe(LibraryService.name, () => {
       });
     });
 
-    it('should detect when import path is in immich media folder', async () => {
+    it('should detect when import path is in ram media folder', async () => {
       storageMock.stat.mockResolvedValue({ isDirectory: () => true } as Stats);
-      const validImport = libraryStub.hasImmichPaths.importPaths[1];
+      const validImport = libraryStub.hasramPaths.importPaths[1];
       storageMock.checkFileExists.mockImplementation((importPath) => Promise.resolve(importPath === validImport));
 
       await expect(
-        sut.validate('library-id', { importPaths: libraryStub.hasImmichPaths.importPaths }),
+        sut.validate('library-id', { importPaths: libraryStub.hasramPaths.importPaths }),
       ).resolves.toEqual({
         importPaths: [
           {
-            importPath: libraryStub.hasImmichPaths.importPaths[0],
+            importPath: libraryStub.hasramPaths.importPaths[0],
             isValid: false,
             message: 'Cannot use media upload folder for external libraries',
           },
@@ -1565,7 +1565,7 @@ describe(LibraryService.name, () => {
             isValid: true,
           },
           {
-            importPath: libraryStub.hasImmichPaths.importPaths[2],
+            importPath: libraryStub.hasramPaths.importPaths[2],
             isValid: false,
             message: 'Cannot use media upload folder for external libraries',
           },

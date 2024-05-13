@@ -9,17 +9,17 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/main.dart';
-import 'package:immich_mobile/services/localization.service.dart';
-import 'package:immich_mobile/entities/backup_album.entity.dart';
-import 'package:immich_mobile/models/backup/current_upload_asset.model.dart';
-import 'package:immich_mobile/models/backup/error_upload_asset.model.dart';
-import 'package:immich_mobile/services/backup.service.dart';
-import 'package:immich_mobile/services/app_settings.service.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/services/api.service.dart';
-import 'package:immich_mobile/utils/backup_progress.dart';
-import 'package:immich_mobile/utils/diff.dart';
+import 'package:ram_mobile/main.dart';
+import 'package:ram_mobile/services/localization.service.dart';
+import 'package:ram_mobile/entities/backup_album.entity.dart';
+import 'package:ram_mobile/models/backup/current_upload_asset.model.dart';
+import 'package:ram_mobile/models/backup/error_upload_asset.model.dart';
+import 'package:ram_mobile/services/backup.service.dart';
+import 'package:ram_mobile/services/app_settings.service.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/services/api.service.dart';
+import 'package:ram_mobile/utils/backup_progress.dart';
+import 'package:ram_mobile/utils/diff.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider_ios/path_provider_ios.dart';
 import 'package:photo_manager/photo_manager.dart';
@@ -30,11 +30,11 @@ final backgroundServiceProvider = Provider(
 
 /// Background backup service
 class BackgroundService {
-  static const String _portNameLock = "immichLock";
+  static const String _portNameLock = "ramLock";
   static const MethodChannel _foregroundChannel =
-      MethodChannel('immich/foregroundChannel');
+      MethodChannel('ram/foregroundChannel');
   static const MethodChannel _backgroundChannel =
-      MethodChannel('immich/backgroundChannel');
+      MethodChannel('ram/backgroundChannel');
   static const notifyInterval = Duration(milliseconds: 400);
   bool _isBackgroundInitialized = false;
   CancellationToken? _cancellationToken;

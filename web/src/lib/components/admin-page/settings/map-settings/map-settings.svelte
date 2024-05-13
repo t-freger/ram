@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SystemConfigDto } from '@immich/sdk';
+  import type { SystemConfigDto } from '@ram/sdk';
   import { isEqual } from 'lodash-es';
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
@@ -56,9 +56,9 @@
 
         <SettingAccordion key="reverse-geocoding" title="Reverse Geocoding Settings">
           <svelte:fragment slot="subtitle">
-            <p class="text-sm dark:text-immich-dark-fg">
+            <p class="text-sm dark:text-ram-dark-fg">
               Manage <a
-                href="https://immich.app/docs/features/reverse-geocoding"
+                href="https://ram.app/docs/features/reverse-geocoding"
                 class="underline"
                 target="_blank"
                 rel="noreferrer">Reverse Geocoding</a

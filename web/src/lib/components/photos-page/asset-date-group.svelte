@@ -11,7 +11,7 @@
     fromLocalDateTime,
     splitBucketIntoDateGroups,
   } from '$lib/utils/timeline-util';
-  import type { AssetResponseDto } from '@immich/sdk';
+  import type { AssetResponseDto } from '@ram/sdk';
   import { mdiCheckCircle, mdiCircleOutline } from '@mdi/js';
   import justifiedLayout from 'justified-layout';
   import { createEventDispatcher } from 'svelte';
@@ -135,7 +135,7 @@
     >
       <!-- Date group title -->
       <div
-        class="flex z-[100] sticky top-0 pt-7 pb-5 h-6 place-items-center text-xs font-medium text-immich-fg bg-immich-bg dark:bg-immich-dark-bg dark:text-immich-dark-fg md:text-sm"
+        class="flex z-[100] sticky top-0 pt-7 pb-5 h-6 place-items-center text-xs font-medium text-ram-fg bg-ram-bg dark:bg-ram-dark-bg dark:text-ram-dark-fg md:text-sm"
         style="width: {geometry[groupIndex].containerWidth}px"
       >
         {#if !singleSelect && ((hoveredDateGroup == groupTitle && isMouseOverGroup) || $selectedGroup.has(groupTitle))}

@@ -8,7 +8,7 @@
     reassignFaces,
     type AssetFaceUpdateItem,
     type PersonResponseDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import { mdiMerge, mdiPlus } from '@mdi/js';
   import { createEventDispatcher, onMount } from 'svelte';
   import { quintOut } from 'svelte/easing';
@@ -117,7 +117,7 @@
 
 <section
   transition:fly={{ y: 500, duration: 100, easing: quintOut }}
-  class="absolute left-0 top-0 z-[9999] h-full w-full bg-immich-bg dark:bg-immich-dark-bg"
+  class="absolute left-0 top-0 z-[9999] h-full w-full bg-ram-bg dark:bg-ram-dark-bg"
 >
   <ControlAppBar on:close={onClose}>
     <svelte:fragment slot="leading">
@@ -158,7 +158,7 @@
     </svelte:fragment>
   </ControlAppBar>
   <slot name="merge" />
-  <section class="bg-immich-bg px-[70px] pt-[100px] dark:bg-immich-dark-bg">
+  <section class="bg-ram-bg px-[70px] pt-[100px] dark:bg-ram-dark-bg">
     <section id="merge-face-selector relative">
       {#if selectedPerson !== null}
         <div class="mb-10 h-[200px] place-content-center place-items-center">

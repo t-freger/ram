@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login With Custom URL">
+<img src="../design/ram-logo-stacked-light.svg" width="300" title="Login With Custom URL">
 </p>
-<h3 align="center">Immich - 고성능 자체 호스팅 사진 및 동영상 백업 솔루션</h3>
+<h3 align="center">ram - 고성능 자체 호스팅 사진 및 동영상 백업 솔루션</h3>
 <br/>
-<a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Main Screenshot">
+<a href="https://ram.app">
+<img src="../design/ram-screenshots.png" title="Main Screenshot">
 </a>
 <br/>
 <p align="center">
@@ -41,27 +41,27 @@
 
 ## 목차
 
-- [공식 문서](https://immich.app/docs)
-- [로드맵](https://github.com/orgs/immich-app/projects/1)
+- [공식 문서](https://ram.app/docs)
+- [로드맵](https://github.com/orgs/ram-app/projects/1)
 - [데모](#demo)
 - [기능](#features)
-- [소개](https://immich.app/docs/overview/introduction)
-- [설치](https://immich.app/docs/install/requirements)
-- [기여 가이드](https://immich.app/docs/overview/support-the-project)
+- [소개](https://ram.app/docs/overview/introduction)
+- [설치](https://ram.app/docs/install/requirements)
+- [기여 가이드](https://ram.app/docs/overview/support-the-project)
 
 ## 문서
 
-설치 가이드를 포함한 주요 문서는 https://immich.app 에서 확인할 수 있습니다.
+설치 가이드를 포함한 주요 문서는 https://ram.app 에서 확인할 수 있습니다.
 
 ## 데모
 
-https://demo.immich.app 에서 웹 데모를 체험할 수 있습니다.
+https://demo.ram.app 에서 웹 데모를 체험할 수 있습니다.
 
-모바일 앱의 경우 `서버 엔드포인트 URL`에 `https://demo.immich.app`를 입력합니다.
+모바일 앱의 경우 `서버 엔드포인트 URL`에 `https://demo.ram.app`를 입력합니다.
 
 ```bash title="Demo Credential"
 자격 증명
-email: demo@immich.app
+email: demo@ram.app
 password: demo
 ```
 

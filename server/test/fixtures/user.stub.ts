@@ -3,22 +3,22 @@ import { authStub } from 'test/fixtures/auth.stub';
 
 export const userDto = {
   user1: {
-    email: 'user1@immich.app',
+    email: 'user1@ram.app',
     password: 'Password123',
     name: 'User 1',
   },
   user2: {
-    email: 'user2@immich.app',
+    email: 'user2@ram.app',
     password: 'Password123',
     name: 'User 2',
   },
   user3: {
-    email: 'user3@immich.app',
+    email: 'user3@ram.app',
     password: 'Password123',
     name: 'User 3',
   },
   userWithQuota: {
-    email: 'quota-user@immich.app',
+    email: 'quota-user@ram.app',
     password: 'Password123',
     name: 'User with quota',
     quotaSizeInBytes: 42,
@@ -46,8 +46,8 @@ export const userStub = {
   }),
   user1: Object.freeze<UserEntity>({
     ...authStub.user1.user,
-    password: 'immich_password',
-    name: 'immich_name',
+    password: 'ram_password',
+    name: 'ram_name',
     storageLabel: null,
     oauthId: '',
     shouldChangePassword: false,
@@ -64,8 +64,8 @@ export const userStub = {
   }),
   user2: Object.freeze<UserEntity>({
     ...authStub.user2.user,
-    password: 'immich_password',
-    name: 'immich_name',
+    password: 'ram_password',
+    name: 'ram_name',
     storageLabel: null,
     oauthId: '',
     shouldChangePassword: false,
@@ -82,8 +82,8 @@ export const userStub = {
   }),
   storageLabel: Object.freeze<UserEntity>({
     ...authStub.user1.user,
-    password: 'immich_password',
-    name: 'immich_name',
+    password: 'ram_password',
+    name: 'ram_name',
     storageLabel: 'label-1',
     oauthId: '',
     shouldChangePassword: false,
@@ -100,8 +100,8 @@ export const userStub = {
   }),
   externalPathRoot: Object.freeze<UserEntity>({
     ...authStub.user1.user,
-    password: 'immich_password',
-    name: 'immich_name',
+    password: 'ram_password',
+    name: 'ram_name',
     storageLabel: 'label-1',
     oauthId: '',
     shouldChangePassword: false,
@@ -118,8 +118,8 @@ export const userStub = {
   }),
   profilePath: Object.freeze<UserEntity>({
     ...authStub.user1.user,
-    password: 'immich_password',
-    name: 'immich_name',
+    password: 'ram_password',
+    name: 'ram_name',
     storageLabel: 'label-1',
     oauthId: '',
     shouldChangePassword: false,

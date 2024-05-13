@@ -5,7 +5,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
 
 const upstream = {
-  target: process.env.IMMICH_SERVER_URL || 'http://immich-server:3001/',
+  target: process.env.ram_SERVER_URL || 'http://ram-server:3001/',
   secure: true,
   changeOrigin: true,
   logLevel: 'info',
@@ -24,7 +24,7 @@ export default defineConfig({
     // connect to a remote backend during web-only development
     proxy: {
       '/api': upstream,
-      '/.well-known/immich': upstream,
+      '/.well-known/ram': upstream,
       '/custom.css': upstream,
     },
   },

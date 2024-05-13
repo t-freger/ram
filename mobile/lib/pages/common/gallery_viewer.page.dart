@@ -7,27 +7,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' hide Store;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/image/immich_remote_image_provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_stack.provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/current_asset.provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/show_controls.provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/video_player_value_provider.dart';
-import 'package:immich_mobile/widgets/asset_viewer/advanced_bottom_sheet.dart';
-import 'package:immich_mobile/widgets/asset_viewer/bottom_gallery_bar.dart';
-import 'package:immich_mobile/widgets/asset_viewer/exif_sheet/exif_bottom_sheet.dart';
-import 'package:immich_mobile/widgets/asset_viewer/gallery_app_bar.dart';
-import 'package:immich_mobile/providers/app_settings.provider.dart';
-import 'package:immich_mobile/pages/common/video_viewer.page.dart';
-import 'package:immich_mobile/services/app_settings.service.dart';
-import 'package:immich_mobile/providers/haptic_feedback.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_image.dart';
-import 'package:immich_mobile/widgets/common/immich_thumbnail.dart';
-import 'package:immich_mobile/widgets/photo_view/photo_view_gallery.dart';
-import 'package:immich_mobile/widgets/photo_view/src/photo_view_computed_scale.dart';
-import 'package:immich_mobile/widgets/photo_view/src/photo_view_scale_state.dart';
-import 'package:immich_mobile/widgets/photo_view/src/utils/photo_view_hero_attributes.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/image/ram_remote_image_provider.dart';
+import 'package:ram_mobile/providers/asset_viewer/asset_stack.provider.dart';
+import 'package:ram_mobile/providers/asset_viewer/current_asset.provider.dart';
+import 'package:ram_mobile/providers/asset_viewer/show_controls.provider.dart';
+import 'package:ram_mobile/providers/asset_viewer/video_player_value_provider.dart';
+import 'package:ram_mobile/widgets/asset_viewer/advanced_bottom_sheet.dart';
+import 'package:ram_mobile/widgets/asset_viewer/bottom_gallery_bar.dart';
+import 'package:ram_mobile/widgets/asset_viewer/exif_sheet/exif_bottom_sheet.dart';
+import 'package:ram_mobile/widgets/asset_viewer/gallery_app_bar.dart';
+import 'package:ram_mobile/providers/app_settings.provider.dart';
+import 'package:ram_mobile/pages/common/video_viewer.page.dart';
+import 'package:ram_mobile/services/app_settings.service.dart';
+import 'package:ram_mobile/providers/haptic_feedback.provider.dart';
+import 'package:ram_mobile/widgets/common/ram_image.dart';
+import 'package:ram_mobile/widgets/common/ram_thumbnail.dart';
+import 'package:ram_mobile/widgets/photo_view/photo_view_gallery.dart';
+import 'package:ram_mobile/widgets/photo_view/src/photo_view_computed_scale.dart';
+import 'package:ram_mobile/widgets/photo_view/src/photo_view_scale_state.dart';
+import 'package:ram_mobile/widgets/photo_view/src/utils/photo_view_hero_attributes.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
 import 'package:isar/isar.dart';
 import 'package:openapi/api.dart' show ThumbnailFormat;
 
@@ -115,7 +115,7 @@ class GalleryViewerPage extends HookConsumerWidget {
       if (index < totalAssets && index >= 0) {
         final asset = loadAsset(index);
         await precacheImage(
-          ImmichImage.imageProvider(asset: asset),
+          ramImage.imageProvider(asset: asset),
           context,
           onError: onError,
         );
@@ -250,7 +250,7 @@ class GalleryViewerPage extends HookConsumerWidget {
                   borderRadius: BorderRadius.circular(4),
                   child: Image(
                     fit: BoxFit.cover,
-                    image: ImmichRemoteImageProvider(assetId: assetId!),
+                    image: ramRemoteImageProvider(assetId: assetId!),
                   ),
                 ),
               ),
@@ -286,7 +286,7 @@ class GalleryViewerPage extends HookConsumerWidget {
                         sigmaY: 10,
                       ),
                     ),
-                    ImmichThumbnail(
+                    ramThumbnail(
                       asset: asset,
                       fit: BoxFit.contain,
                     ),
@@ -320,7 +320,7 @@ class GalleryViewerPage extends HookConsumerWidget {
                 final a =
                     index == currentIndex.value ? asset : loadAsset(index);
                 final ImageProvider provider =
-                    ImmichImage.imageProvider(asset: a);
+                    ramImage.imageProvider(asset: a);
 
                 if (a.isImage && !isPlayingVideo.value) {
                   return PhotoViewGalleryPageOptions(
@@ -346,7 +346,7 @@ class GalleryViewerPage extends HookConsumerWidget {
                     filterQuality: FilterQuality.high,
                     tightMode: true,
                     minScale: PhotoViewComputedScale.contained,
-                    errorBuilder: (context, error, stackTrace) => ImmichImage(
+                    errorBuilder: (context, error, stackTrace) => ramImage(
                       a,
                       fit: BoxFit.contain,
                     ),

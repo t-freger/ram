@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="design/immich-logo.svg" width="150" title="Login com URL customizada">
+<img src="design/ram-logo.svg" width="150" title="Login com URL customizada">
 </p>
-<h3 align="center">Immich - Solução self-hosted de alta performance para backup de fotos e vídeos</h3>
+<h3 align="center">ram - Solução self-hosted de alta performance para backup de fotos e vídeos</h3>
 <br/>
-<a href="https://immich.app">
-<img src="design/immich-screenshots.png" title="Captura de tela princial">
+<a href="https://ram.app">
+<img src="design/ram-screenshots.png" title="Captura de tela princial">
 </a>
 <br/>
 <p align="center">
@@ -42,27 +42,27 @@
 
 ## Conteúdo
 
-- [Documentação Oficial](https://immich.app/docs)
-- [Roadmap](https://github.com/orgs/immich-app/projects/1)
+- [Documentação Oficial](https://ram.app/docs)
+- [Roadmap](https://github.com/orgs/ram-app/projects/1)
 - [Demonstração](#demo)
 - [Recursos](#features)
-- [Introdução](https://immich.app/docs/overview/introduction)
-- [Instalação](https://immich.app/docs/install/requirements)
-- [Diretrizes de Contribuição](https://immich.app/docs/overview/support-the-project)
+- [Introdução](https://ram.app/docs/overview/introduction)
+- [Instalação](https://ram.app/docs/install/requirements)
+- [Diretrizes de Contribuição](https://ram.app/docs/overview/support-the-project)
 
 ## Documentação
 
-Você pode encontrar a documentação principal, incluindo guias de instalação, em https://immich.app/.
+Você pode encontrar a documentação principal, incluindo guias de instalação, em https://ram.app/.
 
 ## Demonstração
 
-Você pode acessar a demonstração web em https://demo.immich.app
+Você pode acessar a demonstração web em https://demo.ram.app
 
-No aplicativo para dispositivos móveis, você pode usar `https://demo.immich.app/api` no campo `Server Endpoint URL`
+No aplicativo para dispositivos móveis, você pode usar `https://demo.ram.app/api` no campo `Server Endpoint URL`
 
 ```bash title="Credenciais de Demonstração"
 Credenciais de Demonstração
-email: demo@immich.app
+email: demo@ram.app
 senha: demo
 ```
 
@@ -109,6 +109,6 @@ Especificações: Nível Gratuito da Oracle VM - Amsterdam - 2.4Ghz quad-core AR
 
 ## Contribuidores
 
-<a href="https://github.com/alextran1502/immich/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=immich-app/immich" width="100%"/>
+<a href="https://github.com/alextran1502/ram/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ram-app/ram" width="100%"/>
 </a>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { groupBy, orderBy } from 'lodash-es';
-  import { addUsersToAlbum, deleteAlbum, type AlbumUserAddDto, type AlbumResponseDto } from '@immich/sdk';
+  import { addUsersToAlbum, deleteAlbum, type AlbumUserAddDto, type AlbumResponseDto } from '@ram/sdk';
   import { mdiDeleteOutline, mdiShareVariantOutline, mdiFolderDownloadOutline, mdiRenameOutline } from '@mdi/js';
   import Icon from '$lib/components/elements/icon.svelte';
   import EditAlbumForm from '$lib/components/forms/edit-album-form.svelte';

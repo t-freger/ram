@@ -107,7 +107,7 @@ describe(SmartInfoService.name, () => {
       expect(await sut.handleEncodeClip({ id: assetStub.image.id })).toEqual(JobStatus.SUCCESS);
 
       expect(machineMock.encodeImage).toHaveBeenCalledWith(
-        'http://immich-machine-learning:3003',
+        'http://ram-machine-learning:3003',
         { imagePath: assetStub.image.previewPath },
         { enabled: true, modelName: 'ViT-B-32__openai' },
       );

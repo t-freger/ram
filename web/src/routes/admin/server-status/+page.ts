@@ -1,5 +1,5 @@
 import { authenticate } from '$lib/utils/auth';
-import { getServerStatistics } from '@immich/sdk';
+import { getServerStatistics } from '@ram/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async () => {

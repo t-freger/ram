@@ -1,7 +1,7 @@
 <script lang="ts">
   import ConfirmDialogue from '$lib/components/shared-components/confirm-dialogue.svelte';
   import { handleError } from '$lib/utils/handle-error';
-  import { deleteUser, type UserResponseDto } from '@immich/sdk';
+  import { deleteUser, type UserResponseDto } from '@ram/sdk';
   import { serverConfig } from '$lib/stores/server-config.store';
   import { createEventDispatcher } from 'svelte';
   import Checkbox from '$lib/components/elements/checkbox.svelte';
@@ -67,7 +67,7 @@
         <Checkbox
           id="queue-user-deletion-checkbox"
           label="Queue user and assets for immediate deletion"
-          labelClass="text-sm dark:text-immich-dark-fg"
+          labelClass="text-sm dark:text-ram-dark-fg"
           bind:checked={forceDelete}
           on:change={() => {
             deleteButtonDisabled = forceDelete;
@@ -76,17 +76,17 @@
       </div>
 
       {#if forceDelete}
-        <p class="text-immich-error">
+        <p class="text-ram-error">
           WARNING: This will immediately remove the user and all assets. This cannot be undone and the files cannot be
           recovered.
         </p>
 
-        <p class="immich-form-label text-sm" id="confirm-user-desc">
+        <p class="ram-form-label text-sm" id="confirm-user-desc">
           To confirm, type "{user.email}" below
         </p>
 
         <input
-          class="immich-form-input w-full pb-2"
+          class="ram-form-input w-full pb-2"
           id="confirm-user-id"
           aria-describedby="confirm-user-desc"
           name="confirm-user-id"

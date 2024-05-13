@@ -4,10 +4,10 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'general_helper.dart';
 
-class ImmichTestLoginHelper {
+class ramTestLoginHelper {
   final WidgetTester tester;
 
-  ImmichTestLoginHelper(this.tester);
+  ramTestLoginHelper(this.tester);
 
   Future<void> waitForLoginScreen() async {
     await pumpUntilFound(tester, find.text("Login"));
@@ -71,20 +71,20 @@ class ImmichTestLoginHelper {
 
 enum LoginCredentials {
   testInstance(
-    "https://flutter-int-test.preview.immich.app",
-    "demo@immich.app",
+    "https://flutter-int-test.preview.ram.app",
+    "demo@ram.app",
     "demo",
   ),
 
   testInstanceButWithWrongPassword(
-    "https://flutter-int-test.preview.immich.app",
-    "demo@immich.app",
+    "https://flutter-int-test.preview.ram.app",
+    "demo@ram.app",
     "wrong",
   ),
 
   wrongInstanceUrl(
-    "https://does-not-exist.preview.immich.app",
-    "demo@immich.app",
+    "https://does-not-exist.preview.ram.app",
+    "demo@ram.app",
     "demo",
   );
 

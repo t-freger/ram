@@ -7,12 +7,12 @@
   import { featureFlags } from '$lib/stores/server-config.store';
   import { resetSavedUser, user } from '$lib/stores/user.store';
   import { clickOutside } from '$lib/utils/click-outside';
-  import { logout } from '@immich/sdk';
+  import { logout } from '@ram/sdk';
   import { mdiCog, mdiMagnify, mdiTrayArrowUp } from '@mdi/js';
   import { createEventDispatcher } from 'svelte';
   import { fade, fly } from 'svelte/transition';
   import { AppRoute } from '../../../constants';
-  import ImmichLogo from '../immich-logo.svelte';
+  import ramLogo from '../ram-logo.svelte';
   import SearchBar from '../search-bar/search-bar.svelte';
   import ThemeButton from '../theme-button.svelte';
   import UserAvatar from '../user-avatar.svelte';
@@ -44,10 +44,10 @@
 <section id="dashboard-navbar" class="fixed z-[900] h-[var(--navbar-height)] w-screen text-sm">
   <SkipLink>Skip to content</SkipLink>
   <div
-    class="grid h-full grid-cols-[theme(spacing.18)_auto] items-center border-b bg-immich-bg py-2 dark:border-b-immich-dark-gray dark:bg-immich-dark-bg md:grid-cols-[theme(spacing.64)_auto]"
+    class="grid h-full grid-cols-[theme(spacing.18)_auto] items-center border-b bg-ram-bg py-2 dark:border-b-ram-dark-gray dark:bg-ram-dark-bg md:grid-cols-[theme(spacing.64)_auto]"
   >
     <a data-sveltekit-preload-data="hover" class="ml-4" href={AppRoute.PHOTOS}>
-      <ImmichLogo width="55%" noText={innerWidth < 768} />
+      <ramLogo width="55%" noText={innerWidth < 768} />
     </a>
     <div class="flex justify-between gap-16 pr-6">
       <div class="hidden w-full max-w-5xl flex-1 pl-4 tall:pl-0 sm:block">
@@ -84,12 +84,12 @@
             aria-current={$page.url.pathname.includes('/admin') ? 'page' : null}
           >
             <div
-              class="inline-flex items-center justify-center transition-colors dark:text-immich-dark-fg p-2 font-medium rounded-lg"
+              class="inline-flex items-center justify-center transition-colors dark:text-ram-dark-fg p-2 font-medium rounded-lg"
             >
               <div class="hidden sm:block">
                 <span
                   class={$page.url.pathname.includes('/admin')
-                    ? 'item text-immich-primary underline dark:text-immich-dark-primary'
+                    ? 'item text-ram-primary underline dark:text-ram-dark-primary'
                     : ''}
                 >
                   Administration
@@ -99,13 +99,13 @@
                 <Icon
                   path={mdiCog}
                   size="1.5em"
-                  class="dark:text-immich-dark-fg {$page.url.pathname.includes('/admin')
-                    ? 'text-immich-primary dark:text-immich-dark-primary'
+                  class="dark:text-ram-dark-fg {$page.url.pathname.includes('/admin')
+                    ? 'text-ram-primary dark:text-ram-dark-primary'
                     : ''}"
                 />
                 <div
                   class={$page.url.pathname.includes('/admin')
-                    ? 'border-t-1 mx-auto block w-2/3 border-immich-primary dark:border-immich-dark-primary'
+                    ? 'border-t-1 mx-auto block w-2/3 border-ram-primary dark:border-ram-dark-primary'
                     : 'hidden'}
                 />
               </div>
@@ -135,7 +135,7 @@
             <div
               in:fade={{ delay: 500, duration: 150 }}
               out:fade={{ delay: 200, duration: 150 }}
-              class="absolute -bottom-12 right-5 rounded-md border bg-gray-500 p-2 text-[12px] text-gray-100 shadow-md dark:border-immich-dark-gray dark:bg-immich-dark-gray"
+              class="absolute -bottom-12 right-5 rounded-md border bg-gray-500 p-2 text-[12px] text-gray-100 shadow-md dark:border-ram-dark-gray dark:bg-ram-dark-gray"
             >
               <p>{$user.name}</p>
               <p>{$user.email}</p>

@@ -11,7 +11,7 @@ In this situation, everything is in its place and there is no problem that the s
 ## Any Other Situation
 
 :::note RAM Usage
-Several users report a situation where the page fails to load. In order to solve this problem you should try to allocate more RAM to Immich, if the problem continues, you should stop using the reverse proxy while loading the page.
+Several users report a situation where the page fails to load. In order to solve this problem you should try to allocate more RAM to ram, if the problem continues, you should stop using the reverse proxy while loading the page.
 :::
 
 In any other situation, there are 3 different options that can appear:

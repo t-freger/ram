@@ -21,7 +21,7 @@
   </div>
 
   <div class="xl:hidden">
-    <div class="w-fit h-14 dark:text-immich-dark-fg py-2">
+    <div class="w-fit h-14 dark:text-ram-dark-fg py-2">
       <GroupTab
         filters={Object.keys(AlbumFilter)}
         selected={$albumViewSettings.filter}

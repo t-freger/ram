@@ -37,8 +37,8 @@
     </p>
 
     <div class="my-4 flex flex-col gap-2">
-      <label class="immich-form-label" for="path">Path</label>
-      <input class="immich-form-input" id="path" name="path" type="text" bind:value={importPath} />
+      <label class="ram-form-label" for="path">Path</label>
+      <input class="ram-form-input" id="path" name="path" type="text" bind:value={importPath} />
     </div>
 
     <div class="mt-8 flex w-full gap-4">

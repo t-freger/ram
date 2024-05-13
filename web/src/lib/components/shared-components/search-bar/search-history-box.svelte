@@ -14,7 +14,7 @@
 
 <div
   transition:fly={{ y: 25, duration: 250 }}
-  class="absolute w-full rounded-b-3xl border border-gray-200 bg-white pb-5 shadow-2xl transition-all dark:border-gray-800 dark:bg-immich-dark-gray dark:text-gray-300"
+  class="absolute w-full rounded-b-3xl border border-gray-200 bg-white pb-5 shadow-2xl transition-all dark:border-gray-800 dark:bg-ram-dark-gray dark:text-gray-300"
 >
   {#if $savedSearchTerms.length > 0}
     <div class="flex items-center justify-between px-5 pt-5 text-xs">
@@ -22,7 +22,7 @@
       <div class="flex w-18 items-center justify-center">
         <button
           type="button"
-          class="rounded-lg p-2 font-semibold text-immich-primary hover:bg-immich-primary/25 dark:text-immich-dark-primary"
+          class="rounded-lg p-2 font-semibold text-ram-primary hover:bg-ram-primary/25 dark:text-ram-dark-primary"
           on:click={() => dispatch('clearAllSearchTerms')}>Clear all</button
         >
       </div>

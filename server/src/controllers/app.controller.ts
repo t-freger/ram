@@ -7,8 +7,8 @@ export class AppController {
   constructor(private service: SystemConfigService) {}
 
   @ApiExcludeEndpoint()
-  @Get('.well-known/immich')
-  getImmichWellKnown() {
+  @Get('.well-known/ram')
+  getramWellKnown() {
     return {
       api: {
         endpoint: '/api',

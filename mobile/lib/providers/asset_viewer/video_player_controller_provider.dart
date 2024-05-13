@@ -1,5 +1,5 @@
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:video_player/video_player.dart';
 
@@ -30,7 +30,7 @@ Future<VideoPlayerController> videoPlayerController(
 
     controller = VideoPlayerController.networkUrl(
       url,
-      httpHeaders: {"x-immich-user-token": accessToken},
+      httpHeaders: {"x-ram-user-token": accessToken},
     );
   }
 

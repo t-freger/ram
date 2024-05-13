@@ -2,10 +2,10 @@ import { Injectable, Scope } from '@nestjs/common';
 import { ClsService } from 'nestjs-cls';
 import { LogLevel } from 'src/entities/system-config.entity';
 import { ILoggerRepository } from 'src/interfaces/logger.interface';
-import { ImmichLogger } from 'src/utils/logger';
+import { ramLogger } from 'src/utils/logger';
 
 @Injectable({ scope: Scope.TRANSIENT })
-export class LoggerRepository extends ImmichLogger implements ILoggerRepository {
+export class LoggerRepository extends ramLogger implements ILoggerRepository {
   constructor(private cls: ClsService) {
     super(LoggerRepository.name);
   }
@@ -22,6 +22,6 @@ export class LoggerRepository extends ImmichLogger implements ILoggerRepository 
   }
 
   setLogLevel(level: LogLevel): void {
-    ImmichLogger.setLogLevel(level);
+    ramLogger.setLogLevel(level);
   }
 }

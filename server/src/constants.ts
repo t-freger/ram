@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { Version } from 'src/utils/version';
 
 export const NEXT_RELEASE = 'NEXT_RELEASE';
-export const LIFECYCLE_EXTENSION = 'x-immich-lifecycle';
+export const LIFECYCLE_EXTENSION = 'x-ram-lifecycle';
 export const DEPRECATED_IN_PREFIX = 'This property was deprecated in ';
 export const ADDED_IN_PREFIX = 'This property was added in ';
 
@@ -18,10 +18,10 @@ export const ONE_HOUR = Duration.fromObject({ hours: 1 });
 
 export const envName = (process.env.NODE_ENV || 'development').toUpperCase();
 export const isDev = process.env.NODE_ENV === 'development';
-export const APP_MEDIA_LOCATION = process.env.IMMICH_MEDIA_LOCATION || './upload';
-export const WEB_ROOT = process.env.IMMICH_WEB_ROOT || '/usr/src/app/www';
+export const APP_MEDIA_LOCATION = process.env.ram_MEDIA_LOCATION || './upload';
+export const WEB_ROOT = process.env.ram_WEB_ROOT || '/usr/src/app/www';
 
-const GEODATA_ROOT_PATH = process.env.IMMICH_REVERSE_GEOCODING_ROOT || '/usr/src/resources';
+const GEODATA_ROOT_PATH = process.env.ram_REVERSE_GEOCODING_ROOT || '/usr/src/resources';
 
 export const citiesFile = 'cities500.txt';
 export const geodataDatePath = join(GEODATA_ROOT_PATH, 'geodata-date.txt');
@@ -29,7 +29,7 @@ export const geodataAdmin1Path = join(GEODATA_ROOT_PATH, 'admin1CodesASCII.txt')
 export const geodataAdmin2Path = join(GEODATA_ROOT_PATH, 'admin2Codes.txt');
 export const geodataCities500Path = join(GEODATA_ROOT_PATH, citiesFile);
 
-export const MOBILE_REDIRECT = 'app.immich:/';
+export const MOBILE_REDIRECT = 'app.ram:/';
 export const LOGIN_URL = '/auth/login?autoLaunch=0';
 
 export enum AuthType {
@@ -37,7 +37,7 @@ export enum AuthType {
   OAUTH = 'oauth',
 }
 
-export const excludePaths = ['/.well-known/immich', '/custom.css', '/favicon.ico'];
+export const excludePaths = ['/.well-known/ram', '/custom.css', '/favicon.ico'];
 
 export const FACE_THUMBNAIL_SIZE = 250;
 

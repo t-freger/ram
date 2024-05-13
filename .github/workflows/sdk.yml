@@ -1,4 +1,4 @@
-name: Update Immich SDK
+name: Update ram SDK
 
 on:
   release:
@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   publish:
-    name: Publish `@immich/sdk`
+    name: Publish `@ram/sdk`
     runs-on: ubuntu-latest
     defaults:
       run:

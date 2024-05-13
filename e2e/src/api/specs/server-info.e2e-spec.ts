@@ -1,4 +1,4 @@
-import { LoginResponseDto } from '@immich/sdk';
+import { LoginResponseDto } from '@ram/sdk';
 import { createUserDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, utils } from 'src/utils';
@@ -124,7 +124,7 @@ describe('/server-info', () => {
             quotaSizeInBytes: null,
             photos: 0,
             usage: 0,
-            userName: 'Immich Admin',
+            userName: 'ram Admin',
             userId: admin.userId,
             videos: 0,
           },

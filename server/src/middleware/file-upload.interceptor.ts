@@ -16,13 +16,13 @@ export enum Route {
   USER = 'user',
 }
 
-export interface ImmichFile extends Express.Multer.File {
+export interface ramFile extends Express.Multer.File {
   /** sha1 hash of file */
   uuid: string;
   checksum: Buffer;
 }
 
-export function mapToUploadFile(file: ImmichFile): UploadFile {
+export function mapToUploadFile(file: ramFile): UploadFile {
   return {
     uuid: file.uuid,
     checksum: file.checksum,
@@ -34,7 +34,7 @@ export function mapToUploadFile(file: ImmichFile): UploadFile {
 
 type DiskStorageCallback = (error: Error | null, result: string) => void;
 
-type ImmichMulterFile = Express.Multer.File & { uuid: string };
+type ramMulterFile = Express.Multer.File & { uuid: string };
 
 interface Callback<T> {
   (error: Error): void;
@@ -53,7 +53,7 @@ const asRequest = (request: AuthRequest, file: Express.Multer.File) => {
   return {
     auth: request.user || null,
     fieldName: file.fieldname as UploadFieldName,
-    file: mapToUploadFile(file as ImmichFile),
+    file: mapToUploadFile(file as ramFile),
   };
 };
 
@@ -127,8 +127,8 @@ export class FileUploadInterceptor implements NestInterceptor {
     return callbackify(() => this.assetService.getUploadFolder(asRequest(request, file)), callback as Callback<string>);
   }
 
-  private handleFile(request: AuthRequest, file: Express.Multer.File, callback: Callback<Partial<ImmichFile>>) {
-    (file as ImmichMulterFile).uuid = randomUUID();
+  private handleFile(request: AuthRequest, file: Express.Multer.File, callback: Callback<Partial<ramFile>>) {
+    (file as ramMulterFile).uuid = randomUUID();
     if (!this.isAssetUploadFile(file)) {
       this.defaultStorage._handleFile(request, file, callback);
       return;

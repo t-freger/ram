@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import { CommandFactory } from 'nest-commander';
 import { existsSync } from 'node:fs';
 import sirv from 'sirv';
-import { ApiModule, ImmichAdminModule, MicroservicesModule } from 'src/app.module';
+import { ApiModule, ramAdminModule, MicroservicesModule } from 'src/app.module';
 import { WEB_ROOT, envName, excludePaths, isDev, serverVersion } from 'src/constants';
 import { LogLevel } from 'src/entities/system-config.entity';
 import { ILoggerRepository } from 'src/interfaces/logger.interface';
@@ -22,13 +22,13 @@ async function bootstrapMicroservices() {
   const port = Number(process.env.MICROSERVICES_PORT) || 3002;
   const app = await NestFactory.create(MicroservicesModule, { bufferLogs: true });
   const logger = await app.resolve(ILoggerRepository);
-  logger.setContext('ImmichMicroservice');
+  logger.setContext('ramMicroservice');
   app.useLogger(logger);
   app.useWebSocketAdapter(new WebSocketAdapter(app));
 
   await (host ? app.listen(port, host) : app.listen(port));
 
-  logger.log(`Immich Microservices is listening on ${await app.getUrl()} [v${serverVersion}] [${envName}] `);
+  logger.log(`ram Microservices is listening on ${await app.getUrl()} [v${serverVersion}] [${envName}] `);
 }
 
 async function bootstrapApi() {
@@ -38,7 +38,7 @@ async function bootstrapApi() {
   const app = await NestFactory.create<NestExpressApplication>(ApiModule, { bufferLogs: true });
   const logger = await app.resolve(ILoggerRepository);
 
-  logger.setContext('ImmichServer');
+  logger.setContext('ramServer');
   app.useLogger(logger);
   app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal']);
   app.set('etag', 'strong');
@@ -72,36 +72,36 @@ async function bootstrapApi() {
   const server = await (host ? app.listen(port, host) : app.listen(port));
   server.requestTimeout = 30 * 60 * 1000;
 
-  logger.log(`Immich Server is listening on ${await app.getUrl()} [v${serverVersion}] [${envName}] `);
+  logger.log(`ram Server is listening on ${await app.getUrl()} [v${serverVersion}] [${envName}] `);
 }
 
-const immichApp = process.argv[2] || process.env.IMMICH_APP;
+const ramApp = process.argv[2] || process.env.ram_APP;
 
-if (process.argv[2] === immichApp) {
+if (process.argv[2] === ramApp) {
   process.argv.splice(2, 1);
 }
 
-async function bootstrapImmichAdmin() {
+async function bootstrapramAdmin() {
   process.env.LOG_LEVEL = LogLevel.WARN;
-  await CommandFactory.run(ImmichAdminModule);
+  await CommandFactory.run(ramAdminModule);
 }
 
 function bootstrap() {
-  switch (immichApp) {
-    case 'immich': {
-      process.title = 'immich_server';
+  switch (ramApp) {
+    case 'ram': {
+      process.title = 'ram_server';
       return bootstrapApi();
     }
     case 'microservices': {
-      process.title = 'immich_microservices';
+      process.title = 'ram_microservices';
       return bootstrapMicroservices();
     }
-    case 'immich-admin': {
-      process.title = 'immich_admin_cli';
-      return bootstrapImmichAdmin();
+    case 'ram-admin': {
+      process.title = 'ram_admin_cli';
+      return bootstrapramAdmin();
     }
     default: {
-      throw new Error(`Invalid app name: ${immichApp}. Expected one of immich|microservices|immich-admin`);
+      throw new Error(`Invalid app name: ${ramApp}. Expected one of ram|microservices|ram-admin`);
     }
   }
 }

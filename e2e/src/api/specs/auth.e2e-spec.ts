@@ -1,4 +1,4 @@
-import { LoginResponseDto, login, signUpAdmin } from '@immich/sdk';
+import { LoginResponseDto, login, signUpAdmin } from '@ram/sdk';
 import { loginDto, signupDto } from 'src/fixtures';
 import { errorDto, loginResponseDto, signupResponseDto } from 'src/responses';
 import { app, utils } from 'src/utils';
@@ -28,7 +28,7 @@ describe(`/auth/admin-sign-up`, () => {
       },
       {
         should: 'require a valid email',
-        data: { name, email: 'immich', password },
+        data: { name, email: 'ram', password },
       },
     ];
 
@@ -60,7 +60,7 @@ describe(`/auth/admin-sign-up`, () => {
     it('should transform email to lower case', async () => {
       const { status, body } = await request(app)
         .post('/auth/admin-sign-up')
-        .send({ ...signupDto.admin, email: 'aDmIn@IMMICH.cloud' });
+        .send({ ...signupDto.admin, email: 'aDmIn@ram.cloud' });
       expect(status).toEqual(201);
       expect(body).toEqual(signupResponseDto.admin);
     });
@@ -113,7 +113,7 @@ describe('/auth/*', () => {
       const cookies = headers['set-cookie'];
       expect(cookies).toHaveLength(3);
       expect(cookies[0].split(';').map((item) => item.trim())).toEqual([
-        `immich_access_token=${token}`,
+        `ram_access_token=${token}`,
         'Max-Age=34560000',
         'Path=/',
         expect.stringContaining('Expires='),
@@ -121,7 +121,7 @@ describe('/auth/*', () => {
         'SameSite=Lax',
       ]);
       expect(cookies[1].split(';').map((item) => item.trim())).toEqual([
-        'immich_auth_type=password',
+        'ram_auth_type=password',
         'Max-Age=34560000',
         'Path=/',
         expect.stringContaining('Expires='),
@@ -129,7 +129,7 @@ describe('/auth/*', () => {
         'SameSite=Lax',
       ]);
       expect(cookies[2].split(';').map((item) => item.trim())).toEqual([
-        'immich_is_authenticated=true',
+        'ram_is_authenticated=true',
         'Max-Age=34560000',
         'Path=/',
         expect.stringContaining('Expires='),
@@ -182,7 +182,7 @@ describe('/auth/*', () => {
 
       await login({
         loginCredentialDto: {
-          email: 'admin@immich.cloud',
+          email: 'admin@ram.cloud',
           password: 'Password1234',
         },
       });

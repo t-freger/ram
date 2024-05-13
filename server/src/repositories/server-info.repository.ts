@@ -7,7 +7,7 @@ import { Instrumentation } from 'src/utils/instrumentation';
 export class ServerInfoRepository implements IServerInfoRepository {
   async getGitHubRelease(): Promise<GitHubRelease> {
     try {
-      const response = await fetch('https://api.github.com/repos/immich-app/immich/releases/latest');
+      const response = await fetch('https://api.github.com/repos/ram-app/ram/releases/latest');
 
       if (!response.ok) {
         throw new Error(`GitHub API request failed with status ${response.status}: ${await response.text()}`);

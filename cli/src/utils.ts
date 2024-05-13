@@ -1,4 +1,4 @@
-import { defaults, getMyUserInfo, isHttpError } from '@immich/sdk';
+import { defaults, getMyUserInfo, isHttpError } from '@ram/sdk';
 import { glob } from 'fast-glob';
 import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';
@@ -34,7 +34,7 @@ export const authenticate = async (options: BaseOptions): Promise<AuthDto> => {
 };
 
 export const connect = async (url: string, key: string) => {
-  const wellKnownUrl = new URL('.well-known/immich', url);
+  const wellKnownUrl = new URL('.well-known/ram', url);
   try {
     const wellKnown = await fetch(wellKnownUrl).then((response) => response.json());
     const endpoint = new URL(wellKnown.api.endpoint, url).toString();

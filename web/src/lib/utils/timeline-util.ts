@@ -1,5 +1,5 @@
 import { locale } from '$lib/stores/preferences.store';
-import type { AssetResponseDto } from '@immich/sdk';
+import type { AssetResponseDto } from '@ram/sdk';
 import { groupBy, sortBy } from 'lodash-es';
 import { DateTime, Interval } from 'luxon';
 import { get } from 'svelte/store';

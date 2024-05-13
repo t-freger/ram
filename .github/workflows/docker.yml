@@ -25,34 +25,34 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - image: immich-machine-learning
+          - image: ram-machine-learning
             context: machine-learning
             file: machine-learning/Dockerfile
             platforms: linux/amd64,linux/arm64
             device: cpu
 
-          - image: immich-machine-learning
+          - image: ram-machine-learning
             context: machine-learning
             file: machine-learning/Dockerfile
             platforms: linux/amd64
             device: cuda
             suffix: -cuda
 
-          - image: immich-machine-learning
+          - image: ram-machine-learning
             context: machine-learning
             file: machine-learning/Dockerfile
             platforms: linux/amd64
             device: openvino
             suffix: -openvino
 
-          - image: immich-machine-learning
+          - image: ram-machine-learning
             context: machine-learning
             file: machine-learning/Dockerfile
             platforms: linux/arm64
             device: armnn
             suffix: -armnn
 
-          - image: immich-server
+          - image: ram-server
             context: .
             file: server/Dockerfile
             platforms: linux/amd64,linux/arm64
@@ -111,7 +111,7 @@ jobs:
             # Essentially just ignore the cache output (PR can't write to registry cache)
             echo "cache-to=type=local,dest=/tmp/discard,ignore-error=true" >> $GITHUB_OUTPUT
           else
-            echo "cache-to=type=registry,mode=max,ref=ghcr.io/${{ github.repository_owner }}/immich-build-cache:${{ matrix.image }}" >> $GITHUB_OUTPUT
+            echo "cache-to=type=registry,mode=max,ref=ghcr.io/${{ github.repository_owner }}/ram-build-cache:${{ matrix.image }}" >> $GITHUB_OUTPUT
           fi
 
       - name: Build and push image
@@ -122,7 +122,7 @@ jobs:
           platforms: ${{ matrix.platforms }}
           # Skip pushing when PR from a fork
           push: ${{ !github.event.pull_request.head.repo.fork }}
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/immich-build-cache:${{matrix.image}}
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/ram-build-cache:${{matrix.image}}
           cache-to: ${{ steps.cache-target.outputs.cache-to }}
           build-args: |
             DEVICE=${{ matrix.device }}

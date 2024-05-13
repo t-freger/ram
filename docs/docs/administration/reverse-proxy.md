@@ -1,6 +1,6 @@
 # Reverse Proxy
 
-Users can deploy a custom reverse proxy that forwards requests to Immich. This way, the reverse proxy can handle TLS termination, load balancing, or other advanced features. All reverse proxies between Immich and the user must forward all headers and set the `Host`, `X-Real-IP`, `X-Forwarded-Proto` and `X-Forwarded-For` headers to their appropriate values. Additionally, your reverse proxy should allow for big enough uploads. By following these practices, you ensure that all custom reverse proxies are fully compatible with Immich.
+Users can deploy a custom reverse proxy that forwards requests to ram. This way, the reverse proxy can handle TLS termination, load balancing, or other advanced features. All reverse proxies between ram and the user must forward all headers and set the `Host`, `X-Real-IP`, `X-Forwarded-Proto` and `X-Forwarded-For` headers to their appropriate values. Additionally, your reverse proxy should allow for big enough uploads. By following these practices, you ensure that all custom reverse proxies are fully compatible with ram.
 
 :::note
 The Repair page can take a long time to load. To avoid server timeouts or errors, we recommend specifying a timeout of at least 10 minutes on your proxy server.
@@ -8,7 +8,7 @@ The Repair page can take a long time to load. To avoid server timeouts or errors
 
 ### Nginx example config
 
-Below is an example config for nginx. Make sure to set `public_url` to the front-facing URL of your instance, and `backend_url` to the path of the Immich server.
+Below is an example config for nginx. Make sure to set `public_url` to the front-facing URL of your instance, and `backend_url` to the path of the ram server.
 
 ```nginx
 server {
@@ -45,7 +45,7 @@ server {
 As an alternative to nginx, you can also use [Caddy](https://caddyserver.com/) as a reverse proxy (with automatic HTTPS configuration). Below is an example config.
 
 ```
-immich.example.org {
+ram.example.org {
     reverse_proxy http://<snip>:2283
 }
 ```

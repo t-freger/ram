@@ -1,5 +1,5 @@
 {
-  "name": "immich-e2e",
+  "name": "ram-e2e",
   "version": "1.103.1",
   "description": "",
   "main": "index.js",
@@ -19,8 +19,8 @@
   "author": "",
   "license": "GNU Affero General Public License version 3",
   "devDependencies": {
-    "@immich/cli": "file:../cli",
-    "@immich/sdk": "file:../open-api/typescript-sdk",
+    "@ram/cli": "file:../cli",
+    "@ram/sdk": "file:../open-api/typescript-sdk",
     "@playwright/test": "^1.41.2",
     "@types/luxon": "^3.4.2",
     "@types/node": "^20.11.17",

@@ -42,7 +42,7 @@
     updatePerson,
     type AssetResponseDto,
     type PersonResponseDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import {
     mdiAccountBoxOutline,
     mdiAccountMultipleCheckOutline,
@@ -385,7 +385,7 @@
       </AssetSelectContextMenu>
       <FavoriteAction removeFavorite={isAllFavorite} onFavorite={() => assetStore.triggerUpdate()} />
       <AssetSelectContextMenu icon={mdiDotsVertical} title="Add">
-        <DownloadAction menuItem filename="{data.person.name || 'immich'}.zip" />
+        <DownloadAction menuItem filename="{data.person.name || 'ram'}.zip" />
         <MenuOption icon={mdiAccountMultipleCheckOutline} text="Fix incorrect match" on:click={handleReassignAssets} />
         <ChangeDate menuItem />
         <ChangeLocation menuItem />
@@ -431,7 +431,7 @@
   {/if}
 </header>
 
-<main class="relative h-screen overflow-hidden bg-immich-bg tall:ml-4 pt-[var(--navbar-height)] dark:bg-immich-dark-bg">
+<main class="relative h-screen overflow-hidden bg-ram-bg tall:ml-4 pt-[var(--navbar-height)] dark:bg-ram-dark-bg">
   {#key refreshAssetGrid}
     <AssetGrid
       {assetStore}
@@ -477,16 +477,16 @@
                     heightStyle="3.375rem"
                   />
                   <div
-                    class="flex flex-col justify-center text-left px-4 h-14 text-immich-primary dark:text-immich-dark-primary"
+                    class="flex flex-col justify-center text-left px-4 h-14 text-ram-primary dark:text-ram-dark-primary"
                   >
                     {#if data.person.name}
                       <p class="w-40 sm:w-72 font-medium truncate">{data.person.name}</p>
-                      <p class="absolute w-fit text-sm text-gray-500 dark:text-immich-gray bottom-0">
+                      <p class="absolute w-fit text-sm text-gray-500 dark:text-ram-gray bottom-0">
                         {`${numberOfAssets} asset${numberOfAssets > 1 ? 's' : ''}`}
                       </p>
                     {:else}
                       <p class="font-medium">Add a name</p>
-                      <p class="text-sm text-gray-500 dark:text-immich-gray">Find them fast by name with search</p>
+                      <p class="text-sm text-gray-500 dark:text-ram-gray">Find them fast by name with search</p>
                     {/if}
                   </div>
                 </button>
@@ -497,7 +497,7 @@
             <div class="absolute z-[999] w-64 sm:w-96">
               {#if isSearchingPeople}
                 <div
-                  class="flex border h-14 rounded-b-lg border-gray-400 dark:border-immich-dark-gray place-items-center bg-gray-200 p-2 dark:bg-gray-700"
+                  class="flex border h-14 rounded-b-lg border-gray-400 dark:border-ram-dark-gray place-items-center bg-gray-200 p-2 dark:bg-gray-700"
                 >
                   <div class="flex w-full place-items-center">
                     <LoadingSpinner />
@@ -507,7 +507,7 @@
                 <div bind:this={suggestionContainer}>
                   {#each suggestedPeople as person, index (person.id)}
                     <button
-                      class="flex w-full border-t border-gray-400 dark:border-immich-dark-gray h-14 place-items-center bg-gray-200 p-2 dark:bg-gray-700 hover:bg-gray-300 hover:dark:bg-[#232932] focus:bg-gray-300 focus:dark:bg-[#232932] {index ===
+                      class="flex w-full border-t border-gray-400 dark:border-ram-dark-gray h-14 place-items-center bg-gray-200 p-2 dark:bg-gray-700 hover:bg-gray-300 hover:dark:bg-[#232932] focus:bg-gray-300 focus:dark:bg-[#232932] {index ===
                       suggestedPeople.length - 1
                         ? 'rounded-b-lg border-b'
                         : ''}"

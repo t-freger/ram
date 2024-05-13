@@ -3,9 +3,9 @@ import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/utils/image_url_builder.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/utils/image_url_builder.dart';
 
 class PositionedAssetMarkerIcon extends StatelessWidget {
   final Point<num> point;
@@ -89,7 +89,7 @@ class _AssetMarkerIcon extends StatelessWidget {
                     imageUrl,
                     cacheKey: cacheKey,
                     headers: {
-                      "x-immich-user-token": Store.get(StoreKey.accessToken),
+                      "x-ram-user-token": Store.get(StoreKey.accessToken),
                     },
                     errorListener: (_) =>
                         const Icon(Icons.image_not_supported_outlined),

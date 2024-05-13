@@ -1,6 +1,6 @@
 {
-	"name": "Immich",
-	"short_name": "Immich",
+	"name": "ram",
+	"short_name": "ram",
 	"start_url": "/",
 	"display": "standalone",
 	"background_color": "#ffffff",

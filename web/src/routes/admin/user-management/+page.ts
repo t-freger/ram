@@ -1,5 +1,5 @@
 import { authenticate, requestServerInfo } from '$lib/utils/auth';
-import { getAllUsers } from '@immich/sdk';
+import { getAllUsers } from '@ram/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async () => {

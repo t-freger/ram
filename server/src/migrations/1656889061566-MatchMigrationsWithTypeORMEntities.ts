@@ -53,7 +53,7 @@ export class MatchMigrationsWithTypeORMEntities1656889061566 implements Migratio
     await queryRunner.query(`ALTER TABLE "users" ALTER COLUMN "firstName" DROP NOT NULL`);
     await queryRunner.query(
       `DELETE FROM "typeorm_metadata" WHERE "type" = $1 AND "name" = $2 AND "database" = $3 AND "schema" = $4 AND "table" = $5`,
-      ['GENERATED_COLUMN', 'exifTextSearchableColumn', 'immich', 'public', 'exif'],
+      ['GENERATED_COLUMN', 'exifTextSearchableColumn', 'ram', 'public', 'exif'],
     );
     await queryRunner.query(`ALTER TABLE "exif" DROP COLUMN "exifTextSearchableColumn"`);
     await queryRunner.query(`ALTER TABLE "asset_album" DROP CONSTRAINT "FK_7ae4e03729895bf87e056d7b598"`);

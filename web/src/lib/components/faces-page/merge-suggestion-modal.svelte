@@ -2,7 +2,7 @@
   import Icon from '$lib/components/elements/icon.svelte';
   import FullScreenModal from '$lib/components/shared-components/full-screen-modal.svelte';
   import { getPeopleThumbnailUrl } from '$lib/utils';
-  import { type PersonResponseDto } from '@immich/sdk';
+  import { type PersonResponseDto } from '@ram/sdk';
   import { mdiArrowLeft, mdiMerge } from '@mdi/js';
   import { createEventDispatcher } from 'svelte';
   import ImageThumbnail from '../assets/thumbnail/image-thumbnail.svelte';
@@ -52,7 +52,7 @@
 
       <button
         disabled={potentialMergePeople.length === 0}
-        class="flex h-28 w-28 items-center rounded-full border-2 border-immich-primary px-1 dark:border-immich-dark-primary md:h-32 md:w-32 md:px-2"
+        class="flex h-28 w-28 items-center rounded-full border-2 border-ram-primary px-1 dark:border-ram-dark-primary md:h-32 md:w-32 md:px-2"
         on:click={() => {
           if (potentialMergePeople.length > 0) {
             choosePersonToMerge = !choosePersonToMerge;

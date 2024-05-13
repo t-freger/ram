@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ThumbnailFormat, type AlbumResponseDto } from '@immich/sdk';
+  import { ThumbnailFormat, type AlbumResponseDto } from '@ram/sdk';
   import { getAssetThumbnailUrl } from '$lib/utils';
 
   export let album: AlbumResponseDto | undefined;

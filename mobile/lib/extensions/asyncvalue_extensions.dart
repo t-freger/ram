@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
-import 'package:immich_mobile/widgets/common/scaffold_error_body.dart';
+import 'package:ram_mobile/widgets/common/ram_loading_indicator.dart';
+import 'package:ram_mobile/widgets/common/scaffold_error_body.dart';
 import 'package:logging/logging.dart';
 
 extension LogOnError<T> on AsyncValue<T> {
   static final Logger _asyncErrorLogger = Logger("AsyncValue");
 
-  /// Used to return the [ImmichLoadingIndicator] and [ScaffoldErrorBody] widgets by default on loading
+  /// Used to return the [ramLoadingIndicator] and [ScaffoldErrorBody] widgets by default on loading
   /// and error cases respectively
   Widget widgetWhen({
     bool skipLoadingOnRefresh = true,
@@ -24,7 +24,7 @@ extension LogOnError<T> on AsyncValue<T> {
       if (!skip) {
         return onLoading?.call() ??
             const Center(
-              child: ImmichLoadingIndicator(),
+              child: ramLoadingIndicator(),
             );
       }
     }

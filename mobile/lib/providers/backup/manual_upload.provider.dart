@@ -6,22 +6,22 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/services/background.service.dart';
-import 'package:immich_mobile/models/backup/backup_state.model.dart';
-import 'package:immich_mobile/models/backup/current_upload_asset.model.dart';
-import 'package:immich_mobile/models/backup/error_upload_asset.model.dart';
-import 'package:immich_mobile/models/backup/manual_upload_state.model.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/providers/backup/error_backup_list.provider.dart';
-import 'package:immich_mobile/services/backup.service.dart';
-import 'package:immich_mobile/providers/gallery_permission.provider.dart';
-import 'package:immich_mobile/providers/app_settings.provider.dart';
-import 'package:immich_mobile/services/app_settings.service.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/providers/app_life_cycle.provider.dart';
-import 'package:immich_mobile/services/local_notification.service.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/utils/backup_progress.dart';
+import 'package:ram_mobile/services/background.service.dart';
+import 'package:ram_mobile/models/backup/backup_state.model.dart';
+import 'package:ram_mobile/models/backup/current_upload_asset.model.dart';
+import 'package:ram_mobile/models/backup/error_upload_asset.model.dart';
+import 'package:ram_mobile/models/backup/manual_upload_state.model.dart';
+import 'package:ram_mobile/providers/backup/backup.provider.dart';
+import 'package:ram_mobile/providers/backup/error_backup_list.provider.dart';
+import 'package:ram_mobile/services/backup.service.dart';
+import 'package:ram_mobile/providers/gallery_permission.provider.dart';
+import 'package:ram_mobile/providers/app_settings.provider.dart';
+import 'package:ram_mobile/services/app_settings.service.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/providers/app_life_cycle.provider.dart';
+import 'package:ram_mobile/services/local_notification.service.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
+import 'package:ram_mobile/utils/backup_progress.dart';
 import 'package:logging/logging.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:photo_manager/photo_manager.dart';
@@ -348,7 +348,7 @@ class ManualUploadNotifier extends StateNotifier<ManualUploadState> {
         await ref.read(backgroundServiceProvider).acquireLock();
     if (!hasLock) {
       debugPrint("[uploadAssets] could not acquire lock, exiting");
-      ImmichToast.show(
+      ramToast.show(
         context: context,
         msg: "backup_manual_failed".tr(),
         toastType: ToastType.info,
@@ -379,7 +379,7 @@ class ManualUploadNotifier extends StateNotifier<ManualUploadState> {
 
     if (showInProgress) {
       if (context.mounted) {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: "backup_manual_in_progress".tr(),
           toastType: ToastType.info,

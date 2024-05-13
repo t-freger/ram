@@ -3,7 +3,7 @@
   import { photoViewer } from '$lib/stores/assets.store';
   import { getAssetThumbnailUrl, getPeopleThumbnailUrl } from '$lib/utils';
   import { getPersonNameWithHiddenValue } from '$lib/utils/person';
-  import { AssetTypeEnum, ThumbnailFormat, type AssetFaceResponseDto, type PersonResponseDto } from '@immich/sdk';
+  import { AssetTypeEnum, ThumbnailFormat, type AssetFaceResponseDto, type PersonResponseDto } from '@ram/sdk';
   import { mdiArrowLeftThin, mdiClose, mdiMagnify, mdiPlus } from '@mdi/js';
   import { createEventDispatcher } from 'svelte';
   import { linear } from 'svelte/easing';
@@ -114,13 +114,13 @@
 
 <section
   transition:fly={{ x: 360, duration: 100, easing: linear }}
-  class="absolute top-0 z-[2001] h-full w-[360px] overflow-x-hidden p-2 bg-immich-bg dark:bg-immich-dark-bg dark:text-immich-dark-fg"
+  class="absolute top-0 z-[2001] h-full w-[360px] overflow-x-hidden p-2 bg-ram-bg dark:bg-ram-dark-bg dark:text-ram-dark-fg"
 >
   <div class="flex place-items-center justify-between gap-2">
     {#if !searchFaces}
       <div class="flex items-center gap-2">
         <CircleIconButton icon={mdiArrowLeftThin} title="Back" on:click={handleBackButton} />
-        <p class="flex text-lg text-immich-fg dark:text-immich-dark-fg">Select face</p>
+        <p class="flex text-lg text-ram-fg dark:text-ram-dark-fg">Select face</p>
       </div>
       <div class="flex justify-end gap-2">
         <CircleIconButton
@@ -158,7 +158,7 @@
   </div>
   <div class="px-4 py-4 text-sm">
     <h2 class="mb-8 mt-4 uppercase">All people</h2>
-    <div class="immich-scrollbar mt-4 flex flex-wrap gap-2 overflow-y-auto">
+    <div class="ram-scrollbar mt-4 flex flex-wrap gap-2 overflow-y-auto">
       {#each showPeople as person (person.id)}
         {#if person.id !== editedPerson.id}
           <div class="w-fit">

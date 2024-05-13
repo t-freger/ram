@@ -1,12 +1,12 @@
-# Immich Mobile Application - Flutter
+# ram Mobile Application - Flutter
 
-The Immich mobile app is a Flutter-based solution leveraging the Isar Database for local storage and Riverpod for state management. This structure optimizes functionality and maintainability, allowing for efficient development and robust performance.
+The ram mobile app is a Flutter-based solution leveraging the Isar Database for local storage and Riverpod for state management. This structure optimizes functionality and maintainability, allowing for efficient development and robust performance.
 
 ## Setup
 
 You must set up Flutter toolchain in your machine before you can perform any of the development.
 
-## Immich-Flutter Directory Structure
+## ram-Flutter Directory Structure
 
 Below are the directory inside the `lib` directory:
 
@@ -29,9 +29,9 @@ Below are the directory inside the `lib` directory:
 
 - `utils`: A collection of utility classes and functions catering to different app functionalities, including async_mutex.dart, bytes_units.dart, debounce.dart, migration.dart, and more.
 
-## Immich Architectural Pattern
+## ram Architectural Pattern
 
-The Immich Flutter app embraces a well-defined architectural pattern inspired by the Model-View-ViewModel (MVVM) approach. This layout organizes modules for models, providers, services, UI, and views, creating a modular development approach that strongly emphasizes a clean separation of concerns.
+The ram Flutter app embraces a well-defined architectural pattern inspired by the Model-View-ViewModel (MVVM) approach. This layout organizes modules for models, providers, services, UI, and views, creating a modular development approach that strongly emphasizes a clean separation of concerns.
 
 Please use the `module_template` provided to create a new module.
 
@@ -39,16 +39,16 @@ Please use the `module_template` provided to create a new module.
 
 Below is how your code needs to be structured:
 
-- Models: In Immich, Models are like the app's blueprint—they're essential for organizing and using information. Imagine them as containers that hold data the app needs to function. They also handle basic rules and logic for managing and interacting with this data across the app.
+- Models: In ram, Models are like the app's blueprint—they're essential for organizing and using information. Imagine them as containers that hold data the app needs to function. They also handle basic rules and logic for managing and interacting with this data across the app.
 
-- Providers (Riverpod): Providers in Immich are a bit like traffic managers. They help different parts of the app communicate and share information effectively. They ensure that the right data gets to the right places at the right time. These providers use Riverpod, a tool that helps with managing and organizing how the app's information flows. Everything related to the state goes here.
+- Providers (Riverpod): Providers in ram are a bit like traffic managers. They help different parts of the app communicate and share information effectively. They ensure that the right data gets to the right places at the right time. These providers use Riverpod, a tool that helps with managing and organizing how the app's information flows. Everything related to the state goes here.
 
-- Services: Services are the helpful behind-the-scenes workers in Immich. They handle important tasks like handling network requests or managing other essential functions. These services work independently and focus on supporting the app's main functionalities.
+- Services: Services are the helpful behind-the-scenes workers in ram. They handle important tasks like handling network requests or managing other essential functions. These services work independently and focus on supporting the app's main functionalities.
 
-- UI: In Immich, the UI focuses solely on how things appear and feel without worrying about the app's complex inner workings. You can slot in your reusable widget here.
+- UI: In ram, the UI focuses solely on how things appear and feel without worrying about the app's complex inner workings. You can slot in your reusable widget here.
 
 - Views: Views use Providers to get the needed information and handle actions without dealing with the technical complexities behind the scenes. Normally Flutter's screen & pages goes here.
 
 ## Contributing
 
-Please refer to the [architecture](https://immich.app/docs/developer/architecture/) for contributing to the mobile app!
+Please refer to the [architecture](https://ram.app/docs/developer/architecture/) for contributing to the mobile app!

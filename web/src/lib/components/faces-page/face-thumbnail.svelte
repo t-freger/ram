@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getPeopleThumbnailUrl } from '$lib/utils';
-  import { type PersonResponseDto } from '@immich/sdk';
+  import { type PersonResponseDto } from '@ram/sdk';
   import { createEventDispatcher } from 'svelte';
   import ImageThumbnail from '../assets/thumbnail/image-thumbnail.svelte';
 
@@ -32,14 +32,14 @@
     class:rounded-full={circle}
     class:rounded-lg={!circle}
     class:border-transparent={!border}
-    class:dark:border-immich-dark-primary={border}
-    class:border-immich-primary={border}
+    class:dark:border-ram-dark-primary={border}
+    class:border-ram-primary={border}
   >
     <ImageThumbnail {circle} url={getPeopleThumbnailUrl(person.id)} altText={person.name} widthStyle="100%" shadow />
   </div>
 
   <div
-    class="absolute left-0 top-0 h-full w-full bg-immich-primary/30 opacity-0"
+    class="absolute left-0 top-0 h-full w-full bg-ram-primary/30 opacity-0"
     class:hover:opacity-100={selectable}
     class:rounded-full={circle}
     class:rounded-lg={!circle}

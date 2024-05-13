@@ -65,7 +65,7 @@
     updateAlbumInfo,
     type ActivityResponseDto,
     type AlbumUserAddDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import {
     mdiArrowLeft,
     mdiCogOutline,
@@ -499,7 +499,7 @@
       {#if viewMode === ViewMode.SELECT_ASSETS}
         <ControlAppBar on:close={handleCloseSelectAssets}>
           <svelte:fragment slot="leading">
-            <p class="text-lg dark:text-immich-dark-fg">
+            <p class="text-lg dark:text-ram-dark-fg">
               {#if $timelineSelected.size === 0}
                 Add to album
               {:else}
@@ -511,7 +511,7 @@
           <svelte:fragment slot="trailing">
             <button
               on:click={handleSelectFromComputer}
-              class="rounded-lg px-6 py-2 text-sm font-medium text-immich-primary transition-all hover:bg-immich-primary/10 dark:text-immich-dark-primary dark:hover:bg-immich-dark-primary/25"
+              class="rounded-lg px-6 py-2 text-sm font-medium text-ram-primary transition-all hover:bg-ram-primary/10 dark:text-ram-dark-primary dark:hover:bg-ram-dark-primary/25"
             >
               Select from computer
             </button>
@@ -530,7 +530,7 @@
     {/if}
 
     <main
-      class="relative h-screen overflow-hidden bg-immich-bg px-6 pt-[var(--navbar-height)] dark:bg-immich-dark-bg"
+      class="relative h-screen overflow-hidden bg-ram-bg px-6 pt-[var(--navbar-height)] dark:bg-ram-dark-bg"
       style={`width:${assetGridWidth}px`}
     >
       <!-- Use key because AssetGrid can't deal with changing stores -->
@@ -618,12 +618,12 @@
             {#if album.assetCount === 0}
               <section id="empty-album" class=" mt-[200px] flex place-content-center place-items-center">
                 <div class="w-[300px]">
-                  <p class="text-xs dark:text-immich-dark-fg">ADD PHOTOS</p>
+                  <p class="text-xs dark:text-ram-dark-fg">ADD PHOTOS</p>
                   <button
                     on:click={() => (viewMode = ViewMode.SELECT_ASSETS)}
-                    class="mt-5 flex w-full place-items-center gap-6 rounded-md border bg-immich-bg px-8 py-8 text-immich-fg transition-all hover:bg-gray-100 hover:text-immich-primary dark:border-none dark:bg-immich-dark-gray dark:text-immich-dark-fg dark:hover:text-immich-dark-primary"
+                    class="mt-5 flex w-full place-items-center gap-6 rounded-md border bg-ram-bg px-8 py-8 text-ram-fg transition-all hover:bg-gray-100 hover:text-ram-primary dark:border-none dark:bg-ram-dark-gray dark:text-ram-dark-fg dark:hover:text-ram-dark-primary"
                   >
-                    <span class="text-text-immich-primary dark:text-immich-dark-primary"
+                    <span class="text-text-ram-primary dark:text-ram-dark-primary"
                       ><Icon path={mdiPlus} size="24" />
                     </span>
                     <span class="text-lg">Select photos</span>
@@ -654,7 +654,7 @@
       <div
         transition:fly={{ duration: 150 }}
         id="activity-panel"
-        class="z-[2] w-[360px] md:w-[460px] overflow-y-auto bg-immich-bg transition-all dark:border-l dark:border-l-immich-dark-gray dark:bg-immich-dark-bg"
+        class="z-[2] w-[360px] md:w-[460px] overflow-y-auto bg-ram-bg transition-all dark:border-l dark:border-l-ram-dark-gray dark:bg-ram-dark-bg"
         translate="yes"
       >
         <ActivityViewer

@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/providers/haptic_feedback.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_thumbnail.dart';
-import 'package:immich_mobile/utils/storage_indicator.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/providers/haptic_feedback.provider.dart';
+import 'package:ram_mobile/widgets/common/ram_thumbnail.dart';
+import 'package:ram_mobile/utils/storage_indicator.dart';
 import 'package:isar/isar.dart';
 
 class ThumbnailImage extends ConsumerWidget {
@@ -135,7 +135,7 @@ class ThumbnailImage extends ConsumerWidget {
           tag: isFromDto
               ? '${asset.remoteId}-$heroOffset'
               : asset.id + heroOffset,
-          child: ImmichThumbnail(
+          child: ramThumbnail(
             asset: asset,
             height: 250,
             width: 250,

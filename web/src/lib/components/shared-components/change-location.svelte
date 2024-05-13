@@ -8,7 +8,7 @@
   import LoadingSpinner from './loading-spinner.svelte';
   import { delay } from '$lib/utils/asset-utils';
   import { timeToLoadTheMap } from '$lib/constants';
-  import { searchPlaces, type AssetResponseDto, type PlacesResponseDto } from '@immich/sdk';
+  import { searchPlaces, type AssetResponseDto, type PlacesResponseDto } from '@ram/sdk';
   import SearchBar from '../elements/search-bar.svelte';
   import { listNavigation } from '$lib/utils/list-navigation';
 
@@ -133,7 +133,7 @@
         {#if !hideSuggestion}
           {#each suggestedPlaces as place, index}
             <button
-              class=" flex w-full border-t border-gray-400 dark:border-immich-dark-gray h-14 place-items-center bg-gray-200 p-2 dark:bg-gray-700 hover:bg-gray-300 hover:dark:bg-[#232932] focus:bg-gray-300 focus:dark:bg-[#232932] {index ===
+              class=" flex w-full border-t border-gray-400 dark:border-ram-dark-gray h-14 place-items-center bg-gray-200 p-2 dark:bg-gray-700 hover:bg-gray-300 hover:dark:bg-[#232932] focus:bg-gray-300 focus:dark:bg-[#232932] {index ===
               suggestedPlaces.length - 1
                 ? 'rounded-b-lg border-b'
                 : ''}"

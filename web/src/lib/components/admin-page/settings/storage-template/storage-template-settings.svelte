@@ -6,7 +6,7 @@
     getStorageTemplateOptions,
     type SystemConfigDto,
     type SystemConfigTemplateStorageOptionDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import handlebar from 'handlebars';
   import { isEqual } from 'lodash-es';
   import * as luxon from 'luxon';
@@ -84,11 +84,11 @@
   };
 </script>
 
-<section class="dark:text-immich-dark-fg mt-2">
+<section class="dark:text-ram-dark-fg mt-2">
   <div in:fade={{ duration: 500 }} class="mx-4 flex flex-col gap-4 py-4">
-    <p class="text-sm dark:text-immich-dark-fg">
+    <p class="text-sm dark:text-ram-dark-fg">
       For more details about this feature, refer to the <a
-        href="https://immich.app/docs/administration/storage-template"
+        href="https://ram.app/docs/administration/storage-template"
         class="underline"
         target="_blank"
         rel="noreferrer"
@@ -96,7 +96,7 @@
       </a>
       and its
       <a
-        href="https://immich.app/docs/administration/backup-and-restore#asset-types-and-storage-locations"
+        href="https://ram.app/docs/administration/backup-and-restore#asset-types-and-storage-locations"
         class="underline"
         target="_blank"
         rel="noreferrer"
@@ -131,7 +131,7 @@
       {#if config.storageTemplate.enabled}
         <hr />
 
-        <h3 class="text-base font-medium text-immich-primary dark:text-immich-dark-primary">Variables</h3>
+        <h3 class="text-base font-medium text-ram-primary dark:text-ram-dark-primary">Variables</h3>
 
         <section class="support-date">
           {#await getSupportDateTimeFormat()}
@@ -148,7 +148,7 @@
         </section>
 
         <div class="flex flex-col mt-4">
-          <h3 class="text-base font-medium text-immich-primary dark:text-immich-dark-primary">Template</h3>
+          <h3 class="text-base font-medium text-ram-primary dark:text-ram-dark-primary">Template</h3>
 
           <div class="my-2 text-sm">
             <h4>PREVIEW</h4>
@@ -156,18 +156,18 @@
 
           <p class="text-sm">
             Approximately path length limit : <span
-              class="font-semibold text-immich-primary dark:text-immich-dark-primary"
+              class="font-semibold text-ram-primary dark:text-ram-dark-primary"
               >{parsedTemplate().length + $user.id.length + 'UPLOAD_LOCATION'.length}</span
             >/260
           </p>
 
           <p class="text-sm">
-            <code class="text-immich-primary dark:text-immich-dark-primary">{$user.storageLabel || $user.id}</code> is the
+            <code class="text-ram-primary dark:text-ram-dark-primary">{$user.storageLabel || $user.id}</code> is the
             user's Storage Label
           </p>
 
-          <p class="p-4 py-2 mt-2 text-xs bg-gray-200 rounded-lg dark:bg-gray-700 dark:text-immich-dark-fg">
-            <span class="text-immich-fg/25 dark:text-immich-dark-fg/50"
+          <p class="p-4 py-2 mt-2 text-xs bg-gray-200 rounded-lg dark:bg-gray-700 dark:text-ram-dark-fg">
+            <span class="text-ram-fg/25 dark:text-ram-dark-fg/50"
               >UPLOAD_LOCATION/{$user.storageLabel || $user.id}</span
             >/{parsedTemplate()}.jpg
           </p>
@@ -176,7 +176,7 @@
             <div class="flex flex-col my-2">
               <label class="text-sm" for="preset-select">PRESET</label>
               <select
-                class="immich-form-input p-2 mt-2 text-sm rounded-lg bg-slate-200 hover:cursor-pointer dark:bg-gray-600"
+                class="ram-form-input p-2 mt-2 text-sm rounded-lg bg-slate-200 hover:cursor-pointer dark:bg-gray-600"
                 disabled={disabled || !config.storageTemplate.enabled}
                 name="presets"
                 id="preset-select"
@@ -205,12 +205,12 @@
 
             {#if !minified}
               <div id="migration-info" class="mt-2 text-sm">
-                <h3 class="text-base font-medium text-immich-primary dark:text-immich-dark-primary">Notes</h3>
+                <h3 class="text-base font-medium text-ram-primary dark:text-ram-dark-primary">Notes</h3>
                 <section class="flex flex-col gap-2">
                   <p>
                     Template changes will only apply to new assets. To retroactively apply the template to previously
                     uploaded assets, run the
-                    <a href={AppRoute.ADMIN_JOBS} class="text-immich-primary dark:text-immich-dark-primary"
+                    <a href={AppRoute.ADMIN_JOBS} class="text-ram-primary dark:text-ram-dark-primary"
                       >Storage Migration Job</a
                     >.
                   </p>
@@ -218,7 +218,7 @@
                     The template variable <span class="font-mono">{`{{album}}`}</span> will always be empty for new
                     assets, so manually running the
 
-                    <a href={AppRoute.ADMIN_JOBS} class="text-immich-primary dark:text-immich-dark-primary"
+                    <a href={AppRoute.ADMIN_JOBS} class="text-ram-primary dark:text-ram-dark-primary"
                       >Storage Migration Job</a
                     >
                     is required in order to successfully use the variable.

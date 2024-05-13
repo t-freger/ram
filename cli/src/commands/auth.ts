@@ -1,4 +1,4 @@
-import { getMyUserInfo } from '@immich/sdk';
+import { getMyUserInfo } from '@ram/sdk';
 import { existsSync } from 'node:fs';
 import { mkdir, unlink } from 'node:fs/promises';
 import { BaseOptions, connect, getAuthFilePath, logError, withError, writeAuthFile } from 'src/utils';

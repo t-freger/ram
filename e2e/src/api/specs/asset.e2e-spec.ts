@@ -8,7 +8,7 @@ import {
   getAllLibraries,
   getAssetInfo,
   updateAssets,
-} from '@immich/sdk';
+} from '@ram/sdk';
 import { exiftool } from 'exiftool-vendored';
 import { DateTime } from 'luxon';
 import { randomBytes } from 'node:crypto';
@@ -872,8 +872,8 @@ describe('/asset', () => {
 
     // These hashes were created by copying the image files to a Samsung phone,
     // exporting the video from Samsung's stock Gallery app, and hashing them locally.
-    // This ensures that immich+exiftool are extracting the videos the same way Samsung does.
-    // DO NOT assume immich+exiftool are doing things correctly and just copy whatever hash it gives
+    // This ensures that ram+exiftool are extracting the videos the same way Samsung does.
+    // DO NOT assume ram+exiftool are doing things correctly and just copy whatever hash it gives
     // into the test here.
     const motionTests = [
       {

@@ -86,7 +86,7 @@ app = FastAPI(lifespan=lifespan)
 
 @app.get("/", response_model=MessageResponse)
 async def root() -> dict[str, str]:
-    return {"message": "Immich ML"}
+    return {"message": "ram ML"}
 
 
 @app.get("/ping", response_model=TextResponse)

@@ -70,9 +70,9 @@ export class AuditService {
   async getChecksums(dto: FileChecksumDto) {
     const results: FileChecksumResponseDto[] = [];
     for (const filename of dto.filenames) {
-      if (!StorageCore.isImmichPath(filename)) {
+      if (!StorageCore.isramPath(filename)) {
         throw new BadRequestException(
-          `Could not get the checksum of ${filename} because the file isn't accessible by Immich`,
+          `Could not get the checksum of ${filename} because the file isn't accessible by ram`,
         );
       }
 
@@ -84,9 +84,9 @@ export class AuditService {
 
   async fixItems(items: FileReportItemDto[]) {
     for (const { entityId: id, pathType, pathValue } of items) {
-      if (!StorageCore.isImmichPath(pathValue)) {
+      if (!StorageCore.isramPath(pathValue)) {
         throw new BadRequestException(
-          `Could not fix item ${id} with path ${pathValue} because the file isn't accessible by Immich`,
+          `Could not fix item ${id} with path ${pathValue} because the file isn't accessible by ram`,
         );
       }
 

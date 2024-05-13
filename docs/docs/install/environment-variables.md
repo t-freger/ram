@@ -6,7 +6,7 @@ sidebar_position: 90
 
 :::caution
 
-To change environment variables, you must recreate the Immich containers.
+To change environment variables, you must recreate the ram containers.
 Just restarting the containers does not replace the environment within the container!
 
 In order to recreate the container using docker compose, run `docker compose up -d`.
@@ -19,7 +19,7 @@ If this should not work, try running `docker compose up -d --force-recreate`.
 
 | Variable           | Description                     |  Default  | Services                                |
 | :----------------- | :------------------------------ | :-------: | :-------------------------------------- |
-| `IMMICH_VERSION`   | Image tags                      | `release` | server, microservices, machine learning |
+| `ram_VERSION`   | Image tags                      | `release` | server, microservices, machine learning |
 | `UPLOAD_LOCATION`  | Host Path for uploads           |           | server, microservices                   |
 | `DB_DATA_LOCATION` | Host Path for Postgres database |           | database                                |
 
@@ -29,7 +29,7 @@ These environment variables are used by the `docker-compose.yml` file and do **N
 
 ### Supported filesystems
 
-The Immich Postgres database (`DB_DATA_LOCATION`) must be located on a filesystem that supports user/group
+The ram Postgres database (`DB_DATA_LOCATION`) must be located on a filesystem that supports user/group
 ownership and permissions (EXT2/3/4, ZFS, APFS, BTRFS, XFS, etc.). It will not work on any filesystem formatted in NTFS or ex/FAT/32.
 It will not work in WSL (Windows Subsystem for Linux) when using a mounted host directory (commonly under `/mnt`).
 If this is an issue, you can change the bind mount to a Docker volume instead.
@@ -43,13 +43,13 @@ Regardless of filesystem, it is not recommended to use a network share for your 
 | `TZ`                            | Timezone                                     |                          | microservices                           |
 | `NODE_ENV`                      | Environment (production, development)        |       `production`       | server, microservices, machine learning |
 | `LOG_LEVEL`                     | Log Level (verbose, debug, log, warn, error) |          `log`           | server, microservices, machine learning |
-| `IMMICH_MEDIA_LOCATION`         | Media Location                               | `./upload`<sup>\*1</sup> | server, microservices                   |
-| `IMMICH_CONFIG_FILE`            | Path to config file                          |                          | server, microservices                   |
-| `IMMICH_WEB_ROOT`               | Path of root index.html                      |    `/usr/src/app/www`    | server                                  |
-| `IMMICH_REVERSE_GEOCODING_ROOT` | Path of reverse geocoding dump directory     |   `/usr/src/resources`   | microservices                           |
+| `ram_MEDIA_LOCATION`         | Media Location                               | `./upload`<sup>\*1</sup> | server, microservices                   |
+| `ram_CONFIG_FILE`            | Path to config file                          |                          | server, microservices                   |
+| `ram_WEB_ROOT`               | Path of root index.html                      |    `/usr/src/app/www`    | server                                  |
+| `ram_REVERSE_GEOCODING_ROOT` | Path of reverse geocoding dump directory     |   `/usr/src/resources`   | microservices                           |
 
 \*1: With the default `WORKDIR` of `/usr/src/app`, this path will resolve to `/usr/src/app/upload`.
-It only need to be set if the Immich deployment method is changing.
+It only need to be set if the ram deployment method is changing.
 
 :::tip
 `TZ` should be set to a `TZ identifier` from [this list][tz-list]. For example, `TZ="Etc/UTC"`.
@@ -76,7 +76,7 @@ It only need to be set if the Immich deployment method is changing.
 | `DB_PORT`                           | Database Port                                                            |    `5432`    | server, microservices                         |
 | `DB_USERNAME`                       | Database User                                                            |  `postgres`  | server, microservices, database<sup>\*1</sup> |
 | `DB_PASSWORD`                       | Database Password                                                        |  `postgres`  | server, microservices, database<sup>\*1</sup> |
-| `DB_DATABASE_NAME`                  | Database Name                                                            |   `immich`   | server, microservices, database<sup>\*1</sup> |
+| `DB_DATABASE_NAME`                  | Database Name                                                            |   `ram`   | server, microservices, database<sup>\*1</sup> |
 | `DB_VECTOR_EXTENSION`<sup>\*2</sup> | Database Vector Extension (one of [`pgvector`, `pgvecto.rs`])            | `pgvecto.rs` | server, microservices                         |
 | `DB_SKIP_MIGRATIONS`                | Whether to skip running migrations on startup (one of [`true`, `false`]) |   `false`    | server, microservices                         |
 
@@ -168,11 +168,11 @@ Other machine learning parameters can be tuned from the admin UI.
 
 | Variable                       | Description                                                                                   | Default | Services              |
 | :----------------------------- | :-------------------------------------------------------------------------------------------- | :-----: | :-------------------- |
-| `IMMICH_METRICS`<sup>\*1</sup> | Toggle all metrics (one of [`true`, `false`])                                                 |         | server, microservices |
-| `IMMICH_API_METRICS`           | Toggle metrics for endpoints and response times (one of [`true`, `false`])                    |         | server, microservices |
-| `IMMICH_HOST_METRICS`          | Toggle metrics for CPU and memory utilization for host and process (one of [`true`, `false`]) |         | server, microservices |
-| `IMMICH_IO_METRICS`            | Toggle metrics for database queries, image processing, etc. (one of [`true`, `false`])        |         | server, microservices |
-| `IMMICH_JOB_METRICS`           | Toggle metrics for jobs and queues (one of [`true`, `false`])                                 |         | server, microservices |
+| `ram_METRICS`<sup>\*1</sup> | Toggle all metrics (one of [`true`, `false`])                                                 |         | server, microservices |
+| `ram_API_METRICS`           | Toggle metrics for endpoints and response times (one of [`true`, `false`])                    |         | server, microservices |
+| `ram_HOST_METRICS`          | Toggle metrics for CPU and memory utilization for host and process (one of [`true`, `false`]) |         | server, microservices |
+| `ram_IO_METRICS`            | Toggle metrics for database queries, image processing, etc. (one of [`true`, `false`])        |         | server, microservices |
+| `ram_JOB_METRICS`           | Toggle metrics for jobs and queues (one of [`true`, `false`])                                 |         | server, microservices |
 
 \*1: Overridden for a metric group when its corresponding environmental variable is set.
 

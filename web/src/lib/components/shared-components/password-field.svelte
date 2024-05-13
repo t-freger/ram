@@ -20,7 +20,7 @@
 <div class="relative w-full">
   <input
     {...$$restProps}
-    class="immich-form-input w-full !pr-12"
+    class="ram-form-input w-full !pr-12"
     type={showPassword ? 'text' : 'password'}
     {required}
     value={password}

@@ -11,7 +11,7 @@ import _ from 'lodash';
 import { writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { CLIP_MODEL_INFO, serverVersion } from 'src/constants';
-import { ImmichCookie, ImmichHeader } from 'src/dtos/auth.dto';
+import { ramCookie, ramHeader } from 'src/dtos/auth.dto';
 import { ILoggerRepository } from 'src/interfaces/logger.interface';
 import { Metadata } from 'src/middleware/auth.guard';
 
@@ -126,20 +126,20 @@ const patchOpenAPI = (document: OpenAPIObject) => {
 
 export const useSwagger = (app: INestApplication, isDevelopment: boolean) => {
   const config = new DocumentBuilder()
-    .setTitle('Immich')
-    .setDescription('Immich API')
+    .setTitle('ram')
+    .setDescription('ram API')
     .setVersion(serverVersion.toString())
     .addBearerAuth({
       type: 'http',
       scheme: 'Bearer',
       in: 'header',
     })
-    .addCookieAuth(ImmichCookie.ACCESS_TOKEN)
+    .addCookieAuth(ramCookie.ACCESS_TOKEN)
     .addApiKey(
       {
         type: 'apiKey',
         in: 'header',
-        name: ImmichHeader.API_KEY,
+        name: ramHeader.API_KEY,
       },
       Metadata.API_KEY_SECURITY,
     )
@@ -156,14 +156,14 @@ export const useSwagger = (app: INestApplication, isDevelopment: boolean) => {
     swaggerOptions: {
       persistAuthorization: true,
     },
-    customSiteTitle: 'Immich API Documentation',
+    customSiteTitle: 'ram API Documentation',
   };
 
   SwaggerModule.setup('doc', app, specification, customOptions);
 
   if (isDevelopment) {
     // Generate API Documentation only in development mode
-    const outputPath = path.resolve(process.cwd(), '../open-api/immich-openapi-specs.json');
+    const outputPath = path.resolve(process.cwd(), '../open-api/ram-openapi-specs.json');
     writeFileSync(outputPath, JSON.stringify(patchOpenAPI(specification), null, 2), { encoding: 'utf8' });
   }
 };

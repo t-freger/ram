@@ -2,7 +2,7 @@
   import { flip } from 'svelte/animate';
   import { slide } from 'svelte/transition';
   import { AppRoute } from '$lib/constants';
-  import type { AlbumResponseDto } from '@immich/sdk';
+  import type { AlbumResponseDto } from '@ram/sdk';
   import { albumViewSettings } from '$lib/stores/preferences.store';
   import type { ContextMenuPosition } from '$lib/utils/context-menu';
   import { type AlbumGroup, isAlbumGroupCollapsed, toggleAlbumGroupCollapsing } from '$lib/utils/album-utils';
@@ -38,9 +38,9 @@
         class="inline-block -mt-2.5 transition-all duration-[250ms] {iconRotation}"
       />
       <span class="font-bold text-3xl text-black dark:text-white">{group.name}</span>
-      <span class="ml-1.5 dark:text-immich-dark-fg">({albums.length} {albums.length > 1 ? 'albums' : 'album'})</span>
+      <span class="ml-1.5 dark:text-ram-dark-fg">({albums.length} {albums.length > 1 ? 'albums' : 'album'})</span>
     </p>
-    <hr class="dark:border-immich-dark-gray" />
+    <hr class="dark:border-ram-dark-gray" />
   </div>
 {/if}
 

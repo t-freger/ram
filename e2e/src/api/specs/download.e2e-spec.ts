@@ -1,4 +1,4 @@
-import { AssetFileUploadResponseDto, LoginResponseDto } from '@immich/sdk';
+import { AssetFileUploadResponseDto, LoginResponseDto } from '@ram/sdk';
 import { readFile, writeFile } from 'node:fs/promises';
 import { errorDto } from 'src/responses';
 import { app, tempDir, utils } from 'src/utils';

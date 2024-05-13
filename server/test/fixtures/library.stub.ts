@@ -103,7 +103,7 @@ export const libraryStub = {
     isVisible: true,
     exclusionPatterns: ['**/dir1/**'],
   }),
-  hasImmichPaths: Object.freeze<LibraryEntity>({
+  hasramPaths: Object.freeze<LibraryEntity>({
     id: 'library-id1337',
     name: 'importpath-exclusion-library1',
     assets: [],

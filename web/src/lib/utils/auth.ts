@@ -1,7 +1,7 @@
 import { browser } from '$app/environment';
 import { serverInfo } from '$lib/stores/server-info.store';
 import { user } from '$lib/stores/user.store';
-import { getMyUserInfo, getServerInfo } from '@immich/sdk';
+import { getMyUserInfo, getServerInfo } from '@ram/sdk';
 import { redirect } from '@sveltejs/kit';
 import { get } from 'svelte/store';
 import { AppRoute } from '../constants';
@@ -31,7 +31,7 @@ const hasAuthCookie = (): boolean => {
 
   for (const cookie of document.cookie.split('; ')) {
     const [name] = cookie.split('=');
-    if (name === 'immich_is_authenticated') {
+    if (name === 'ram_is_authenticated') {
       return true;
     }
   }

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { AppRoute, dateFormats } from '$lib/constants';
-  import type { AlbumResponseDto } from '@immich/sdk';
+  import type { AlbumResponseDto } from '@ram/sdk';
   import type { ContextMenuPosition } from '$lib/utils/context-menu';
   import { user } from '$lib/stores/user.store';
   import { locale } from '$lib/stores/preferences.store';
@@ -22,7 +22,7 @@
 </script>
 
 <tr
-  class="flex h-[50px] w-full place-items-center border-[3px] border-transparent p-2 text-center odd:bg-immich-gray even:bg-immich-bg hover:cursor-pointer hover:border-immich-primary/75 odd:dark:bg-immich-dark-gray/75 even:dark:bg-immich-dark-gray/50 dark:hover:border-immich-dark-primary/75 md:p-5"
+  class="flex h-[50px] w-full place-items-center border-[3px] border-transparent p-2 text-center odd:bg-ram-gray even:bg-ram-bg hover:cursor-pointer hover:border-ram-primary/75 odd:dark:bg-ram-dark-gray/75 even:dark:bg-ram-dark-gray/50 dark:hover:border-ram-dark-primary/75 md:p-5"
   on:click={() => goto(`${AppRoute.ALBUMS}/${album.id}`)}
   on:contextmenu|preventDefault={(e) => showContextMenu({ x: e.x, y: e.y })}
 >

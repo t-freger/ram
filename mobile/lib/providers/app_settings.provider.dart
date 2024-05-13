@@ -1,4 +1,4 @@
-import 'package:immich_mobile/services/app_settings.service.dart';
+import 'package:ram_mobile/services/app_settings.service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'app_settings.provider.g.dart';

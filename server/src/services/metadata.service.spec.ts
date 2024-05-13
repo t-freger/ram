@@ -13,7 +13,7 @@ import { ClientEvent, IEventRepository } from 'src/interfaces/event.interface';
 import { IJobRepository, JobName, JobStatus } from 'src/interfaces/job.interface';
 import { ILoggerRepository } from 'src/interfaces/logger.interface';
 import { IMediaRepository } from 'src/interfaces/media.interface';
-import { IMetadataRepository, ImmichTags } from 'src/interfaces/metadata.interface';
+import { IMetadataRepository, ramTags } from 'src/interfaces/metadata.interface';
 import { IMoveRepository } from 'src/interfaces/move.interface';
 import { IPersonRepository } from 'src/interfaces/person.interface';
 import { IStorageRepository } from 'src/interfaces/storage.interface';
@@ -531,7 +531,7 @@ describe(MetadataService.name, () => {
     });
 
     it('should save all metadata', async () => {
-      const tags: ImmichTags = {
+      const tags: ramTags = {
         BitsPerSample: 1,
         ComponentBitDepth: 1,
         ImagePixelDepth: '1',

@@ -1,5 +1,5 @@
 import { AppRoute } from '$lib/constants';
-import { getServerConfig } from '@immich/sdk';
+import { getServerConfig } from '@ram/sdk';
 import { redirect } from '@sveltejs/kit';
 import { loadUser } from '../lib/utils/auth';
 import type { PageLoad } from './$types';
@@ -22,7 +22,7 @@ export const load = (async () => {
   return {
     meta: {
       title: 'Welcome 🎉',
-      description: 'Immich Web Interface',
+      description: 'ram Web Interface',
     },
   };
 }) satisfies PageLoad;

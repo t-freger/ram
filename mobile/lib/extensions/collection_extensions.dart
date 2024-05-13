@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/entities/user.entity.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/entities/user.entity.dart';
 
 extension ListExtension<E> on List<E> {
   List<E> uniqueConsecutive({
@@ -43,7 +43,7 @@ extension IntListExtension on Iterable<int> {
 }
 
 extension AssetListExtension on Iterable<Asset> {
-  /// Returns the assets that are already available in the Immich server
+  /// Returns the assets that are already available in the ram server
   Iterable<Asset> remoteOnly({
     void Function()? errorCallback,
   }) {
@@ -71,7 +71,7 @@ extension AssetListExtension on Iterable<Asset> {
     return this;
   }
 
-  /// Filters out offline assets and returns those that are still accessible by the Immich server
+  /// Filters out offline assets and returns those that are still accessible by the ram server
   Iterable<Asset> nonOfflineOnly({
     void Function()? errorCallback,
   }) {

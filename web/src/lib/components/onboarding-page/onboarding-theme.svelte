@@ -15,7 +15,7 @@
 </script>
 
 <OnboardingCard>
-  <p class="text-xl text-immich-primary dark:text-immich-dark-primary">COLOR THEME</p>
+  <p class="text-xl text-ram-primary dark:text-ram-dark-primary">COLOR THEME</p>
 
   <div>
     <p class="pb-6 font-light">Choose a color theme for your instance. You can change this later in your settings.</p>
@@ -23,22 +23,22 @@
 
   <div class="flex gap-4 mb-6">
     <button
-      class="w-1/2 aspect-square bg-immich-bg rounded-3xl transition-all shadow-sm hover:shadow-xl border-[3px] border-immich-dark-primary/80 border-immich-primary dark:border dark:border-transparent"
+      class="w-1/2 aspect-square bg-ram-bg rounded-3xl transition-all shadow-sm hover:shadow-xl border-[3px] border-ram-dark-primary/80 border-ram-primary dark:border dark:border-transparent"
       on:click={() => ($colorTheme.value = Theme.LIGHT)}
     >
       <div
-        class="flex flex-col place-items-center place-content-center justify-around h-full w-full text-immich-primary"
+        class="flex flex-col place-items-center place-content-center justify-around h-full w-full text-ram-primary"
       >
         <Icon path={sunPath} viewBox={sunViewBox} size="96" />
         <p class="font-semibold text-4xl">LIGHT</p>
       </div>
     </button>
     <button
-      class="w-1/2 aspect-square bg-immich-dark-bg rounded-3xl dark:border-[3px] dark:border-immich-dark-primary/80 dark:border-immich-dark-primary border border-transparent"
+      class="w-1/2 aspect-square bg-ram-dark-bg rounded-3xl dark:border-[3px] dark:border-ram-dark-primary/80 dark:border-ram-dark-primary border border-transparent"
       on:click={() => ($colorTheme.value = Theme.DARK)}
     >
       <div
-        class="flex flex-col place-items-center place-content-center justify-around h-full w-full text-immich-dark-primary"
+        class="flex flex-col place-items-center place-content-center justify-around h-full w-full text-ram-dark-primary"
       >
         <Icon path={moonPath} viewBox={moonViewBox} size="96" />
         <p class="font-semibold text-4xl">DARK</p>

@@ -1,5 +1,5 @@
 {
-  "name": "immich-web",
+  "name": "ram-web",
   "version": "1.103.1",
   "license": "GNU Affero General Public License version 3",
   "scripts": {
@@ -59,7 +59,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@immich/sdk": "file:../open-api/typescript-sdk",
+    "@ram/sdk": "file:../open-api/typescript-sdk",
     "@mdi/js": "^7.4.47",
     "@photo-sphere-viewer/core": "^5.7.1",
     "@photo-sphere-viewer/equirectangular-video-adapter": "^5.7.2",

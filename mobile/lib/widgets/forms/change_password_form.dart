@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/providers/backup/manual_upload.provider.dart';
-import 'package:immich_mobile/providers/authentication.provider.dart';
-import 'package:immich_mobile/providers/asset.provider.dart';
-import 'package:immich_mobile/providers/websocket.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/backup/backup.provider.dart';
+import 'package:ram_mobile/providers/backup/manual_upload.provider.dart';
+import 'package:ram_mobile/providers/authentication.provider.dart';
+import 'package:ram_mobile/providers/asset.provider.dart';
+import 'package:ram_mobile/providers/websocket.provider.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
 
 class ChangePasswordForm extends HookConsumerWidget {
   const ChangePasswordForm({super.key});
@@ -92,14 +92,14 @@ class ChangePasswordForm extends HookConsumerWidget {
 
                             AutoRouter.of(context).back();
 
-                            ImmichToast.show(
+                            ramToast.show(
                               context: context,
                               msg: "login_password_changed_success".tr(),
                               toastType: ToastType.success,
                               gravity: ToastGravity.TOP,
                             );
                           } else {
-                            ImmichToast.show(
+                            ramToast.show(
                               context: context,
                               msg: "login_password_changed_error".tr(),
                               toastType: ToastType.error,

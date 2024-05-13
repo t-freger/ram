@@ -4,7 +4,7 @@ import { Request, Response } from 'express';
 import { AuthType } from 'src/constants';
 import {
   AuthDto,
-  ImmichCookie,
+  ramCookie,
   LoginResponseDto,
   OAuthAuthorizeResponseDto,
   OAuthCallbackDto,
@@ -44,9 +44,9 @@ export class OAuthController {
     return respondWithCookie(res, body, {
       isSecure: loginDetails.isSecure,
       values: [
-        { key: ImmichCookie.ACCESS_TOKEN, value: body.accessToken },
-        { key: ImmichCookie.AUTH_TYPE, value: AuthType.OAUTH },
-        { key: ImmichCookie.IS_AUTHENTICATED, value: 'true' },
+        { key: ramCookie.ACCESS_TOKEN, value: body.accessToken },
+        { key: ramCookie.AUTH_TYPE, value: AuthType.OAUTH },
+        { key: ramCookie.IS_AUTHENTICATED, value: 'true' },
       ],
     });
   }

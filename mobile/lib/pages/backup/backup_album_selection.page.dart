@@ -3,12 +3,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/immich_colors.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/widgets/backup/album_info_card.dart';
-import 'package:immich_mobile/widgets/backup/album_info_list_tile.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
+import 'package:ram_mobile/constants/ram_colors.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/backup/backup.provider.dart';
+import 'package:ram_mobile/widgets/backup/album_info_card.dart';
+import 'package:ram_mobile/widgets/backup/album_info_list_tile.dart';
+import 'package:ram_mobile/widgets/common/ram_loading_indicator.dart';
 
 @RoutePage()
 class BackupAlbumSelectionPage extends HookConsumerWidget {
@@ -33,7 +33,7 @@ class BackupAlbumSelectionPage extends HookConsumerWidget {
       if (albums.isEmpty) {
         return const SliverToBoxAdapter(
           child: Center(
-            child: ImmichLoadingIndicator(),
+            child: ramLoadingIndicator(),
           ),
         );
       }
@@ -57,7 +57,7 @@ class BackupAlbumSelectionPage extends HookConsumerWidget {
       if (albums.isEmpty) {
         return const SliverToBoxAdapter(
           child: Center(
-            child: ImmichLoadingIndicator(),
+            child: ramLoadingIndicator(),
           ),
         );
       }
@@ -128,13 +128,13 @@ class BackupAlbumSelectionPage extends HookConsumerWidget {
                 album.name,
                 style: TextStyle(
                   fontSize: 12,
-                  color: isDarkTheme ? Colors.black : immichBackgroundColor,
+                  color: isDarkTheme ? Colors.black : ramBackgroundColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               backgroundColor: Colors.red[300],
               deleteIconColor:
-                  isDarkTheme ? Colors.black : immichBackgroundColor,
+                  isDarkTheme ? Colors.black : ramBackgroundColor,
               deleteIcon: const Icon(
                 Icons.cancel_rounded,
                 size: 15,

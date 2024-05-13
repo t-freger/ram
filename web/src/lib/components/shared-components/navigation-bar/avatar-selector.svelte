@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { UserAvatarColor, type UserResponseDto } from '@immich/sdk';
+  import { UserAvatarColor, type UserResponseDto } from '@ram/sdk';
   import { createEventDispatcher } from 'svelte';
   import FullScreenModal from '../full-screen-modal.svelte';
   import UserAvatar from '../user-avatar.svelte';

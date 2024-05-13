@@ -306,7 +306,7 @@ export class LibraryService {
     const validation = new ValidateLibraryImportPathResponseDto();
     validation.importPath = importPath;
 
-    if (StorageCore.isImmichPath(importPath)) {
+    if (StorageCore.isramPath(importPath)) {
       validation.message = 'Cannot use media upload folder for external libraries';
       return validation;
     }

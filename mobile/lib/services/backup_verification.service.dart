@@ -5,12 +5,12 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/entities/exif_info.entity.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/providers/db.provider.dart';
-import 'package:immich_mobile/services/api.service.dart';
-import 'package:immich_mobile/utils/diff.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/entities/exif_info.entity.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/providers/db.provider.dart';
+import 'package:ram_mobile/services/api.service.dart';
+import 'package:ram_mobile/utils/diff.dart';
 import 'package:isar/isar.dart';
 import 'package:photo_manager/photo_manager.dart' show PhotoManager;
 

@@ -1,4 +1,4 @@
-import { LoginResponseDto, deleteUser, getUserById } from '@immich/sdk';
+import { LoginResponseDto, deleteUser, getUserById } from '@ram/sdk';
 import { Socket } from 'socket.io-client';
 import { createUserDto, userDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
@@ -47,11 +47,11 @@ describe('/user', () => {
       expect(body).toHaveLength(5);
       expect(body).toEqual(
         expect.arrayContaining([
-          expect.objectContaining({ email: 'admin@immich.cloud' }),
-          expect.objectContaining({ email: 'user1@immich.cloud' }),
-          expect.objectContaining({ email: 'user2@immich.cloud' }),
-          expect.objectContaining({ email: 'user3@immich.cloud' }),
-          expect.objectContaining({ email: 'user4@immich.cloud' }),
+          expect.objectContaining({ email: 'admin@ram.cloud' }),
+          expect.objectContaining({ email: 'user1@ram.cloud' }),
+          expect.objectContaining({ email: 'user2@ram.cloud' }),
+          expect.objectContaining({ email: 'user3@ram.cloud' }),
+          expect.objectContaining({ email: 'user4@ram.cloud' }),
         ]),
       );
     });
@@ -65,10 +65,10 @@ describe('/user', () => {
       expect(body).toHaveLength(4);
       expect(body).toEqual(
         expect.arrayContaining([
-          expect.objectContaining({ email: 'admin@immich.cloud' }),
-          expect.objectContaining({ email: 'user2@immich.cloud' }),
-          expect.objectContaining({ email: 'user3@immich.cloud' }),
-          expect.objectContaining({ email: 'user4@immich.cloud' }),
+          expect.objectContaining({ email: 'admin@ram.cloud' }),
+          expect.objectContaining({ email: 'user2@ram.cloud' }),
+          expect.objectContaining({ email: 'user3@ram.cloud' }),
+          expect.objectContaining({ email: 'user4@ram.cloud' }),
         ]),
       );
     });
@@ -83,11 +83,11 @@ describe('/user', () => {
       expect(body).toHaveLength(5);
       expect(body).toEqual(
         expect.arrayContaining([
-          expect.objectContaining({ email: 'admin@immich.cloud' }),
-          expect.objectContaining({ email: 'user1@immich.cloud' }),
-          expect.objectContaining({ email: 'user2@immich.cloud' }),
-          expect.objectContaining({ email: 'user3@immich.cloud' }),
-          expect.objectContaining({ email: 'user4@immich.cloud' }),
+          expect.objectContaining({ email: 'admin@ram.cloud' }),
+          expect.objectContaining({ email: 'user1@ram.cloud' }),
+          expect.objectContaining({ email: 'user2@ram.cloud' }),
+          expect.objectContaining({ email: 'user3@ram.cloud' }),
+          expect.objectContaining({ email: 'user4@ram.cloud' }),
         ]),
       );
     });
@@ -106,7 +106,7 @@ describe('/user', () => {
       expect(status).toBe(200);
       expect(body).toMatchObject({
         id: admin.userId,
-        email: 'admin@immich.cloud',
+        email: 'admin@ram.cloud',
       });
     });
   });
@@ -123,7 +123,7 @@ describe('/user', () => {
       expect(status).toBe(200);
       expect(body).toMatchObject({
         id: admin.userId,
-        email: 'admin@immich.cloud',
+        email: 'admin@ram.cloud',
       });
     });
   });
@@ -151,13 +151,13 @@ describe('/user', () => {
         .post(`/user`)
         .send({
           isAdmin: true,
-          email: 'user5@immich.cloud',
+          email: 'user5@ram.cloud',
           password: 'password123',
-          name: 'Immich',
+          name: 'ram',
         })
         .set('Authorization', `Bearer ${admin.accessToken}`);
       expect(body).toMatchObject({
-        email: 'user5@immich.cloud',
+        email: 'user5@ram.cloud',
         isAdmin: false,
         shouldChangePassword: true,
       });
@@ -168,14 +168,14 @@ describe('/user', () => {
       const { status, body } = await request(app)
         .post(`/user`)
         .send({
-          email: 'no-memories@immich.cloud',
+          email: 'no-memories@ram.cloud',
           password: 'Password123',
           name: 'No Memories',
           memoriesEnabled: false,
         })
         .set('Authorization', `Bearer ${admin.accessToken}`);
       expect(body).toMatchObject({
-        email: 'no-memories@immich.cloud',
+        email: 'no-memories@ram.cloud',
         memoriesEnabled: false,
       });
       expect(status).toBe(201);

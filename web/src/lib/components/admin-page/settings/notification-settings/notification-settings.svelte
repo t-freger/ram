@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SystemConfigDto } from '@immich/sdk';
+  import type { SystemConfigDto } from '@ram/sdk';
   import { isEqual } from 'lodash-es';
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
@@ -39,7 +39,7 @@
               inputType={SettingInputFieldType.TEXT}
               required
               label="Host"
-              desc="Host of the email server (e.g. smtp.immich.app)"
+              desc="Host of the email server (e.g. smtp.ram.app)"
               disabled={disabled || !config.notifications.smtp.enabled}
               bind:value={config.notifications.smtp.transport.host}
               isEdited={config.notifications.smtp.transport.host !== savedConfig.notifications.smtp.transport.host}
@@ -89,7 +89,7 @@
               inputType={SettingInputFieldType.TEXT}
               required
               label="From address"
-              desc="Sender email address, for example: &quot;Immich Photo Server <noreply@immich.app>&quot;"
+              desc="Sender email address, for example: &quot;ram Photo Server <noreply@ram.app>&quot;"
               disabled={disabled || !config.notifications.smtp.enabled}
               bind:value={config.notifications.smtp.from}
               isEdited={config.notifications.smtp.from !== savedConfig.notifications.smtp.from}

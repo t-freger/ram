@@ -70,8 +70,8 @@ export const defaults = Object.freeze<SystemConfig>({
     level: LogLevel.LOG,
   },
   machineLearning: {
-    enabled: process.env.IMMICH_MACHINE_LEARNING_ENABLED !== 'false',
-    url: process.env.IMMICH_MACHINE_LEARNING_URL || 'http://immich-machine-learning:3003',
+    enabled: process.env.ram_MACHINE_LEARNING_ENABLED !== 'false',
+    url: process.env.ram_MACHINE_LEARNING_URL || 'http://ram-machine-learning:3003',
     clip: {
       enabled: true,
       modelName: 'ViT-B-32__openai',
@@ -106,7 +106,7 @@ export const defaults = Object.freeze<SystemConfig>({
     scope: 'openid email profile',
     signingAlgorithm: 'RS256',
     storageLabelClaim: 'preferred_username',
-    storageQuotaClaim: 'immich_quota',
+    storageQuotaClaim: 'ram_quota',
   },
   passwordLogin: {
     enabled: true,
@@ -262,7 +262,7 @@ export class SystemConfigCore {
       [FeatureFlag.OAUTH]: config.oauth.enabled,
       [FeatureFlag.OAUTH_AUTO_LAUNCH]: config.oauth.autoLaunch,
       [FeatureFlag.PASSWORD_LOGIN]: config.passwordLogin.enabled,
-      [FeatureFlag.CONFIG_FILE]: !!process.env.IMMICH_CONFIG_FILE,
+      [FeatureFlag.CONFIG_FILE]: !!process.env.ram_CONFIG_FILE,
       [FeatureFlag.EMAIL]: config.notifications.smtp.enabled,
     };
   }
@@ -287,7 +287,7 @@ export class SystemConfigCore {
 
   public async updateConfig(newConfig: SystemConfig): Promise<SystemConfig> {
     if (await this.hasFeature(FeatureFlag.CONFIG_FILE)) {
-      throw new BadRequestException('Cannot update configuration while IMMICH_CONFIG_FILE is in use');
+      throw new BadRequestException('Cannot update configuration while ram_CONFIG_FILE is in use');
     }
 
     const updates: SystemConfigEntity[] = [];
@@ -336,8 +336,8 @@ export class SystemConfigCore {
 
   private async buildConfig() {
     const config = _.cloneDeep(defaults);
-    const overrides = process.env.IMMICH_CONFIG_FILE
-      ? await this.loadFromFile(process.env.IMMICH_CONFIG_FILE)
+    const overrides = process.env.ram_CONFIG_FILE
+      ? await this.loadFromFile(process.env.ram_CONFIG_FILE)
       : await this.repository.load();
 
     for (const { key, value } of overrides) {
@@ -347,7 +347,7 @@ export class SystemConfigCore {
 
     const errors = await validate(plainToInstance(SystemConfigDto, config));
     if (errors.length > 0) {
-      if (process.env.IMMICH_CONFIG_FILE) {
+      if (process.env.ram_CONFIG_FILE) {
         throw new Error(`Invalid value(s) in file: ${errors}`);
       } else {
         this.logger.error('Validation error', errors);

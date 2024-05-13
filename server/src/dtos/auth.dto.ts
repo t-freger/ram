@@ -6,28 +6,28 @@ import { SessionEntity } from 'src/entities/session.entity';
 import { SharedLinkEntity } from 'src/entities/shared-link.entity';
 import { UserEntity } from 'src/entities/user.entity';
 
-export enum ImmichCookie {
-  ACCESS_TOKEN = 'immich_access_token',
-  AUTH_TYPE = 'immich_auth_type',
-  IS_AUTHENTICATED = 'immich_is_authenticated',
-  SHARED_LINK_TOKEN = 'immich_shared_link_token',
+export enum ramCookie {
+  ACCESS_TOKEN = 'ram_access_token',
+  AUTH_TYPE = 'ram_auth_type',
+  IS_AUTHENTICATED = 'ram_is_authenticated',
+  SHARED_LINK_TOKEN = 'ram_shared_link_token',
 }
 
-export enum ImmichHeader {
+export enum ramHeader {
   API_KEY = 'x-api-key',
-  USER_TOKEN = 'x-immich-user-token',
-  SESSION_TOKEN = 'x-immich-session-token',
-  SHARED_LINK_KEY = 'x-immich-share-key',
-  CHECKSUM = 'x-immich-checksum',
+  USER_TOKEN = 'x-ram-user-token',
+  SESSION_TOKEN = 'x-ram-session-token',
+  SHARED_LINK_KEY = 'x-ram-share-key',
+  CHECKSUM = 'x-ram-checksum',
 }
 
-export enum ImmichQuery {
+export enum ramQuery {
   SHARED_LINK_KEY = 'key',
 }
 
 export type CookieResponse = {
   isSecure: boolean;
-  values: Array<{ key: ImmichCookie; value: string }>;
+  values: Array<{ key: ramCookie; value: string }>;
 };
 
 export class AuthDto {

@@ -1,6 +1,6 @@
 import { authenticate } from '$lib/utils/auth';
 import { getAssetInfoFromParam } from '$lib/utils/navigation';
-import { getPerson, getPersonStatistics } from '@immich/sdk';
+import { getPerson, getPersonStatistics } from '@ram/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ params }) => {

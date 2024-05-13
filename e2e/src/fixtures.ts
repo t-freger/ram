@@ -1,4 +1,4 @@
-import { UserAvatarColor } from '@immich/sdk';
+import { UserAvatarColor } from '@ram/sdk';
 
 export const uuidDto = {
   invalid: 'invalid-uuid',
@@ -7,10 +7,10 @@ export const uuidDto = {
 };
 
 const adminLoginDto = {
-  email: 'admin@immich.cloud',
+  email: 'admin@ram.cloud',
   password: 'password',
 };
-const adminSignupDto = { ...adminLoginDto, name: 'Immich Admin' };
+const adminSignupDto = { ...adminLoginDto, name: 'ram Admin' };
 
 export const loginDto = {
   admin: adminLoginDto,
@@ -23,33 +23,33 @@ export const signupDto = {
 export const createUserDto = {
   create(key: string) {
     return {
-      email: `${key}@immich.cloud`,
+      email: `${key}@ram.cloud`,
       name: `Generated User ${key}`,
       password: `password-${key}`,
     };
   },
   user1: {
-    email: 'user1@immich.cloud',
+    email: 'user1@ram.cloud',
     name: 'User 1',
     password: 'password1',
   },
   user2: {
-    email: 'user2@immich.cloud',
+    email: 'user2@ram.cloud',
     name: 'User 2',
     password: 'password12',
   },
   user3: {
-    email: 'user3@immich.cloud',
+    email: 'user3@ram.cloud',
     name: 'User 3',
     password: 'password123',
   },
   user4: {
-    email: 'user4@immich.cloud',
+    email: 'user4@ram.cloud',
     name: 'User 4',
     password: 'password123',
   },
   userQuota: {
-    email: 'user-quota@immich.cloud',
+    email: 'user-quota@ram.cloud',
     name: 'User Quota',
     password: 'password-quota',
     quotaSizeInBytes: 512,

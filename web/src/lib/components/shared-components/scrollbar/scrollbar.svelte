@@ -121,8 +121,8 @@
 
 {#if $assetStore.timelineHeight > height}
   <div
-    id="immich-scrubbable-scrollbar"
-    class="absolute right-0 z-[1] select-none bg-immich-bg hover:cursor-row-resize"
+    id="ram-scrubbable-scrollbar"
+    class="absolute right-0 z-[1] select-none bg-ram-bg hover:cursor-row-resize"
     style:width={isDragging ? '100vw' : '60px'}
     style:height={height + 'px'}
     style:background-color={isDragging ? 'transparent' : 'transparent'}
@@ -134,7 +134,7 @@
     {#if isHover || isDragging}
       <div
         id="time-label"
-        class="pointer-events-none absolute right-0 z-[100] w-[100px] rounded-tl-md border-b-2 border-immich-primary bg-immich-bg py-1 px-1 text-sm font-medium shadow-[0_0_8px_rgba(0,0,0,0.25)] dark:border-immich-dark-primary dark:bg-immich-dark-gray dark:text-immich-dark-fg"
+        class="pointer-events-none absolute right-0 z-[100] w-[100px] rounded-tl-md border-b-2 border-ram-primary bg-ram-bg py-1 px-1 text-sm font-medium shadow-[0_0_8px_rgba(0,0,0,0.25)] dark:border-ram-dark-primary dark:bg-ram-dark-gray dark:text-ram-dark-fg"
         style:top="{clamp(hoverY - HOVER_DATE_HEIGHT, 0, height - HOVER_DATE_HEIGHT - 2)}px"
       >
         {hoverLabel}
@@ -144,7 +144,7 @@
     <!-- Scroll Position Indicator Line -->
     {#if !isDragging}
       <div
-        class="absolute right-0 h-[2px] w-10 bg-immich-primary dark:bg-immich-dark-primary"
+        class="absolute right-0 h-[2px] w-10 bg-ram-primary dark:bg-ram-dark-primary"
         style:top="{scrollY}px"
       />
     {/if}
@@ -160,7 +160,7 @@
         {#if segment.hasLabel}
           <div
             aria-label={segment.timeGroup + ' ' + segment.count}
-            class="absolute right-0 bottom-0 z-10 pr-5 text-[12px] dark:text-immich-dark-fg font-immich-mono"
+            class="absolute right-0 bottom-0 z-10 pr-5 text-[12px] dark:text-ram-dark-fg font-ram-mono"
           >
             {segment.date.year}
           </div>
@@ -176,7 +176,7 @@
 {/if}
 
 <style>
-  #immich-scrubbable-scrollbar,
+  #ram-scrubbable-scrollbar,
   #time-segment {
     contain: layout;
   }

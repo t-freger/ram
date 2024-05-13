@@ -5,7 +5,7 @@
   import { getAssetControlContext } from '../asset-select-control-bar.svelte';
   import { mdiCloudDownloadOutline, mdiFileDownloadOutline, mdiFolderDownloadOutline } from '@mdi/js';
 
-  export let filename = 'immich.zip';
+  export let filename = 'ram.zip';
   export let menuItem = false;
 
   const { getAssets, clearSelect } = getAssetControlContext();

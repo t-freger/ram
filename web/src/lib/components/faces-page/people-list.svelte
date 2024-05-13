@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { type PersonResponseDto } from '@immich/sdk';
+  import { type PersonResponseDto } from '@ram/sdk';
   import { createEventDispatcher } from 'svelte';
   import FaceThumbnail from './face-thumbnail.svelte';
   import SearchPeople from '$lib/components/faces-page/people-search.svelte';
@@ -29,7 +29,7 @@
 </div>
 
 <div
-  class="immich-scrollbar overflow-y-auto rounded-3xl bg-gray-200 p-10 dark:bg-immich-dark-gray"
+  class="ram-scrollbar overflow-y-auto rounded-3xl bg-gray-200 p-10 dark:bg-ram-dark-gray"
   style:max-height={screenHeight - 400 + 'px'}
 >
   <div class="grid-col-2 grid gap-8 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10">

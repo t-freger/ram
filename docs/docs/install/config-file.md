@@ -4,11 +4,11 @@ A config file can be provided as an alternative to the UI configuration.
 
 ### Step 1 - Create a new config file
 
-In JSON format, create a new config file (e.g. `immich.json`) and put it in a location that can be accessed by Immich.
+In JSON format, create a new config file (e.g. `ram.json`) and put it in a location that can be accessed by ram.
 The default configuration looks like this:
 
 <details>
-<summary>immich.json</summary>
+<summary>ram.json</summary>
 
 ```json
 {
@@ -72,7 +72,7 @@ The default configuration looks like this:
   },
   "machineLearning": {
     "enabled": true,
-    "url": "http://immich-machine-learning:3003",
+    "url": "http://ram-machine-learning:3003",
     "clip": {
       "enabled": true,
       "modelName": "ViT-B-32__openai"
@@ -101,7 +101,7 @@ The default configuration looks like this:
     "scope": "openid email profile",
     "signingAlgorithm": "RS256",
     "storageLabelClaim": "preferred_username",
-    "storageQuotaClaim": "immich_quota",
+    "storageQuotaClaim": "ram_quota",
     "defaultStorageQuota": 0,
     "buttonText": "Login with OAuth",
     "autoRegister": true,
@@ -169,7 +169,7 @@ So you can just grab it from there, paste it into a file and you're pretty much 
 
 ### Step 2 - Specify the file location
 
-In your `.env` file, set the variable `IMMICH_CONFIG_FILE` to the path of your config.
+In your `.env` file, set the variable `ram_CONFIG_FILE` to the path of your config.
 For more information, refer to the [Environment Variables](/docs/install/environment-variables.md) section.
 
 :::tip

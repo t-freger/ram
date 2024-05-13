@@ -47,7 +47,7 @@ import { ISearchRepository } from 'src/interfaces/search.interface';
 import { IStorageRepository } from 'src/interfaces/storage.interface';
 import { ISystemConfigRepository } from 'src/interfaces/system-config.interface';
 import { Orientation } from 'src/services/metadata.service';
-import { CacheControl, ImmichFileResponse } from 'src/utils/file';
+import { CacheControl, ramFileResponse } from 'src/utils/file';
 import { mimeTypes } from 'src/utils/mime-types';
 import { usePagination } from 'src/utils/pagination';
 import { IsNull } from 'typeorm';
@@ -185,14 +185,14 @@ export class PersonService {
     return this.repository.getStatistics(id);
   }
 
-  async getThumbnail(auth: AuthDto, id: string): Promise<ImmichFileResponse> {
+  async getThumbnail(auth: AuthDto, id: string): Promise<ramFileResponse> {
     await this.access.requirePermission(auth, Permission.PERSON_READ, id);
     const person = await this.repository.getById(id);
     if (!person || !person.thumbnailPath) {
       throw new NotFoundException();
     }
 
-    return new ImmichFileResponse({
+    return new ramFileResponse({
       path: person.thumbnailPath,
       contentType: mimeTypes.lookup(person.thumbnailPath),
       cacheControl: CacheControl.PRIVATE_WITHOUT_CACHE,

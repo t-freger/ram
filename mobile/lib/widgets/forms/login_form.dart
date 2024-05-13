@@ -5,20 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' hide Store;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/oauth.provider.dart';
-import 'package:immich_mobile/providers/gallery_permission.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/providers/api.provider.dart';
-import 'package:immich_mobile/providers/asset.provider.dart';
-import 'package:immich_mobile/providers/authentication.provider.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_logo.dart';
-import 'package:immich_mobile/widgets/common/immich_title_text.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/utils/url_helper.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/oauth.provider.dart';
+import 'package:ram_mobile/providers/gallery_permission.provider.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/providers/api.provider.dart';
+import 'package:ram_mobile/providers/asset.provider.dart';
+import 'package:ram_mobile/providers/authentication.provider.dart';
+import 'package:ram_mobile/providers/backup/backup.provider.dart';
+import 'package:ram_mobile/providers/server_info.provider.dart';
+import 'package:ram_mobile/widgets/common/ram_logo.dart';
+import 'package:ram_mobile/widgets/common/ram_title_text.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
+import 'package:ram_mobile/utils/url_helper.dart';
 import 'package:openapi/api.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -55,7 +55,7 @@ class LoginForm extends HookConsumerWidget {
 
       // Guard empty URL
       if (serverUrl.isEmpty) {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: "login_form_server_empty".tr(),
           toastType: ToastType.error,
@@ -83,7 +83,7 @@ class LoginForm extends HookConsumerWidget {
 
         serverEndpoint.value = endpoint;
       } on ApiException catch (e) {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: e.message ?? 'login_form_api_exception'.tr(),
           toastType: ToastType.error,
@@ -94,7 +94,7 @@ class LoginForm extends HookConsumerWidget {
         isLoadingServer.value = false;
         return false;
       } on HandshakeException {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: 'login_form_handshake_exception'.tr(),
           toastType: ToastType.error,
@@ -105,7 +105,7 @@ class LoginForm extends HookConsumerWidget {
         isLoadingServer.value = false;
         return false;
       } catch (e) {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: 'login_form_server_error'.tr(),
           toastType: ToastType.error,
@@ -133,9 +133,9 @@ class LoginForm extends HookConsumerWidget {
     );
 
     populateTestLoginInfo() {
-      usernameController.text = 'demo@immich.app';
+      usernameController.text = 'demo@ram.app';
       passwordController.text = 'demo';
-      serverEndpointController.text = 'https://demo.immich.app';
+      serverEndpointController.text = 'https://demo.ram.app';
     }
 
     populateTestLoginInfo1() {
@@ -174,7 +174,7 @@ class LoginForm extends HookConsumerWidget {
             context.replaceRoute(const TabControllerRoute());
           }
         } else {
-          ImmichToast.show(
+          ramToast.show(
             context: context,
             msg: "login_form_failed_login".tr(),
             toastType: ToastType.error,
@@ -198,7 +198,7 @@ class LoginForm extends HookConsumerWidget {
 
         isLoading.value = true;
       } catch (e) {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: "login_form_failed_get_oauth_server_config".tr(),
           toastType: ToastType.error,
@@ -227,7 +227,7 @@ class LoginForm extends HookConsumerWidget {
             }
             context.replaceRoute(const TabControllerRoute());
           } else {
-            ImmichToast.show(
+            ramToast.show(
               context: context,
               msg: "login_form_failed_login".tr(),
               toastType: ToastType.error,
@@ -238,7 +238,7 @@ class LoginForm extends HookConsumerWidget {
 
         isLoading.value = false;
       } else {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: "login_form_failed_get_oauth_server_disable".tr(),
           toastType: ToastType.info,
@@ -405,14 +405,14 @@ class LoginForm extends HookConsumerWidget {
                         onLongPress: () => populateTestLoginInfo1(),
                         child: RotationTransition(
                           turns: logoAnimationController,
-                          child: const ImmichLogo(
+                          child: const ramLogo(
                             heroTag: 'logo',
                           ),
                         ),
                       ),
                       const Padding(
                         padding: EdgeInsets.only(top: 8.0, bottom: 16),
-                        child: ImmichTitleText(),
+                        child: ramTitleText(),
                       ),
                     ],
                   ),

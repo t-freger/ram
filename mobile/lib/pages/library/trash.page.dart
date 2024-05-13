@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/widgets/asset_grid/immich_asset_grid.dart';
-import 'package:immich_mobile/widgets/asset_grid/delete_dialog.dart';
-import 'package:immich_mobile/providers/trash.provider.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/utils/immich_loading_overlay.dart';
+import 'package:ram_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/widgets/asset_grid/ram_asset_grid.dart';
+import 'package:ram_mobile/widgets/asset_grid/delete_dialog.dart';
+import 'package:ram_mobile/providers/trash.provider.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/providers/server_info.provider.dart';
+import 'package:ram_mobile/widgets/common/confirm_dialog.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
+import 'package:ram_mobile/utils/ram_loading_overlay.dart';
 
 @RoutePage()
 class TrashPage extends HookConsumerWidget {
@@ -42,7 +42,7 @@ class TrashPage extends HookConsumerWidget {
       processing.value = false;
       selectionEnabledHook.value = false;
       if (context.mounted) {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: 'Emptied trash',
           gravity: ToastGravity.BOTTOM,
@@ -74,7 +74,7 @@ class TrashPage extends HookConsumerWidget {
             final assetOrAssets =
                 selection.value.length > 1 ? 'assets' : 'asset';
             if (context.mounted) {
-              ImmichToast.show(
+              ramToast.show(
                 context: context,
                 msg:
                     '${selection.value.length} $assetOrAssets deleted permanently',
@@ -116,7 +116,7 @@ class TrashPage extends HookConsumerWidget {
 
           final assetOrAssets = selection.value.length > 1 ? 'assets' : 'asset';
           if (result && context.mounted) {
-            ImmichToast.show(
+            ramToast.show(
               context: context,
               msg:
                   '${selection.value.length} $assetOrAssets restored successfully',
@@ -248,7 +248,7 @@ class TrashPage extends HookConsumerWidget {
             : Stack(
                 children: [
                   SafeArea(
-                    child: ImmichAssetGrid(
+                    child: ramAssetGrid(
                       renderList: data,
                       listener: selectionListener,
                       selectionActive: selectionEnabledHook.value,

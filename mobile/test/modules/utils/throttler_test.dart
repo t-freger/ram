@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/utils/throttle.dart';
+import 'package:ram_mobile/utils/throttle.dart';
 
 class _Counter {
   int _count = 0;

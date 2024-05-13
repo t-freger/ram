@@ -132,7 +132,7 @@ class _ChewieControllerHookState
 
       videoPlayerController = VideoPlayerController.networkUrl(
         url,
-        httpHeaders: {"x-immich-user-token": accessToken},
+        httpHeaders: {"x-ram-user-token": accessToken},
       );
     }
 

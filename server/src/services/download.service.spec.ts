@@ -4,7 +4,7 @@ import { AssetEntity } from 'src/entities/asset.entity';
 import { IAssetRepository } from 'src/interfaces/asset.interface';
 import { IStorageRepository } from 'src/interfaces/storage.interface';
 import { DownloadService } from 'src/services/download.service';
-import { CacheControl, ImmichFileResponse } from 'src/utils/file';
+import { CacheControl, ramFileResponse } from 'src/utils/file';
 import { assetStub } from 'test/fixtures/asset.stub';
 import { authStub } from 'test/fixtures/auth.stub';
 import { IAccessRepositoryMock, newAccessRepositoryMock } from 'test/repositories/access.repository.mock';
@@ -73,7 +73,7 @@ describe(DownloadService.name, () => {
       assetMock.getByIds.mockResolvedValue([assetStub.image]);
 
       await expect(sut.downloadFile(authStub.admin, 'asset-1')).resolves.toEqual(
-        new ImmichFileResponse({
+        new ramFileResponse({
           path: '/original/path.jpg',
           contentType: 'image/jpeg',
           cacheControl: CacheControl.NONE,

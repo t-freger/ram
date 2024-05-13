@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { AlbumResponseDto, AssetResponseDto } from '@immich/sdk';
+  import type { AlbumResponseDto, AssetResponseDto } from '@ram/sdk';
   import { createEventDispatcher } from 'svelte';
   import { quintOut } from 'svelte/easing';
   import { fly } from 'svelte/transition';
@@ -22,7 +22,7 @@
 
 <section
   transition:fly={{ y: 500, duration: 100, easing: quintOut }}
-  class="absolute left-0 top-0 z-[9999] h-full w-full bg-immich-bg py-[160px] dark:bg-immich-dark-bg"
+  class="absolute left-0 top-0 z-[9999] h-full w-full bg-ram-bg py-[160px] dark:bg-ram-dark-bg"
 >
   <ControlAppBar on:close={() => dispatch('close')}>
     <svelte:fragment slot="leading">

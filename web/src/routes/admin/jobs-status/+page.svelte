@@ -5,7 +5,7 @@
   import UserPageLayout from '$lib/components/layouts/user-page-layout.svelte';
   import { AppRoute } from '$lib/constants';
   import { asyncTimeout } from '$lib/utils';
-  import { getAllJobsStatus, type AllJobStatusResponseDto } from '@immich/sdk';
+  import { getAllJobsStatus, type AllJobStatusResponseDto } from '@ram/sdk';
   import { mdiCog } from '@mdi/js';
   import { onDestroy, onMount } from 'svelte';
   import type { PageData } from './$types';

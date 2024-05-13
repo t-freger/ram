@@ -18,7 +18,7 @@ export interface ExifDuration {
   Scale?: number;
 }
 
-export interface ImmichTags extends Omit<Tags, 'FocalLength' | 'Duration'> {
+export interface ramTags extends Omit<Tags, 'FocalLength' | 'Duration'> {
   ContentIdentifier?: string;
   MotionPhoto?: number;
   MotionPhotoVersion?: number;
@@ -36,7 +36,7 @@ export interface IMetadataRepository {
   init(): Promise<void>;
   teardown(): Promise<void>;
   reverseGeocode(point: GeoPoint): Promise<ReverseGeocodeResult | null>;
-  readTags(path: string): Promise<ImmichTags | null>;
+  readTags(path: string): Promise<ramTags | null>;
   writeTags(path: string, tags: Partial<Tags>): Promise<void>;
   extractBinaryTag(tagName: string, path: string): Promise<Buffer>;
   getCountries(userId: string): Promise<string[]>;

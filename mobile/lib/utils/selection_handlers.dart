@@ -2,16 +2,16 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/asset_extensions.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/providers/asset.provider.dart';
-import 'package:immich_mobile/services/asset.service.dart';
-import 'package:immich_mobile/services/share.service.dart';
-import 'package:immich_mobile/widgets/common/date_time_picker.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/widgets/common/location_picker.dart';
-import 'package:immich_mobile/widgets/common/share_dialog.dart';
+import 'package:ram_mobile/extensions/asset_extensions.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/providers/asset.provider.dart';
+import 'package:ram_mobile/services/asset.service.dart';
+import 'package:ram_mobile/services/share.service.dart';
+import 'package:ram_mobile/widgets/common/date_time_picker.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
+import 'package:ram_mobile/widgets/common/location_picker.dart';
+import 'package:ram_mobile/widgets/common/share_dialog.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 void handleShareAssets(
@@ -25,7 +25,7 @@ void handleShareAssets(
       ref.watch(shareServiceProvider).shareAssets(selection.toList()).then(
         (bool status) {
           if (!status) {
-            ImmichToast.show(
+            ramToast.show(
               context: context,
               msg: 'image_viewer_page_state_provider_share_error'.tr(),
               toastType: ToastType.error,
@@ -57,7 +57,7 @@ Future<void> handleArchiveAssets(
     final assetOrAssets = selection.length > 1 ? 'assets' : 'asset';
     final archiveOrLibrary = shouldArchive ? 'archive' : 'library';
     if (context.mounted) {
-      ImmichToast.show(
+      ramToast.show(
         context: context,
         msg: 'Moved ${selection.length} $assetOrAssets to $archiveOrLibrary',
         gravity: toastGravity,
@@ -84,7 +84,7 @@ Future<void> handleFavoriteAssets(
         ? 'Added ${selection.length} $assetOrAssets to favorites'
         : 'Removed ${selection.length} $assetOrAssets from favorites';
     if (context.mounted) {
-      ImmichToast.show(
+      ramToast.show(
         context: context,
         msg: toastMessage,
         gravity: ToastGravity.BOTTOM,

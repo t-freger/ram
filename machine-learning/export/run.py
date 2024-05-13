@@ -53,7 +53,7 @@ with Progress() as progress:
 
             def upload() -> None:
                 progress.update(task2, description=f"[yellow]Uploading {model_name}")
-                repo_id = f"immich-app/{model_name}"
+                repo_id = f"ram-app/{model_name}"
 
                 create_repo(repo_id, exist_ok=True)
                 upload_folder(repo_id=repo_id, folder_path=tmpdir / model_name)

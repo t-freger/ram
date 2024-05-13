@@ -1,5 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/services/background.service.dart';
+import 'package:ram_mobile/services/background.service.dart';
 
 class IOSBackgroundSettings {
   final bool appRefreshEnabled;

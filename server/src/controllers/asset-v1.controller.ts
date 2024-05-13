@@ -29,18 +29,18 @@ import {
   GetAssetThumbnailDto,
   ServeFileDto,
 } from 'src/dtos/asset-v1.dto';
-import { AuthDto, ImmichHeader } from 'src/dtos/auth.dto';
+import { AuthDto, ramHeader } from 'src/dtos/auth.dto';
 import { AssetUploadInterceptor } from 'src/middleware/asset-upload.interceptor';
 import { Auth, Authenticated, FileResponse } from 'src/middleware/auth.guard';
-import { FileUploadInterceptor, ImmichFile, Route, mapToUploadFile } from 'src/middleware/file-upload.interceptor';
+import { FileUploadInterceptor, ramFile, Route, mapToUploadFile } from 'src/middleware/file-upload.interceptor';
 import { AssetServiceV1 } from 'src/services/asset-v1.service';
 import { sendFile } from 'src/utils/file';
 import { FileNotEmptyValidator, UUIDParamDto } from 'src/validation';
 
 interface UploadFiles {
-  assetData: ImmichFile[];
-  livePhotoData?: ImmichFile[];
-  sidecarData: ImmichFile[];
+  assetData: ramFile[];
+  livePhotoData?: ramFile[];
+  sidecarData: ramFile[];
 }
 
 @ApiTags('Asset')
@@ -52,7 +52,7 @@ export class AssetControllerV1 {
   @UseInterceptors(AssetUploadInterceptor, FileUploadInterceptor)
   @ApiConsumes('multipart/form-data')
   @ApiHeader({
-    name: ImmichHeader.CHECKSUM,
+    name: ramHeader.CHECKSUM,
     description: 'sha1 checksum that can be used for duplicate detection before the file is uploaded',
     required: false,
   })

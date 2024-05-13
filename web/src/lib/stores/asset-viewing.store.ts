@@ -1,5 +1,5 @@
 import { getKey } from '$lib/utils';
-import { getAssetInfo, type AssetResponseDto } from '@immich/sdk';
+import { getAssetInfo, type AssetResponseDto } from '@ram/sdk';
 import { writable } from 'svelte/store';
 
 function createAssetViewingStore() {

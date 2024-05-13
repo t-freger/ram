@@ -2,8 +2,8 @@
 set -o nounset
 set -o pipefail
 
-create_immich_directory() { local -r Tgt='./immich-app'
-  echo "Creating Immich directory..."
+create_ram_directory() { local -r Tgt='./ram-app'
+  echo "Creating ram directory..."
   if [[ -e $Tgt ]]; then
     echo "Found existing directory $Tgt, will overwrite YAML files"
   else
@@ -23,7 +23,7 @@ download_dot_env_file() {
 }
 
 start_docker_compose() {
-  echo "Starting Immich's docker containers"
+  echo "Starting ram's docker containers"
 
   if ! docker compose >/dev/null 2>&1; then
     echo "failed to find 'docker compose'"
@@ -41,23 +41,23 @@ show_friendly_message() {
   local ip_address
   ip_address=$(hostname -I | awk '{print $1}')
   cat << EOF
-Successfully deployed Immich!
+Successfully deployed ram!
 You can access the website at http://$ip_address:2283 and the server URL for the mobile app is http://$ip_address:2283/api
 ---------------------------------------------------
 If you want to configure custom information of the server, including the database, Redis information, or the backup (or upload) location, etc. 
   
-  1. First bring down the containers with the command 'docker compose down' in the immich-app directory, 
+  1. First bring down the containers with the command 'docker compose down' in the ram-app directory, 
   
   2. Then change the information that fits your needs in the '.env' file, 
   
-  3. Finally, bring the containers back up with the command 'docker compose up --remove-orphans -d' in the immich-app directory
+  3. Finally, bring the containers back up with the command 'docker compose up --remove-orphans -d' in the ram-app directory
 EOF
 }
 
 # MAIN
 main() {
-  echo "Starting Immich installation..."
-  local -r RepoUrl='https://github.com/immich-app/immich/releases/latest/download'
+  echo "Starting ram installation..."
+  local -r RepoUrl='https://github.com/ram-app/ram/releases/latest/download'
   local -a Curl
   if command -v curl >/dev/null; then
     Curl=(curl -fsSL)
@@ -66,7 +66,7 @@ main() {
     return 14
   fi
 
-  create_immich_directory || { echo 'error creating Immich directory'; return 10; }
+  create_ram_directory || { echo 'error creating ram directory'; return 10; }
   download_docker_compose_file || { echo 'error downloading Docker Compose file'; return 11; }
   download_dot_env_file || { echo 'error downloading .env'; return 12; }
   start_docker_compose || { echo 'error starting Docker'; return 13; }
@@ -74,5 +74,5 @@ main() {
 
 main
 Exit=$?
-[[ $Exit == 0 ]] || echo "There was an error installing Immich. Exit code: $Exit. Please provide these logs when asking for assistance."
+[[ $Exit == 0 ]] || echo "There was an error installing ram. Exit code: $Exit. Please provide these logs when asking for assistance."
 exit "$Exit"

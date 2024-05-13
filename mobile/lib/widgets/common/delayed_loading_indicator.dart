@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
+import 'package:ram_mobile/widgets/common/ram_loading_indicator.dart';
 
 class DelayedLoadingIndicator extends StatelessWidget {
   /// The delay to avoid showing the loading indicator
   final Duration delay;
 
-  /// Defaults to using the [ImmichLoadingIndicator]
+  /// Defaults to using the [ramLoadingIndicator]
   final Widget? child;
 
   /// An optional fade in duration to animate the loading
@@ -26,7 +26,7 @@ class DelayedLoadingIndicator extends StatelessWidget {
         late Widget c;
         if (snapshot.connectionState == ConnectionState.done) {
           c = child ??
-              const ImmichLoadingIndicator(
+              const ramLoadingIndicator(
                 key: ValueKey('loading'),
               );
         } else {

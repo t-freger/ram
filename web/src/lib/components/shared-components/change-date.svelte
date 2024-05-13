@@ -68,7 +68,7 @@
     <div class="flex flex-col">
       <label for="datetime">Date and Time</label>
       <DateInput
-        class="immich-form-input text-sm my-4 w-full"
+        class="ram-form-input text-sm my-4 w-full"
         id="datetime"
         type="datetime-local"
         bind:value={selectedDate}

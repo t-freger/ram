@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/services/backup_verification.service.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/providers/asset.provider.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:ram_mobile/providers/backup/backup.provider.dart';
+import 'package:ram_mobile/services/backup_verification.service.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/providers/asset.provider.dart';
+import 'package:ram_mobile/widgets/common/confirm_dialog.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
@@ -26,7 +26,7 @@ class BackupVerification extends _$BackupVerification {
       if (backupState.allUniqueAssets.length >
           backupState.selectedAlbumsBackupAssetsIds.length) {
         if (context.mounted) {
-          ImmichToast.show(
+          ramToast.show(
             context: context,
             msg: "Backup all assets before starting this check!",
             toastType: ToastType.error,
@@ -37,7 +37,7 @@ class BackupVerification extends _$BackupVerification {
       final connection = await Connectivity().checkConnectivity();
       if (connection != ConnectivityResult.wifi) {
         if (context.mounted) {
-          ImmichToast.show(
+          ramToast.show(
             context: context,
             msg: "Make sure to be connected to unmetered Wi-Fi",
             toastType: ToastType.error,
@@ -53,7 +53,7 @@ class BackupVerification extends _$BackupVerification {
           .findWronglyBackedUpAssets(limit: limit);
       if (toDelete.isEmpty) {
         if (context.mounted) {
-          ImmichToast.show(
+          ramToast.show(
             context: context,
             msg: "Did not find any corrupt asset backups!",
             toastType: ToastType.success,
@@ -88,14 +88,14 @@ class BackupVerification extends _$BackupVerification {
     try {
       state = true;
       if (context.mounted) {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: "Deleting ${assets.length} assets on the server...",
         );
       }
       await ref.read(assetProvider.notifier).deleteAssets(assets, force: true);
       if (context.mounted) {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: "Deleted ${assets.length} assets on the server. "
               "You can now start a manual backup",

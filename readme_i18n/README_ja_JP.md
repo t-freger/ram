@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login With Custom URL">
+<img src="../design/ram-logo-stacked-light.svg" width="300" title="Login With Custom URL">
 </p>
-<h3 align="center">Immich - 高性能なセルフホスト 写真/ビデオバックアップソリューション</h3>
+<h3 align="center">ram - 高性能なセルフホスト 写真/ビデオバックアップソリューション</h3>
 <br/>
-<a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Main Screenshot">
+<a href="https://ram.app">
+<img src="../design/ram-screenshots.png" title="Main Screenshot">
 </a>
 <br/>
 <p align="center">
@@ -41,27 +41,27 @@
 
 ## コンテンツ
 
-- [公式ドキュメント](https://immich.app/docs)
-- [ロードマップ](https://github.com/orgs/immich-app/projects/1)
+- [公式ドキュメント](https://ram.app/docs)
+- [ロードマップ](https://github.com/orgs/ram-app/projects/1)
 - [デモ](#デモ)
 - [機能](#機能)
-- [紹介](https://immich.app/docs/overview/introduction)
-- [インストール](https://immich.app/docs/install/requirements)
-- [コントリビューションガイド](https://immich.app/docs/overview/support-the-project)
+- [紹介](https://ram.app/docs/overview/introduction)
+- [インストール](https://ram.app/docs/install/requirements)
+- [コントリビューションガイド](https://ram.app/docs/overview/support-the-project)
 
 ## ドキュメント
 
-インストールガイドを含む主なドキュメントは、https://immich.app/ です。
+インストールガイドを含む主なドキュメントは、https://ram.app/ です。
 
 ## デモ
 
-web デモは https://demo.immich.app からアクセスできます
+web デモは https://demo.ram.app からアクセスできます
 
-モバイルアプリの場合、`Server Endpoint URL` には `https://demo.immich.app/api` を使用することができます
+モバイルアプリの場合、`Server Endpoint URL` には `https://demo.ram.app/api` を使用することができます
 
 ```bash title="Demo Credential"
 The credential
-email: demo@immich.app
+email: demo@ram.app
 password: demo
 ```
 

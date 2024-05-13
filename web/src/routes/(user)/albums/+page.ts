@@ -1,5 +1,5 @@
 import { authenticate } from '$lib/utils/auth';
-import { getAllAlbums } from '@immich/sdk';
+import { getAllAlbums } from '@ram/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async () => {

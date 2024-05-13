@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/datetime_extensions.dart';
-import 'package:immich_mobile/models/activities/activity.model.dart';
-import 'package:immich_mobile/providers/image/immich_remote_thumbnail_provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/current_asset.provider.dart';
-import 'package:immich_mobile/widgets/common/user_circle_avatar.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/extensions/datetime_extensions.dart';
+import 'package:ram_mobile/models/activities/activity.model.dart';
+import 'package:ram_mobile/providers/image/ram_remote_thumbnail_provider.dart';
+import 'package:ram_mobile/providers/asset_viewer/current_asset.provider.dart';
+import 'package:ram_mobile/widgets/common/user_circle_avatar.dart';
 
 class ActivityTile extends HookConsumerWidget {
   final Activity activity;
@@ -106,7 +106,7 @@ class _ActivityAssetThumbnail extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(4)),
         image: DecorationImage(
-          image: ImmichRemoteThumbnailProvider(
+          image: ramRemoteThumbnailProvider(
             assetId: assetId,
           ),
           fit: BoxFit.cover,

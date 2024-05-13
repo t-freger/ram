@@ -34,9 +34,9 @@
   };
 
   const buttonStyle: Record<NotificationType, string> = {
-    [NotificationType.Info]: 'text-white bg-immich-primary hover:bg-immich-primary/75',
-    [NotificationType.Error]: 'text-white bg-immich-error hover:bg-immich-error/75',
-    [NotificationType.Warning]: 'text-white bg-immich-warning hover:bg-immich-warning/75',
+    [NotificationType.Info]: 'text-white bg-ram-primary hover:bg-ram-primary/75',
+    [NotificationType.Error]: 'text-white bg-ram-error hover:bg-ram-error/75',
+    [NotificationType.Warning]: 'text-white bg-ram-warning hover:bg-ram-warning/75',
   };
 
   onMount(() => {
@@ -82,7 +82,7 @@
     <CircleIconButton
       icon={mdiWindowClose}
       title="Close"
-      class="dark:text-immich-dark-gray"
+      class="dark:text-ram-dark-gray"
       size="20"
       padding="2"
       on:click={discard}

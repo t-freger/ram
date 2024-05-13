@@ -14,7 +14,7 @@ const WHEN_DB_URL_SET = Joi.when('DB_URL', {
   otherwise: Joi.string().required(),
 });
 
-export const immichAppConfig: ConfigModuleOptions = {
+export const ramAppConfig: ConfigModuleOptions = {
   envFilePath: '.env',
   isGlobal: true,
   validationSchema: Joi.object({
@@ -32,12 +32,12 @@ export const immichAppConfig: ConfigModuleOptions = {
 
     MACHINE_LEARNING_PORT: Joi.number().optional(),
     MICROSERVICES_PORT: Joi.number().optional(),
-    IMMICH_METRICS_PORT: Joi.number().optional(),
+    ram_METRICS_PORT: Joi.number().optional(),
 
-    IMMICH_METRICS: Joi.boolean().optional().default(false),
-    IMMICH_HOST_METRICS: Joi.boolean().optional().default(false),
-    IMMICH_API_METRICS: Joi.boolean().optional().default(false),
-    IMMICH_IO_METRICS: Joi.boolean().optional().default(false),
+    ram_METRICS: Joi.boolean().optional().default(false),
+    ram_HOST_METRICS: Joi.boolean().optional().default(false),
+    ram_API_METRICS: Joi.boolean().optional().default(false),
+    ram_IO_METRICS: Joi.boolean().optional().default(false),
   }),
 };
 
@@ -62,7 +62,7 @@ function parseRedisConfig(): RedisOptions {
 }
 
 export const bullConfig: QueueOptions = {
-  prefix: 'immich_bull',
+  prefix: 'ram_bull',
   connection: parseRedisConfig(),
   defaultJobOptions: {
     attempts: 3,
@@ -78,11 +78,11 @@ export const clsConfig: ClsModuleOptions = {
     mount: true,
     generateId: true,
     setup: (cls, req: Request, res: Response) => {
-      const headerValues = req.headers['x-immich-cid'];
+      const headerValues = req.headers['x-ram-cid'];
       const headerValue = Array.isArray(headerValues) ? headerValues[0] : headerValues;
       const cid = headerValue || cls.get(CLS_ID);
       cls.set(CLS_ID, cid);
-      res.header('x-immich-cid', cid);
+      res.header('x-ram-cid', cid);
     },
   },
 };

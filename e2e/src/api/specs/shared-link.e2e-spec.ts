@@ -6,7 +6,7 @@ import {
   SharedLinkType,
   createAlbum,
   deleteUser,
-} from '@immich/sdk';
+} from '@ram/sdk';
 import { createUserDto, uuidDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, asBearerAuth, shareUrl, utils } from 'src/utils';

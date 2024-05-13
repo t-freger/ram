@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login With Custom URL">
+<img src="../design/ram-logo-stacked-light.svg" width="300" title="Login With Custom URL">
 </p>
-<h3 align="center">Immich - Yüksek performanslı, kendine ait barındırılan fotoğraf ve video yedekleme çözümü</h3>
+<h3 align="center">ram - Yüksek performanslı, kendine ait barındırılan fotoğraf ve video yedekleme çözümü</h3>
 <br/>
-<a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Main Screenshot">
+<a href="https://ram.app">
+<img src="../design/ram-screenshots.png" title="Main Screenshot">
 </a>
 <br/>
 <p align="center">
@@ -40,27 +40,27 @@
 
 ## Content
 
-- [Resmi Belgeler](https://immich.app/docs)
-- [Yol Haritası](https://github.com/orgs/immich-app/projects/1)
+- [Resmi Belgeler](https://ram.app/docs)
+- [Yol Haritası](https://github.com/orgs/ram-app/projects/1)
 - [Demo](#demo)
 - [Özellikler](#özellikler)
-- [Giriş](https://immich.app/docs/overview/introduction)
-- [Kurulum](https://immich.app/docs/install/requirements)
-- [Katkı Sağlama Rehberi](https://immich.app/docs/overview/support-the-project)
+- [Giriş](https://ram.app/docs/overview/introduction)
+- [Kurulum](https://ram.app/docs/install/requirements)
+- [Katkı Sağlama Rehberi](https://ram.app/docs/overview/support-the-project)
 
 ## Belgeler
 
-Kurulum dahil olmak üzere resmi belgeleri https://immich.app/ adresinde bulabilirsiniz.
+Kurulum dahil olmak üzere resmi belgeleri https://ram.app/ adresinde bulabilirsiniz.
 
 ## Demo
 
-Web demo adresi: https://demo.immich.app
+Web demo adresi: https://demo.ram.app
 
-Mobil uygulama için `Server Endpoint URL` olarak `https://demo.immich.app/api` adresini kullanabilirsiniz.
+Mobil uygulama için `Server Endpoint URL` olarak `https://demo.ram.app/api` adresini kullanabilirsiniz.
 
 ```bash title="Demo Bilgileri"
 Giriş bilgileri:
-email: demo@immich.app
+email: demo@ram.app
 password: demo
 ```
 

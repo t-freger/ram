@@ -1,6 +1,6 @@
 <script lang="ts">
   import { locale } from '$lib/stores/preferences.store';
-  import type { SystemConfigTemplateStorageOptionDto } from '@immich/sdk';
+  import type { SystemConfigTemplateStorageOptionDto } from '@ram/sdk';
   import { DateTime } from 'luxon';
 
   export let options: SystemConfigTemplateStorageOptionDto;
@@ -14,14 +14,14 @@
   <h4>DATE & TIME</h4>
 </div>
 
-<div class="mt-2 rounded-lg bg-gray-200 p-4 text-xs dark:bg-gray-700 dark:text-immich-dark-fg">
-  <div class="mb-2 text-gray-600 dark:text-immich-dark-fg">
+<div class="mt-2 rounded-lg bg-gray-200 p-4 text-xs dark:bg-gray-700 dark:text-ram-dark-fg">
+  <div class="mb-2 text-gray-600 dark:text-ram-dark-fg">
     <p>Asset's creation timestamp is used for the datetime information</p>
     <p>Sample time 2022-02-03T04:56:05.250</p>
   </div>
   <div class="flex gap-[40px]">
     <div>
-      <p class="font-medium text-immich-primary dark:text-immich-dark-primary">YEAR</p>
+      <p class="font-medium text-ram-primary dark:text-ram-dark-primary">YEAR</p>
       <ul>
         {#each options.yearOptions as yearFormat}
           <li>{'{{'}{yearFormat}{'}}'} - {getLuxonExample(yearFormat)}</li>
@@ -30,7 +30,7 @@
     </div>
 
     <div>
-      <p class="font-medium text-immich-primary dark:text-immich-dark-primary">MONTH</p>
+      <p class="font-medium text-ram-primary dark:text-ram-dark-primary">MONTH</p>
       <ul>
         {#each options.monthOptions as monthFormat}
           <li>{'{{'}{monthFormat}{'}}'} - {getLuxonExample(monthFormat)}</li>
@@ -39,7 +39,7 @@
     </div>
 
     <div>
-      <p class="font-medium text-immich-primary dark:text-immich-dark-primary">WEEK</p>
+      <p class="font-medium text-ram-primary dark:text-ram-dark-primary">WEEK</p>
       <ul>
         {#each options.weekOptions as weekFormat}
           <li>{'{{'}{weekFormat}{'}}'} - {getLuxonExample(weekFormat)}</li>
@@ -48,7 +48,7 @@
     </div>
 
     <div>
-      <p class="font-medium text-immich-primary dark:text-immich-dark-primary">DAY</p>
+      <p class="font-medium text-ram-primary dark:text-ram-dark-primary">DAY</p>
       <ul>
         {#each options.dayOptions as dayFormat}
           <li>{'{{'}{dayFormat}{'}}'} - {getLuxonExample(dayFormat)}</li>
@@ -57,7 +57,7 @@
     </div>
 
     <div>
-      <p class="font-medium text-immich-primary dark:text-immich-dark-primary">HOUR</p>
+      <p class="font-medium text-ram-primary dark:text-ram-dark-primary">HOUR</p>
       <ul>
         {#each options.hourOptions as dayFormat}
           <li>{'{{'}{dayFormat}{'}}'} - {getLuxonExample(dayFormat)}</li>
@@ -66,7 +66,7 @@
     </div>
 
     <div>
-      <p class="font-medium text-immich-primary dark:text-immich-dark-primary">MINUTE</p>
+      <p class="font-medium text-ram-primary dark:text-ram-dark-primary">MINUTE</p>
       <ul>
         {#each options.minuteOptions as dayFormat}
           <li>{'{{'}{dayFormat}{'}}'} - {getLuxonExample(dayFormat)}</li>
@@ -75,7 +75,7 @@
     </div>
 
     <div>
-      <p class="font-medium text-immich-primary dark:text-immich-dark-primary">SECOND</p>
+      <p class="font-medium text-ram-primary dark:text-ram-dark-primary">SECOND</p>
       <ul>
         {#each options.secondOptions as dayFormat}
           <li>{'{{'}{dayFormat}{'}}'} - {getLuxonExample(dayFormat)}</li>

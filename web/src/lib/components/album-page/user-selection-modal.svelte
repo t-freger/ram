@@ -12,7 +12,7 @@
     type AlbumUserAddDto,
     type SharedLinkResponseDto,
     type UserResponseDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import { mdiCheck, mdiEye, mdiLink, mdiPencil, mdiShareCircle } from '@mdi/js';
   import { createEventDispatcher, onMount } from 'svelte';
   import Button from '../elements/buttons/button.svelte';
@@ -80,14 +80,14 @@
           {#key user.id}
             <div class="flex place-items-center gap-4 p-4">
               <div
-                class="flex h-10 w-10 items-center justify-center rounded-full border bg-immich-dark-success text-3xl text-white dark:border-immich-dark-gray dark:bg-immich-dark-success"
+                class="flex h-10 w-10 items-center justify-center rounded-full border bg-ram-dark-success text-3xl text-white dark:border-ram-dark-gray dark:bg-ram-dark-success"
               >
                 <Icon path={mdiCheck} size={24} />
               </div>
 
               <!-- <UserAvatar {user} size="md" /> -->
               <div class="text-left flex-grow">
-                <p class="text-immich-fg dark:text-immich-dark-fg">
+                <p class="text-ram-fg dark:text-ram-dark-fg">
                   {user.name}
                 </p>
                 <p class="text-xs">
@@ -114,7 +114,7 @@
     </p>
   {/if}
 
-  <div class="immich-scrollbar max-h-[500px] overflow-y-auto">
+  <div class="ram-scrollbar max-h-[500px] overflow-y-auto">
     {#if users.length > 0 && users.length !== Object.keys(selectedUsers).length}
       <p class="text-xs font-medium">SUGGESTIONS</p>
 
@@ -125,7 +125,7 @@
               <button on:click={() => handleToggle(user)} class="flex w-full place-items-center gap-4 p-4">
                 <UserAvatar {user} size="md" />
                 <div class="text-left flex-grow">
-                  <p class="text-immich-fg dark:text-immich-dark-fg">
+                  <p class="text-ram-fg dark:text-ram-dark-fg">
                     {user.name}
                   </p>
                   <p class="text-xs">

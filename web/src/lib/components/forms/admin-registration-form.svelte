@@ -1,7 +1,7 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { AppRoute } from '$lib/constants';
-  import { signUpAdmin } from '@immich/sdk';
+  import { signUpAdmin } from '@ram/sdk';
   import { handleError } from '../../utils/handle-error';
   import Button from '../elements/buttons/button.svelte';
   import PasswordField from '../shared-components/password-field.svelte';
@@ -41,23 +41,23 @@
 
 <form on:submit|preventDefault={registerAdmin} method="post" class="mt-5 flex flex-col gap-5">
   <div class="flex flex-col gap-2">
-    <label class="immich-form-label" for="email">Admin Email</label>
-    <input class="immich-form-input" id="email" bind:value={email} type="email" autocomplete="email" required />
+    <label class="ram-form-label" for="email">Admin Email</label>
+    <input class="ram-form-input" id="email" bind:value={email} type="email" autocomplete="email" required />
   </div>
 
   <div class="flex flex-col gap-2">
-    <label class="immich-form-label" for="password">Admin Password</label>
+    <label class="ram-form-label" for="password">Admin Password</label>
     <PasswordField id="password" bind:password autocomplete="new-password" />
   </div>
 
   <div class="flex flex-col gap-2">
-    <label class="immich-form-label" for="confirmPassword">Confirm Admin Password</label>
+    <label class="ram-form-label" for="confirmPassword">Confirm Admin Password</label>
     <PasswordField id="confirmPassword" bind:password={confirmPassword} autocomplete="new-password" />
   </div>
 
   <div class="flex flex-col gap-2">
-    <label class="immich-form-label" for="name">Name</label>
-    <input class="immich-form-input" id="name" bind:value={name} type="text" autocomplete="name" required />
+    <label class="ram-form-label" for="name">Name</label>
+    <input class="ram-form-input" id="name" bind:value={name} type="text" autocomplete="name" required />
   </div>
 
   {#if errorMessage}

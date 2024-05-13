@@ -3,8 +3,8 @@ import { NextFunction, Response } from 'express';
 import { access, constants } from 'node:fs/promises';
 import { basename, extname, isAbsolute } from 'node:path';
 import { promisify } from 'node:util';
-import { ImmichReadStream } from 'src/interfaces/storage.interface';
-import { ImmichLogger } from 'src/utils/logger';
+import { ramReadStream } from 'src/interfaces/storage.interface';
+import { ramLogger } from 'src/utils/logger';
 import { isConnectionAborted } from 'src/utils/misc';
 
 export function getFileNameWithoutExtension(path: string): string {
@@ -21,24 +21,24 @@ export enum CacheControl {
   NONE = 'none',
 }
 
-export class ImmichFileResponse {
+export class ramFileResponse {
   public readonly path!: string;
   public readonly contentType!: string;
   public readonly cacheControl!: CacheControl;
 
-  constructor(response: ImmichFileResponse) {
+  constructor(response: ramFileResponse) {
     Object.assign(this, response);
   }
 }
 type SendFile = Parameters<Response['sendFile']>;
 type SendFileOptions = SendFile[1];
 
-const logger = new ImmichLogger('SendFile');
+const logger = new ramLogger('SendFile');
 
 export const sendFile = async (
   res: Response,
   next: NextFunction,
-  handler: () => Promise<ImmichFileResponse>,
+  handler: () => Promise<ramFileResponse>,
 ): Promise<void> => {
   const _sendFile = (path: string, options: SendFileOptions) =>
     promisify<string, SendFileOptions>(res.sendFile).bind(res)(path, options);
@@ -83,6 +83,6 @@ export const sendFile = async (
   }
 };
 
-export const asStreamableFile = ({ stream, type, length }: ImmichReadStream) => {
+export const asStreamableFile = ({ stream, type, length }: ramReadStream) => {
   return new StreamableFile(stream, { type, length });
 };

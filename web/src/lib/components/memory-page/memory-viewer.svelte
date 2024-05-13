@@ -21,7 +21,7 @@
   import { getAssetThumbnailUrl, handlePromiseError, memoryLaneTitle } from '$lib/utils';
   import { shortcuts } from '$lib/utils/shortcut';
   import { fromLocalDateTime } from '$lib/utils/timeline-util';
-  import { ThumbnailFormat, getMemoryLane, type AssetResponseDto } from '@immich/sdk';
+  import { ThumbnailFormat, getMemoryLane, type AssetResponseDto } from '@ram/sdk';
   import {
     mdiChevronDown,
     mdiChevronLeft,
@@ -163,7 +163,7 @@
   </div>
 {/if}
 
-<section id="memory-viewer" class="w-full bg-immich-dark-gray" bind:this={memoryWrapper}>
+<section id="memory-viewer" class="w-full bg-ram-dark-gray" bind:this={memoryWrapper}>
   {#if currentMemory}
     <ControlAppBar on:close={() => goto(AppRoute.PHOTOS)} forceDark>
       <svelte:fragment slot="leading">
@@ -334,7 +334,7 @@
     </section>
 
     <!-- GALLERY VIEWER -->
-    <section class="bg-immich-dark-gray m-4">
+    <section class="bg-ram-dark-gray m-4">
       <div
         class="sticky mb-10 mt-4 flex place-content-center place-items-center transition-all"
         class:opacity-0={galleryInView}

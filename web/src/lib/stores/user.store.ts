@@ -1,4 +1,4 @@
-import type { UserResponseDto } from '@immich/sdk';
+import type { UserResponseDto } from '@ram/sdk';
 import { writable } from 'svelte/store';
 
 export const user = writable<UserResponseDto>();

@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
+import 'package:ram_mobile/widgets/common/ram_loading_indicator.dart';
 import 'package:photo_manager/photo_manager.dart';
 
 @RoutePage()
@@ -87,7 +87,7 @@ class AlbumPreviewPage extends HookConsumerWidget {
               return const SizedBox(
                 width: 100,
                 height: 100,
-                child: ImmichLoadingIndicator(),
+                child: ramLoadingIndicator(),
               );
             }),
           );

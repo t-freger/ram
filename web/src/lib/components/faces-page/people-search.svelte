@@ -3,13 +3,13 @@
   import { maximumLengthSearchPeople, timeBeforeShowLoadingSpinner } from '$lib/constants';
   import { handleError } from '$lib/utils/handle-error';
   import { searchNameLocal } from '$lib/utils/person';
-  import { searchPerson, type PersonResponseDto } from '@immich/sdk';
+  import { searchPerson, type PersonResponseDto } from '@ram/sdk';
 
   export let searchName: string;
   export let searchedPeopleLocal: PersonResponseDto[];
   export let type: 'searchBar' | 'input';
   export let numberPeopleToSearch: number = maximumLengthSearchPeople;
-  export let inputClass: string = 'w-full gap-2 bg-immich-bg dark:bg-immich-dark-bg';
+  export let inputClass: string = 'w-full gap-2 bg-ram-bg dark:bg-ram-dark-bg';
   export let showLoadingSpinner: boolean = false;
   export let placeholder: string = 'Name or nickname';
   export let onReset = () => {};

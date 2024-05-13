@@ -5,10 +5,10 @@
   import { serverConfig } from '$lib/stores/server-config.store';
   import { copyToClipboard, makeSharedLinkUrl } from '$lib/utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { SharedLinkType, createSharedLink, updateSharedLink, type SharedLinkResponseDto } from '@immich/sdk';
+  import { SharedLinkType, createSharedLink, updateSharedLink, type SharedLinkResponseDto } from '@ram/sdk';
   import { mdiContentCopy, mdiLink } from '@mdi/js';
   import { createEventDispatcher } from 'svelte';
-  import type { ImmichDropDownOption } from '../dropdown-button.svelte';
+  import type { ramDropDownOption } from '../dropdown-button.svelte';
   import DropdownButton from '../dropdown-button.svelte';
   import { NotificationType, notificationController } from '../notification/notification';
   import SettingInputField, { SettingInputFieldType } from '../settings/setting-input-field.svelte';
@@ -34,7 +34,7 @@
     created: void;
   }>();
 
-  const expiredDateOption: ImmichDropDownOption = {
+  const expiredDateOption: ramDropDownOption = {
     default: 'Never',
     options: ['Never', '30 minutes', '1 hour', '6 hours', '1 day', '7 days', '30 days', '3 months', '1 year'],
   };
@@ -166,7 +166,7 @@
         <div>Let anyone with the link see photos and people in this album.</div>
       {:else}
         <div class="text-sm">
-          Public album | <span class="text-immich-primary dark:text-immich-dark-primary"
+          Public album | <span class="text-ram-primary dark:text-ram-dark-primary"
             >{editingLink.album?.albumName}</span
           >
         </div>
@@ -178,7 +178,7 @@
         <div>Let anyone with the link see the selected photo(s)</div>
       {:else}
         <div class="text-sm">
-          Individual shared | <span class="text-immich-primary dark:text-immich-dark-primary"
+          Individual shared | <span class="text-ram-primary dark:text-ram-dark-primary"
             >{editingLink.description || ''}</span
           >
         </div>
@@ -225,7 +225,7 @@
 
         <div class="text-sm">
           {#if editingLink}
-            <p class="immich-form-label my-2">
+            <p class="ram-form-label my-2">
               <SettingSwitch
                 id="change-expiration-time"
                 bind:checked={shouldChangeExpirationTime}
@@ -233,7 +233,7 @@
               />
             </p>
           {:else}
-            <p class="immich-form-label my-2">Expire after</p>
+            <p class="ram-form-label my-2">Expire after</p>
           {/if}
 
           <DropdownButton
@@ -255,7 +255,7 @@
       {/if}
     {:else}
       <div class="flex w-full gap-2">
-        <input class="immich-form-input w-full" bind:value={sharedLink} disabled />
+        <input class="ram-form-input w-full" bind:value={sharedLink} disabled />
         <LinkButton on:click={() => (sharedLink ? copyToClipboard(sharedLink) : '')}>
           <div class="flex place-items-center gap-2 text-sm">
             <Icon path={mdiContentCopy} ariaLabel="Copy link to clipboard" size="18" />

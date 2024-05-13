@@ -59,16 +59,16 @@ For RKMPP to work:
 #### Basic Setup
 
 1. If you do not already have it, download the latest [`hwaccel.transcoding.yml`][hw-file] file and ensure it's in the same folder as the `docker-compose.yml`.
-2. In the `docker-compose.yml` under `immich-microservices`, uncomment the `extends` section and change `cpu` to the appropriate backend.
+2. In the `docker-compose.yml` under `ram-microservices`, uncomment the `extends` section and change `cpu` to the appropriate backend.
 
 - For VAAPI on WSL2, be sure to use `vaapi-wsl` rather than `vaapi`
 
-3. Redeploy the `immich-microservices` container with these updated settings.
+3. Redeploy the `ram-microservices` container with these updated settings.
 4. In the Admin page under `Video transcoding settings`, change the hardware acceleration setting to the appropriate option and save.
 
 #### Single Compose File
 
-Some platforms, including Unraid and Portainer, do not support multiple Compose files as of writing. As an alternative, you can "inline" the relevant contents of the [`hwaccel.transcoding.yml`][hw-file] file into the `immich-microservices` service directly.
+Some platforms, including Unraid and Portainer, do not support multiple Compose files as of writing. As an alternative, you can "inline" the relevant contents of the [`hwaccel.transcoding.yml`][hw-file] file into the `ram-microservices` service directly.
 
 For example, the `qsv` section in this file is:
 
@@ -77,12 +77,12 @@ devices:
   - /dev/dri:/dev/dri
 ```
 
-You can add this to the `immich-microservices` service instead of extending from `hwaccel.transcoding.yml`:
+You can add this to the `ram-microservices` service instead of extending from `hwaccel.transcoding.yml`:
 
 ```yaml
-immich-microservices:
-  container_name: immich_microservices
-  image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
+ram-microservices:
+  container_name: ram_microservices
+  image: ghcr.io/ram-app/ram-server:${ram_VERSION:-release}
   # Note the lack of an `extends` section
   devices:
     - /dev/dri:/dev/dri
@@ -104,7 +104,7 @@ Once this is done, you can continue to step 3 of "Basic Setup".
 
 ##### QSV
 
-1. Unraid > Docker > (Stop) Immich container > Edit
+1. Unraid > Docker > (Stop) ram container > Edit
 2. Scroll down and select `Add another Path, Port, Variable, Label or Device`
 3. In the drop-down menu, select `Device` and an entry with any name and the value `/dev/dri`.
 4. Continue to step 4 of "Basic Setup".
@@ -121,7 +121,7 @@ Once this is done, you can continue to step 3 of "Basic Setup".
 - You may want to choose a slower preset than for software transcoding to maintain quality and efficiency
 - While you can use VAAPI with NVIDIA and Intel devices, prefer the more specific APIs since they're more optimized for their respective devices
 
-[hw-file]: https://github.com/immich-app/immich/releases/latest/download/hwaccel.transcoding.yml
+[hw-file]: https://github.com/ram-app/ram/releases/latest/download/hwaccel.transcoding.yml
 [nvcr]: https://github.com/NVIDIA/nvidia-container-runtime/
 [jellyfin-lp]: https://jellyfin.org/docs/general/administration/hardware-acceleration/intel/#configure-and-verify-lp-mode-on-linux
 [jellyfin-kernel-bug]: https://jellyfin.org/docs/general/administration/hardware-acceleration/intel/#known-issues-and-limitations

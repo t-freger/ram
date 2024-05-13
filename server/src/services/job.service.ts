@@ -96,7 +96,7 @@ export class JobService {
       throw new BadRequestException(`Job is already running`);
     }
 
-    this.metricRepository.jobs.addToCounter(`immich.queues.${snakeCase(name)}.started`, 1);
+    this.metricRepository.jobs.addToCounter(`ram.queues.${snakeCase(name)}.started`, 1);
 
     switch (name) {
       case QueueName.VIDEO_CONVERSION: {
@@ -162,13 +162,13 @@ export class JobService {
       this.jobRepository.addHandler(queueName, concurrency, async (item: JobItem): Promise<void> => {
         const { name, data } = item;
 
-        const queueMetric = `immich.queues.${snakeCase(queueName)}.active`;
+        const queueMetric = `ram.queues.${snakeCase(queueName)}.active`;
         this.metricRepository.jobs.addToGauge(queueMetric, 1);
 
         try {
           const handler = jobHandlers[name];
           const status = await handler(data);
-          const jobMetric = `immich.jobs.${name.replaceAll('-', '_')}.${status}`;
+          const jobMetric = `ram.jobs.${name.replaceAll('-', '_')}.${status}`;
           this.metricRepository.jobs.addToCounter(jobMetric, 1);
           if (status === JobStatus.SUCCESS || status == JobStatus.SKIPPED) {
             await this.onDone(item);

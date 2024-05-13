@@ -17,16 +17,16 @@ test.describe('Registration', () => {
 
     // register
     await expect(page).toHaveTitle(/Admin Registration/);
-    await page.getByLabel('Admin Email').fill('admin@immich.app');
+    await page.getByLabel('Admin Email').fill('admin@ram.app');
     await page.getByLabel('Admin Password', { exact: true }).fill('password');
     await page.getByLabel('Confirm Admin Password').fill('password');
-    await page.getByLabel('Name').fill('Immich Admin');
+    await page.getByLabel('Name').fill('ram Admin');
     await page.getByRole('button', { name: 'Sign up' }).click();
 
     // login
     await expect(page).toHaveTitle(/Login/);
     await page.goto('/auth/login');
-    await page.getByLabel('Email').fill('admin@immich.app');
+    await page.getByLabel('Email').fill('admin@ram.app');
     await page.getByLabel('Password').fill('password');
     await page.getByRole('button', { name: 'Login' }).click();
 
@@ -48,10 +48,10 @@ test.describe('Registration', () => {
     await page.goto('/admin/user-management');
     await expect(page).toHaveTitle(/User Management/);
     await page.getByRole('button', { name: 'Create user' }).click();
-    await page.getByLabel('Email').fill('user@immich.cloud');
+    await page.getByLabel('Email').fill('user@ram.cloud');
     await page.getByLabel('Password', { exact: true }).fill('password');
     await page.getByLabel('Confirm Password').fill('password');
-    await page.getByLabel('Name').fill('Immich User');
+    await page.getByLabel('Name').fill('ram User');
     await page.getByRole('button', { name: 'Create', exact: true }).click();
 
     // logout
@@ -59,7 +59,7 @@ test.describe('Registration', () => {
 
     // login
     await page.goto('/auth/login');
-    await page.getByLabel('Email').fill('user@immich.cloud');
+    await page.getByLabel('Email').fill('user@ram.cloud');
     await page.getByLabel('Password').fill('password');
     await page.getByRole('button', { name: 'Login' }).click();
 
@@ -72,7 +72,7 @@ test.describe('Registration', () => {
 
     // login with new password
     await expect(page).toHaveURL('/auth/login');
-    await page.getByLabel('Email').fill('user@immich.cloud');
+    await page.getByLabel('Email').fill('user@ram.cloud');
     await page.getByLabel('Password').fill('new-password');
     await page.getByRole('button', { name: 'Login' }).click();
 

@@ -1,9 +1,9 @@
 # Supported formats
 
-Immich supports a number of image and video formats, the most common of which are outlined here.
+ram supports a number of image and video formats, the most common of which are outlined here.
 
 :::note
-For the full list, refer to the [Immich source code](https://github.com/immich-app/immich/blob/main/server/src/utils/mime-types.ts).
+For the full list, refer to the [ram source code](https://github.com/ram-app/ram/blob/main/server/src/utils/mime-types.ts).
 :::
 
 ## Image formats

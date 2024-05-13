@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:immich_mobile/entities/exif_info.entity.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/utils/hash.dart';
+import 'package:ram_mobile/entities/exif_info.entity.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/utils/hash.dart';
 import 'package:isar/isar.dart';
 import 'package:openapi/api.dart';
 import 'package:photo_manager/photo_manager.dart';
-import 'package:immich_mobile/extensions/string_extensions.dart';
+import 'package:ram_mobile/extensions/string_extensions.dart';
 import 'package:path/path.dart' as p;
 
 part 'asset.entity.g.dart';

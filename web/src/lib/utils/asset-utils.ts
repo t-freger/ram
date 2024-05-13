@@ -19,7 +19,7 @@ import {
   type DownloadInfoDto,
   type DownloadResponseDto,
   type UserResponseDto,
-} from '@immich/sdk';
+} from '@ram/sdk';
 import { DateTime } from 'luxon';
 import { get } from 'svelte/store';
 import { handleError } from './handle-error';

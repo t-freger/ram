@@ -1,7 +1,7 @@
 # External Library
 
 This guide walks you through adding an [External Library](/docs/features/libraries#external-libraries).
-This guide assumes you are running Immich in Docker and that the files you wish to access are stored
+This guide assumes you are running ram in Docker and that the files you wish to access are stored
 in a directory on the same machine.
 
 # Mount the directory into the containers.
@@ -9,12 +9,12 @@ in a directory on the same machine.
 Edit `docker-compose.yml` to add two new mount points under `volumes:`
 
 ```
-  immich-server:
+  ram-server:
     volumes:
       - ${EXTERNAL_PATH}:/usr/src/app/external
 ```
 
-Be sure to add exactly the same line to both `immich-server:` and `immich-microservices:`.
+Be sure to add exactly the same line to both `ram-server:` and `ram-microservices:`.
 
 Edit `.env` to define `EXTERNAL_PATH`, substituting in the correct path for your computer:
 
@@ -32,7 +32,7 @@ EXTERNAL_PATH=/home/tenino/photos
 The design choice to put the EXTERNAL_PATH into .env rather than put two copies of the absolute path in the yml file in order to make everything easier, so if you have two copies of the same path that have to be kept in sync, then someday later when you move the data, update only one of the paths, without everything will break mysteriously.
 :::
 
-Restart Immich.
+Restart ram.
 
 ```
 docker compose down
@@ -41,7 +41,7 @@ docker compose up -d
 
 # Create the library
 
-In the Immich web UI:
+In the ram web UI:
 
 - click the **Administration** link in the upper right corner.
   <img src={require('./img/administration-link.png').default} width="50%" title="Administration link" />

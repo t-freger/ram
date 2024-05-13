@@ -1,7 +1,7 @@
 <script>
   import { page } from '$app/stores';
   import Icon from '$lib/components/elements/icon.svelte';
-  import ImmichLogo from '$lib/components/shared-components/immich-logo.svelte';
+  import ramLogo from '$lib/components/shared-components/ram-logo.svelte';
   import CircleIconButton from '$lib/components/elements/buttons/circle-icon-button.svelte';
   import { copyToClipboard } from '$lib/utils';
   import { mdiCodeTags, mdiContentCopy, mdiMessage, mdiPartyPopper } from '@mdi/js';
@@ -18,10 +18,10 @@
 </script>
 
 <div class="h-screen w-screen">
-  <section class="bg-immich-bg dark:bg-immich-dark-bg">
-    <div class="flex place-items-center border-b px-6 py-4 dark:border-b-immich-dark-gray">
+  <section class="bg-ram-bg dark:bg-ram-dark-bg">
+    <div class="flex place-items-center border-b px-6 py-4 dark:border-b-ram-dark-gray">
       <a class="flex place-items-center gap-2 hover:cursor-pointer" href="/photos">
-        <ImmichLogo width="55%" />
+        <ramLogo width="55%" />
       </a>
     </div>
   </section>
@@ -29,11 +29,11 @@
   <div class="fixed top-0 flex h-full w-full place-content-center place-items-center overflow-hidden bg-black/50">
     <div>
       <div
-        class="w-[500px] max-w-[95vw] rounded-3xl border bg-immich-bg shadow-sm dark:border-immich-dark-gray dark:bg-immich-dark-gray dark:text-immich-dark-fg"
+        class="w-[500px] max-w-[95vw] rounded-3xl border bg-ram-bg shadow-sm dark:border-ram-dark-gray dark:bg-ram-dark-gray dark:text-ram-dark-fg"
       >
         <div>
           <div class="flex items-center justify-between gap-4 px-4 py-4">
-            <h1 class="font-medium text-immich-primary dark:text-immich-dark-primary">
+            <h1 class="font-medium text-ram-primary dark:text-ram-dark-primary">
               🚨 Error - Something went wrong
             </h1>
             <div class="flex justify-end">
@@ -48,7 +48,7 @@
 
           <hr />
 
-          <div class="immich-scrollbar max-h-[75vh] min-h-[300px] gap-4 overflow-y-auto p-4 pb-4">
+          <div class="ram-scrollbar max-h-[75vh] min-h-[300px] gap-4 overflow-y-auto p-4 pb-4">
             <div class="flex w-full flex-col gap-2">
               <p class="text-red-500">{$page.error?.message} ({$page.error?.code})</p>
               {#if $page.error?.stack}
@@ -61,7 +61,7 @@
           <hr />
 
           <div class="flex place-content-center place-items-center justify-around">
-            <!-- href="https://github.com/immich-app/immich/issues/new" -->
+            <!-- href="https://github.com/ram-app/ram/issues/new" -->
             <a
               href="https://discord.com/invite/D8JsnBEuKb"
               target="_blank"
@@ -75,7 +75,7 @@
             </a>
 
             <a
-              href="https://github.com/immich-app/immich/releases"
+              href="https://github.com/ram-app/ram/releases"
               target="_blank"
               rel="noopener noreferrer"
               class="flex grow basis-0 justify-center p-4"
@@ -87,7 +87,7 @@
             </a>
 
             <a
-              href="https://immich.app/docs/guides/docker-help"
+              href="https://ram.app/docs/guides/docker-help"
               target="_blank"
               rel="noopener noreferrer"
               class="flex grow basis-0 justify-center p-4"

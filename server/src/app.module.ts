@@ -8,7 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ClsModule } from 'nestjs-cls';
 import { OpenTelemetryModule } from 'nestjs-otel';
 import { commands } from 'src/commands';
-import { bullConfig, bullQueues, clsConfig, immichAppConfig } from 'src/config';
+import { bullConfig, bullQueues, clsConfig, ramAppConfig } from 'src/config';
 import { controllers } from 'src/controllers';
 import { databaseConfig } from 'src/database.config';
 import { entities } from 'src/entities';
@@ -36,7 +36,7 @@ const imports = [
   BullModule.forRoot(bullConfig),
   BullModule.registerQueue(...bullQueues),
   ClsModule.forRoot(clsConfig),
-  ConfigModule.forRoot(immichAppConfig),
+  ConfigModule.forRoot(ramAppConfig),
   EventEmitterModule.forRoot(),
   OpenTelemetryModule.forRoot(otelConfig),
   TypeOrmModule.forRoot(databaseConfig),
@@ -72,11 +72,11 @@ export class MicroservicesModule implements OnModuleInit {
   imports: [...imports],
   providers: [...common, ...commands, SchedulerRegistry],
 })
-export class ImmichAdminModule {}
+export class ramAdminModule {}
 
 @Module({
   imports: [
-    ConfigModule.forRoot(immichAppConfig),
+    ConfigModule.forRoot(ramAppConfig),
     EventEmitterModule.forRoot(),
     TypeOrmModule.forRoot(databaseConfig),
     TypeOrmModule.forFeature(entities),

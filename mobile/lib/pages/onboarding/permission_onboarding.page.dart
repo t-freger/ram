@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/gallery_permission.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/widgets/common/immich_logo.dart';
-import 'package:immich_mobile/widgets/common/immich_title_text.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/gallery_permission.provider.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/widgets/common/ram_logo.dart';
+import 'package:ram_mobile/widgets/common/ram_title_text.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 @RoutePage()
@@ -74,7 +74,7 @@ class PermissionOnboardingPage extends HookConsumerWidget {
 
     // iOS 14+ has limited permission options, which let someone just share
     // a few photos with the app. If someone only has limited permissions, we
-    // inform that Immich works best when given full permission
+    // inform that ram works best when given full permission
     buildPermissionLimited() {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -163,10 +163,10 @@ class PermissionOnboardingPage extends HookConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const ImmichLogo(
+                const ramLogo(
                   heroTag: 'logo',
                 ),
-                const ImmichTitleText(),
+                const ramTitleText(),
                 AnimatedSwitcher(
                   duration: const Duration(milliseconds: 500),
                   child: Padding(

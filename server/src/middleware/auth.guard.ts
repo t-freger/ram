@@ -10,7 +10,7 @@ import {
 import { Reflector } from '@nestjs/core';
 import { ApiBearerAuth, ApiCookieAuth, ApiOkResponse, ApiQuery, ApiSecurity } from '@nestjs/swagger';
 import { Request } from 'express';
-import { AuthDto, ImmichQuery } from 'src/dtos/auth.dto';
+import { AuthDto, ramQuery } from 'src/dtos/auth.dto';
 import { ILoggerRepository } from 'src/interfaces/logger.interface';
 import { AuthService, LoginDetails } from 'src/services/auth.service';
 import { UAParser } from 'ua-parser-js';
@@ -35,7 +35,7 @@ export const Authenticated = (options?: AuthenticatedOptions): MethodDecorator =
   ];
 
   if ((options as SharedLinkRoute)?.sharedLink) {
-    decorators.push(ApiQuery({ name: ImmichQuery.SHARED_LINK_KEY, type: String, required: false }));
+    decorators.push(ApiQuery({ name: ramQuery.SHARED_LINK_KEY, type: String, required: false }));
   }
 
   return applyDecorators(...decorators);

@@ -4,11 +4,11 @@
 
 ### How can I reset the admin password?
 
-The admin password can be reset by running the [reset-admin-password](/docs/administration/server-commands.md) command on the immich-server.
+The admin password can be reset by running the [reset-admin-password](/docs/administration/server-commands.md) command on the ram-server.
 
-### How can I see a list of all users in Immich?
+### How can I see a list of all users in ram?
 
-You can see the list of all users by running [list-users](/docs/administration/server-commands.md) Command on the Immich-server.
+You can see the list of all users by running [list-users](/docs/administration/server-commands.md) Command on the ram-server.
 
 ---
 
@@ -46,19 +46,19 @@ The behaviors differ based on your device manufacturer and operating system, but
 
 ### Why is background backup on iOS not working?
 
-On iOS (iPhone and iPad), the operating system determines if a particular app can invoke background tasks based on multiple factors, most of which the Immich app has no control over. To increase the likelihood that the background backup task is run, follow the steps below:
+On iOS (iPhone and iPad), the operating system determines if a particular app can invoke background tasks based on multiple factors, most of which the ram app has no control over. To increase the likelihood that the background backup task is run, follow the steps below:
 
-- Enable Background App Refresh for Immich in the iOS settings at `Settings > General > Background App Refresh`.
-- Disable Background App Refresh for apps that don't need background tasks to run. This will reduce the competition for background task invocation for Immich.
-- Use the Immich app more often.
+- Enable Background App Refresh for ram in the iOS settings at `Settings > General > Background App Refresh`.
+- Disable Background App Refresh for apps that don't need background tasks to run. This will reduce the competition for background task invocation for ram.
+- Use the ram app more often.
 
 ---
 
 ## Assets
 
-### Does Immich change the file?
+### Does ram change the file?
 
-No, Immich does not touch the original file under any circumstances,  
+No, ram does not touch the original file under any circumstances,  
 all edited metadata are saved in the companion sidecar file and the database.
 
 ### Can I add my existing photo library?
@@ -69,9 +69,9 @@ Yes, with an [External Library](/docs/features/libraries.md).
 
 Template changes will only apply to _new_ assets. To retroactively apply the template to previously uploaded assets, run the Storage Migration Job, available on the [Jobs](/docs/administration/jobs.md) page.
 
-### Why are only photos and not videos being uploaded to Immich?
+### Why are only photos and not videos being uploaded to ram?
 
-This often happens when using a reverse proxy (such as Nginx or Cloudflare tunnel) in front of Immich. Make sure to set your reverse proxy to allow large `POST` requests. In `nginx`, set `client_max_body_size 50000M;` or similar. Also, check the disk space of your reverse proxy. In some cases, proxies cache requests to disk before passing them on, and if disk space runs out, the request fails.
+This often happens when using a reverse proxy (such as Nginx or Cloudflare tunnel) in front of ram. Make sure to set your reverse proxy to allow large `POST` requests. In `nginx`, set `client_max_body_size 50000M;` or similar. Also, check the disk space of your reverse proxy. In some cases, proxies cache requests to disk before passing them on, and if disk space runs out, the request fails.
 
 ### Why are some photos stored in the file system with the wrong date?
 
@@ -81,17 +81,17 @@ There are a few different scenarios that can lead to this situation. The solutio
 
 You can _archive_ them.
 
-### How can I backup data from Immich?
+### How can I backup data from ram?
 
 See [Backup and Restore](/docs/administration/backup-and-restore.md).
 
-### Does Immich support reading existing face tag metadata?
+### Does ram support reading existing face tag metadata?
 
-No, it currently does not. There is an [open feature request on GitHub](https://github.com/immich-app/immich/discussions/4348).
+No, it currently does not. There is an [open feature request on GitHub](https://github.com/ram-app/ram/discussions/4348).
 
-### Does Immich support the filtering of NSFW images?
+### Does ram support the filtering of NSFW images?
 
-No, it currently does not. There is an [open feature request on Github](https://github.com/immich-app/immich/discussions/2451).
+No, it currently does not. There is an [open feature request on Github](https://github.com/ram-app/ram/discussions/2451).
 
 ### Why are there so many thumbnail generation jobs?
 
@@ -105,19 +105,19 @@ Also, there are additional jobs for person (face) thumbnails.
 
 ### Why do files from WhatsApp not appear with the correct date?
 
-Files sent on WhatsApp are saved without metadata on the file. Therefore, Immich has no way of knowing the original date of the file when files are uploaded from WhatsApp, not the order of arrival on the device. [See #3527](https://github.com/immich-app/immich/issues/3527).
+Files sent on WhatsApp are saved without metadata on the file. Therefore, ram has no way of knowing the original date of the file when files are uploaded from WhatsApp, not the order of arrival on the device. [See #3527](https://github.com/ram-app/ram/issues/3527).
 
 ### What happens if an asset exists in more than one account?
 
 There are no requirements for assets to be unique across users. If multiple users upload the same image, it is processed as if it were a distinct asset, and jobs run and thumbnails are generated accordingly.
 
-### Why do HDR videos appear pale in Immich player but look normal after download?
+### Why do HDR videos appear pale in ram player but look normal after download?
 
-Immich uses a player with known HDR color display issues. We are experimenting with a different player that provides better color profiles for HDR content for future improvements.
+ram uses a player with known HDR color display issues. We are experimenting with a different player that provides better color profiles for HDR content for future improvements.
 
-### Why does Immich transcode my videos to a lower quality?
+### Why does ram transcode my videos to a lower quality?
 
-Immich always keeps your original files. Alongside that, it generates a transcoded version for compatibility and performance reasons.
+ram always keeps your original files. Alongside that, it generates a transcoded version for compatibility and performance reasons.
 
 ### How can I delete transcoded videos without deleting the original?
 
@@ -171,13 +171,13 @@ COMMIT;
 
 ## Albums
 
-### Can I keep my existing album structure while importing assets into Immich?
+### Can I keep my existing album structure while importing assets into ram?
 
-Yes, by using the [Immich CLI](/docs/features/command-line-interface) along with the `--album` flag.
+Yes, by using the [ram CLI](/docs/features/command-line-interface) along with the `--album` flag.
 
 ### Is there a way to reorder photos within an album?
 
-No, not yet. For updates on this planned feature, follow the [GitHub discussion](https://github.com/immich-app/immich/discussions/1689).
+No, not yet. For updates on this planned feature, follow the [GitHub discussion](https://github.com/ram-app/ram/discussions/1689).
 
 ---
 
@@ -185,7 +185,7 @@ No, not yet. For updates on this planned feature, follow the [GitHub discussion]
 
 ### Can I add an external library while keeping the existing album structure?
 
-We haven't implemented an official mechanism for creating albums from external libraries, but there are some [workarounds from the community](https://github.com/immich-app/immich/discussions/4279) to help you achieve that.
+We haven't implemented an official mechanism for creating albums from external libraries, but there are some [workarounds from the community](https://github.com/ram-app/ram/discussions/4279) to help you achieve that.
 
 ### What happens to duplicates in external libraries?
 
@@ -197,11 +197,11 @@ Duplicate checking only exists for upload libraries, using the file hash. Furthe
 
 ### How does smart search work?
 
-Immich uses CLIP models. For more information about CLIP and its capabilities, read about it [here](https://openai.com/research/clip).
+ram uses CLIP models. For more information about CLIP and its capabilities, read about it [here](https://openai.com/research/clip).
 
 ### How does facial recognition work?
 
-For face detection and recognition, Immich uses [InsightFace models](https://github.com/deepinsight/insightface/tree/master/model_zoo).
+For face detection and recognition, ram uses [InsightFace models](https://github.com/deepinsight/insightface/tree/master/model_zoo).
 
 ### How can I disable machine learning?
 
@@ -211,7 +211,7 @@ Disabling machine learning will result in a poor experience for searching and th
 
 Machine learning can be disabled under Administration > Settings > Machine Learning Settings, either entirely or by model type. For instance, you can choose to disable smart search with CLIP, but keep facial recognition enabled. This means that the machine learning service will only process the enabled jobs.
 
-However, disabling all jobs will not disable the machine learning service itself. To prevent it from starting up at all in this case, you can comment out the `immich-machine-learning` section of the docker-compose.yml.
+However, disabling all jobs will not disable the machine learning service itself. To prevent it from starting up at all in this case, you can comment out the `ram-machine-learning` section of the docker-compose.yml.
 
 ### I'm getting errors about models being corrupt or failing to download. What do I do?
 
@@ -223,18 +223,18 @@ No, this is not supported. Only models listed in the [Huggingface][huggingface] 
 
 ### I want to be able to search in other languages besides English. How can I do that?
 
-You can change to a multilingual model listed [here](https://huggingface.co/collections/immich-app/multilingual-clip-654eb08c2382f591eeb8c2a7) by going to Administration > Machine Learning Settings > Smart Search and replacing the name of the model. Be sure to re-run Smart Search on all assets after this change. You can then search in over 100 languages.
+You can change to a multilingual model listed [here](https://huggingface.co/collections/ram-app/multilingual-clip-654eb08c2382f591eeb8c2a7) by going to Administration > Machine Learning Settings > Smart Search and replacing the name of the model. Be sure to re-run Smart Search on all assets after this change. You can then search in over 100 languages.
 
 :::note
-Feel free to make a feature request if there's a model you want to use that isn't in [Immich Huggingface list][huggingface].
+Feel free to make a feature request if there's a model you want to use that isn't in [ram Huggingface list][huggingface].
 :::
 
-### Does Immich support Facial Recognition for videos?
+### Does ram support Facial Recognition for videos?
 
-Immich's machine learning feature operates on the generated thumbnail. If a face is visible in the video's thumbnail it will be picked up by facial recognition.
+ram's machine learning feature operates on the generated thumbnail. If a face is visible in the video's thumbnail it will be picked up by facial recognition.
 Scanning the entire video for faces may be implemented in the future.
 
-### Does Immich have animal recognition?
+### Does ram have animal recognition?
 
 No.
 :::tip
@@ -246,15 +246,15 @@ You can use [Smart Search](/docs/features/smart-search.md) for this to some exte
 You can increase the MIN DETECTION SCORE to 0.8 to help prevent bad thumbnails. Setting the score too high (above 0.9) might filter out too many real faces depending on the library used. If you just want to hide specific faces, you can adjust the 'MIN FACES DETECTED' setting in the administration panel  
 to increase the bar for what the algorithm considers a "core face" for that person, reducing the chance of bad thumbnails being chosen.
 
-### The immich_model-cache volume takes up a lot of space, what could be the problem?
+### The ram_model-cache volume takes up a lot of space, what could be the problem?
 
-If you installed several models and chose not to use some of them, it might be worth deleting the old models that are in immich_model-cache. To do this you can mount the model cache and remove the undesired models.
+If you installed several models and chose not to use some of them, it might be worth deleting the old models that are in ram_model-cache. To do this you can mount the model cache and remove the undesired models.
 
 <details>
 <summary>Steps</summary>
 
 ```bash
-docker run -it --rm -v immich_model-cache:/mnt-models alpine sh
+docker run -it --rm -v ram_model-cache:/mnt-models alpine sh
 cd /mnt-models
 ls clip/ facial-recognition/
 # rm -r clip/ABC facial-recognition/DEF # delete unused models
@@ -266,9 +266,9 @@ ls clip/ facial-recognition/
 
 ## Performance
 
-### Why is Immich slow on low-memory systems like the Raspberry Pi?
+### Why is ram slow on low-memory systems like the Raspberry Pi?
 
-Immich optionally uses machine learning for several features. However, it can be too heavy to run on a Raspberry Pi. You can [mitigate](/docs/FAQ#can-i-lower-cpu-and-ram-usage) this or host Immich's machine-learning container on a [more powerful system](/docs/guides/remote-machine-learning), or [disable](/docs/FAQ#how-can-i-disable-machine-learning) machine learning entirely.
+ram optionally uses machine learning for several features. However, it can be too heavy to run on a Raspberry Pi. You can [mitigate](/docs/FAQ#can-i-lower-cpu-and-ram-usage) this or host ram's machine-learning container on a [more powerful system](/docs/guides/remote-machine-learning), or [disable](/docs/FAQ#how-can-i-disable-machine-learning) machine learning entirely.
 
 ### Can I lower CPU and RAM usage?
 
@@ -316,9 +316,9 @@ Do not exaggerate with the amount of jobs because you're probably thoroughly ove
 More details can be found [here](https://discord.com/channels/979116623879368755/994044917355663450/1174711719994605708)
 :::
 
-### Why is Immich using so much of my CPU?
+### Why is ram using so much of my CPU?
 
-When a large number of assets are uploaded to Immich, it makes sense that the CPU and RAM will be heavily used for machine learning work and creating image thumbnails.
+When a large number of assets are uploaded to ram, it makes sense that the CPU and RAM will be heavily used for machine learning work and creating image thumbnails.
 Once this process is completed, the percentage of CPU usage will drop to around 3-5% usage
 
 ### My server shows Server Status Offline | Version Unknown what can I do?
@@ -329,22 +329,22 @@ You need to enable Websocket on your reverse proxy.
 
 ## Docker
 
-### How can I see Immich logs?
+### How can I see ram logs?
 
-Immich components are typically deployed using docker. To see logs for deployed docker containers, you can use the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), specifically the `docker logs` command. For examples, see [Docker Help](/docs/guides/docker-help.md).
+ram components are typically deployed using docker. To see logs for deployed docker containers, you can use the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), specifically the `docker logs` command. For examples, see [Docker Help](/docs/guides/docker-help.md).
 
-### How can I run Immich as a non-root user?
+### How can I run ram as a non-root user?
 
 You can change the user in the container by setting the `user` argument in `docker-compose.yml` for each service.
 You may need to add mount points or docker volumes for the following internal container paths:
 
-- `immich-machine-learning:/.config`
-- `immich-machine-learning:/.cache`
+- `ram-machine-learning:/.config`
+- `ram-machine-learning:/.cache`
 - `redis:/data`
 
 The non-root user/group needs read/write access to the volume mounts, including `UPLOAD_LOCATION`.
 
-For a further hardened system, you can add the following block to every container except for `immich_postgres`.
+For a further hardened system, you can add the following block to every container except for `ram_postgres`.
 
 <details>
 <summary>docker-compose.yml</summary>
@@ -360,9 +360,9 @@ cap_drop:
 
 </details>
 
-### How can I purge data from Immich?
+### How can I purge data from ram?
 
-Data for Immich comes in two forms:
+Data for ram comes in two forms:
 
 1. **Metadata** stored in a Postgres database, stored in the `DB_DATA_LOCATION` folder (previously `pg_data` Docker volume).
 2. **Files** (originals, thumbs, profile, etc.), stored in the `UPLOAD_LOCATION` folder, more [info](/docs/administration/backup-and-restore#asset-types-and-storage-locations).
@@ -371,18 +371,18 @@ Data for Immich comes in two forms:
 This will destroy your database and reset your instance, meaning that you start from scratch.
 :::
 
-```bash title="Remove Immich (containers and volumes)"
+```bash title="Remove ram (containers and volumes)"
 docker compose down -v
 ```
 
-After removing the containers and volumes, there are a few directories that need to be deleted to reset Immich to a new installation. Once they are deleted, Immich can be started back up and will be a fresh installation.
+After removing the containers and volumes, there are a few directories that need to be deleted to reset ram to a new installation. Once they are deleted, ram can be started back up and will be a fresh installation.
 
 - `DB_DATA_LOCATION` contains the database, media info, and settings.
-- `UPLOAD_LOCATION` contains all the media uploaded to Immich.
+- `UPLOAD_LOCATION` contains all the media uploaded to ram.
 
 :::note Portainer
 If you use portainer, bring down the stack in portainer. Go into the volumes section  
-and remove all the volumes related to immich then restart the stack.
+and remove all the volumes related to ram then restart the stack.
 :::
 
 ### Why does the machine learning service report workers crashing?
@@ -395,9 +395,9 @@ There are a few reasons why this can happen.
 
 If the error mentions SIGKILL or error code 137, it most likely means the service is running out of memory. Consider either increasing the server's RAM or moving the service to a server with more RAM.
 
-If it mentions SIGILL (note the lack of a K) or error code 132, it most likely means your server's CPU is incompatible. This is unlikely to occur on version 1.92.0 or later. Consider upgrading if your version of Immich is below that.
+If it mentions SIGILL (note the lack of a K) or error code 132, it most likely means your server's CPU is incompatible. This is unlikely to occur on version 1.92.0 or later. Consider upgrading if your version of ram is below that.
 
-If your version of Immich is below 1.92.0 and the crash occurs after logs about tracing or exporting a model, consider either upgrading or disabling the Tag Objects job.
+If your version of ram is below 1.92.0 and the crash occurs after logs about tracing or exporting a model, consider either upgrading or disabling the Tag Objects job.
 
 ## Database
 
@@ -408,14 +408,14 @@ NTFS and ex/FAT/32 filesystems are not supported. See [here](/docs/install/envir
 
 ### How can I verify the integrity of my database?
 
-If you installed Immich using v1.104.0 or later, you likely have database checksums enabled by default. You can check this by running the following command.
+If you installed ram using v1.104.0 or later, you likely have database checksums enabled by default. You can check this by running the following command.
 A result of `on` means that checksums are enabled.
 
 <details>
 <summary>Check if checksums are enabled</summary>
 
 ```bash
-docker exec -it immich_postgres psql --dbname=immich --username=<DB_USERNAME> --command="show data_checksums"
+docker exec -it ram_postgres psql --dbname=ram --username=<DB_USERNAME> --command="show data_checksums"
  data_checksums
 ----------------
  on
@@ -430,11 +430,11 @@ If checksums are enabled, you can check the status of the database with the foll
 <summary>Check for database corruption</summary>
 
 ```bash
-docker exec -it immich_postgres psql --dbname=immich --username=<DB_USERNAME> --command="SELECT datname, checksum_failures, checksum_last_failure FROM pg_stat_database WHERE datname IS NOT NULL"
+docker exec -it ram_postgres psql --dbname=ram --username=<DB_USERNAME> --command="SELECT datname, checksum_failures, checksum_last_failure FROM pg_stat_database WHERE datname IS NOT NULL"
   datname  | checksum_failures | checksum_last_failure
 -----------+-------------------+-----------------------
  postgres  |                 0 |
- immich    |                 0 |
+ ram    |                 0 |
  template1 |                 0 |
  template0 |                 0 |
 (4 rows)
@@ -442,4 +442,4 @@ docker exec -it immich_postgres psql --dbname=immich --username=<DB_USERNAME> --
 
 </details>
 
-[huggingface]: https://huggingface.co/immich-app
+[huggingface]: https://huggingface.co/ram-app

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { updateAlbumInfo, type AlbumResponseDto } from '@immich/sdk';
+  import { updateAlbumInfo, type AlbumResponseDto } from '@ram/sdk';
   import { handleError } from '$lib/utils/handle-error';
   import Button from '$lib/components/elements/buttons/button.svelte';
   import AlbumCover from '$lib/components/album-page/album-cover.svelte';
@@ -45,13 +45,13 @@
 
       <div class="flex-grow">
         <div class="m-4 flex flex-col gap-2">
-          <label class="immich-form-label" for="name">Name</label>
-          <input class="immich-form-input" id="name" type="text" bind:value={albumName} />
+          <label class="ram-form-label" for="name">Name</label>
+          <input class="ram-form-input" id="name" type="text" bind:value={albumName} />
         </div>
 
         <div class="m-4 flex flex-col gap-2">
-          <label class="immich-form-label" for="description">Description</label>
-          <textarea class="immich-form-input" id="description" bind:value={description} />
+          <label class="ram-form-label" for="description">Description</label>
+          <textarea class="ram-form-input" id="description" bind:value={description} />
         </div>
       </div>
     </div>

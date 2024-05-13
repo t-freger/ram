@@ -46,5 +46,5 @@ div[class^='announcementBar_'] {
 }
 
 .navbar__brand .navbar__title {
-  @apply font-immich-title text-2xl font-normal text-immich-primary dark:text-immich-dark-primary;
+  @apply font-ram-title text-2xl font-normal text-ram-primary dark:text-ram-dark-primary;
 }

@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login With Custom URL">
+<img src="../design/ram-logo-stacked-light.svg" width="300" title="Login With Custom URL">
 </p>
 <h3 align="center">حل إدارة الصور والفيديو عالي الأداء مستضاف ذاتيًا</h3>
 <br/>
-<a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Main Screenshot">
+<a href="https://ram.app">
+<img src="../design/ram-screenshots.png" title="Main Screenshot">
 </a>
 <br/>
 <p align="center">
@@ -43,31 +43,31 @@
 
 ## محتوى
 
-- [الوثائق الرسمية](https://immich.app/docs)
-- [خريطة الطريق](https://github.com/orgs/immich-app/projects/1)
+- [الوثائق الرسمية](https://ram.app/docs)
+- [خريطة الطريق](https://github.com/orgs/ram-app/projects/1)
 - [تجريبي](#demo)
 - [سمات](#features)
-- [مقدمة](https://immich.app/docs/overview/introduction)
-- [تعليمات التحميل](https://immich.app/docs/install/requirements)
-- [قواعد المساهمة](https://immich.app/docs/overview/support-the-project)
+- [مقدمة](https://ram.app/docs/overview/introduction)
+- [تعليمات التحميل](https://ram.app/docs/install/requirements)
+- [قواعد المساهمة](https://ram.app/docs/overview/support-the-project)
 
 ## توثيق
 
 يمكنك العثور على الوثائق الرئيسية، بما في ذلك أدلة التثبيت، هنا 
-https://immich.app
+https://ram.app
 
 ## تجريبي
 
 يمكنك الوصول إلى العرض التوضيحي على الويب على
-https://demo.immich.app
+https://demo.ram.app
 
 بالنسبة لتطبيق الهاتف المحمول، يمكنك استخدام 
-`https://demo.immich.app/api` 
+`https://demo.ram.app/api` 
 ل `نقطة نهاية الخادم`
 
 ```bash title="Demo Credential"
 تفاصيل تسجيل  الدخول
-email: demo@immich.app
+email: demo@ram.app
 password: demo
 ```
 
@@ -114,16 +114,16 @@ Spec: Free-tier Oracle VM - Amsterdam - 2.4Ghz quad-core ARM64 CPU, 24GB RAM
 
 ## المساهمين
 
-<a href="https://github.com/alextran1502/immich/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=immich-app/immich" width="100%"/>
+<a href="https://github.com/alextran1502/ram/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ram-app/ram" width="100%"/>
 </a>
 
 ## Star History
 
-<a href="https://star-history.com/#immich-app/immich&Date">
+<a href="https://star-history.com/#ram-app/ram&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=immich-app/immich&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=immich-app/immich&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=immich-app/immich&type=Date" width="100%" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ram-app/ram&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ram-app/ram&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ram-app/ram&type=Date" width="100%" />
  </picture>
 </a>

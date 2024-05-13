@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/utils/db.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/utils/db.dart';
 import 'package:isar/isar.dart';
 
 Future<void> migrateDatabaseIfNeeded(Isar db) async {

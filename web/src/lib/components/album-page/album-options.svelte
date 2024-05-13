@@ -1,6 +1,6 @@
 <script lang="ts">
   import Icon from '$lib/components/elements/icon.svelte';
-  import { updateAlbumInfo, type AlbumResponseDto, type UserResponseDto, AssetOrder } from '@immich/sdk';
+  import { updateAlbumInfo, type AlbumResponseDto, type UserResponseDto, AssetOrder } from '@ram/sdk';
   import { mdiArrowDownThin, mdiArrowUpThin, mdiPlus } from '@mdi/js';
   import { createEventDispatcher } from 'svelte';
   import FullScreenModal from '$lib/components/shared-components/full-screen-modal.svelte';

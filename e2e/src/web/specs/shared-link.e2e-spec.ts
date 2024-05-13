@@ -5,7 +5,7 @@ import {
   SharedLinkResponseDto,
   SharedLinkType,
   createAlbum,
-} from '@immich/sdk';
+} from '@ram/sdk';
 import { test } from '@playwright/test';
 import { asBearerAuth, utils } from 'src/utils';
 

@@ -6,7 +6,7 @@
       "request": "attach",
       "restart": true,
       "port": 9230,
-      "name": "Immich Server",
+      "name": "ram Server",
       "remoteRoot": "/usr/src/app",
       "localRoot": "${workspaceFolder}/server"
     },
@@ -15,7 +15,7 @@
       "request": "attach",
       "restart": true,
       "port": 9231,
-      "name": "Immich Microservices",
+      "name": "ram Microservices",
       "remoteRoot": "/usr/src/app",
       "localRoot": "${workspaceFolder}/server"
     }

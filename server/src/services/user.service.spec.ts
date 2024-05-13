@@ -15,7 +15,7 @@ import { IStorageRepository } from 'src/interfaces/storage.interface';
 import { ISystemConfigRepository } from 'src/interfaces/system-config.interface';
 import { IUserRepository } from 'src/interfaces/user.interface';
 import { UserService } from 'src/services/user.service';
-import { CacheControl, ImmichFileResponse } from 'src/utils/file';
+import { CacheControl, ramFileResponse } from 'src/utils/file';
 import { authStub } from 'test/fixtures/auth.stub';
 import { systemConfigStub } from 'test/fixtures/system-config.stub';
 import { userStub } from 'test/fixtures/user.stub';
@@ -119,7 +119,7 @@ describe(UserService.name, () => {
       const update: UpdateUserDto = {
         id: userStub.user1.id,
         shouldChangePassword: true,
-        email: 'immich@test.com',
+        email: 'ram@test.com',
         storageLabel: 'storage_label',
       };
       userMock.getByEmail.mockResolvedValue(null);
@@ -150,13 +150,13 @@ describe(UserService.name, () => {
     it('user can only update its information', async () => {
       userMock.get.mockResolvedValueOnce({
         ...userStub.user1,
-        id: 'not_immich_auth_user_id',
+        id: 'not_ram_auth_user_id',
       });
 
       const result = sut.update(
         { user: userStub.user1 },
         {
-          id: 'not_immich_auth_user_id',
+          id: 'not_ram_auth_user_id',
           password: 'I take over your account now',
         },
       );
@@ -419,7 +419,7 @@ describe(UserService.name, () => {
       userMock.get.mockResolvedValue(userStub.profilePath);
 
       await expect(sut.getProfileImage(userStub.profilePath.id)).resolves.toEqual(
-        new ImmichFileResponse({
+        new ramFileResponse({
           path: '/path/to/profile.jpg',
           contentType: 'image/jpeg',
           cacheControl: CacheControl.NONE,

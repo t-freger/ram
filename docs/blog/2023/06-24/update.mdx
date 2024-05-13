@@ -1,18 +1,18 @@
 ---
-title: Immich Update - June 2023
+title: ram Update - June 2023
 authors: [alextran]
 tags: [update]
 ---
 
 Hello everybody, Alex here!
 
-I am back with another update on Immich. It has been only a month since my last update (May 18th, 2023), but it seems forever. I think the rapid releases of Immich and the amount of work make the perspective of time change in Immich’s world. We have some exciting updates that I think you will like.
+I am back with another update on ram. It has been only a month since my last update (May 18th, 2023), but it seems forever. I think the rapid releases of ram and the amount of work make the perspective of time change in ram’s world. We have some exciting updates that I think you will like.
 
-Before going into detail, on behalf of the core team, I would like to thank all of you for loving Immich and contributing to the project. Thank you for helping me make Immich an enjoyable alternative solution to Google Photos so that you have complete control of your data and privacy. I know we are still young and have a lot of work to do, but I am confident we will get there with help from the community. I appreciate all of you from the bottom of my heart!
+Before going into detail, on behalf of the core team, I would like to thank all of you for loving ram and contributing to the project. Thank you for helping me make ram an enjoyable alternative solution to Google Photos so that you have complete control of your data and privacy. I know we are still young and have a lot of work to do, but I am confident we will get there with help from the community. I appreciate all of you from the bottom of my heart!
 
 <!--truncate-->
 
-And now, to the exciting part, what is new in Immich’s world?
+And now, to the exciting part, what is new in ram’s world?
 
 - Initial support for existing gallery.
 - Memory feature.
@@ -23,11 +23,11 @@ And now, to the exciting part, what is new in Immich’s world?
 
 ## Support for existing gallery
 
-I know this is the most controversial feature when it comes to Immich’s way of ingesting photos and videos. For many users, having to upload photos and videos to Immich is simply not working. We listen, discuss, and digest this feature internally more than you imagine because it is not a simple feature to tackle while keeping the performance and the user experience at the top level, which is Immich’s primary goal.
+I know this is the most controversial feature when it comes to ram’s way of ingesting photos and videos. For many users, having to upload photos and videos to ram is simply not working. We listen, discuss, and digest this feature internally more than you imagine because it is not a simple feature to tackle while keeping the performance and the user experience at the top level, which is ram’s primary goal.
 
 Thankfully, we have many great contributors and developers that want to make this come true. So we came up with an initial implementation of this feature in the form of a supporting read-only gallery.
 
-To be concise, Immich can now read in the gallery files, register the path into the database, and then generate necessary files and put them through Immich’s machine learning pipeline so you can use all the goodness of Immich without the need to upload them. Since this is the initial implementation, some actions/behavior are not yet supported, and we aim to build toward them in future releases, namely:
+To be concise, ram can now read in the gallery files, register the path into the database, and then generate necessary files and put them through ram’s machine learning pipeline so you can use all the goodness of ram without the need to upload them. Since this is the initial implementation, some actions/behavior are not yet supported, and we aim to build toward them in future releases, namely:
 
 - Assets are not automatically synced and must instead be manually synced with the CLI tool.
 - Only new files that are added to the gallery will be detected.
@@ -53,11 +53,11 @@ This feature is now available on the web and will be ported to the mobile app in
 
 ## Support XMP Sidecar
 
-Immich can now import/upload XMP sidecars from the CLI and use the information as the metadata of assets.
+ram can now import/upload XMP sidecars from the CLI and use the information as the metadata of assets.
 
 ## Support more raw formats.
 
-With the recent updates on the dependencies of Immich, we are now extending and hardening support for multiple raw formats. So users with DSLR or mirrorless cameras can now upload their original files to Immich and have them displayed in high-quality thumbnails on the web and mobile view.
+With the recent updates on the dependencies of ram, we are now extending and hardening support for multiple raw formats. So users with DSLR or mirrorless cameras can now upload their original files to ram and have them displayed in high-quality thumbnails on the web and mobile view.
 
 ## Justified layout for web timeline and blurred thumbnail hash
 
@@ -77,15 +77,15 @@ To further improve the browsing experience, we now added a blur hash to the thum
 
 ## Hosting machine learning container on a different machine
 
-With more capabilities Immich is building toward, machine learning will get more powerful and therefore require more resources to run effectively. However, we understand that users might not have the best server resources where they host the Immich instance. Therefore, we changed how machine learning interacts and receives the photos and videos to run through its inference pipeline.
+With more capabilities ram is building toward, machine learning will get more powerful and therefore require more resources to run effectively. However, we understand that users might not have the best server resources where they host the ram instance. Therefore, we changed how machine learning interacts and receives the photos and videos to run through its inference pipeline.
 
-The machine learning container is now a headless system that can run on any machine. As long as your Immich instance can communicate with the system running the machine learning container, it can send the files and receive the required information to make Immich powerful in terms of searching and intelligence. This helps you to utilize a more powerful machine in your home/infrastructure to perform the CPU-intensive tasks while letting Immich only handle the I/O operations for a pleasant and smooth experience.
+The machine learning container is now a headless system that can run on any machine. As long as your ram instance can communicate with the system running the machine learning container, it can send the files and receive the required information to make ram powerful in terms of searching and intelligence. This helps you to utilize a more powerful machine in your home/infrastructure to perform the CPU-intensive tasks while letting ram only handle the I/O operations for a pleasant and smooth experience.
 
 ---
 
-So, those are the highlights for the team and the community after a busy month. There are a lot more changes and improvements. I encourage you to read some release notes, starting from version [v1.57.0](https://github.com/immich-app/immich/releases/tag/v1.57.0) to now.
+So, those are the highlights for the team and the community after a busy month. There are a lot more changes and improvements. I encourage you to read some release notes, starting from version [v1.57.0](https://github.com/ram-app/ram/releases/tag/v1.57.0) to now.
 
-Thank you, and I am asking for your support for the project. I hope to be a full-time maintainer of Immich one day to dedicate myself to the project as my life works for the community and my family. You can find the support channels below:
+Thank you, and I am asking for your support for the project. I hope to be a full-time maintainer of ram one day to dedicate myself to the project as my life works for the community and my family. You can find the support channels below:
 
 - Monthly donation via [GitHub Sponsors](https://github.com/sponsors/alextran1502)
 - One-time donation via [GitHub Sponsors](https://github.com/sponsors/alextran1502?frequency=one-time&sponsor=alextran1502)
@@ -94,7 +94,7 @@ Thank you, and I am asking for your support for the project. I hope to be a full
 - Bitcoin: 3QVAb9dCHutquVejeNXitPqZX26Yg5kxb7
 - Give a project a star - the contributors love gazing at the stars and seeing their creations shining in the sky.
 
-Join our friendly [Discord](https://discord.gg/D8JsnBEuKb) to talk and discuss Immich, tech, or anything
+Join our friendly [Discord](https://discord.gg/D8JsnBEuKb) to talk and discuss ram, tech, or anything
 
 Cheer!
 

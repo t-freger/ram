@@ -1,6 +1,6 @@
 # Reverse Geocoding
 
-Immich supports [Reverse Geocoding](https://en.wikipedia.org/wiki/Reverse_geocoding) using data from the [GeoNames](https://www.geonames.org/) geographical database.
+ram supports [Reverse Geocoding](https://en.wikipedia.org/wiki/Reverse_geocoding) using data from the [GeoNames](https://www.geonames.org/) geographical database.
 
 ## Extraction
 

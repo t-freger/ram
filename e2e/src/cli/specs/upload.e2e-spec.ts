@@ -1,10 +1,10 @@
-import { LoginResponseDto, getAllAlbums, getAllAssets } from '@immich/sdk';
+import { LoginResponseDto, getAllAlbums, getAllAssets } from '@ram/sdk';
 import { readFileSync } from 'node:fs';
 import { mkdir, readdir, rm, symlink } from 'node:fs/promises';
-import { asKeyAuth, immichCli, testAssetDir, utils } from 'src/utils';
+import { asKeyAuth, ramCli, testAssetDir, utils } from 'src/utils';
 import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
 
-describe(`immich upload`, () => {
+describe(`ram upload`, () => {
   let admin: LoginResponseDto;
   let key: string;
 
@@ -19,9 +19,9 @@ describe(`immich upload`, () => {
     await utils.resetDatabase(['assets', 'albums']);
   });
 
-  describe(`immich upload /path/to/file.jpg`, () => {
+  describe(`ram upload /path/to/file.jpg`, () => {
     it('should upload a single file', async () => {
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
+      const { stderr, stdout, exitCode } = await ramCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
       expect(stderr).toBe('');
       expect(stdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 1 new asset')]),
@@ -33,7 +33,7 @@ describe(`immich upload`, () => {
     });
 
     it('should skip a duplicate file', async () => {
-      const first = await immichCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
+      const first = await ramCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
       expect(first.stderr).toBe('');
       expect(first.stdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 1 new asset')]),
@@ -43,7 +43,7 @@ describe(`immich upload`, () => {
       const assets = await getAllAssets({}, { headers: asKeyAuth(key) });
       expect(assets.length).toBe(1);
 
-      const second = await immichCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
+      const second = await ramCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
       expect(second.stderr).toBe('');
       expect(second.stdout.split('\n')).toEqual(
         expect.arrayContaining([
@@ -55,7 +55,7 @@ describe(`immich upload`, () => {
     });
 
     it('should skip files that do not exist', async () => {
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `/path/to/file`]);
+      const { stderr, stdout, exitCode } = await ramCli(['upload', `/path/to/file`]);
       expect(stderr).toBe('');
       expect(stdout.split('\n')).toEqual(expect.arrayContaining([expect.stringContaining('No files found, exiting')]));
       expect(exitCode).toBe(0);
@@ -65,7 +65,7 @@ describe(`immich upload`, () => {
     });
 
     it('should have accurate dry run', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await ramCli([
         'upload',
         `${testAssetDir}/albums/nature/silver_fir.jpg`,
         '--dry-run',
@@ -81,7 +81,7 @@ describe(`immich upload`, () => {
     });
 
     it('dry run should handle duplicates', async () => {
-      const first = await immichCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
+      const first = await ramCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
       expect(first.stderr).toBe('');
       expect(first.stdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 1 new asset')]),
@@ -91,7 +91,7 @@ describe(`immich upload`, () => {
       const assets = await getAllAssets({}, { headers: asKeyAuth(key) });
       expect(assets.length).toBe(1);
 
-      const second = await immichCli(['upload', `${testAssetDir}/albums/nature/`, '--dry-run']);
+      const second = await ramCli(['upload', `${testAssetDir}/albums/nature/`, '--dry-run']);
       expect(second.stderr).toBe('');
       expect(second.stdout.split('\n')).toEqual(
         expect.arrayContaining([
@@ -103,9 +103,9 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --recursive', () => {
+  describe('ram upload --recursive', () => {
     it('should upload a folder recursively', async () => {
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `${testAssetDir}/albums/nature/`, '--recursive']);
+      const { stderr, stdout, exitCode } = await ramCli(['upload', `${testAssetDir}/albums/nature/`, '--recursive']);
       expect(stderr).toBe('');
       expect(stdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 9 new assets')]),
@@ -117,9 +117,9 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --recursive --album', () => {
+  describe('ram upload --recursive --album', () => {
     it('should create albums from folder names', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await ramCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--recursive',
@@ -144,7 +144,7 @@ describe(`immich upload`, () => {
     });
 
     it('should add existing assets to albums', async () => {
-      const response1 = await immichCli(['upload', `${testAssetDir}/albums/nature/`, '--recursive']);
+      const response1 = await ramCli(['upload', `${testAssetDir}/albums/nature/`, '--recursive']);
       expect(response1.stdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 9 new assets')]),
       );
@@ -157,7 +157,7 @@ describe(`immich upload`, () => {
       const albums1 = await getAllAlbums({}, { headers: asKeyAuth(key) });
       expect(albums1.length).toBe(0);
 
-      const response2 = await immichCli(['upload', `${testAssetDir}/albums/nature/`, '--recursive', '--album']);
+      const response2 = await ramCli(['upload', `${testAssetDir}/albums/nature/`, '--recursive', '--album']);
       expect(response2.stdout.split('\n')).toEqual(
         expect.arrayContaining([
           expect.stringContaining('All assets were already uploaded, nothing to do.'),
@@ -176,7 +176,7 @@ describe(`immich upload`, () => {
     });
 
     it('should have accurate dry run', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await ramCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--recursive',
@@ -201,9 +201,9 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --recursive --album-name=e2e', () => {
+  describe('ram upload --recursive --album-name=e2e', () => {
     it('should create a named album', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await ramCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--recursive',
@@ -228,7 +228,7 @@ describe(`immich upload`, () => {
     });
 
     it('should have accurate dry run', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await ramCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--recursive',
@@ -253,7 +253,7 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --delete', () => {
+  describe('ram upload --delete', () => {
     it('should delete local files if specified', async () => {
       await mkdir(`/tmp/albums/nature`, { recursive: true });
       const filesToLink = await readdir(`${testAssetDir}/albums/nature`);
@@ -261,7 +261,7 @@ describe(`immich upload`, () => {
         await symlink(`${testAssetDir}/albums/nature/${file}`, `/tmp/albums/nature/${file}`);
       }
 
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `/tmp/albums/nature`, '--delete']);
+      const { stderr, stdout, exitCode } = await ramCli(['upload', `/tmp/albums/nature`, '--delete']);
 
       const files = await readdir(`/tmp/albums/nature`);
       await rm(`/tmp/albums/nature`, { recursive: true });
@@ -287,7 +287,7 @@ describe(`immich upload`, () => {
         await symlink(`${testAssetDir}/albums/nature/${file}`, `/tmp/albums/nature/${file}`);
       }
 
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `/tmp/albums/nature`, '--delete', '--dry-run']);
+      const { stderr, stdout, exitCode } = await ramCli(['upload', `/tmp/albums/nature`, '--delete', '--dry-run']);
 
       const files = await readdir(`/tmp/albums/nature`);
       await rm(`/tmp/albums/nature`, { recursive: true });
@@ -307,7 +307,7 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --skip-hash', () => {
+  describe('ram upload --skip-hash', () => {
     it('should skip hashing', async () => {
       const filename = `albums/nature/silver_fir.jpg`;
       await utils.createAsset(admin.accessToken, {
@@ -316,7 +316,7 @@ describe(`immich upload`, () => {
           filename: 'silver_fit.jpg',
         },
       });
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `${testAssetDir}/${filename}`, '--skip-hash']);
+      const { stderr, stdout, exitCode } = await ramCli(['upload', `${testAssetDir}/${filename}`, '--skip-hash']);
 
       expect(stderr).toBe('');
       expect(stdout.split('\n')).toEqual(
@@ -333,7 +333,7 @@ describe(`immich upload`, () => {
     });
 
     it('should throw an error if attempting dry run', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await ramCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--skip-hash',
@@ -349,9 +349,9 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --concurrency <number>', () => {
+  describe('ram upload --concurrency <number>', () => {
     it('should work', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await ramCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--concurrency',
@@ -372,7 +372,7 @@ describe(`immich upload`, () => {
     });
 
     it('should reject string argument', async () => {
-      const { stderr, exitCode } = await immichCli([
+      const { stderr, exitCode } = await ramCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--concurrency string',
@@ -383,16 +383,16 @@ describe(`immich upload`, () => {
     });
 
     it('should reject command without number', async () => {
-      const { stderr, exitCode } = await immichCli(['upload', `${testAssetDir}/albums/nature/`, '--concurrency']);
+      const { stderr, exitCode } = await ramCli(['upload', `${testAssetDir}/albums/nature/`, '--concurrency']);
 
       expect(stderr).toContain('argument missing');
       expect(exitCode).not.toBe(0);
     });
   });
 
-  describe('immich upload --ignore <pattern>', () => {
+  describe('ram upload --ignore <pattern>', () => {
     it('should work', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await ramCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--ignore',
@@ -413,7 +413,7 @@ describe(`immich upload`, () => {
     });
 
     it('should ignore assets matching glob pattern', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await ramCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--ignore',
@@ -434,7 +434,7 @@ describe(`immich upload`, () => {
     });
 
     it('should have accurate dry run', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await ramCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--ignore',

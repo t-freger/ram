@@ -1,4 +1,4 @@
-import { AssetFileUploadResponseDto, LoginResponseDto, deleteAssets, getMapMarkers, updateAsset } from '@immich/sdk';
+import { AssetFileUploadResponseDto, LoginResponseDto, deleteAssets, getMapMarkers, updateAsset } from '@ram/sdk';
 import { DateTime } from 'luxon';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -193,7 +193,7 @@ describe('/search', () => {
       },
       ...['isArchived', 'isFavorite', 'isEncoded', 'isMotion', 'isOffline', 'isVisible'].map((value) => ({
         should: `should reject ${value} not a boolean`,
-        dto: { [value]: 'immich' },
+        dto: { [value]: 'ram' },
         expected: [`${value} must be a boolean value`],
       })),
     ];

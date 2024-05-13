@@ -12,7 +12,7 @@
   export let tailwindClasses = '';
   export let forceDark = false;
 
-  let appBarBorder = 'bg-immich-bg border border-transparent';
+  let appBarBorder = 'bg-ram-bg border border-transparent';
 
   const dispatch = createEventDispatcher<{
     close: void;
@@ -26,7 +26,7 @@
         appBarBorder = 'border border-gray-600';
       }
     } else {
-      appBarBorder = 'bg-immich-bg border border-transparent';
+      appBarBorder = 'bg-ram-bg border border-transparent';
     }
   };
 
@@ -47,17 +47,17 @@
     }
   });
 
-  $: buttonClass = forceDark ? 'hover:text-immich-dark-gray' : undefined;
+  $: buttonClass = forceDark ? 'hover:text-ram-dark-gray' : undefined;
 </script>
 
 <div in:fly={{ y: 10, duration: 200 }} class="absolute top-0 w-full z-[100] bg-transparent">
   <div
     id="asset-selection-app-bar"
-    class={`grid grid-cols-[10%_80%_10%] justify-between md:grid-cols-[15%_70%_15%] lg:grid-cols-[25%_50%_25%]  ${appBarBorder} mx-2 mt-2 place-items-center rounded-lg p-2 transition-all ${tailwindClasses} dark:bg-immich-dark-gray ${
-      forceDark && 'bg-immich-dark-gray text-white'
+    class={`grid grid-cols-[10%_80%_10%] justify-between md:grid-cols-[15%_70%_15%] lg:grid-cols-[25%_50%_25%]  ${appBarBorder} mx-2 mt-2 place-items-center rounded-lg p-2 transition-all ${tailwindClasses} dark:bg-ram-dark-gray ${
+      forceDark && 'bg-ram-dark-gray text-white'
     }`}
   >
-    <div class="flex place-items-center gap-6 justify-self-start dark:text-immich-dark-fg">
+    <div class="flex place-items-center gap-6 justify-self-start dark:text-ram-dark-fg">
       {#if showBackButton}
         <CircleIconButton title="Close" on:click={handleClose} icon={backIcon} size={'24'} class={buttonClass} />
       {/if}

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getAssetThumbnailUrl } from '$lib/utils';
-  import { ThumbnailFormat, type AlbumResponseDto } from '@immich/sdk';
+  import { ThumbnailFormat, type AlbumResponseDto } from '@ram/sdk';
   import { createEventDispatcher } from 'svelte';
   import { normalizeSearchString } from '$lib/utils/string-utils.js';
 

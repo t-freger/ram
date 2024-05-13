@@ -21,8 +21,8 @@
 </script>
 
 <FullScreenModal id="set-birth-date-modal" title="Set date of birth" icon={mdiCake} onClose={handleCancel}>
-  <div class="text-immich-primary dark:text-immich-dark-primary">
-    <p class="text-sm dark:text-immich-dark-fg">
+  <div class="text-ram-primary dark:text-ram-dark-primary">
+    <p class="text-sm dark:text-ram-dark-fg">
       Date of birth is used to calculate the age of this person at the time of a photo.
     </p>
   </div>
@@ -30,7 +30,7 @@
   <form on:submit|preventDefault={() => handleSubmit()} autocomplete="off" id="set-birth-date-form">
     <div class="my-4 flex flex-col gap-2">
       <DateInput
-        class="immich-form-input"
+        class="ram-form-input"
         id="birthDate"
         name="birthDate"
         type="date"

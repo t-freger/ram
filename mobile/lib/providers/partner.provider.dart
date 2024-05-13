@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/providers/album/suggested_shared_users.provider.dart';
-import 'package:immich_mobile/services/partner.service.dart';
-import 'package:immich_mobile/entities/user.entity.dart';
-import 'package:immich_mobile/providers/db.provider.dart';
+import 'package:ram_mobile/providers/album/suggested_shared_users.provider.dart';
+import 'package:ram_mobile/services/partner.service.dart';
+import 'package:ram_mobile/entities/user.entity.dart';
+import 'package:ram_mobile/providers/db.provider.dart';
 import 'package:isar/isar.dart';
 
 class PartnerSharedWithNotifier extends StateNotifier<List<User>> {

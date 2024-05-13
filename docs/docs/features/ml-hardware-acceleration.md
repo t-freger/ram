@@ -48,13 +48,13 @@ You do not need to redo any machine learning jobs after enabling hardware accele
 ## Setup
 
 1. If you do not already have it, download the latest [`hwaccel.ml.yml`][hw-file] file and ensure it's in the same folder as the `docker-compose.yml`.
-2. In the `docker-compose.yml` under `immich-machine-learning`, uncomment the `extends` section and change `cpu` to the appropriate backend.
-3. Still in `immich-machine-learning`, add one of -[armnn, cuda, openvino] to the `image` section's tag at the end of the line.
-4. Redeploy the `immich-machine-learning` container with these updated settings.
+2. In the `docker-compose.yml` under `ram-machine-learning`, uncomment the `extends` section and change `cpu` to the appropriate backend.
+3. Still in `ram-machine-learning`, add one of -[armnn, cuda, openvino] to the `image` section's tag at the end of the line.
+4. Redeploy the `ram-machine-learning` container with these updated settings.
 
 #### Single Compose File
 
-Some platforms, including Unraid and Portainer, do not support multiple Compose files as of writing. As an alternative, you can "inline" the relevant contents of the [`hwaccel.ml.yml`][hw-file] file into the `immich-machine-learning` service directly.
+Some platforms, including Unraid and Portainer, do not support multiple Compose files as of writing. As an alternative, you can "inline" the relevant contents of the [`hwaccel.ml.yml`][hw-file] file into the `ram-machine-learning` service directly.
 
 For example, the `cuda` section in this file is:
 
@@ -69,13 +69,13 @@ deploy:
             - gpu
 ```
 
-You can add this to the `immich-machine-learning` service instead of extending from `hwaccel.ml.yml`:
+You can add this to the `ram-machine-learning` service instead of extending from `hwaccel.ml.yml`:
 
 ```yaml
-immich-machine-learning:
-  container_name: immich_machine_learning
+ram-machine-learning:
+  container_name: ram_machine_learning
   # Note the `-cuda` at the end
-  image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}-cuda
+  image: ghcr.io/ram-app/ram-machine-learning:${ram_VERSION:-release}-cuda
   # Note the lack of an `extends` section
   deploy:
     resources:
@@ -92,13 +92,13 @@ immich-machine-learning:
   restart: always
 ```
 
-Once this is done, you can redeploy the `immich-machine-learning` container.
+Once this is done, you can redeploy the `ram-machine-learning` container.
 
 :::info
-You can confirm the device is being recognized and used by checking its utilization (via `nvtop` for CUDA, `intel_gpu_top` for OpenVINO, etc.). You can also enable debug logging by setting `LOG_LEVEL=debug` in the `.env` file and restarting the `immich-machine-learning` container. When a Smart Search or Face Detection job begins, you should see a log for `Available ORT providers` containing the relevant provider. In the case of ARM NN, the absence of a `Could not load ANN shared libraries` log entry means it loaded successfully.
+You can confirm the device is being recognized and used by checking its utilization (via `nvtop` for CUDA, `intel_gpu_top` for OpenVINO, etc.). You can also enable debug logging by setting `LOG_LEVEL=debug` in the `.env` file and restarting the `ram-machine-learning` container. When a Smart Search or Face Detection job begins, you should see a log for `Available ORT providers` containing the relevant provider. In the case of ARM NN, the absence of a `Could not load ANN shared libraries` log entry means it loaded successfully.
 :::
 
-[hw-file]: https://github.com/immich-app/immich/releases/latest/download/hwaccel.ml.yml
+[hw-file]: https://github.com/ram-app/ram/releases/latest/download/hwaccel.ml.yml
 [nvcr]: https://github.com/NVIDIA/nvidia-container-runtime/
 
 ## Tips

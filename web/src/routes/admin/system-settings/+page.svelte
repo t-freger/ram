@@ -28,7 +28,7 @@
   import type { PageData } from './$types';
   import SettingAccordionState from '$lib/components/shared-components/settings/setting-accordion-state.svelte';
   import { QueryParameter } from '$lib/constants';
-  import type { SystemConfigDto } from '@immich/sdk';
+  import type { SystemConfigDto } from '@ram/sdk';
 
   export let data: PageData;
 
@@ -55,7 +55,7 @@
 
   const downloadConfig = () => {
     const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
-    const downloadKey = 'immich-config.json';
+    const downloadKey = 'ram-config.json';
     downloadManager.add(downloadKey, blob.size);
     downloadManager.update(downloadKey, blob.size);
     downloadBlob(blob, downloadKey);
@@ -151,7 +151,7 @@
     {
       item: ThemeSettings,
       title: 'Theme Settings',
-      subtitle: 'Manage customization of the Immich web interface',
+      subtitle: 'Manage customization of the ram web interface',
       key: 'theme',
     },
     {
@@ -187,7 +187,7 @@
   {#if $featureFlags.configFile}
     <div class="flex flex-row items-center gap-2 bg-gray-100 p-3 dark:bg-gray-800">
       <Icon path={mdiAlert} class="text-yellow-400" size={18} />
-      <h2 class="text-md text-immich-primary dark:text-immich-dark-primary">
+      <h2 class="text-md text-ram-primary dark:text-ram-dark-primary">
         Config is currently set by a config file
       </h2>
     </div>

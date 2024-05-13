@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-  import { SearchSuggestionType, getSearchSuggestions } from '@immich/sdk';
+  import { SearchSuggestionType, getSearchSuggestions } from '@ram/sdk';
   import Combobox, { toComboBoxOptions } from '../combobox.svelte';
   import { handlePromiseError } from '$lib/utils';
 
@@ -36,7 +36,7 @@
 </script>
 
 <div id="camera-selection">
-  <p class="immich-form-label">CAMERA</p>
+  <p class="ram-form-label">CAMERA</p>
 
   <div class="grid grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] gap-5 mt-1">
     <div class="w-full">

@@ -1,4 +1,4 @@
-# Immich Machine Learning
+# ram Machine Learning
 
 - CLIP embeddings
 - Facial recognition

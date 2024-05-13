@@ -6,25 +6,25 @@ vitest.mock('src/constants', () => ({
 }));
 
 describe('StorageCore', () => {
-  describe('isImmichPath', () => {
+  describe('isramPath', () => {
     it('should return true for APP_MEDIA_LOCATION path', () => {
-      const immichPath = '/photos';
-      expect(StorageCore.isImmichPath(immichPath)).toBe(true);
+      const ramPath = '/photos';
+      expect(StorageCore.isramPath(ramPath)).toBe(true);
     });
 
     it('should return true for paths within the APP_MEDIA_LOCATION', () => {
-      const immichPath = '/photos/new/';
-      expect(StorageCore.isImmichPath(immichPath)).toBe(true);
+      const ramPath = '/photos/new/';
+      expect(StorageCore.isramPath(ramPath)).toBe(true);
     });
 
     it('should return false for paths outside the APP_MEDIA_LOCATION and same starts', () => {
-      const nonImmichPath = '/photos_new';
-      expect(StorageCore.isImmichPath(nonImmichPath)).toBe(false);
+      const nonramPath = '/photos_new';
+      expect(StorageCore.isramPath(nonramPath)).toBe(false);
     });
 
     it('should return false for paths outside the APP_MEDIA_LOCATION', () => {
-      const nonImmichPath = '/some/other/path';
-      expect(StorageCore.isImmichPath(nonImmichPath)).toBe(false);
+      const nonramPath = '/some/other/path';
+      expect(StorageCore.isramPath(nonramPath)).toBe(false);
     });
   });
 });

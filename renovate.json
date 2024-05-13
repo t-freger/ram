@@ -1,6 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", "docker:pinDigests"],
+  "extends": [
+    "config:base",
+    "docker:pinDigests"
+  ],
   "minimumReleaseAge": "5 days",
   "packageRules": [
     {
@@ -13,58 +16,97 @@
         "web/**"
       ],
       "groupName": "typescript-projects",
-      "matchUpdateTypes": ["minor", "patch"],
-      "excludePackagePrefixes": ["exiftool", "reflect-metadata"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "excludePackagePrefixes": [
+        "exiftool",
+        "reflect-metadata"
+      ],
       "schedule": "on tuesday"
     },
     {
-      "matchFileNames": ["machine-learning/**"],
+      "matchFileNames": [
+        "machine-learning/**"
+      ],
       "groupName": "machine-learning",
       "rangeStrategy": "in-range-only",
       "schedule": "on tuesday"
     },
     {
-      "matchFileNames": ["mobile/**"],
+      "matchFileNames": [
+        "mobile/**"
+      ],
       "groupName": "mobile",
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "schedule": "on tuesday",
-      "addLabels": ["📱mobile"]
+      "addLabels": [
+        "📱mobile"
+      ]
     },
     {
       "groupName": "exiftool",
-      "matchPackagePrefixes": ["exiftool"],
+      "matchPackagePrefixes": [
+        "exiftool"
+      ],
       "schedule": "on tuesday"
     },
     {
       "groupName": "svelte",
-      "matchUpdateTypes": ["major"],
-      "matchPackagePrefixes": ["@sveltejs"],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "matchPackagePrefixes": [
+        "@sveltejs"
+      ],
       "schedule": "on tuesday"
     },
     {
-      "matchFileNames": [".github/**"],
+      "matchFileNames": [
+        ".github/**"
+      ],
       "groupName": "github-actions",
       "schedule": "on tuesday"
     },
     {
       "groupName": "base-image",
-      "matchPackagePrefixes": ["ghcr.io/immich-app/base-server"],
+      "matchPackagePrefixes": [
+        "ghcr.io/ram-app/base-server"
+      ],
       "minimumReleaseAge": "0"
     },
     {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["node"],
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "node"
+      ],
       "versionCompatibility": "^(?<version>[^-]+)(?<compatibility>-.*)?$",
       "versioning": "node",
       "schedule": "on tuesday"
     },
     {
-      "packageNames": ["com.google.guava:guava"],
+      "packageNames": [
+        "com.google.guava:guava"
+      ],
       "versionScheme": "docker",
       "schedule": "on tuesday"
     }
   ],
-  "ignorePaths": ["mobile/openapi/pubspec.yaml"],
-  "ignoreDeps": ["http", "intl"],
-  "labels": ["dependencies", "renovate"]
+  "ignorePaths": [
+    "mobile/openapi/pubspec.yaml"
+  ],
+  "ignoreDeps": [
+    "http",
+    "intl"
+  ],
+  "labels": [
+    "dependencies",
+    "renovate"
+  ]
 }

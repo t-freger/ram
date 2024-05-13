@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  export type ImmichDropDownOption = {
+  export type ramDropDownOption = {
     default: string;
     options: string[];
   };
@@ -8,7 +8,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  export let options: ImmichDropDownOption;
+  export let options: ramDropDownOption;
   export let selected: string;
   export let disabled = false;
 
@@ -20,7 +20,7 @@
   const toggle = () => (isOpen = !isOpen);
 </script>
 
-<div id="immich-dropdown" class="relative">
+<div id="ram-dropdown" class="relative">
   <button
     {disabled}
     on:click={toggle}

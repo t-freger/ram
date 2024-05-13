@@ -3,16 +3,16 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' hide Store;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/models/activities/activity.model.dart';
-import 'package:immich_mobile/providers/activity.provider.dart';
-import 'package:immich_mobile/widgets/activities/activity_text_field.dart';
-import 'package:immich_mobile/widgets/activities/activity_tile.dart';
-import 'package:immich_mobile/widgets/activities/dismissible_activity.dart';
-import 'package:immich_mobile/providers/album/current_album.provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/current_asset.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
+import 'package:ram_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/models/activities/activity.model.dart';
+import 'package:ram_mobile/providers/activity.provider.dart';
+import 'package:ram_mobile/widgets/activities/activity_text_field.dart';
+import 'package:ram_mobile/widgets/activities/activity_tile.dart';
+import 'package:ram_mobile/widgets/activities/dismissible_activity.dart';
+import 'package:ram_mobile/providers/album/current_album.provider.dart';
+import 'package:ram_mobile/providers/asset_viewer/current_asset.provider.dart';
+import 'package:ram_mobile/providers/user.provider.dart';
 
 @RoutePage()
 class ActivitiesPage extends HookConsumerWidget {

@@ -54,7 +54,7 @@
     {#if data.partners.length > 0}
       <div class="mb-6 mt-2">
         <div>
-          <p class="mb-4 font-medium dark:text-immich-dark-fg">Partners</p>
+          <p class="mb-4 font-medium dark:text-ram-dark-fg">Partners</p>
         </div>
 
         <div class="flex flex-row flex-wrap gap-4">
@@ -65,10 +65,10 @@
             >
               <UserAvatar user={partner} size="lg" />
               <div class="text-left">
-                <p class="text-immich-fg dark:text-immich-dark-fg">
+                <p class="text-ram-fg dark:text-ram-dark-fg">
                   {partner.name}
                 </p>
-                <p class="text-sm text-immich-fg/75 dark:text-immich-dark-fg/75">
+                <p class="text-sm text-ram-fg/75 dark:text-ram-dark-fg/75">
                   {partner.email}
                 </p>
               </div>
@@ -77,12 +77,12 @@
         </div>
       </div>
 
-      <hr class="mb-4 dark:border-immich-dark-gray" />
+      <hr class="mb-4 dark:border-ram-dark-gray" />
     {/if}
 
     <div class="mb-6 mt-2">
       <div>
-        <p class="mb-4 font-medium dark:text-immich-dark-fg">Albums</p>
+        <p class="mb-4 font-medium dark:text-ram-dark-fg">Albums</p>
       </div>
 
       <div>

@@ -5,7 +5,7 @@
   import { getAssetJobName } from '$lib/utils';
   import { clickOutside } from '$lib/utils/click-outside';
   import { getContextMenuPosition } from '$lib/utils/context-menu';
-  import { AssetJobName, AssetTypeEnum, type AssetResponseDto, type AlbumResponseDto } from '@immich/sdk';
+  import { AssetJobName, AssetTypeEnum, type AssetResponseDto, type AlbumResponseDto } from '@ram/sdk';
   import {
     mdiAccountCircleOutline,
     mdiAlertOutline,

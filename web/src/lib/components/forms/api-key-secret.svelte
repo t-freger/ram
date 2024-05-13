@@ -20,15 +20,15 @@
 </script>
 
 <FullScreenModal id="api-key-secret-modal" title="API key" icon={mdiKeyVariant} onClose={() => handleDone()}>
-  <div class="text-immich-primary dark:text-immich-dark-primary">
-    <p class="text-sm dark:text-immich-dark-fg">
+  <div class="text-ram-primary dark:text-ram-dark-primary">
+    <p class="text-sm dark:text-ram-dark-fg">
       This value will only be shown once. Please be sure to copy it before closing the window.
     </p>
   </div>
 
   <div class="my-4 flex flex-col gap-2">
-    <!-- <label class="immich-form-label" for="secret">API Key</label> -->
-    <textarea class="immich-form-input" id="secret" name="secret" readonly={true} value={secret} />
+    <!-- <label class="ram-form-label" for="secret">API Key</label> -->
+    <textarea class="ram-form-input" id="secret" name="secret" readonly={true} value={secret} />
   </div>
 
   <svelte:fragment slot="sticky-bottom">

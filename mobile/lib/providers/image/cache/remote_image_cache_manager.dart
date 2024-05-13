@@ -1,6 +1,6 @@
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
-/// The cache manager for full size images [ImmichRemoteImageProvider]
+/// The cache manager for full size images [ramRemoteImageProvider]
 class RemoteImageCacheManager extends CacheManager {
   static const key = 'remoteImageCacheKey';
   static final RemoteImageCacheManager _instance = RemoteImageCacheManager._();

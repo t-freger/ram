@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login met aangepaste URL">
+<img src="../design/ram-logo-stacked-light.svg" width="300" title="Login met aangepaste URL">
 </p>
-<h3 align="center">Immich - Hoogwaardige, self-hosted back-up oplossing voor foto's en video's</h3>
+<h3 align="center">ram - Hoogwaardige, self-hosted back-up oplossing voor foto's en video's</h3>
 <br/>
-<a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Main Screenshot">
+<a href="https://ram.app">
+<img src="../design/ram-screenshots.png" title="Main Screenshot">
 </a>
 <br/>
 <p align="center">
@@ -41,27 +41,27 @@
 
 ## Inhoud
 s
-- [Officiële documentatie](https://immich.app/docs)
-- [Toekomstplannen](https://github.com/orgs/immich-app/projects/1)
+- [Officiële documentatie](https://ram.app/docs)
+- [Toekomstplannen](https://github.com/orgs/ram-app/projects/1)
 - [Demo](#demo)
 - [Functies](#functies)
-- [Introductie](https://immich.app/docs/overview/introduction)
-- [Installatie](https://immich.app/docs/install/requirements)
-- [Richtlijnen voor bijdragen](https://immich.app/docs/overview/support-the-project)
+- [Introductie](https://ram.app/docs/overview/introduction)
+- [Installatie](https://ram.app/docs/install/requirements)
+- [Richtlijnen voor bijdragen](https://ram.app/docs/overview/support-the-project)
 
 ## Documentatie
 
-De belangrijkste documentatie, inclusief installatie handleidingen, zijn te vinden op https://immich.app/.
+De belangrijkste documentatie, inclusief installatie handleidingen, zijn te vinden op https://ram.app/.
 
 ## Demo
 
-De demo is te bekijken op https://demo.immich.app.
+De demo is te bekijken op https://demo.ram.app.
 
-Voor de mobiele app kunt u gebruik maken van `https://demo.immich.app/api` voor de `Server Endpoint URL`
+Voor de mobiele app kunt u gebruik maken van `https://demo.ram.app/api` voor de `Server Endpoint URL`
 
 ```bash title="Demo inloggegevens"
 De inloggegevens
-email: demo@immich.app
+email: demo@ram.app
 wachtwoord: demo
 ```
 
@@ -108,16 +108,16 @@ Spec: Free-tier Oracle VM - Amsterdam - 2.4Ghz quad-core ARM64 CPU, 24GB RAM
 
 ## Contributie-leden
 
-<a href="https://github.com/alextran1502/immich/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=immich-app/immich" width="100%"/>
+<a href="https://github.com/alextran1502/ram/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ram-app/ram" width="100%"/>
 </a>
 
 ## Ster geschiedenis
 
-<a href="https://star-history.com/#immich-app/immich&Date">
+<a href="https://star-history.com/#ram-app/ram&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=immich-app/immich&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=immich-app/immich&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=immich-app/immich&type=Date" width="100%" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ram-app/ram&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ram-app/ram&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ram-app/ram&type=Date" width="100%" />
  </picture>
 </a>

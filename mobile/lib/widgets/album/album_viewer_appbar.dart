@@ -3,15 +3,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/activity_statistics.provider.dart';
-import 'package:immich_mobile/providers/album/album.provider.dart';
-import 'package:immich_mobile/providers/album/album_viewer.provider.dart';
-import 'package:immich_mobile/providers/album/shared_album.provider.dart';
-import 'package:immich_mobile/utils/immich_loading_overlay.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/entities/album.entity.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/activity_statistics.provider.dart';
+import 'package:ram_mobile/providers/album/album.provider.dart';
+import 'package:ram_mobile/providers/album/album_viewer.provider.dart';
+import 'package:ram_mobile/providers/album/shared_album.provider.dart';
+import 'package:ram_mobile/utils/ram_loading_overlay.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/entities/album.entity.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
 
 class AlbumViewerAppbar extends HookConsumerWidget
     implements PreferredSizeWidget {
@@ -56,7 +56,7 @@ class AlbumViewerAppbar extends HookConsumerWidget
             .navigateTo(const TabControllerRoute(children: [LibraryRoute()]));
       }
       if (!success) {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: "album_viewer_appbar_share_err_delete".tr(),
           toastType: ToastType.error,
@@ -120,7 +120,7 @@ class AlbumViewerAppbar extends HookConsumerWidget
             .navigateTo(const TabControllerRoute(children: [SharingRoute()]));
       } else {
         context.pop();
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: "album_viewer_appbar_share_err_leave".tr(),
           toastType: ToastType.error,
@@ -260,7 +260,7 @@ class AlbumViewerAppbar extends HookConsumerWidget
                 .changeAlbumTitle(album, newAlbumTitle);
 
             if (!isSuccess) {
-              ImmichToast.show(
+              ramToast.show(
                 context: context,
                 msg: "album_viewer_appbar_share_err_title".tr(),
                 gravity: ToastGravity.BOTTOM,

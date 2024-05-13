@@ -8,8 +8,8 @@ import {
   type AlbumViewSettings,
 } from '$lib/stores/preferences.store';
 import { handleError } from '$lib/utils/handle-error';
-import type { AlbumResponseDto } from '@immich/sdk';
-import * as sdk from '@immich/sdk';
+import type { AlbumResponseDto } from '@ram/sdk';
+import * as sdk from '@ram/sdk';
 import { get } from 'svelte/store';
 
 /**

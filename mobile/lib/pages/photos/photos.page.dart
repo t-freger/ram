@@ -5,18 +5,18 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/album/album.provider.dart';
-import 'package:immich_mobile/providers/album/shared_album.provider.dart';
-import 'package:immich_mobile/providers/multiselect.provider.dart';
-import 'package:immich_mobile/widgets/memories/memory_lane.dart';
-import 'package:immich_mobile/providers/asset.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/providers/websocket.provider.dart';
-import 'package:immich_mobile/widgets/asset_grid/multiselect_grid.dart';
-import 'package:immich_mobile/widgets/common/immich_app_bar.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/album/album.provider.dart';
+import 'package:ram_mobile/providers/album/shared_album.provider.dart';
+import 'package:ram_mobile/providers/multiselect.provider.dart';
+import 'package:ram_mobile/widgets/memories/memory_lane.dart';
+import 'package:ram_mobile/providers/asset.provider.dart';
+import 'package:ram_mobile/providers/server_info.provider.dart';
+import 'package:ram_mobile/providers/user.provider.dart';
+import 'package:ram_mobile/providers/websocket.provider.dart';
+import 'package:ram_mobile/widgets/asset_grid/multiselect_grid.dart';
+import 'package:ram_mobile/widgets/common/ram_app_bar.dart';
+import 'package:ram_mobile/widgets/common/ram_loading_indicator.dart';
 
 @RoutePage()
 class PhotosPage extends HookConsumerWidget {
@@ -48,7 +48,7 @@ class PhotosPage extends HookConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const ImmichLoadingIndicator(),
+            const ramLoadingIndicator(),
             Padding(
               padding: const EdgeInsets.only(top: 16.0),
               child: Text(
@@ -124,7 +124,7 @@ class PhotosPage extends HookConsumerWidget {
             height: kToolbarHeight + MediaQuery.of(context).padding.top,
             color: context.themeData.appBarTheme.backgroundColor,
             child: const SafeArea(
-              child: ImmichAppBar(),
+              child: ramAppBar(),
             ),
           ),
         ),

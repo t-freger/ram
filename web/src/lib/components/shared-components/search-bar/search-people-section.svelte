@@ -4,7 +4,7 @@
   import SearchBar from '$lib/components/elements/search-bar.svelte';
   import Icon from '$lib/components/elements/icon.svelte';
   import { getPeopleThumbnailUrl } from '$lib/utils';
-  import { getAllPeople, type PersonResponseDto } from '@immich/sdk';
+  import { getAllPeople, type PersonResponseDto } from '@ram/sdk';
   import { mdiClose, mdiArrowRight } from '@mdi/js';
   import { handleError } from '$lib/utils/handle-error';
 
@@ -55,15 +55,15 @@
 
     <div id="people-selection" class="-mb-4">
       <div class="flex items-center w-full justify-between gap-6">
-        <p class="immich-form-label py-3">PEOPLE</p>
+        <p class="ram-form-label py-3">PEOPLE</p>
         <SearchBar bind:name placeholder="Filter people" showLoadingSpinner={false} />
       </div>
 
-      <div class="flex -mx-1 max-h-64 gap-1 mt-2 flex-wrap overflow-y-auto immich-scrollbar">
+      <div class="flex -mx-1 max-h-64 gap-1 mt-2 flex-wrap overflow-y-auto ram-scrollbar">
         {#each peopleList as person (person.id)}
           <button
             type="button"
-            class="flex flex-col items-center w-20 rounded-3xl border-2 hover:bg-immich-gray dark:hover:bg-immich-dark-primary/20 p-2 transition-all {selectedPeople.has(
+            class="flex flex-col items-center w-20 rounded-3xl border-2 hover:bg-ram-gray dark:hover:bg-ram-dark-primary/20 p-2 transition-all {selectedPeople.has(
               person.id,
             )
               ? 'dark:border-slate-500 border-slate-400 bg-slate-200 dark:bg-slate-800 dark:text-white'

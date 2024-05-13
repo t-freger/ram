@@ -74,13 +74,13 @@ export class DatabaseService {
         Failed to activate ${extName[this.vectorExt]} extension.
         Please ensure the Postgres instance has ${extName[this.vectorExt]} installed.
 
-        If the Postgres instance already has ${extName[this.vectorExt]} installed, Immich may not have the necessary permissions to activate it.
+        If the Postgres instance already has ${extName[this.vectorExt]} installed, ram may not have the necessary permissions to activate it.
         In this case, please run 'CREATE EXTENSION IF NOT EXISTS ${this.vectorExt}' manually as a superuser.
-        See https://immich.app/docs/guides/database-queries for how to query the database.
+        See https://ram.app/docs/guides/database-queries for how to query the database.
 
         Alternatively, if your Postgres instance has ${extName[otherExt]}, you may use this instead by setting the environment variable 'DB_VECTOR_EXTENSION=${extName[otherExt]}'.
         Note that switching between the two extensions after a successful startup is not supported.
-        The exception is if your version of Immich prior to upgrading was 1.90.2 or earlier.
+        The exception is if your version of ram prior to upgrading was 1.90.2 or earlier.
         In this case, you may set either extension now, but you will not be able to switch to the other extension following a successful startup.
       `);
       throw error;
@@ -117,11 +117,11 @@ export class DatabaseService {
     } catch (error) {
       this.logger.warn(`
         The ${extName[this.vectorExt]} extension version is ${version}, but ${availableVersion} is available.
-        Immich attempted to update the extension, but failed to do so.
-        This may be because Immich does not have the necessary permissions to update the extension.
+        ram attempted to update the extension, but failed to do so.
+        This may be because ram does not have the necessary permissions to update the extension.
 
         Please run 'ALTER EXTENSION ${this.vectorExt} UPDATE' manually as a superuser.
-        See https://immich.app/docs/guides/database-queries for how to query the database.`);
+        See https://ram.app/docs/guides/database-queries for how to query the database.`);
       this.logger.error(error);
     }
   }
@@ -137,7 +137,7 @@ export class DatabaseService {
         The ${extName[this.vectorExt]} extension version is ${version}, which means it is a nightly release.
 
         Please run 'DROP EXTENSION IF EXISTS ${this.vectorExt}' and switch to a release version.
-        See https://immich.app/docs/guides/database-queries for how to query the database.`);
+        See https://ram.app/docs/guides/database-queries for how to query the database.`);
     }
 
     const minVersion = this.vectorExt === DatabaseExtension.VECTOR ? this.minVectorVersion : this.minVectorsVersion;
@@ -151,11 +151,11 @@ export class DatabaseService {
           : `${minVersion} and later${allowedReleaseType} releases`;
 
       throw new Error(`
-        The ${extName[this.vectorExt]} extension version is ${version}, but Immich only supports ${releases}.
+        The ${extName[this.vectorExt]} extension version is ${version}, but ram only supports ${releases}.
 
-        If the Postgres instance already has a compatible version installed, Immich may not have the necessary permissions to activate it.
+        If the Postgres instance already has a compatible version installed, ram may not have the necessary permissions to activate it.
         In this case, please run 'ALTER EXTENSION UPDATE ${this.vectorExt}' manually as a superuser.
-        See https://immich.app/docs/guides/database-queries for how to query the database.
+        See https://ram.app/docs/guides/database-queries for how to query the database.
 
         Otherwise, please update the version of ${extName[this.vectorExt]} in the Postgres instance to a compatible version.`);
     }

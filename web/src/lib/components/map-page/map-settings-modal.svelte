@@ -24,7 +24,7 @@
 <FullScreenModal id="map-settings-modal" title="Map settings" onClose={handleClose}>
   <form
     on:submit|preventDefault={() => dispatch('save', settings)}
-    class="flex flex-col gap-4 text-immich-primary dark:text-immich-dark-primary"
+    class="flex flex-col gap-4 text-ram-primary dark:text-ram-dark-primary"
     id="map-settings-form"
   >
     <SettingSwitch id="allow-dark-mode" title="Allow dark mode" bind:checked={settings.allowDarkMode} />
@@ -39,9 +39,9 @@
     {#if customDateRange}
       <div in:fly={{ y: 10, duration: 200 }} class="flex flex-col gap-4">
         <div class="flex items-center justify-between gap-8">
-          <label class="immich-form-label shrink-0 text-sm" for="date-after">Date after</label>
+          <label class="ram-form-label shrink-0 text-sm" for="date-after">Date after</label>
           <DateInput
-            class="immich-form-input w-40"
+            class="ram-form-input w-40"
             type="date"
             id="date-after"
             max={settings.dateBefore}
@@ -49,8 +49,8 @@
           />
         </div>
         <div class="flex items-center justify-between gap-8">
-          <label class="immich-form-label shrink-0 text-sm" for="date-before">Date before</label>
-          <DateInput class="immich-form-input w-40" type="date" id="date-before" bind:value={settings.dateBefore} />
+          <label class="ram-form-label shrink-0 text-sm" for="date-before">Date before</label>
+          <DateInput class="ram-form-input w-40" type="date" id="date-before" bind:value={settings.dateBefore} />
         </div>
         <div class="flex justify-center text-xs">
           <LinkButton

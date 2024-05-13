@@ -1,4 +1,4 @@
-package app.alextran.immich
+package app.alextran.ram
 
 import android.content.Context
 import android.util.Log
@@ -29,7 +29,7 @@ class BackgroundServicePlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
 
     private fun onAttachedToEngine(ctx: Context, messenger: BinaryMessenger) {
         context = ctx
-        methodChannel = MethodChannel(messenger, "immich/foregroundChannel")
+        methodChannel = MethodChannel(messenger, "ram/foregroundChannel")
         methodChannel?.setMethodCallHandler(this)
     }
 

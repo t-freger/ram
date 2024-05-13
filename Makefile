@@ -8,7 +8,7 @@ dev-update:
 	docker compose -f ./docker/docker-compose.dev.yml up --build -V --remove-orphans
 
 dev-scale:
-	docker compose -f ./docker/docker-compose.dev.yml up --build -V  --scale immich-server=3 --remove-orphans
+	docker compose -f ./docker/docker-compose.dev.yml up --build -V  --scale ram-server=3 --remove-orphans
 
 stage:
 	docker compose -f ./docker/docker-compose.staging.yml up --build -V --remove-orphans
@@ -24,7 +24,7 @@ prod:
 	docker compose -f ./docker/docker-compose.prod.yml up --build -V --remove-orphans
 
 prod-scale:
-	docker compose -f ./docker/docker-compose.prod.yml up --build -V --scale immich-server=3 --scale immich-microservices=3 --remove-orphans
+	docker compose -f ./docker/docker-compose.prod.yml up --build -V --scale ram-server=3 --scale ram-microservices=3 --remove-orphans
 
 .PHONY: open-api
 open-api:
@@ -40,4 +40,4 @@ sql:
 	npm --prefix server run sql:generate
 
 attach-server:
-	docker exec -it docker_immich-server_1 sh
+	docker exec -it docker_ram-server_1 sh

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { user } from '$lib/stores/user.store';
   import { handleError } from '$lib/utils/handle-error';
-  import { createProfileImage, type AssetResponseDto } from '@immich/sdk';
+  import { createProfileImage, type AssetResponseDto } from '@ram/sdk';
   import domtoimage from 'dom-to-image';
   import { onMount } from 'svelte';
   import PhotoViewer from '../asset-viewer/photo-viewer.svelte';
@@ -72,7 +72,7 @@
 <FullScreenModal id="profile-image-cropper" title="Set profile picture" width="auto" {onClose}>
   <div class="flex place-items-center items-center justify-center">
     <div
-      class="relative flex aspect-square w-[250px] overflow-hidden rounded-full border-4 border-immich-primary bg-immich-dark-primary dark:border-immich-dark-primary dark:bg-immich-primary"
+      class="relative flex aspect-square w-[250px] overflow-hidden rounded-full border-4 border-ram-primary bg-ram-dark-primary dark:border-ram-dark-primary dark:bg-ram-primary"
     >
       <PhotoViewer bind:element={imgElement} {asset} />
     </div>

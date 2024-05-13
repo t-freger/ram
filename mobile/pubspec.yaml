@@ -1,5 +1,5 @@
-name: immich_mobile
-description: Immich - selfhosted backup media file on mobile phone
+name: ram_mobile
+description: ram - selfhosted backup media file on mobile phone
 
 publish_to: 'none'
 version: 1.103.1+137
@@ -65,7 +65,7 @@ dependencies:
     path: openapi
 
   # easy to remove packages:
-  image_picker: ^1.0.7 # only used to select user profile image from system gallery -> we can simply select an image from within immich?
+  image_picker: ^1.0.7 # only used to select user profile image from system gallery -> we can simply select an image from within ram?
   logging: ^1.2.0
 
 # This is uncommented in F-Droid build script
@@ -125,10 +125,10 @@ flutter:
         - asset: fonts/overpass/OverpassMono.ttf
 
 flutter_launcher_icons:
-  image_path_android: 'assets/immich-logo.png'
+  image_path_android: 'assets/ram-logo.png'
   adaptive_icon_background: '#ffffff'
-  adaptive_icon_foreground: 'assets/immich-logo-android-adaptive-icon.png'
-  image_path_ios: 'assets/immich-logo-w-bg.png'
+  adaptive_icon_foreground: 'assets/ram-logo-android-adaptive-icon.png'
+  image_path_ios: 'assets/ram-logo-w-bg.png'
   android: 'ic_launcher' # can specify file name here e.g. "ic_launcher"
   ios: false # can specify file name here e.g. "My-Launcher-Icon
   remove_alpha_ios: true

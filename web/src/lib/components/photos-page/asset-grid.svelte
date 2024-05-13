@@ -10,7 +10,7 @@
   import { deleteAssets } from '$lib/utils/actions';
   import { type ShortcutOptions, shortcuts } from '$lib/utils/shortcut';
   import { formatGroupTitle, splitBucketIntoDateGroups } from '$lib/utils/timeline-util';
-  import type { AlbumResponseDto, AssetResponseDto } from '@immich/sdk';
+  import type { AlbumResponseDto, AssetResponseDto } from '@ram/sdk';
   import { DateTime } from 'luxon';
   import { createEventDispatcher, onDestroy, onMount } from 'svelte';
   import IntersectionObserver from '../asset-viewer/intersection-observer.svelte';
@@ -403,7 +403,7 @@
   on:scrollTimeline={({ detail }) => (element.scrollTop = detail)}
 />
 
-<!-- Right margin MUST be equal to the width of immich-scrubbable-scrollbar -->
+<!-- Right margin MUST be equal to the width of ram-scrubbable-scrollbar -->
 <section
   id="asset-grid"
   class="scrollbar-hidden h-full overflow-y-auto pb-[60px] {isEmpty ? 'm-0' : 'ml-4 tall:ml-0 mr-[60px]'}"
@@ -415,10 +415,10 @@
   <!-- skeleton -->
   {#if showSkeleton}
     <div class="mt-8 animate-pulse">
-      <div class="mb-2 h-4 w-24 rounded-full bg-immich-primary/20 dark:bg-immich-dark-primary/20" />
+      <div class="mb-2 h-4 w-24 rounded-full bg-ram-primary/20 dark:bg-ram-dark-primary/20" />
       <div class="flex w-[120%] flex-wrap">
         {#each Array.from({ length: 100 }) as _}
-          <div class="m-[1px] h-[10em] w-[16em] bg-immich-primary/20 dark:bg-immich-dark-primary/20" />
+          <div class="m-[1px] h-[10em] w-[16em] bg-ram-primary/20 dark:bg-ram-dark-primary/20" />
         {/each}
       </div>
     </div>

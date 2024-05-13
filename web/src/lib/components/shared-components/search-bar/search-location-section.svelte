@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-  import { getSearchSuggestions, SearchSuggestionType } from '@immich/sdk';
+  import { getSearchSuggestions, SearchSuggestionType } from '@ram/sdk';
   import Combobox, { toComboBoxOptions } from '../combobox.svelte';
   import { handlePromiseError } from '$lib/utils';
 
@@ -58,7 +58,7 @@
 </script>
 
 <div id="location-selection">
-  <p class="immich-form-label">PLACE</p>
+  <p class="ram-form-label">PLACE</p>
 
   <div class="grid grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] gap-5 mt-1">
     <div class="w-full">

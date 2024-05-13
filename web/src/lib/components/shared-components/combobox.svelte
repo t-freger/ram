@@ -128,7 +128,7 @@
   <div>
     {#if isActive}
       <div class="absolute inset-y-0 left-0 flex items-center pl-3">
-        <div class="dark:text-immich-dark-fg/75">
+        <div class="dark:text-ram-dark-fg/75">
           <Icon path={mdiMagnify} ariaHidden={true} />
         </div>
       </div>
@@ -145,7 +145,7 @@
       class:!pl-8={isActive}
       class:!rounded-b-none={isOpen}
       class:cursor-pointer={!isActive}
-      class="immich-form-input text-sm text-left w-full !pr-12 transition-all"
+      class="ram-form-input text-sm text-left w-full !pr-12 transition-all"
       id={inputId}
       on:click={activate}
       on:focus={activate}

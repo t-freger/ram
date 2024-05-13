@@ -1,4 +1,4 @@
-import 'package:immich_mobile/providers/activity_service.provider.dart';
+import 'package:ram_mobile/providers/activity_service.provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'activity_statistics.provider.g.dart';

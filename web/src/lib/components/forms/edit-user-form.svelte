@@ -4,7 +4,7 @@
   import { serverInfo } from '$lib/stores/server-info.store';
   import { convertFromBytes, convertToBytes } from '$lib/utils/byte-converter';
   import { handleError } from '$lib/utils/handle-error';
-  import { updateUser, type UserResponseDto } from '@immich/sdk';
+  import { updateUser, type UserResponseDto } from '@ram/sdk';
   import { createEventDispatcher } from 'svelte';
   import Button from '../elements/buttons/button.svelte';
   import FullScreenModal from '$lib/components/shared-components/full-screen-modal.svelte';
@@ -93,29 +93,29 @@
 <FullScreenModal id="edit-user-modal" title="Edit user" icon={mdiAccountEditOutline} {onClose}>
   <form on:submit|preventDefault={editUser} autocomplete="off" id="edit-user-form">
     <div class="my-4 flex flex-col gap-2">
-      <label class="immich-form-label" for="email">Email</label>
-      <input class="immich-form-input" id="email" name="email" type="email" bind:value={user.email} />
+      <label class="ram-form-label" for="email">Email</label>
+      <input class="ram-form-input" id="email" name="email" type="email" bind:value={user.email} />
     </div>
 
     <div class="my-4 flex flex-col gap-2">
-      <label class="immich-form-label" for="name">Name</label>
-      <input class="immich-form-input" id="name" name="name" type="text" required bind:value={user.name} />
+      <label class="ram-form-label" for="name">Name</label>
+      <input class="ram-form-input" id="name" name="name" type="text" required bind:value={user.name} />
     </div>
 
     <div class="my-4 flex flex-col gap-2">
-      <label class="flex items-center gap-2 immich-form-label" for="quotaSize"
+      <label class="flex items-center gap-2 ram-form-label" for="quotaSize"
         >Quota Size (GiB) {#if quotaSizeWarning}
           <p class="text-red-400 text-sm">You set a quota higher than the disk size</p>
         {/if}</label
       >
-      <input class="immich-form-input" id="quotaSize" name="quotaSize" type="number" min="0" bind:value={quotaSize} />
+      <input class="ram-form-input" id="quotaSize" name="quotaSize" type="number" min="0" bind:value={quotaSize} />
       <p>Note: Enter 0 for unlimited quota</p>
     </div>
 
     <div class="my-4 flex flex-col gap-2">
-      <label class="immich-form-label" for="storage-label">Storage Label</label>
+      <label class="ram-form-label" for="storage-label">Storage Label</label>
       <input
-        class="immich-form-input"
+        class="ram-form-input"
         id="storage-label"
         name="storage-label"
         type="text"
@@ -124,7 +124,7 @@
 
       <p>
         Note: To apply the Storage Label to previously uploaded assets, run the
-        <a href={AppRoute.ADMIN_JOBS} class="text-immich-primary dark:text-immich-dark-primary">
+        <a href={AppRoute.ADMIN_JOBS} class="text-ram-primary dark:text-ram-dark-primary">
           Storage Migration Job</a
         >
       </p>
@@ -135,7 +135,7 @@
     {/if}
 
     {#if success}
-      <p class="ml-4 text-sm text-immich-primary">{success}</p>
+      <p class="ml-4 text-sm text-ram-primary">{success}</p>
     {/if}
   </form>
   <svelte:fragment slot="sticky-bottom">

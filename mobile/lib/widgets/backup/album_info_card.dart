@@ -3,12 +3,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/models/backup/available_album.model.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/providers/haptic_feedback.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/models/backup/available_album.model.dart';
+import 'package:ram_mobile/providers/backup/backup.provider.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/providers/haptic_feedback.provider.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
 
 class AlbumInfoCard extends HookConsumerWidget {
   final AvailableAlbum album;
@@ -97,7 +97,7 @@ class AlbumInfoCard extends HookConsumerWidget {
           // Add to exclude album list
 
           if (album.id == 'isAll' || album.name == 'Recents') {
-            ImmichToast.show(
+            ramToast.show(
               context: context,
               msg: 'Cannot exclude album contains all assets',
               toastType: ToastType.error,
@@ -136,7 +136,7 @@ class AlbumInfoCard extends HookConsumerWidget {
                       width: double.infinity,
                       height: double.infinity,
                       image: AssetImage(
-                        'assets/immich-logo.png',
+                        'assets/ram-logo.png',
                       ),
                       fit: BoxFit.cover,
                     ),

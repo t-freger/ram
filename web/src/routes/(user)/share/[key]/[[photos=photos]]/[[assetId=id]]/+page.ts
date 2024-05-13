@@ -1,7 +1,7 @@
 import { getAssetThumbnailUrl, setSharedLink } from '$lib/utils';
 import { authenticate } from '$lib/utils/auth';
 import { getAssetInfoFromParam } from '$lib/utils/navigation';
-import { ThumbnailFormat, getMySharedLink, isHttpError } from '@immich/sdk';
+import { ThumbnailFormat, getMySharedLink, isHttpError } from '@ram/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ params }) => {

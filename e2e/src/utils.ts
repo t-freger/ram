@@ -29,7 +29,7 @@ import {
   updateAlbumUser,
   updateConfig,
   validate,
-} from '@immich/sdk';
+} from '@ram/sdk';
 import { BrowserContext } from '@playwright/test';
 import { exec, spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -50,7 +50,7 @@ type WaitOptions = { event: EventType; id?: string; total?: number; timeout?: nu
 type AdminSetupOptions = { onboarding?: boolean };
 type AssetData = { bytes?: Buffer; filename: string };
 
-const dbUrl = 'postgres://postgres:postgres@127.0.0.1:5433/immich';
+const dbUrl = 'postgres://postgres:postgres@127.0.0.1:5433/ram';
 const baseUrl = 'http://127.0.0.1:2283';
 
 export const shareUrl = `${baseUrl}/share`;
@@ -61,10 +61,10 @@ export const testAssetDirInternal = '/test-assets';
 export const tempDir = tmpdir();
 export const asBearerAuth = (accessToken: string) => ({ Authorization: `Bearer ${accessToken}` });
 export const asKeyAuth = (key: string) => ({ 'x-api-key': key });
-export const immichCli = (args: string[]) =>
-  executeCommand('node', ['node_modules/.bin/immich', '-d', `/${tempDir}/immich/`, ...args]);
-export const immichAdmin = (args: string[]) =>
-  executeCommand('docker', ['exec', '-i', 'immich-e2e-server', '/bin/bash', '-c', `immich-admin ${args.join(' ')}`]);
+export const ramCli = (args: string[]) =>
+  executeCommand('node', ['node_modules/.bin/ram', '-d', `/${tempDir}/ram/`, ...args]);
+export const ramAdmin = (args: string[]) =>
+  executeCommand('docker', ['exec', '-i', 'ram-e2e-server', '/bin/bash', '-c', `ram-admin ${args.join(' ')}`]);
 
 const executeCommand = (command: string, args: string[]) => {
   let _resolve: (value: CommandResponse) => void;
@@ -179,7 +179,7 @@ export const utils = {
       `"${mediaInternal}/encoded-video"`,
     ].join(' ');
 
-    await execPromise(`docker exec -i "immich-e2e-server" /bin/bash -c "rm -rf ${dirs} && mkdir ${dirs}"`);
+    await execPromise(`docker exec -i "ram-e2e-server" /bin/bash -c "rm -rf ${dirs} && mkdir ${dirs}"`);
   },
 
   unzip: async (input: string, output: string) => {
@@ -392,7 +392,7 @@ export const utils = {
   setAuthCookies: async (context: BrowserContext, accessToken: string) =>
     await context.addCookies([
       {
-        name: 'immich_access_token',
+        name: 'ram_access_token',
         value: accessToken,
         domain: '127.0.0.1',
         path: '/',
@@ -402,7 +402,7 @@ export const utils = {
         sameSite: 'Lax',
       },
       {
-        name: 'immich_auth_type',
+        name: 'ram_auth_type',
         value: 'password',
         domain: '127.0.0.1',
         path: '/',
@@ -412,7 +412,7 @@ export const utils = {
         sameSite: 'Lax',
       },
       {
-        name: 'immich_is_authenticated',
+        name: 'ram_is_authenticated',
         value: 'true',
         domain: '127.0.0.1',
         path: '/',
@@ -458,7 +458,7 @@ export const utils = {
 
   cliLogin: async (accessToken: string) => {
     const key = await utils.createApiKey(accessToken);
-    await immichCli(['login', app, `${key.secret}`]);
+    await ramCli(['login', app, `${key.secret}`]);
     return key.secret;
   },
 };
@@ -467,6 +467,6 @@ utils.setApiEndpoint();
 
 if (!existsSync(`${testAssetDir}/albums`)) {
   throw new Error(
-    `Test assets not found. Please checkout https://github.com/immich-app/test-assets into ${testAssetDir} before testing`,
+    `Test assets not found. Please checkout https://github.com/ram-app/test-assets into ${testAssetDir} before testing`,
   );
 }

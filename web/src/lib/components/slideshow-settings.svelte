@@ -46,7 +46,7 @@
 </script>
 
 <FullScreenModal id="slideshow-settings-modal" title="Slideshow settings" {onClose}>
-  <div class="flex flex-col gap-4 text-immich-primary dark:text-immich-dark-primary">
+  <div class="flex flex-col gap-4 text-ram-primary dark:text-ram-dark-primary">
     <SettingDropdown
       title="Direction"
       options={Object.values(navigationOptions)}

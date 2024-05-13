@@ -4,7 +4,7 @@
   import { AppRoute } from '$lib/constants';
   import { user } from '$lib/stores/user.store';
   import { handleError } from '$lib/utils/handle-error';
-  import { deleteProfileImage, updateUser, type UserAvatarColor } from '@immich/sdk';
+  import { deleteProfileImage, updateUser, type UserAvatarColor } from '@ram/sdk';
   import { mdiCog, mdiLogout, mdiPencil } from '@mdi/js';
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
@@ -53,10 +53,10 @@
     in:fade={{ duration: 100 }}
     out:fade={{ duration: 100 }}
     id="account-info-panel"
-    class="absolute right-[25px] top-[75px] z-[100] w-[360px] rounded-3xl bg-gray-200 shadow-lg dark:border dark:border-immich-dark-gray dark:bg-immich-dark-gray"
+    class="absolute right-[25px] top-[75px] z-[100] w-[360px] rounded-3xl bg-gray-200 shadow-lg dark:border dark:border-ram-dark-gray dark:bg-ram-dark-gray"
   >
     <div
-      class="mx-4 mt-4 flex flex-col items-center justify-center gap-4 rounded-3xl bg-white p-4 dark:bg-immich-dark-primary/10"
+      class="mx-4 mt-4 flex flex-col items-center justify-center gap-4 rounded-3xl bg-white p-4 dark:bg-ram-dark-primary/10"
     >
       <div class="relative">
         {#key $user}
@@ -75,10 +75,10 @@
         </div>
       </div>
       <div>
-        <p class="text-center text-lg font-medium text-immich-primary dark:text-immich-dark-primary">
+        <p class="text-center text-lg font-medium text-ram-primary dark:text-ram-dark-primary">
           {$user.name}
         </p>
-        <p class="text-sm text-gray-500 dark:text-immich-dark-fg">{$user.email}</p>
+        <p class="text-sm text-gray-500 dark:text-ram-dark-fg">{$user.email}</p>
       </div>
 
       <a href={AppRoute.USER_SETTINGS} on:click={() => dispatch('close')}>
@@ -93,7 +93,7 @@
 
     <div class="mb-4 flex flex-col">
       <button
-        class="flex w-full place-content-center place-items-center gap-2 py-3 font-medium text-gray-500 hover:bg-immich-primary/10 dark:text-gray-300"
+        class="flex w-full place-content-center place-items-center gap-2 py-3 font-medium text-gray-500 hover:bg-ram-primary/10 dark:text-gray-300"
         on:click={() => dispatch('logout')}
       >
         <Icon path={mdiLogout} size={24} />

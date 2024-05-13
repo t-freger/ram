@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { serveFile, type AssetResponseDto, AssetTypeEnum } from '@immich/sdk';
+  import { serveFile, type AssetResponseDto, AssetTypeEnum } from '@ram/sdk';
   import { fade } from 'svelte/transition';
   import LoadingSpinner from '../shared-components/loading-spinner.svelte';
   import { getAssetFileUrl, getKey } from '$lib/utils';

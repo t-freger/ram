@@ -87,7 +87,7 @@
   {#if showMenu}
     <div
       transition:fly={{ y: -30, duration: 250 }}
-      class="text-sm font-medium fixed z-50 flex min-w-[250px] max-h-[70vh] overflow-y-auto immich-scrollbar flex-col rounded-2xl bg-gray-100 py-2 text-black shadow-lg dark:bg-gray-700 dark:text-white {className}"
+      class="text-sm font-medium fixed z-50 flex min-w-[250px] max-h-[70vh] overflow-y-auto ram-scrollbar flex-col rounded-2xl bg-gray-100 py-2 text-black shadow-lg dark:bg-gray-700 dark:text-white {className}"
     >
       {#each options as option (option)}
         {@const renderedOption = renderOption(option)}
@@ -98,10 +98,10 @@
           on:click={() => !renderedOption.disabled && handleSelectOption(option)}
         >
           {#if isEqual(selectedOption, option)}
-            <div class="text-immich-primary dark:text-immich-dark-primary">
+            <div class="text-ram-primary dark:text-ram-dark-primary">
               <Icon path={mdiCheck} size="18" />
             </div>
-            <p class="justify-self-start text-immich-primary dark:text-immich-dark-primary">
+            <p class="justify-self-start text-ram-primary dark:text-ram-dark-primary">
               {renderedOption.title}
             </p>
           {:else}

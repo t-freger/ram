@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/album/shared_album.provider.dart';
-import 'package:immich_mobile/providers/authentication.provider.dart';
-import 'package:immich_mobile/utils/immich_loading_overlay.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/entities/album.entity.dart';
-import 'package:immich_mobile/entities/user.entity.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/widgets/common/user_circle_avatar.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/album/shared_album.provider.dart';
+import 'package:ram_mobile/providers/authentication.provider.dart';
+import 'package:ram_mobile/utils/ram_loading_overlay.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/entities/album.entity.dart';
+import 'package:ram_mobile/entities/user.entity.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
+import 'package:ram_mobile/widgets/common/user_circle_avatar.dart';
 
 @RoutePage()
 class AlbumOptionsPage extends HookConsumerWidget {
@@ -31,7 +31,7 @@ class AlbumOptionsPage extends HookConsumerWidget {
 
     void showErrorMessage() {
       context.pop();
-      ImmichToast.show(
+      ramToast.show(
         context: context,
         msg: "shared_album_section_people_action_error".tr(),
         toastType: ToastType.error,

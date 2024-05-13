@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getAllUsers, getPartners, type UserResponseDto } from '@immich/sdk';
+  import { getAllUsers, getPartners, type UserResponseDto } from '@ram/sdk';
   import { createEventDispatcher, onMount } from 'svelte';
   import Button from '../elements/buttons/button.svelte';
   import UserAvatar from '../shared-components/user-avatar.svelte';
@@ -34,7 +34,7 @@
 </script>
 
 <FullScreenModal id="partner-selection-modal" title="Add partner" showLogo {onClose}>
-  <div class="immich-scrollbar max-h-[300px] overflow-y-auto">
+  <div class="ram-scrollbar max-h-[300px] overflow-y-auto">
     {#if availableUsers.length > 0}
       {#each availableUsers as user}
         <button
@@ -43,7 +43,7 @@
         >
           {#if selectedUsers.includes(user)}
             <span
-              class="flex h-12 w-12 place-content-center place-items-center rounded-full border bg-immich-primary text-3xl text-white dark:border-immich-dark-gray dark:bg-immich-dark-primary dark:text-immich-dark-bg"
+              class="flex h-12 w-12 place-content-center place-items-center rounded-full border bg-ram-primary text-3xl text-white dark:border-ram-dark-gray dark:bg-ram-dark-primary dark:text-ram-dark-bg"
               >✓</span
             >
           {:else}
@@ -51,7 +51,7 @@
           {/if}
 
           <div class="text-left">
-            <p class="text-immich-fg dark:text-immich-dark-fg">
+            <p class="text-ram-fg dark:text-ram-dark-fg">
               {user.name}
             </p>
             <p class="text-xs">

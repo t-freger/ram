@@ -1,6 +1,6 @@
 <script lang="ts">
   import { websocketStore } from '$lib/stores/websocket';
-  import type { ServerVersionResponseDto } from '@immich/sdk';
+  import type { ServerVersionResponseDto } from '@ram/sdk';
   import Button from '../elements/buttons/button.svelte';
   import FullScreenModal from './full-screen-modal.svelte';
 
@@ -37,7 +37,7 @@
     <div>
       Hi friend, there is a new version of the application please take your time to visit the
       <span class="font-medium underline"
-        ><a href="https://github.com/immich-app/immich/releases/latest" target="_blank" rel="noopener noreferrer"
+        ><a href="https://github.com/ram-app/ram/releases/latest" target="_blank" rel="noopener noreferrer"
           >release notes</a
         ></span
       >

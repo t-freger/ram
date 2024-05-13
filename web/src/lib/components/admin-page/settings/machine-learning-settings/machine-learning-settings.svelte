@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SystemConfigDto } from '@immich/sdk';
+  import type { SystemConfigDto } from '@ram/sdk';
   import { isEqual } from 'lodash-es';
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
@@ -69,8 +69,8 @@
             disabled={disabled || !config.machineLearning.enabled || !config.machineLearning.clip.enabled}
             isEdited={config.machineLearning.clip.modelName !== savedConfig.machineLearning.clip.modelName}
           >
-            <p slot="desc" class="immich-form-label pb-2 text-sm">
-              The name of a CLIP model listed <a href="https://huggingface.co/immich-app"><u>here</u></a>. Note that you
+            <p slot="desc" class="ram-form-label pb-2 text-sm">
+              The name of a CLIP model listed <a href="https://huggingface.co/ram-app"><u>here</u></a>. Note that you
               must re-run the 'Smart Search' job for all images upon changing a model.
             </p>
           </SettingInputField>

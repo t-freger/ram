@@ -5,7 +5,7 @@
   import OnboadingStorageTemplate from '$lib/components/onboarding-page/onboarding-storage-template.svelte';
   import OnboardingTheme from '$lib/components/onboarding-page/onboarding-theme.svelte';
   import { AppRoute, QueryParameter } from '$lib/constants';
-  import { updateAdminOnboarding } from '@immich/sdk';
+  import { updateAdminOnboarding } from '@ram/sdk';
 
   let index = 0;
 
@@ -48,7 +48,7 @@
   <div class="flex flex-col w-full">
     <div class="w-full bg-gray-300 dark:bg-gray-600 rounded-md h-2">
       <div
-        class="progress-bar bg-immich-primary dark:bg-immich-dark-primary h-2 rounded-md transition-all duration-200 ease-out"
+        class="progress-bar bg-ram-primary dark:bg-ram-dark-primary h-2 rounded-md transition-all duration-200 ease-out"
         style="width: {(index / (onboardingSteps.length - 1)) * 100}%"
       ></div>
     </div>

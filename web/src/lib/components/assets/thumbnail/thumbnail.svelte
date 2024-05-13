@@ -5,7 +5,7 @@
   import { getAssetFileUrl, getAssetThumbnailUrl, isSharedLink } from '$lib/utils';
   import { getAltText } from '$lib/utils/thumbnail-util';
   import { timeToSeconds } from '$lib/utils/date-time';
-  import { AssetTypeEnum, ThumbnailFormat, type AssetResponseDto } from '@immich/sdk';
+  import { AssetTypeEnum, ThumbnailFormat, type AssetResponseDto } from '@ram/sdk';
   import { playVideoThumbnailOnHover } from '$lib/stores/preferences.store';
   import {
     mdiArchiveArrowDownOutline,
@@ -91,7 +91,7 @@
     style:height="{height}px"
     class="group focus-visible:outline-none relative overflow-hidden {disabled
       ? 'bg-gray-300'
-      : 'bg-immich-primary/20 dark:bg-immich-dark-primary/20'}"
+      : 'bg-ram-primary/20 dark:bg-ram-dark-primary/20'}"
     class:cursor-not-allowed={disabled}
     class:hover:cursor-pointer={clickable}
     on:mouseenter={onMouseEnter}
@@ -117,7 +117,7 @@
               <Icon path={mdiCheckCircle} size="24" class="text-zinc-800" />
             {:else if selected}
               <div class="rounded-full bg-[#D9DCEF] dark:bg-[#232932]">
-                <Icon path={mdiCheckCircle} size="24" class="text-immich-primary" />
+                <Icon path={mdiCheckCircle} size="24" class="text-ram-primary" />
               </div>
             {:else}
               <Icon path={mdiCheckCircle} size="24" class="text-white/80 hover:text-white" />
@@ -127,7 +127,7 @@
       </div>
 
       <div
-        class="absolute h-full w-full select-none bg-gray-100 transition-transform dark:bg-immich-dark-gray"
+        class="absolute h-full w-full select-none bg-gray-100 transition-transform dark:bg-ram-dark-gray"
         class:scale-[0.85]={selected}
         class:rounded-xl={selected}
       >
@@ -139,7 +139,7 @@
 
         <!-- Outline on focus -->
         <div
-          class="absolute size-full group-focus-visible:outline outline-4 -outline-offset-4 outline-immich-primary"
+          class="absolute size-full group-focus-visible:outline outline-4 -outline-offset-4 outline-ram-primary"
         />
 
         <!-- Favorite asset star -->
@@ -220,7 +220,7 @@
       </div>
       {#if selectionCandidate}
         <div
-          class="absolute top-0 h-full w-full bg-immich-primary opacity-40"
+          class="absolute top-0 h-full w-full bg-ram-primary opacity-40"
           in:fade={{ duration: 100 }}
           out:fade={{ duration: 100 }}
         />

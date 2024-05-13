@@ -1,5 +1,5 @@
 import { authenticate } from '$lib/utils/auth';
-import { getAuditFiles } from '@immich/sdk';
+import { getAuditFiles } from '@ram/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async () => {

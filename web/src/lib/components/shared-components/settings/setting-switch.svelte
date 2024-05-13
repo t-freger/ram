@@ -21,7 +21,7 @@
 <div class="flex place-items-center justify-between">
   <div class="mr-2">
     <div class="flex h-[26px] place-items-center gap-1">
-      <label class="font-medium text-immich-primary dark:text-immich-dark-primary text-sm" for={sliderId}>
+      <label class="font-medium text-ram-primary dark:text-ram-dark-primary text-sm" for={sliderId}>
         {title}
       </label>
       {#if isEdited}
@@ -35,7 +35,7 @@
     </div>
 
     {#if subtitle}
-      <p id={subtitleId} class="text-sm dark:text-immich-dark-fg">{subtitle}</p>
+      <p id={subtitleId} class="text-sm dark:text-ram-dark-fg">{subtitle}</p>
     {/if}
     <slot />
   </div>

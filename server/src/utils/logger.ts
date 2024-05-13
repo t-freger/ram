@@ -5,7 +5,7 @@ import { LogLevel } from 'src/entities/system-config.entity';
 const LOG_LEVELS = [LogLevel.VERBOSE, LogLevel.DEBUG, LogLevel.LOG, LogLevel.WARN, LogLevel.ERROR, LogLevel.FATAL];
 
 // TODO move implementation to logger.repository.ts
-export class ImmichLogger extends ConsoleLogger {
+export class ramLogger extends ConsoleLogger {
   private static logLevels: LogLevel[] = [LogLevel.LOG, LogLevel.WARN, LogLevel.ERROR, LogLevel.FATAL];
 
   constructor(context: string) {
@@ -13,10 +13,10 @@ export class ImmichLogger extends ConsoleLogger {
   }
 
   isLevelEnabled(level: LogLevel) {
-    return isLogLevelEnabled(level, ImmichLogger.logLevels);
+    return isLogLevelEnabled(level, ramLogger.logLevels);
   }
 
   static setLogLevel(level: LogLevel | false): void {
-    ImmichLogger.logLevels = level === false ? [] : LOG_LEVELS.slice(LOG_LEVELS.indexOf(level));
+    ramLogger.logLevels = level === false ? [] : LOG_LEVELS.slice(LOG_LEVELS.indexOf(level));
   }
 }

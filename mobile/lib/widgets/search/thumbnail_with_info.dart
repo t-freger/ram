@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/extensions/string_extensions.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/extensions/string_extensions.dart';
 
 // ignore: must_be_immutable
 class ThumbnailWithInfo extends StatelessWidget {
@@ -46,7 +46,7 @@ class ThumbnailWithInfo extends StatelessWidget {
                       fit: BoxFit.cover,
                       imageUrl: imageUrl!,
                       httpHeaders: {
-                        "x-immich-user-token": Store.get(StoreKey.accessToken),
+                        "x-ram-user-token": Store.get(StoreKey.accessToken),
                       },
                       errorWidget: (context, url, error) =>
                           const Icon(Icons.image_not_supported_outlined),

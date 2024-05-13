@@ -2,8 +2,8 @@
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/widgets/common/confirm_dialog.dart';
 
 class DeleteDialog extends ConfirmDialog {
   const DeleteDialog({super.key, String? alert, required Function onDelete})

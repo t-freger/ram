@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/widgets/search/thumbnail_with_info.dart';
-import 'package:immich_mobile/models/shared_link/shared_link.model.dart';
-import 'package:immich_mobile/providers/shared_link.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/utils/image_url_builder.dart';
-import 'package:immich_mobile/utils/url_helper.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/widgets/search/thumbnail_with_info.dart';
+import 'package:ram_mobile/models/shared_link/shared_link.model.dart';
+import 'package:ram_mobile/providers/shared_link.provider.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/providers/server_info.provider.dart';
+import 'package:ram_mobile/widgets/common/confirm_dialog.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
+import 'package:ram_mobile/utils/image_url_builder.dart';
+import 'package:ram_mobile/utils/url_helper.dart';
 
 class SharedLinkItem extends ConsumerWidget {
   final SharedLink sharedLink;
@@ -82,7 +82,7 @@ class SharedLinkItem extends ConsumerWidget {
         serverUrl += '/';
       }
       if (serverUrl == null) {
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           gravity: ToastGravity.BOTTOM,
           toastType: ToastType.error,

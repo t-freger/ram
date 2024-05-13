@@ -74,7 +74,7 @@ const updatedConfig = Object.freeze<SystemConfig>({
   },
   machineLearning: {
     enabled: true,
-    url: 'http://immich-machine-learning:3003',
+    url: 'http://ram-machine-learning:3003',
     clip: {
       enabled: true,
       modelName: 'ViT-B-32__openai',
@@ -109,7 +109,7 @@ const updatedConfig = Object.freeze<SystemConfig>({
     scope: 'openid email profile',
     signingAlgorithm: 'RS256',
     storageLabelClaim: 'preferred_username',
-    storageQuotaClaim: 'immich_quota',
+    storageQuotaClaim: 'ram_quota',
   },
   passwordLogin: {
     enabled: true,
@@ -178,7 +178,7 @@ describe(SystemConfigService.name, () => {
   let smartInfoMock: Mocked<ISearchRepository>;
 
   beforeEach(() => {
-    delete process.env.IMMICH_CONFIG_FILE;
+    delete process.env.ram_CONFIG_FILE;
     configMock = newSystemConfigRepositoryMock();
     eventMock = newEventRepositoryMock();
     loggerMock = newLoggerRepositoryMock();
@@ -217,7 +217,7 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should load the config from a json file', async () => {
-      process.env.IMMICH_CONFIG_FILE = 'immich-config.json';
+      process.env.ram_CONFIG_FILE = 'ram-config.json';
       const partialConfig = {
         ffmpeg: { crf: 30 },
         oauth: { autoLaunch: true },
@@ -228,11 +228,11 @@ describe(SystemConfigService.name, () => {
 
       await expect(sut.getConfig()).resolves.toEqual(updatedConfig);
 
-      expect(configMock.readFile).toHaveBeenCalledWith('immich-config.json');
+      expect(configMock.readFile).toHaveBeenCalledWith('ram-config.json');
     });
 
     it('should load the config from a yaml file', async () => {
-      process.env.IMMICH_CONFIG_FILE = 'immich-config.yaml';
+      process.env.ram_CONFIG_FILE = 'ram-config.yaml';
       const partialConfig = `
         ffmpeg:
           crf: 30
@@ -247,29 +247,29 @@ describe(SystemConfigService.name, () => {
 
       await expect(sut.getConfig()).resolves.toEqual(updatedConfig);
 
-      expect(configMock.readFile).toHaveBeenCalledWith('immich-config.yaml');
+      expect(configMock.readFile).toHaveBeenCalledWith('ram-config.yaml');
     });
 
     it('should accept an empty configuration file', async () => {
-      process.env.IMMICH_CONFIG_FILE = 'immich-config.json';
+      process.env.ram_CONFIG_FILE = 'ram-config.json';
       configMock.readFile.mockResolvedValue(JSON.stringify({}));
 
       await expect(sut.getConfig()).resolves.toEqual(defaults);
 
-      expect(configMock.readFile).toHaveBeenCalledWith('immich-config.json');
+      expect(configMock.readFile).toHaveBeenCalledWith('ram-config.json');
     });
 
     it('should allow underscores in the machine learning url', async () => {
-      process.env.IMMICH_CONFIG_FILE = 'immich-config.json';
-      const partialConfig = { machineLearning: { url: 'immich_machine_learning' } };
+      process.env.ram_CONFIG_FILE = 'ram-config.json';
+      const partialConfig = { machineLearning: { url: 'ram_machine_learning' } };
       configMock.readFile.mockResolvedValue(JSON.stringify(partialConfig));
 
       const config = await sut.getConfig();
-      expect(config.machineLearning.url).toEqual('immich_machine_learning');
+      expect(config.machineLearning.url).toEqual('ram_machine_learning');
     });
 
     it('should warn for unknown options in yaml', async () => {
-      process.env.IMMICH_CONFIG_FILE = 'immich-config.yaml';
+      process.env.ram_CONFIG_FILE = 'ram-config.yaml';
       const partialConfig = `
         unknownOption: true
       `;
@@ -290,7 +290,7 @@ describe(SystemConfigService.name, () => {
 
     for (const test of tests) {
       it(`should ${test.should}`, async () => {
-        process.env.IMMICH_CONFIG_FILE = 'immich-config.json';
+        process.env.ram_CONFIG_FILE = 'ram-config.json';
         configMock.readFile.mockResolvedValue(JSON.stringify(test.config));
 
         if (test.warn) {
@@ -349,7 +349,7 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should throw an error if a config file is in use', async () => {
-      process.env.IMMICH_CONFIG_FILE = 'immich-config.json';
+      process.env.ram_CONFIG_FILE = 'ram-config.json';
       configMock.readFile.mockResolvedValue(JSON.stringify({}));
       await expect(sut.updateConfig(defaults)).rejects.toBeInstanceOf(BadRequestException);
       expect(configMock.saveAll).not.toHaveBeenCalled();

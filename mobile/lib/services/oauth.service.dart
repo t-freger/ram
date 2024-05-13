@@ -1,13 +1,13 @@
-import 'package:immich_mobile/services/api.service.dart';
+import 'package:ram_mobile/services/api.service.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 import 'package:flutter_web_auth/flutter_web_auth.dart';
 
-// Redirect URL = app.immich://
+// Redirect URL = app.ram://
 
 class OAuthService {
   final ApiService _apiService;
-  final callbackUrlScheme = 'app.immich';
+  final callbackUrlScheme = 'app.ram';
   final log = Logger('OAuthService');
   OAuthService(this._apiService);
 

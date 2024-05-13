@@ -23,7 +23,7 @@
 
 <script lang="ts">
   import Button from '$lib/components/elements/buttons/button.svelte';
-  import { AssetTypeEnum, type SmartSearchDto, type MetadataSearchDto } from '@immich/sdk';
+  import { AssetTypeEnum, type SmartSearchDto, type MetadataSearchDto } from '@ram/sdk';
   import { createEventDispatcher } from 'svelte';
   import { fly } from 'svelte/transition';
   import SearchPeopleSection from './search-people-section.svelte';
@@ -116,7 +116,7 @@
 <div
   bind:clientWidth={filterBoxWidth}
   transition:fly={{ y: 25, duration: 250 }}
-  class="absolute w-full rounded-b-3xl border border-t-0 border-gray-200 bg-white shadow-2xl dark:border-gray-800 dark:bg-immich-dark-gray dark:text-gray-300"
+  class="absolute w-full rounded-b-3xl border border-t-0 border-gray-200 bg-white shadow-2xl dark:border-gray-800 dark:bg-ram-dark-gray dark:text-gray-300"
 >
   <form
     id="search-filter-form"
@@ -124,7 +124,7 @@
     on:submit|preventDefault={search}
     on:reset|preventDefault={resetForm}
   >
-    <div class="px-4 sm:px-6 py-4 space-y-10 max-h-[calc(100dvh-12rem)] overflow-y-auto immich-scrollbar" tabindex="-1">
+    <div class="px-4 sm:px-6 py-4 space-y-10 max-h-[calc(100dvh-12rem)] overflow-y-auto ram-scrollbar" tabindex="-1">
       <!-- PEOPLE -->
       <SearchPeopleSection width={filterBoxWidth} bind:selectedPeople={filter.personIds} />
 
@@ -151,7 +151,7 @@
 
     <div
       id="button-row"
-      class="flex justify-end gap-4 border-t dark:border-gray-800 dark:bg-immich-dark-gray px-4 sm:py-6 py-4 mt-2 rounded-b-3xl"
+      class="flex justify-end gap-4 border-t dark:border-gray-800 dark:bg-ram-dark-gray px-4 sm:py-6 py-4 mt-2 rounded-b-3xl"
     >
       <Button type="reset" color="gray">Clear all</Button>
       <Button type="submit">Search</Button>

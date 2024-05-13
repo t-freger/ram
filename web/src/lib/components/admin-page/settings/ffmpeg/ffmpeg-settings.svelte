@@ -8,7 +8,7 @@
     TranscodePolicy,
     VideoCodec,
     type SystemConfigDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import { mdiHelpCircleOutline } from '@mdi/js';
   import { isEqual, sortBy } from 'lodash-es';
   import { createEventDispatcher } from 'svelte';
@@ -35,7 +35,7 @@
   <div in:fade={{ duration: 500 }}>
     <form autocomplete="off" on:submit|preventDefault>
       <div class="ml-4 mt-4 flex flex-col gap-4">
-        <p class="text-sm dark:text-immich-dark-fg">
+        <p class="text-sm dark:text-ram-dark-fg">
           <Icon path={mdiHelpCircleOutline} class="inline" size="15" />
           To learn more about the terminology used here, refer to FFmpeg documentation for
           <a href="https://trac.ffmpeg.org/wiki/Encode/H.264" class="underline" target="_blank" rel="noreferrer"

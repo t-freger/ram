@@ -7,7 +7,7 @@
 
 <div id="media-type-selection">
   <fieldset>
-    <legend class="immich-form-label">MEDIA TYPE</legend>
+    <legend class="ram-form-label">MEDIA TYPE</legend>
     <div class="flex flex-wrap gap-x-5 gap-y-2 mt-1">
       <RadioButton name="media-type" id="type-all" bind:group={filteredMedia} label="All" value={MediaType.All} />
       <RadioButton name="media-type" id="type-image" bind:group={filteredMedia} label="Image" value={MediaType.Image} />

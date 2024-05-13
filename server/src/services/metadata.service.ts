@@ -27,7 +27,7 @@ import {
 } from 'src/interfaces/job.interface';
 import { ILoggerRepository } from 'src/interfaces/logger.interface';
 import { IMediaRepository } from 'src/interfaces/media.interface';
-import { IMetadataRepository, ImmichTags } from 'src/interfaces/metadata.interface';
+import { IMetadataRepository, ramTags } from 'src/interfaces/metadata.interface';
 import { IMoveRepository } from 'src/interfaces/move.interface';
 import { IPersonRepository } from 'src/interfaces/person.interface';
 import { IStorageRepository } from 'src/interfaces/storage.interface';
@@ -350,7 +350,7 @@ export class MetadataService {
     }
   }
 
-  private async applyMotionPhotos(asset: AssetEntity, tags: ImmichTags) {
+  private async applyMotionPhotos(asset: AssetEntity, tags: ramTags) {
     if (asset.type !== AssetType.IMAGE) {
       return;
     }
@@ -473,7 +473,7 @@ export class MetadataService {
 
   private async exifData(
     asset: AssetEntity,
-  ): Promise<{ exifData: ExifEntityWithoutGeocodeAndTypeOrm; tags: ImmichTags }> {
+  ): Promise<{ exifData: ExifEntityWithoutGeocodeAndTypeOrm; tags: ramTags }> {
     const stats = await this.storageRepository.stat(asset.originalPath);
     const mediaTags = await this.repository.readTags(asset.originalPath);
     const sidecarTags = asset.sidecarPath ? await this.repository.readTags(asset.sidecarPath) : null;
@@ -528,21 +528,21 @@ export class MetadataService {
     return { exifData, tags };
   }
 
-  private getAutoStackId(tags: ImmichTags | null): string | null {
+  private getAutoStackId(tags: ramTags | null): string | null {
     if (!tags) {
       return null;
     }
     return tags.BurstID ?? tags.BurstUUID ?? tags.CameraBurstID ?? tags.MediaUniqueID ?? null;
   }
 
-  private getDateTimeOriginal(tags: ImmichTags | Tags | null) {
+  private getDateTimeOriginal(tags: ramTags | Tags | null) {
     if (!tags) {
       return null;
     }
     return exifDate(firstDateTime(tags as Tags, EXIF_DATE_TAGS));
   }
 
-  private getBitsPerSample(tags: ImmichTags): number | null {
+  private getBitsPerSample(tags: ramTags): number | null {
     const bitDepthTags = [
       tags.BitsPerSample,
       tags.ComponentBitDepth,
@@ -560,7 +560,7 @@ export class MetadataService {
     return bitsPerSample;
   }
 
-  private getDuration(seconds?: ImmichTags['Duration']): string {
+  private getDuration(seconds?: ramTags['Duration']): string {
     let _seconds = seconds as number;
 
     if (typeof seconds === 'object') {

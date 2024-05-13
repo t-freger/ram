@@ -59,7 +59,7 @@ export class GeodataLocationSearch1708059341865 implements MigrationInterface {
             "database" = $3 AND
             "schema" = $4 AND
             "table" = $5`,
-      ['GENERATED_COLUMN', 'admin1Key', 'immich', 'public', 'geodata_places'],
+      ['GENERATED_COLUMN', 'admin1Key', 'ram', 'public', 'geodata_places'],
     );
 
     await queryRunner.query(
@@ -71,7 +71,7 @@ export class GeodataLocationSearch1708059341865 implements MigrationInterface {
             "database" = $3 AND
             "schema" = $4 AND
             "table" = $5`,
-      ['GENERATED_COLUMN', 'admin2Key', 'immich', 'public', 'geodata_places'],
+      ['GENERATED_COLUMN', 'admin2Key', 'ram', 'public', 'geodata_places'],
     );
   }
 
@@ -133,14 +133,14 @@ export class GeodataLocationSearch1708059341865 implements MigrationInterface {
       `
         INSERT INTO "typeorm_metadata"("database", "schema", "table", "type", "name", "value")
         VALUES ($1, $2, $3, $4, $5, $6)`,
-      ['immich', 'public', 'geodata_places', 'GENERATED_COLUMN', 'admin1Key', '"countryCode" || \'.\' || "admin1Code"'],
+      ['ram', 'public', 'geodata_places', 'GENERATED_COLUMN', 'admin1Key', '"countryCode" || \'.\' || "admin1Code"'],
     );
 
     await queryRunner.query(
       `INSERT INTO "typeorm_metadata"("database", "schema", "table", "type", "name", "value")
         VALUES ($1, $2, $3, $4, $5, $6)`,
       [
-        'immich',
+        'ram',
         'public',
         'geodata_places',
         'GENERATED_COLUMN',

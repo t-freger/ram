@@ -22,9 +22,9 @@
   data-sveltekit-preload-data={preloadData ? 'hover' : 'off'}
   draggable="false"
   aria-current={isSelected ? 'page' : undefined}
-  class="flex w-full place-items-center justify-between gap-4 rounded-r-full py-3 transition-[padding] delay-100 duration-100 hover:cursor-pointer hover:bg-immich-gray hover:text-immich-primary dark:text-immich-dark-fg dark:hover:bg-immich-dark-gray dark:hover:text-immich-dark-primary
+  class="flex w-full place-items-center justify-between gap-4 rounded-r-full py-3 transition-[padding] delay-100 duration-100 hover:cursor-pointer hover:bg-ram-gray hover:text-ram-primary dark:text-ram-dark-fg dark:hover:bg-ram-dark-gray dark:hover:text-ram-dark-primary
     {isSelected
-    ? 'bg-immich-primary/10 text-immich-primary hover:bg-immich-primary/10 dark:bg-immich-dark-primary/10 dark:text-immich-dark-primary'
+    ? 'bg-ram-primary/10 text-ram-primary hover:bg-ram-primary/10 dark:bg-ram-dark-primary/10 dark:text-ram-dark-primary'
     : ''}
 		pl-5 group-hover:sm:px-5 md:px-5
   "
@@ -51,7 +51,7 @@
         {#if showMoreInformation}
           <div class="absolute right-6 top-0">
             <div
-              class="flex place-content-center place-items-center whitespace-nowrap rounded-3xl border bg-immich-bg px-6 py-3 text-xs text-immich-fg shadow-lg dark:border-immich-dark-gray dark:bg-gray-600 dark:text-immich-dark-fg"
+              class="flex place-content-center place-items-center whitespace-nowrap rounded-3xl border bg-ram-bg px-6 py-3 text-xs text-ram-fg shadow-lg dark:border-ram-dark-gray dark:bg-gray-600 dark:text-ram-dark-fg"
               class:hidden={!showMoreInformation}
               transition:fade={{ duration: 200 }}
             >

@@ -1,6 +1,6 @@
 # Jobs
 
-The `immich-server` responds to API requests for data and files for the web and mobile app. To do this quickly and reliably, it offloads most other work to `immich-microservices` in the form of _jobs_. Simply put, a job is a request to process data in the background. Jobs are picked up automatically by microservices containers.
+The `ram-server` responds to API requests for data and files for the web and mobile app. To do this quickly and reliably, it offloads most other work to `ram-microservices` in the form of _jobs_. Simply put, a job is a request to process data in the background. Jobs are picked up automatically by microservices containers.
 
 When a new asset is uploaded it kicks off a series of jobs, which include metadata extraction, thumbnail generation, machine learning tasks, and storage template migration, if enabled. To view the status of a job navigate to the Administration -> Jobs page.
 

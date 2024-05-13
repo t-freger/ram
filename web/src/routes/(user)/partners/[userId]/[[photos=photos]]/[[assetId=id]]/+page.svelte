@@ -25,7 +25,7 @@
   });
 </script>
 
-<main class="grid h-screen bg-immich-bg pt-18 dark:bg-immich-dark-bg">
+<main class="grid h-screen bg-ram-bg pt-18 dark:bg-ram-dark-bg">
   {#if $isMultiSelectState}
     <AssetSelectControlBar assets={$selectedAssets} clearSelect={clearMultiselect}>
       <CreateSharedLink />
@@ -38,7 +38,7 @@
   {:else}
     <ControlAppBar showBackButton backIcon={mdiArrowLeft} on:close={() => goto(AppRoute.SHARING)}>
       <svelte:fragment slot="leading">
-        <p class="whitespace-nowrap text-immich-fg dark:text-immich-dark-fg">
+        <p class="whitespace-nowrap text-ram-fg dark:text-ram-dark-fg">
           {data.partner.name}'s photos
         </p>
       </svelte:fragment>

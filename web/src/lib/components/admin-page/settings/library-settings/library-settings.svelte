@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SystemConfigDto } from '@immich/sdk';
+  import type { SystemConfigDto } from '@ram/sdk';
   import { isEqual } from 'lodash-es';
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
@@ -72,7 +72,7 @@
             bind:checked={config.library.scan.enabled}
           />
 
-          <div class="flex flex-col my-2 dark:text-immich-dark-fg">
+          <div class="flex flex-col my-2 dark:text-ram-dark-fg">
             <label class="text-sm" for="expression-select">Cron Expression Presets</label>
             <select
               class="p-2 mt-2 text-sm rounded-lg bg-slate-200 hover:cursor-pointer dark:bg-gray-600"
@@ -96,7 +96,7 @@
             isEdited={config.library.scan.cronExpression !== savedConfig.library.scan.cronExpression}
           >
             <svelte:fragment slot="desc">
-              <p class="text-sm dark:text-immich-dark-fg">
+              <p class="text-sm dark:text-ram-dark-fg">
                 Set the scanning interval using the cron format. For more information please refer to e.g. <a
                   href="https://crontab.guru"
                   class="underline"

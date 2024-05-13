@@ -1,4 +1,4 @@
-package app.alextran.immich
+package app.alextran.ram
 
 import android.content.Context
 import android.os.SystemClock
@@ -40,7 +40,7 @@ class ContentObserverWorker(ctx: Context, params: WorkerParameters) : Worker(ctx
         const val SHARED_PREF_TRIGGER_UPDATE_DELAY = "triggerUpdateDelay"
         const val SHARED_PREF_TRIGGER_MAX_DELAY = "triggerMaxDelay"
 
-        private const val TASK_NAME_OBSERVER = "immich/ContentObserver"
+        private const val TASK_NAME_OBSERVER = "ram/ContentObserver"
 
         /**
          * Enqueues the `ContentObserverWorker`.

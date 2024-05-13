@@ -3,7 +3,7 @@
     notificationController,
     NotificationType,
   } from '$lib/components/shared-components/notification/notification';
-  import { updateUser, type UserResponseDto } from '@immich/sdk';
+  import { updateUser, type UserResponseDto } from '@ram/sdk';
   import { fade } from 'svelte/transition';
   import { handleError } from '../../utils/handle-error';
 

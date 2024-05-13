@@ -13,7 +13,7 @@
 
   const hoverClasses = disabled
     ? 'cursor-not-allowed'
-    : 'hover:bg-immich-primary hover:text-white dark:hover:bg-immich-dark-primary dark:hover:text-black';
+    : 'hover:bg-ram-primary hover:text-white dark:hover:bg-ram-dark-primary dark:hover:text-black';
 </script>
 
 <button

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { locale } from '$lib/stores/preferences.store';
-  import { createApiKey, deleteApiKey, getApiKeys, updateApiKey, type ApiKeyResponseDto } from '@immich/sdk';
+  import { createApiKey, deleteApiKey, getApiKeys, updateApiKey, type ApiKeyResponseDto } from '@ram/sdk';
   import { mdiPencilOutline, mdiTrashCanOutline } from '@mdi/js';
   import { fade } from 'svelte/transition';
   import { handleError } from '../../utils/handle-error';
@@ -121,7 +121,7 @@
     {#if keys.length > 0}
       <table class="w-full text-left">
         <thead
-          class="mb-4 flex h-12 w-full rounded-md border bg-gray-50 text-immich-primary dark:border-immich-dark-gray dark:bg-immich-dark-gray dark:text-immich-dark-primary"
+          class="mb-4 flex h-12 w-full rounded-md border bg-gray-50 text-ram-primary dark:border-ram-dark-gray dark:bg-ram-dark-gray dark:text-ram-dark-primary"
         >
           <tr class="flex w-full place-items-center">
             <th class="w-1/3 text-center text-sm font-medium">Name</th>
@@ -129,14 +129,14 @@
             <th class="w-1/3 text-center text-sm font-medium">Action</th>
           </tr>
         </thead>
-        <tbody class="block w-full overflow-y-auto rounded-md border dark:border-immich-dark-gray">
+        <tbody class="block w-full overflow-y-auto rounded-md border dark:border-ram-dark-gray">
           {#each keys as key, index}
             {#key key.id}
               <tr
-                class={`flex h-[80px] w-full place-items-center text-center dark:text-immich-dark-fg ${
+                class={`flex h-[80px] w-full place-items-center text-center dark:text-ram-dark-fg ${
                   index % 2 == 0
-                    ? 'bg-immich-gray dark:bg-immich-dark-gray/75'
-                    : 'bg-immich-bg dark:bg-immich-dark-gray/50'
+                    ? 'bg-ram-gray dark:bg-ram-dark-gray/75'
+                    : 'bg-ram-bg dark:bg-ram-dark-gray/50'
                 }`}
               >
                 <td class="w-1/3 text-ellipsis px-4 text-sm">{key.name}</td>

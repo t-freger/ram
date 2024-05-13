@@ -1,4 +1,4 @@
-# Immich Apprentissage machine
+# ram Apprentissage machine
 
 - Classification d'images
 - Embarquement de CLIP

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { type PersonResponseDto } from '@immich/sdk';
+  import { type PersonResponseDto } from '@ram/sdk';
   import { createEventDispatcher } from 'svelte';
   import ImageThumbnail from '../assets/thumbnail/image-thumbnail.svelte';
   import Button from '../elements/buttons/button.svelte';
@@ -18,7 +18,7 @@
 
 <div
   class="flex w-full h-14 place-items-center {suggestedPeople.length > 0
-    ? 'rounded-t-lg dark:border-immich-dark-gray'
+    ? 'rounded-t-lg dark:border-ram-dark-gray'
     : 'rounded-lg'}  bg-gray-100 p-2 dark:bg-gray-700"
 >
   <ImageThumbnail circle shadow url={thumbnailData} altText={person.name} widthStyle="2rem" heightStyle="2rem" />

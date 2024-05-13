@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SystemConfigDto } from '@immich/sdk';
+  import type { SystemConfigDto } from '@ram/sdk';
   import { isEqual } from 'lodash-es';
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
@@ -22,7 +22,7 @@
         <SettingTextarea
           {disabled}
           label="Custom CSS"
-          desc="Cascading Style Sheets allow the design of Immich to be customized."
+          desc="Cascading Style Sheets allow the design of ram to be customized."
           bind:value={config.theme.customCss}
           required={true}
           isEdited={config.theme.customCss !== savedConfig.theme.customCss}

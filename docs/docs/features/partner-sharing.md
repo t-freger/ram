@@ -1,10 +1,10 @@
 # Partner Sharing
 
 :::tip Sharing specific assets
-For sharing a specific set of assets, you can use the shared album feature of Immich.
+For sharing a specific set of assets, you can use the shared album feature of ram.
 :::
 
-Immich allows you to share your library with other users. They can then view your library and download the assets. You can manage Partner Sharing from the [User Settings](docs/features/user-settings.md) page on the web.
+ram allows you to share your library with other users. They can then view your library and download the assets. You can manage Partner Sharing from the [User Settings](docs/features/user-settings.md) page on the web.
 
 Partner Sharing includes:
 

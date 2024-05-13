@@ -8,8 +8,8 @@
   export let rounded: Rounded = true;
 
   const colorClasses: Record<Color, string> = {
-    primary: 'text-gray-100 dark:text-immich-dark-gray bg-immich-primary dark:bg-immich-dark-primary',
-    secondary: 'text-immich-dark-bg dark:text-immich-gray dark:bg-gray-600 bg-gray-300 dark:text-immich-gray',
+    primary: 'text-gray-100 dark:text-ram-dark-gray bg-ram-primary dark:bg-ram-dark-primary',
+    secondary: 'text-ram-dark-bg dark:text-ram-gray dark:bg-gray-600 bg-gray-300 dark:text-ram-gray',
   };
 </script>
 

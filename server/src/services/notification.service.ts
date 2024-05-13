@@ -61,7 +61,7 @@ export class NotificationService {
       name: JobName.SEND_EMAIL,
       data: {
         to: user.email,
-        subject: 'Welcome to Immich',
+        subject: 'Welcome to ram',
         html,
         text,
       },

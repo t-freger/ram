@@ -1,4 +1,4 @@
-import { LoginResponseDto, getAllAssets } from '@immich/sdk';
+import { LoginResponseDto, getAllAssets } from '@ram/sdk';
 import { Socket } from 'socket.io-client';
 import { errorDto } from 'src/responses';
 import { app, asBearerAuth, utils } from 'src/utils';

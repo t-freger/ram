@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/upload_profile_image.provider.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/widgets/common/user_circle_avatar.dart';
-import 'package:immich_mobile/models/authentication/authentication_state.model.dart';
-import 'package:immich_mobile/providers/authentication.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/upload_profile_image.provider.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/providers/user.provider.dart';
+import 'package:ram_mobile/widgets/common/user_circle_avatar.dart';
+import 'package:ram_mobile/models/authentication/authentication_state.model.dart';
+import 'package:ram_mobile/providers/authentication.provider.dart';
+import 'package:ram_mobile/widgets/common/ram_loading_indicator.dart';
 
 class AppBarProfileInfoBox extends HookConsumerWidget {
   const AppBarProfileInfoBox({
@@ -26,7 +26,7 @@ class AppBarProfileInfoBox extends HookConsumerWidget {
       if (user == null) {
         return const CircleAvatar(
           radius: 20,
-          backgroundImage: AssetImage('assets/immich-logo.png'),
+          backgroundImage: AssetImage('assets/ram-logo.png'),
           backgroundColor: Colors.transparent,
         );
       }
@@ -41,7 +41,7 @@ class AppBarProfileInfoBox extends HookConsumerWidget {
         return const SizedBox(
           height: 40,
           width: 40,
-          child: ImmichLoadingIndicator(borderRadius: 20),
+          child: ramLoadingIndicator(borderRadius: 20),
         );
       }
 

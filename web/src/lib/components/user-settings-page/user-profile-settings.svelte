@@ -8,7 +8,7 @@
   import Button from '../elements/buttons/button.svelte';
   import { user } from '$lib/stores/user.store';
   import { cloneDeep } from 'lodash-es';
-  import { updateUser } from '@immich/sdk';
+  import { updateUser } from '@ram/sdk';
   import SettingInputField, {
     SettingInputFieldType,
   } from '$lib/components/shared-components/settings/setting-input-field.svelte';

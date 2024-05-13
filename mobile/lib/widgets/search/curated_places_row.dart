@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/widgets/map/map_thumbnail.dart';
-import 'package:immich_mobile/widgets/search/curated_row.dart';
-import 'package:immich_mobile/widgets/search/thumbnail_with_info.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/widgets/map/map_thumbnail.dart';
+import 'package:ram_mobile/widgets/search/curated_row.dart';
+import 'package:ram_mobile/widgets/search/thumbnail_with_info.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 class CuratedPlacesRow extends CuratedRow {

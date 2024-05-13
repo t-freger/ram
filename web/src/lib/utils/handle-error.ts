@@ -1,4 +1,4 @@
-import { isHttpError } from '@immich/sdk';
+import { isHttpError } from '@ram/sdk';
 import { notificationController, NotificationType } from '../components/shared-components/notification/notification';
 
 export function getServerErrorMessage(error: unknown) {
@@ -17,7 +17,7 @@ export function handleError(error: unknown, message: string) {
   try {
     let serverMessage = getServerErrorMessage(error);
     if (serverMessage) {
-      serverMessage = `${String(serverMessage).slice(0, 75)}\n(Immich Server Error)`;
+      serverMessage = `${String(serverMessage).slice(0, 75)}\n(ram Server Error)`;
     }
 
     notificationController.show({

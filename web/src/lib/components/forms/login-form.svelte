@@ -5,7 +5,7 @@
   import { featureFlags, serverConfig } from '$lib/stores/server-config.store';
   import { oauth } from '$lib/utils';
   import { getServerErrorMessage, handleError } from '$lib/utils/handle-error';
-  import { getServerConfig, login } from '@immich/sdk';
+  import { getServerConfig, login } from '@ram/sdk';
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import Button from '../elements/buttons/button.svelte';
@@ -99,9 +99,9 @@
     {/if}
 
     <div class="flex flex-col gap-2">
-      <label class="immich-form-label" for="email">Email</label>
+      <label class="ram-form-label" for="email">Email</label>
       <input
-        class="immich-form-input"
+        class="ram-form-input"
         id="email"
         name="email"
         type="email"
@@ -112,7 +112,7 @@
     </div>
 
     <div class="flex flex-col gap-2">
-      <label class="immich-form-label" for="password">Password</label>
+      <label class="ram-form-label" for="password">Password</label>
       <PasswordField id="password" bind:password autocomplete="current-password" />
     </div>
 
@@ -135,7 +135,7 @@
     <div class="inline-flex w-full items-center justify-center">
       <hr class="my-4 h-px w-3/4 border-0 bg-gray-200 dark:bg-gray-600" />
       <span
-        class="absolute left-1/2 -translate-x-1/2 bg-white px-3 font-medium text-gray-900 dark:bg-immich-dark-gray dark:text-white"
+        class="absolute left-1/2 -translate-x-1/2 bg-white px-3 font-medium text-gray-900 dark:bg-ram-dark-gray dark:text-white"
       >
         or
       </span>
@@ -165,5 +165,5 @@
 {/if}
 
 {#if !$featureFlags.passwordLogin && !$featureFlags.oauth}
-  <p class="p-4 text-center dark:text-immich-dark-fg">Login has been disabled.</p>
+  <p class="p-4 text-center dark:text-ram-dark-fg">Login has been disabled.</p>
 {/if}

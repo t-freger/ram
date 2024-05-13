@@ -5,8 +5,8 @@
   import LibraryImportPathForm from './library-import-path-form.svelte';
   import Icon from '$lib/components/elements/icon.svelte';
   import { mdiAlertOutline, mdiCheckCircleOutline, mdiPencilOutline, mdiRefresh } from '@mdi/js';
-  import { validate, type LibraryResponseDto } from '@immich/sdk';
-  import type { ValidateLibraryImportPathResponseDto } from '@immich/sdk';
+  import { validate, type LibraryResponseDto } from '@ram/sdk';
+  import type { ValidateLibraryImportPathResponseDto } from '@ram/sdk';
   import { NotificationType, notificationController } from '../shared-components/notification/notification';
   import CircleIconButton from '$lib/components/elements/buttons/circle-icon-button.svelte';
 
@@ -182,13 +182,13 @@
 
 <form on:submit|preventDefault={() => handleSubmit()} autocomplete="off" class="m-4 flex flex-col gap-4">
   <table class="text-left">
-    <tbody class="block w-full overflow-y-auto rounded-md border dark:border-immich-dark-gray">
+    <tbody class="block w-full overflow-y-auto rounded-md border dark:border-ram-dark-gray">
       {#each validatedPaths as validatedPath, listIndex}
         <tr
-          class={`flex h-[80px] w-full place-items-center text-center dark:text-immich-dark-fg ${
+          class={`flex h-[80px] w-full place-items-center text-center dark:text-ram-dark-fg ${
             listIndex % 2 == 0
-              ? 'bg-immich-gray dark:bg-immich-dark-gray/75'
-              : 'bg-immich-bg dark:bg-immich-dark-gray/50'
+              ? 'bg-ram-gray dark:bg-ram-dark-gray/75'
+              : 'bg-ram-bg dark:bg-ram-dark-gray/50'
           }`}
         >
           <td class="w-1/8 text-ellipsis pl-8 text-sm">
@@ -197,14 +197,14 @@
                 path={mdiCheckCircleOutline}
                 size="24"
                 title={validatedPath.message}
-                class="text-immich-success dark:text-immich-dark-success"
+                class="text-ram-success dark:text-ram-dark-success"
               />
             {:else}
               <Icon
                 path={mdiAlertOutline}
                 size="24"
                 title={validatedPath.message}
-                class="text-immich-warning dark:text-immich-dark-warning"
+                class="text-ram-warning dark:text-ram-dark-warning"
               />
             {/if}
           </td>
@@ -225,10 +225,10 @@
         </tr>
       {/each}
       <tr
-        class={`flex h-[80px] w-full place-items-center text-center dark:text-immich-dark-fg ${
+        class={`flex h-[80px] w-full place-items-center text-center dark:text-ram-dark-fg ${
           importPaths.length % 2 == 0
-            ? 'bg-immich-gray dark:bg-immich-dark-gray/75'
-            : 'bg-immich-bg dark:bg-immich-dark-gray/50'
+            ? 'bg-ram-gray dark:bg-ram-dark-gray/75'
+            : 'bg-ram-bg dark:bg-ram-dark-gray/50'
         }`}
       >
         <td class="w-4/5 text-ellipsis px-4 text-sm">

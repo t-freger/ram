@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/widgets/asset_grid/immich_asset_grid.dart';
-import 'package:immich_mobile/providers/search/all_motion_photos.provider.dart';
+import 'package:ram_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:ram_mobile/widgets/asset_grid/ram_asset_grid.dart';
+import 'package:ram_mobile/providers/search/all_motion_photos.provider.dart';
 
 @RoutePage()
 class AllMotionPhotosPage extends HookConsumerWidget {
@@ -23,7 +23,7 @@ class AllMotionPhotosPage extends HookConsumerWidget {
         ),
       ),
       body: motionPhotos.widgetWhen(
-        onData: (assets) => ImmichAssetGrid(
+        onData: (assets) => ramAssetGrid(
           assets: assets,
         ),
       ),

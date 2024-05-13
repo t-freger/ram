@@ -1,18 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/asset_extensions.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/duration_extensions.dart';
-import 'package:immich_mobile/widgets/asset_viewer/description_input.dart';
-import 'package:immich_mobile/widgets/asset_viewer/exif_sheet/exif_detail.dart';
-import 'package:immich_mobile/widgets/asset_viewer/exif_sheet/exif_image_properties.dart';
-import 'package:immich_mobile/widgets/asset_viewer/exif_sheet/exif_location.dart';
-import 'package:immich_mobile/widgets/asset_viewer/exif_sheet/exif_people.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/entities/exif_info.entity.dart';
-import 'package:immich_mobile/providers/asset.provider.dart';
-import 'package:immich_mobile/utils/selection_handlers.dart';
+import 'package:ram_mobile/extensions/asset_extensions.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/extensions/duration_extensions.dart';
+import 'package:ram_mobile/widgets/asset_viewer/description_input.dart';
+import 'package:ram_mobile/widgets/asset_viewer/exif_sheet/exif_detail.dart';
+import 'package:ram_mobile/widgets/asset_viewer/exif_sheet/exif_image_properties.dart';
+import 'package:ram_mobile/widgets/asset_viewer/exif_sheet/exif_location.dart';
+import 'package:ram_mobile/widgets/asset_viewer/exif_sheet/exif_people.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/entities/exif_info.entity.dart';
+import 'package:ram_mobile/providers/asset.provider.dart';
+import 'package:ram_mobile/utils/selection_handlers.dart';
 
 class ExifBottomSheet extends HookConsumerWidget {
   final Asset asset;

@@ -60,7 +60,7 @@ def get_cache_dir(model_name: str, model_type: ModelType) -> Path:
 
 
 def get_hf_model_name(model_name: str) -> str:
-    return f"immich-app/{clean_name(model_name)}"
+    return f"ram-app/{clean_name(model_name)}"
 
 
 LOG_LEVELS: dict[str, int] = {

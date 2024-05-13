@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/models/map/map_event.model.dart';
-import 'package:immich_mobile/widgets/map/map_asset_grid.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/utils/draggable_scroll_controller.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/models/map/map_event.model.dart';
+import 'package:ram_mobile/widgets/map/map_asset_grid.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/utils/draggable_scroll_controller.dart';
 
 class MapBottomSheet extends HookConsumerWidget {
   final Stream<MapEvent> mapEventStream;

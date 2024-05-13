@@ -5,7 +5,7 @@ import { AuthType } from 'src/constants';
 import {
   AuthDto,
   ChangePasswordDto,
-  ImmichCookie,
+  ramCookie,
   LoginCredentialDto,
   LoginResponseDto,
   LogoutResponseDto,
@@ -32,9 +32,9 @@ export class AuthController {
     return respondWithCookie(res, body, {
       isSecure: loginDetails.isSecure,
       values: [
-        { key: ImmichCookie.ACCESS_TOKEN, value: body.accessToken },
-        { key: ImmichCookie.AUTH_TYPE, value: AuthType.PASSWORD },
-        { key: ImmichCookie.IS_AUTHENTICATED, value: 'true' },
+        { key: ramCookie.ACCESS_TOKEN, value: body.accessToken },
+        { key: ramCookie.AUTH_TYPE, value: AuthType.PASSWORD },
+        { key: ramCookie.IS_AUTHENTICATED, value: 'true' },
       ],
     });
   }
@@ -66,13 +66,13 @@ export class AuthController {
     @Res({ passthrough: true }) res: Response,
     @Auth() auth: AuthDto,
   ): Promise<LogoutResponseDto> {
-    const authType = (request.cookies || {})[ImmichCookie.AUTH_TYPE];
+    const authType = (request.cookies || {})[ramCookie.AUTH_TYPE];
 
     const body = await this.service.logout(auth, authType);
     return respondWithoutCookie(res, body, [
-      ImmichCookie.ACCESS_TOKEN,
-      ImmichCookie.AUTH_TYPE,
-      ImmichCookie.IS_AUTHENTICATED,
+      ramCookie.ACCESS_TOKEN,
+      ramCookie.AUTH_TYPE,
+      ramCookie.IS_AUTHENTICATED,
     ]);
   }
 }

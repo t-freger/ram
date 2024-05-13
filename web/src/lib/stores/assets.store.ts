@@ -1,6 +1,6 @@
 import { getKey } from '$lib/utils';
 import { fromLocalDateTime } from '$lib/utils/timeline-util';
-import { TimeBucketSize, getTimeBucket, getTimeBuckets, type AssetResponseDto } from '@immich/sdk';
+import { TimeBucketSize, getTimeBucket, getTimeBuckets, type AssetResponseDto } from '@ram/sdk';
 import { throttle } from 'lodash-es';
 import { DateTime } from 'luxon';
 import { writable, type Unsubscriber } from 'svelte/store';

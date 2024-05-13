@@ -1,10 +1,10 @@
 # Database GUI
 
-A short guide on connecting [pgAdmin](https://www.pgadmin.org/) to Immich.
+A short guide on connecting [pgAdmin](https://www.pgadmin.org/) to ram.
 
 :::note
 
-In order to connect to the database the immich_postgres container **must be running**.
+In order to connect to the database the ram_postgres container **must be running**.
 
 The passwords and usernames used below match the ones specified in the example `.env` file. If changed, please use actual values instead.
 
@@ -34,7 +34,7 @@ Open pgAdmin and click "Add New Server".
 | -------------------- | ----------- |
 | Host name/address    | `localhost` |
 | Port                 | `5432`      |
-| Maintenance database | `immich`    |
+| Maintenance database | `ram`    |
 | Username             | `postgres`  |
 | Password             | `postgres`  |
 
@@ -42,7 +42,7 @@ Open pgAdmin and click "Add New Server".
 
 ## 4. Save Connection
 
-Click on "Save" to connect to the Immich database.
+Click on "Save" to connect to the ram database.
 
 :::tip
 View [Database Queries](/docs/guides/database-queries/) for common database queries.

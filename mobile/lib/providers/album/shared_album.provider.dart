@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/services/album.service.dart';
-import 'package:immich_mobile/entities/album.entity.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/entities/user.entity.dart';
-import 'package:immich_mobile/providers/db.provider.dart';
+import 'package:ram_mobile/services/album.service.dart';
+import 'package:ram_mobile/entities/album.entity.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/entities/user.entity.dart';
+import 'package:ram_mobile/providers/db.provider.dart';
 import 'package:isar/isar.dart';
 
 class SharedAlbumNotifier extends StateNotifier<List<Album>> {

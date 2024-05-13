@@ -3,23 +3,23 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/models/backup/backup_state.model.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/providers/backup/manual_upload.provider.dart';
-import 'package:immich_mobile/providers/authentication.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/providers/asset.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/providers/websocket.provider.dart';
-import 'package:immich_mobile/widgets/common/app_bar_dialog/app_bar_profile_info.dart';
-import 'package:immich_mobile/widgets/common/app_bar_dialog/app_bar_server_info.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
-import 'package:immich_mobile/utils/bytes_units.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/models/backup/backup_state.model.dart';
+import 'package:ram_mobile/providers/backup/backup.provider.dart';
+import 'package:ram_mobile/providers/backup/manual_upload.provider.dart';
+import 'package:ram_mobile/providers/authentication.provider.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/providers/asset.provider.dart';
+import 'package:ram_mobile/providers/user.provider.dart';
+import 'package:ram_mobile/providers/websocket.provider.dart';
+import 'package:ram_mobile/widgets/common/app_bar_dialog/app_bar_profile_info.dart';
+import 'package:ram_mobile/widgets/common/app_bar_dialog/app_bar_server_info.dart';
+import 'package:ram_mobile/widgets/common/confirm_dialog.dart';
+import 'package:ram_mobile/utils/bytes_units.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ImmichAppBarDialog extends HookConsumerWidget {
-  const ImmichAppBarDialog({super.key});
+class ramAppBarDialog extends HookConsumerWidget {
+  const ramAppBarDialog({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -54,8 +54,8 @@ class ImmichAppBarDialog extends HookConsumerWidget {
           Center(
             child: Image.asset(
               context.isDarkTheme
-                  ? 'assets/immich-text-dark.png'
-                  : 'assets/immich-text-light.png',
+                  ? 'assets/ram-text-dark.png'
+                  : 'assets/ram-text-light.png',
               height: 16,
             ),
           ),
@@ -205,7 +205,7 @@ class ImmichAppBarDialog extends HookConsumerWidget {
               onTap: () {
                 context.pop();
                 launchUrl(
-                  Uri.parse('https://immich.app'),
+                  Uri.parse('https://ram.app'),
                   mode: LaunchMode.externalApplication,
                 );
               },
@@ -225,7 +225,7 @@ class ImmichAppBarDialog extends HookConsumerWidget {
               onTap: () {
                 context.pop();
                 launchUrl(
-                  Uri.parse('https://github.com/immich-app/immich'),
+                  Uri.parse('https://github.com/ram-app/ram'),
                   mode: LaunchMode.externalApplication,
                 );
               },

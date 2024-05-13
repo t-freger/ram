@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/providers/map/map_state.provider.dart';
-import 'package:immich_mobile/widgets/map/map_settings/map_settings_list_tile.dart';
-import 'package:immich_mobile/widgets/map/map_settings/map_settings_time_dropdown.dart';
-import 'package:immich_mobile/widgets/map/map_settings/map_theme_picker.dart';
+import 'package:ram_mobile/providers/map/map_state.provider.dart';
+import 'package:ram_mobile/widgets/map/map_settings/map_settings_list_tile.dart';
+import 'package:ram_mobile/widgets/map/map_settings/map_settings_time_dropdown.dart';
+import 'package:ram_mobile/widgets/map/map_settings/map_theme_picker.dart';
 
 class MapSettingsSheet extends HookConsumerWidget {
   const MapSettingsSheet({super.key});

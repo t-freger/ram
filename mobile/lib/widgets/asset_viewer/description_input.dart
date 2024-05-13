@@ -2,11 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_description.provider.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/asset_viewer/asset_description.provider.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/providers/user.provider.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
 import 'package:logging/logging.dart';
 
 class DescriptionInput extends HookConsumerWidget {
@@ -49,7 +49,7 @@ class DescriptionInput extends HookConsumerWidget {
       } catch (error, stack) {
         hasError.value = true;
         _log.severe("Error updating description", error, stack);
-        ImmichToast.show(
+        ramToast.show(
           context: context,
           msg: "description_input_submit_error".tr(),
           toastType: ToastType.error,

@@ -7,7 +7,7 @@ import {
   ReactionType,
   createActivity as create,
   createAlbum,
-} from '@immich/sdk';
+} from '@ram/sdk';
 import { createUserDto, uuidDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, asBearerAuth, utils } from 'src/utils';

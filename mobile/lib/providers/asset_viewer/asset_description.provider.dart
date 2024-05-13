@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/services/asset_description.service.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/entities/exif_info.entity.dart';
-import 'package:immich_mobile/providers/db.provider.dart';
+import 'package:ram_mobile/services/asset_description.service.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/entities/exif_info.entity.dart';
+import 'package:ram_mobile/providers/db.provider.dart';
 import 'package:isar/isar.dart';
 
 class AssetDescriptionNotifier extends StateNotifier<String> {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { LibraryResponseDto } from '@immich/sdk';
+  import type { LibraryResponseDto } from '@ram/sdk';
   import { createEventDispatcher } from 'svelte';
   import Button from '../elements/buttons/button.svelte';
 
@@ -20,8 +20,8 @@
 
 <form on:submit|preventDefault={() => handleSubmit()} autocomplete="off" class="m-4 flex flex-col gap-2">
   <div class="flex flex-col gap-2">
-    <label class="immich-form-label" for="path">Name</label>
-    <input class="immich-form-input" id="name" name="name" type="text" bind:value={library.name} />
+    <label class="ram-form-label" for="path">Name</label>
+    <input class="ram-form-input" id="name" name="name" type="text" bind:value={library.name} />
   </div>
   <div class="flex w-full justify-end gap-2 pt-2">
     <Button size="sm" color="gray" on:click={() => handleCancel()}>Cancel</Button>

@@ -9,22 +9,22 @@ It is important to remember to update the backup settings after following the gu
 In our `.env` file, we will define variables that will help us in the future when we want to move to a more advanced server in the future
 
 ```diff title=".env"
-# You can find documentation for all the supported env variables at https://immich.app/docs/install/environment-variables
+# You can find documentation for all the supported env variables at https://ram.app/docs/install/environment-variables
 
 # Custom location where your uploaded, thumbnails, and transcoded video files are stored
 - UPLOAD_LOCATION=./library
-+ UPLOAD_LOCATION=/custom/location/on/your/system/immich/immich_files
-+ THUMB_LOCATION=/custom/location/on/your/system/immich/thumbs
-+ ENCODED_VIDEO_LOCATION=/custom/location/on/your/system/immich/encoded-video
-+ PROFILE_LOCATION=/custom/location/on/your/system/immich/profile
++ UPLOAD_LOCATION=/custom/location/on/your/system/ram/ram_files
++ THUMB_LOCATION=/custom/location/on/your/system/ram/thumbs
++ ENCODED_VIDEO_LOCATION=/custom/location/on/your/system/ram/encoded-video
++ PROFILE_LOCATION=/custom/location/on/your/system/ram/profile
 ...
 ```
 
-After defining the locations for these files, we will edit the `docker-compose.yml` file accordingly and add the new variables to the `immich-server` and `immich-microservices` containers.
+After defining the locations for these files, we will edit the `docker-compose.yml` file accordingly and add the new variables to the `ram-server` and `ram-microservices` containers.
 
 ```diff title="docker-compose.yml"
 services:
-  immich-server:
+  ram-server:
       volumes:
       - ${UPLOAD_LOCATION}:/usr/src/app/upload
 +     - ${THUMB_LOCATION}:/usr/src/app/upload/thumbs
@@ -34,7 +34,7 @@ services:
 
 ...
 
-  immich-microservices:
+  ram-microservices:
       volumes:
       - ${UPLOAD_LOCATION}:/usr/src/app/upload
 +     - ${THUMB_LOCATION}:/usr/src/app/upload/thumbs
@@ -43,7 +43,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
 ```
 
-Restart Immich to register the changes.
+Restart ram to register the changes.
 
 ```
 docker compose down
@@ -56,8 +56,8 @@ For this reason, we mount the HDD or network storage to `/usr/src/app/upload` an
 
 The `thumbs/` folder contains both the small thumbnails shown in the timeline, and the larger previews shown when clicking into an image. These cannot be split up.
 
-The storage metrics of the Immich server will track the storage available at `UPLOAD_LOCATION`,
+The storage metrics of the ram server will track the storage available at `UPLOAD_LOCATION`,
 so the administrator should setup some kind of monitoring to make sure the SSD does not run out of space. The `profile/` folder is much smaller, typically less than 1 MB.
 :::
 
-Thanks to [Jrasm91](https://github.com/immich-app/immich/discussions/2110#discussioncomment-5477767) for writing the guide.
+Thanks to [Jrasm91](https://github.com/ram-app/ram/discussions/2110#discussioncomment-5477767) for writing the guide.

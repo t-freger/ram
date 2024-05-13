@@ -1,6 +1,6 @@
 # System Settings
 
-On the system settings page, the administrator can manage global settings for the Immich instance.
+On the system settings page, the administrator can manage global settings for the ram instance.
 
 :::note
 Viewing and modifying the system settings is restricted to the Administrator.
@@ -37,11 +37,11 @@ You can set the scanning interval using the preset or cron format. For more info
 
 ## Logging
 
-The default Immich log level is `Log` (commonly known as `Info`). The Immich administrator can choose a higher or lower log level according to personal preference or as requested by the Immich support team.
+The default ram log level is `Log` (commonly known as `Info`). The ram administrator can choose a higher or lower log level according to personal preference or as requested by the ram support team.
 
 ## Machine Learning Settings
 
-Through this setting, you can manage all the settings related to machine learning in Immich, from the setting of remote machine learning to the model and its parameters
+Through this setting, you can manage all the settings related to machine learning in ram, from the setting of remote machine learning to the model and its parameters
 You can choose to disable a certain type of machine learning, for example smart search or facial recognition.
 
 ### Smart Search
@@ -51,7 +51,7 @@ Smart Search job on all images to fully apply the change.
 
 :::info Internet connection
 Changing models requires a connection to the Internet to download the model.
-After downloading, there is no need for Immich to connect to the network
+After downloading, there is no need for ram to connect to the network
 Unless version checking has been enabled in the settings.
 :::
 
@@ -85,11 +85,11 @@ The map can be adjusted via [OpenMapTiles](https://openmaptiles.org/styles/) for
 
 ### Reverse Geocoding Settings
 
-Immich supports [Reverse Geocoding](/docs/features/reverse-geocoding) using data from the [GeoNames](https://www.geonames.org/) geographical database.
+ram supports [Reverse Geocoding](/docs/features/reverse-geocoding) using data from the [GeoNames](https://www.geonames.org/) geographical database.
 
 ## OAuth Authentication
 
-Immich supports OAuth Authentication. Read more about this feature and its configuration [here](/docs/administration/oauth).
+ram supports OAuth Authentication. Read more about this feature and its configuration [here](/docs/administration/oauth).
 
 ## Password Authentication
 
@@ -111,7 +111,7 @@ The administrator can set a custom message on the login screen (the message will
 
 ## Storage Template
 
-Immich supports a custom [Storage Template](/docs/administration/storage-template). Learn more about this feature and its configuration [here](/docs/administration/storage-template).
+ram supports a custom [Storage Template](/docs/administration/storage-template). Learn more about this feature and its configuration [here](/docs/administration/storage-template).
 
 ## Theme Settings
 
@@ -127,7 +127,7 @@ p {
 
 ## Thumbnail Settings
 
-By default Immich creates 3 thumbnails for each asset,
+By default ram creates 3 thumbnails for each asset,
 Blurred (thumbhash) , Small (webp) , and Large (jpeg), using these settings you can change the quality for the thumbnail files that are created.
 
 **Small thumbnail resolution**  
@@ -164,7 +164,7 @@ The system administrator can choose to delete users through the administration p
 
 ## Version Check
 
-When this option is enabled the `immich-server` will periodically make requests to GitHub to check for new releases.
+When this option is enabled the `ram-server` will periodically make requests to GitHub to check for new releases.
 
 ## Video Transcoding Settings
 

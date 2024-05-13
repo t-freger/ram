@@ -28,7 +28,7 @@
     type SmartSearchDto,
     type MetadataSearchDto,
     type AlbumResponseDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import { mdiArrowLeft, mdiDotsVertical, mdiImageOffOutline, mdiPlus, mdiSelectAll } from '@mdi/js';
   import type { Viewport } from '$lib/stores/assets.store';
   import { locale } from '$lib/stores/preferences.store';
@@ -244,7 +244,7 @@
     {@const value = terms[key]}
     <div class="flex place-content-center place-items-center text-xs">
       <div
-        class="bg-immich-primary py-2 px-4 text-white dark:text-black dark:bg-immich-dark-primary
+        class="bg-ram-primary py-2 px-4 text-white dark:text-black dark:bg-ram-dark-primary
           {value === true ? 'rounded-full' : 'rounded-tl-full rounded-bl-full'}"
       >
         {getHumanReadableSearchKey(key)}
@@ -268,11 +268,11 @@
 </section>
 
 <section
-  class="relative mb-12 bg-immich-bg dark:bg-immich-dark-bg m-4"
+  class="relative mb-12 bg-ram-bg dark:bg-ram-dark-bg m-4"
   bind:clientHeight={viewport.height}
   bind:clientWidth={viewport.width}
 >
-  <section class="immich-scrollbar relative overflow-y-auto">
+  <section class="ram-scrollbar relative overflow-y-auto">
     {#if searchResultAlbums.length > 0}
       <section>
         <div class="ml-6 text-4xl font-medium text-black/70 dark:text-white/80">ALBUMS</div>
@@ -281,7 +281,7 @@
         <div class="m-6 text-4xl font-medium text-black/70 dark:text-white/80">PHOTOS & VIDEOS</div>
       </section>
     {/if}
-    <section id="search-content" class="relative bg-immich-bg dark:bg-immich-dark-bg">
+    <section id="search-content" class="relative bg-ram-bg dark:bg-ram-dark-bg">
       {#if searchResultAssets.length > 0}
         <GalleryViewer
           assets={searchResultAssets}

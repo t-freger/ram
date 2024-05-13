@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Colorspace, ImageFormat, type SystemConfigDto } from '@immich/sdk';
+  import { Colorspace, ImageFormat, type SystemConfigDto } from '@ram/sdk';
   import { isEqual } from 'lodash-es';
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';

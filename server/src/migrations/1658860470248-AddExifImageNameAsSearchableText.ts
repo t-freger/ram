@@ -7,7 +7,7 @@ export class AddExifImageNameAsSearchableText1658860470248 implements MigrationI
     await queryRunner.query(`ALTER TABLE "exif" DROP COLUMN "exifTextSearchableColumn"`);
     await queryRunner.query(
       `DELETE FROM "typeorm_metadata" WHERE "type" = $1 AND "name" = $2 AND "database" = $3 AND "schema" = $4 AND "table" = $5`,
-      ['GENERATED_COLUMN', 'exifTextSearchableColumn', 'immich', 'public', 'exif'],
+      ['GENERATED_COLUMN', 'exifTextSearchableColumn', 'ram', 'public', 'exif'],
     );
     await queryRunner.query(`ALTER TABLE "exif" ADD "exifTextSearchableColumn" tsvector GENERATED ALWAYS AS (TO_TSVECTOR('english',
                          COALESCE(make, '') || ' ' ||
@@ -20,12 +20,12 @@ export class AddExifImageNameAsSearchableText1658860470248 implements MigrationI
                          COALESCE("country", ''))) STORED`);
     await queryRunner.query(
       `DELETE FROM "typeorm_metadata" WHERE "type" = $1 AND "name" = $2 AND "database" = $3 AND "schema" = $4 AND "table" = $5`,
-      ['GENERATED_COLUMN', 'exifTextSearchableColumn', 'immich', 'public', 'exif'],
+      ['GENERATED_COLUMN', 'exifTextSearchableColumn', 'ram', 'public', 'exif'],
     );
     await queryRunner.query(
       `INSERT INTO "typeorm_metadata"("database", "schema", "table", "type", "name", "value") VALUES ($1, $2, $3, $4, $5, $6)`,
       [
-        'immich',
+        'ram',
         'public',
         'exif',
         'GENERATED_COLUMN',
@@ -38,12 +38,12 @@ export class AddExifImageNameAsSearchableText1658860470248 implements MigrationI
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
       `DELETE FROM "typeorm_metadata" WHERE "type" = $1 AND "name" = $2 AND "database" = $3 AND "schema" = $4 AND "table" = $5`,
-      ['GENERATED_COLUMN', 'exifTextSearchableColumn', 'immich', 'public', 'exif'],
+      ['GENERATED_COLUMN', 'exifTextSearchableColumn', 'ram', 'public', 'exif'],
     );
     await queryRunner.query(`ALTER TABLE "exif" DROP COLUMN "exifTextSearchableColumn"`);
     await queryRunner.query(
       `INSERT INTO "typeorm_metadata"("database", "schema", "table", "type", "name", "value") VALUES ($1, $2, $3, $4, $5, $6)`,
-      ['immich', 'public', 'exif', 'GENERATED_COLUMN', 'exifTextSearchableColumn', ''],
+      ['ram', 'public', 'exif', 'GENERATED_COLUMN', 'exifTextSearchableColumn', ''],
     );
     await queryRunner.query(`ALTER TABLE "exif" ADD "exifTextSearchableColumn" tsvector NOT NULL`);
   }

@@ -62,8 +62,8 @@ export const signupResponseDto = {
   admin: {
     avatarColor: expect.any(String),
     id: expect.any(String),
-    name: 'Immich Admin',
-    email: 'admin@immich.cloud',
+    name: 'ram Admin',
+    email: 'admin@ram.cloud',
     storageLabel: 'admin',
     profileImagePath: '',
     // why? lol
@@ -83,11 +83,11 @@ export const signupResponseDto = {
 export const loginResponseDto = {
   admin: {
     accessToken: expect.any(String),
-    name: 'Immich Admin',
+    name: 'ram Admin',
     isAdmin: true,
     profileImagePath: '',
     shouldChangePassword: true,
-    userEmail: 'admin@immich.cloud',
+    userEmail: 'admin@ram.cloud',
     userId: expect.any(String),
   },
 };

@@ -5,9 +5,9 @@ const prism = require('prism-react-renderer');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Immich',
+  title: 'ram',
   tagline: 'High performance self-hosted photo and video backup solution directly from your mobile phone',
-  url: 'https://immich.app',
+  url: 'https://ram.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -15,8 +15,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'immich-app', // Usually your GitHub org/user name.
-  projectName: 'immich', // Usually your repo name.
+  organizationName: 'ram-app', // Usually your GitHub org/user name.
+  projectName: 'ram', // Usually your repo name.
   deploymentBranch: 'main',
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -52,15 +52,15 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/immich-app/immich/tree/main/docs/',
+          editUrl: 'https://github.com/ram-app/ram/tree/main/docs/',
         },
         api: {
-          path: '../open-api/immich-openapi-specs.json',
+          path: '../open-api/ram-openapi-specs.json',
           routeBasePath: '/docs/api',
         },
         // blog: {
         //   showReadingTime: true,
-        //   editUrl: "https://github.com/immich-app/immich/tree/main/docs/",
+        //   editUrl: "https://github.com/ram-app/ram/tree/main/docs/",
         // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -76,7 +76,7 @@ const config = {
         defaultMode: 'dark',
       },
       announcementBar: {
-        id: 'site_announcement_immich',
+        id: 'site_announcement_ram',
         content: `⚠️ The project is under <strong>very active</strong> development. Expect bugs and changes. Do not use it as <strong>the only way</strong> to store your photos and videos!`,
         backgroundColor: '#593f00',
         textColor: '#ffefc9',
@@ -89,9 +89,9 @@ const config = {
       },
       navbar: {
         logo: {
-          alt: 'Immich Logo',
-          src: 'img/immich-logo-inline-light.png',
-          srcDark: 'img/immich-logo-inline-dark.png',
+          alt: 'ram Logo',
+          src: 'img/ram-logo-inline-light.png',
+          srcDark: 'img/ram-logo-inline-dark.png',
         },
         items: [
           {
@@ -115,7 +115,7 @@ const config = {
             label: 'Blog',
           },
           {
-            href: 'https://github.com/immich-app/immich',
+            href: 'https://github.com/ram-app/ram',
             label: 'GitHub',
             position: 'right',
           },
@@ -151,7 +151,7 @@ const config = {
               },
               {
                 label: 'Reddit',
-                href: 'https://www.reddit.com/r/immich/',
+                href: 'https://www.reddit.com/r/ram/',
               },
             ],
           },
@@ -164,16 +164,16 @@ const config = {
               // },
               {
                 label: 'GitHub',
-                href: 'https://github.com/immich-app/immich',
+                href: 'https://github.com/ram-app/ram',
               },
               {
                 label: 'YouTube',
-                href: 'https://www.youtube.com/@immich-app',
+                href: 'https://www.youtube.com/@ram-app',
               },
             ],
           },
         ],
-        copyright: `Immich is available as open source under the terms of the GNU AGPL v3 License.`,
+        copyright: `ram is available as open source under the terms of the GNU AGPL v3 License.`,
       },
       prism: {
         theme: prism.themes.github,

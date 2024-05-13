@@ -13,7 +13,7 @@
   import { copyToClipboard } from '$lib/utils';
   import { downloadBlob } from '$lib/utils/asset-utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { fixAuditFiles, getAuditFiles, getFileChecksums, type FileReportItemDto } from '@immich/sdk';
+  import { fixAuditFiles, getAuditFiles, getFileChecksums, type FileReportItemDto } from '@ram/sdk';
   import { mdiCheckAll, mdiContentCopy, mdiDownload, mdiRefresh, mdiWrench } from '@mdi/js';
   import type { PageData } from './$types';
 
@@ -209,7 +209,7 @@
         <div class="gap-2">
           <table class="table-fixed mt-5 w-full text-left">
             <thead
-              class="mb-4 flex w-full rounded-md border bg-gray-50 text-immich-primary dark:border-immich-dark-gray dark:bg-immich-dark-gray dark:text-immich-dark-primary"
+              class="mb-4 flex w-full rounded-md border bg-gray-50 text-ram-primary dark:border-ram-dark-gray dark:bg-ram-dark-gray dark:text-ram-dark-primary"
             >
               <tr class="flex w-full place-items-center p-2 md:p-5">
                 <th class="w-full text-sm place-items-center font-medium flex justify-between" colspan="2">
@@ -221,11 +221,11 @@
               </tr>
             </thead>
             <tbody
-              class="w-full overflow-y-auto rounded-md border dark:border-immich-dark-gray dark:text-immich-dark-fg max-h-[500px] block overflow-x-hidden"
+              class="w-full overflow-y-auto rounded-md border dark:border-ram-dark-gray dark:text-ram-dark-fg max-h-[500px] block overflow-x-hidden"
             >
               {#each matches as match (match.extra.filename)}
                 <tr
-                  class="w-full h-[75px] place-items-center border-[3px] border-transparent p-2 odd:bg-immich-gray even:bg-immich-bg hover:cursor-pointer hover:border-immich-primary/75 odd:dark:bg-immich-dark-gray/75 even:dark:bg-immich-dark-gray/50 dark:hover:border-immich-dark-primary/75 md:p-5 flex justify-between"
+                  class="w-full h-[75px] place-items-center border-[3px] border-transparent p-2 odd:bg-ram-gray even:bg-ram-bg hover:cursor-pointer hover:border-ram-primary/75 odd:dark:bg-ram-dark-gray/75 even:dark:bg-ram-dark-gray/50 dark:hover:border-ram-dark-primary/75 md:p-5 flex justify-between"
                   tabindex="0"
                   on:click={() => handleSplit(match)}
                 >
@@ -243,7 +243,7 @@
 
           <table class="table-fixed mt-5 w-full text-left">
             <thead
-              class="mb-4 flex w-full rounded-md border bg-gray-50 text-immich-primary dark:border-immich-dark-gray dark:bg-immich-dark-gray dark:text-immich-dark-primary"
+              class="mb-4 flex w-full rounded-md border bg-gray-50 text-ram-primary dark:border-ram-dark-gray dark:bg-ram-dark-gray dark:text-ram-dark-primary"
             >
               <tr class="flex w-full place-items-center p-1 md:p-5">
                 <th class="w-full text-sm font-medium justify-between place-items-center flex" colspan="2">
@@ -257,11 +257,11 @@
               </tr>
             </thead>
             <tbody
-              class="w-full rounded-md border dark:border-immich-dark-gray dark:text-immich-dark-fg overflow-y-auto max-h-[500px] block overflow-x-hidden"
+              class="w-full rounded-md border dark:border-ram-dark-gray dark:text-ram-dark-fg overflow-y-auto max-h-[500px] block overflow-x-hidden"
             >
               {#each orphans as orphan, index (index)}
                 <tr
-                  class="w-full h-[50px] place-items-center border-[3px] border-transparent odd:bg-immich-gray even:bg-immich-bg hover:cursor-pointer hover:border-immich-primary/75 odd:dark:bg-immich-dark-gray/75 even:dark:bg-immich-dark-gray/50 dark:hover:border-immich-dark-primary/75 md:p-5 flex justify-between"
+                  class="w-full h-[50px] place-items-center border-[3px] border-transparent odd:bg-ram-gray even:bg-ram-bg hover:cursor-pointer hover:border-ram-primary/75 odd:dark:bg-ram-dark-gray/75 even:dark:bg-ram-dark-gray/50 dark:hover:border-ram-dark-primary/75 md:p-5 flex justify-between"
                   tabindex="0"
                   title={orphan.pathValue}
                 >
@@ -281,7 +281,7 @@
 
           <table class="table-fixed mt-5 w-full text-left max-h-[300px]">
             <thead
-              class="mb-4 flex w-full rounded-md border bg-gray-50 text-immich-primary dark:border-immich-dark-gray dark:bg-immich-dark-gray dark:text-immich-dark-primary"
+              class="mb-4 flex w-full rounded-md border bg-gray-50 text-ram-primary dark:border-ram-dark-gray dark:bg-ram-dark-gray dark:text-ram-dark-primary"
             >
               <tr class="flex w-full place-items-center p-2 md:p-5">
                 <th class="w-full text-sm font-medium place-items-center flex justify-between" colspan="2">
@@ -296,11 +296,11 @@
               </tr>
             </thead>
             <tbody
-              class="w-full rounded-md border-2 dark:border-immich-dark-gray dark:text-immich-dark-fg overflow-y-auto max-h-[500px] block overflow-x-hidden"
+              class="w-full rounded-md border-2 dark:border-ram-dark-gray dark:text-ram-dark-fg overflow-y-auto max-h-[500px] block overflow-x-hidden"
             >
               {#each extras as extra (extra.filename)}
                 <tr
-                  class="flex h-[50px] w-full place-items-center border-[3px] border-transparent p-1 odd:bg-immich-gray even:bg-immich-bg hover:cursor-pointer hover:border-immich-primary/75 odd:dark:bg-immich-dark-gray/75 even:dark:bg-immich-dark-gray/50 dark:hover:border-immich-dark-primary/75 md:p-5 justify-between"
+                  class="flex h-[50px] w-full place-items-center border-[3px] border-transparent p-1 odd:bg-ram-gray even:bg-ram-bg hover:cursor-pointer hover:border-ram-primary/75 odd:dark:bg-ram-dark-gray/75 even:dark:bg-ram-dark-gray/50 dark:hover:border-ram-dark-primary/75 md:p-5 justify-between"
                   tabindex="0"
                   on:click={() => handleCheckOne(extra.filename)}
                   title={extra.filename}
@@ -312,7 +312,7 @@
                     <span class="text-ellipsis grow truncate font-mono text-sm pr-5" title={extra.filename}
                       >{extra.filename}</span
                     >
-                    <span class="text-sm font-mono dark:text-immich-dark-primary text-immich-primary pr-5">
+                    <span class="text-sm font-mono dark:text-ram-dark-primary text-ram-primary pr-5">
                       {#if extra.checksum}
                         [sha1:{extra.checksum}]
                       {/if}

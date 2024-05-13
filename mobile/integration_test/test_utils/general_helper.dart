@@ -3,25 +3,25 @@ import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/providers/db.provider.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/providers/db.provider.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:isar/isar.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
-import 'package:immich_mobile/main.dart' as app;
+import 'package:ram_mobile/main.dart' as app;
 
 import 'login_helper.dart';
 
-class ImmichTestHelper {
+class ramTestHelper {
   final WidgetTester tester;
 
-  ImmichTestHelper(this.tester);
+  ramTestHelper(this.tester);
 
-  ImmichTestLoginHelper? _loginHelper;
+  ramTestLoginHelper? _loginHelper;
 
-  ImmichTestLoginHelper get loginHelper {
-    _loginHelper ??= ImmichTestLoginHelper(tester);
+  ramTestLoginHelper get loginHelper {
+    _loginHelper ??= ramTestLoginHelper(tester);
     return _loginHelper!;
   }
 
@@ -54,15 +54,15 @@ class ImmichTestHelper {
 }
 
 @isTest
-void immichWidgetTest(
+void ramWidgetTest(
   String description,
-  Future<void> Function(WidgetTester, ImmichTestHelper) test,
+  Future<void> Function(WidgetTester, ramTestHelper) test,
 ) {
   testWidgets(
     description,
     (widgetTester) async {
-      await ImmichTestHelper.loadApp(widgetTester);
-      await test(widgetTester, ImmichTestHelper(widgetTester));
+      await ramTestHelper.loadApp(widgetTester);
+      await test(widgetTester, ramTestHelper(widgetTester));
     },
     semanticsEnabled: false,
   );

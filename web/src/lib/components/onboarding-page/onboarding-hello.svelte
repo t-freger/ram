@@ -4,7 +4,7 @@
   import { mdiArrowRight } from '@mdi/js';
   import Icon from '$lib/components/elements/icon.svelte';
   import { createEventDispatcher } from 'svelte';
-  import ImmichLogo from '../shared-components/immich-logo.svelte';
+  import ramLogo from '../shared-components/ram-logo.svelte';
   import { user } from '$lib/stores/user.store';
 
   const dispatch = createEventDispatcher<{
@@ -13,8 +13,8 @@
 </script>
 
 <OnboardingCard>
-  <ImmichLogo noText width="75" />
-  <p class="font-medium text-6xl my-6 text-immich-primary dark:text-immich-dark-primary">
+  <ramLogo noText width="75" />
+  <p class="font-medium text-6xl my-6 text-ram-primary dark:text-ram-dark-primary">
     Welcome, {$user.name}
   </p>
   <p class="text-3xl pb-6 font-light">Let's get your instance set up with some common settings.</p>

@@ -43,9 +43,9 @@
       use "**/Raw/**". To ignore all files ending in ".tif", use "**/*.tif". To ignore an absolute path, use "/path/to/ignore/**".
     </p>
     <div class="my-4 flex flex-col gap-2">
-      <label class="immich-form-label" for="exclusionPattern">Pattern</label>
+      <label class="ram-form-label" for="exclusionPattern">Pattern</label>
       <input
-        class="immich-form-input"
+        class="ram-form-input"
         id="exclusionPattern"
         name="exclusionPattern"
         type="text"

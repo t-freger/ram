@@ -1,4 +1,4 @@
-import { AssetFileUploadResponseDto, LoginResponseDto, SharedLinkType, getConfig } from '@immich/sdk';
+import { AssetFileUploadResponseDto, LoginResponseDto, SharedLinkType, getConfig } from '@ram/sdk';
 import { createUserDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, asBearerAuth, utils } from 'src/utils';
@@ -37,7 +37,7 @@ describe('/system-config', () => {
         .query({ theme: 'dark' });
 
       expect(status).toBe(200);
-      expect(body).toEqual(expect.objectContaining({ id: 'immich-map-dark' }));
+      expect(body).toEqual(expect.objectContaining({ id: 'ram-map-dark' }));
     });
 
     it('should throw an error if a theme is not light or dark', async () => {
@@ -57,7 +57,7 @@ describe('/system-config', () => {
         .query({ theme: 'light' })
         .set('Authorization', `Bearer ${admin.accessToken}`);
       expect(status).toBe(200);
-      expect(body).toEqual(expect.objectContaining({ id: 'immich-map-light' }));
+      expect(body).toEqual(expect.objectContaining({ id: 'ram-map-light' }));
     });
 
     it('should return the dark style.json', async () => {
@@ -66,7 +66,7 @@ describe('/system-config', () => {
         .query({ theme: 'dark' })
         .set('Authorization', `Bearer ${admin.accessToken}`);
       expect(status).toBe(200);
-      expect(body).toEqual(expect.objectContaining({ id: 'immich-map-dark' }));
+      expect(body).toEqual(expect.objectContaining({ id: 'ram-map-dark' }));
     });
 
     it('should not require admin authentication', async () => {
@@ -75,7 +75,7 @@ describe('/system-config', () => {
         .query({ theme: 'dark' })
         .set('Authorization', `Bearer ${nonAdmin.accessToken}`);
       expect(status).toBe(200);
-      expect(body).toEqual(expect.objectContaining({ id: 'immich-map-dark' }));
+      expect(body).toEqual(expect.objectContaining({ id: 'ram-map-dark' }));
     });
   });
 

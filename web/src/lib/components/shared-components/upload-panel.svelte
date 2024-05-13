@@ -58,17 +58,17 @@
     {#if showDetail}
       <div
         in:scale={{ duration: 250, easing: quartInOut }}
-        class="w-[300px] rounded-lg border bg-gray-100 p-4 text-sm shadow-sm dark:border-immich-dark-gray dark:bg-immich-dark-gray dark:text-white"
+        class="w-[300px] rounded-lg border bg-gray-100 p-4 text-sm shadow-sm dark:border-ram-dark-gray dark:bg-ram-dark-gray dark:text-white"
       >
         <div class="place-item-center mb-4 flex justify-between">
           <div class="flex flex-col gap-1">
-            <p class="immich-form-label text-xm">
+            <p class="ram-form-label text-xm">
               Remaining {$remainingUploads} - Processed {$successCounter + $errorCounter}/{$totalUploadCounter}
             </p>
-            <p class="immich-form-label text-xs">
-              Uploaded <span class="text-immich-success">{$successCounter}</span> - Error
-              <span class="text-immich-error">{$errorCounter}</span>
-              - Duplicates <span class="text-immich-warning">{$duplicateCounter}</span>
+            <p class="ram-form-label text-xs">
+              Uploaded <span class="text-ram-success">{$successCounter}</span> - Error
+              <span class="text-ram-error">{$errorCounter}</span>
+              - Duplicates <span class="text-ram-warning">{$duplicateCounter}</span>
             </p>
           </div>
           <div class="flex flex-col items-end">
@@ -100,12 +100,12 @@
           </div>
         </div>
         {#if showOptions}
-          <div class="immich-scrollbar mb-4 max-h-[400px] overflow-y-auto rounded-lg pr-2">
+          <div class="ram-scrollbar mb-4 max-h-[400px] overflow-y-auto rounded-lg pr-2">
             <div class="flex h-[26px] place-items-center gap-1">
-              <label class="immich-form-label" for="upload-concurrency">Upload concurrency</label>
+              <label class="ram-form-label" for="upload-concurrency">Upload concurrency</label>
             </div>
             <input
-              class="immich-form-input w-full"
+              class="ram-form-input w-full"
               aria-labelledby="Upload concurrency"
               id="upload-concurrency"
               name="Upload concurrency"
@@ -118,7 +118,7 @@
             />
           </div>
         {/if}
-        <div class="immich-scrollbar flex max-h-[400px] flex-col gap-2 overflow-y-auto rounded-lg pr-2">
+        <div class="ram-scrollbar flex max-h-[400px] flex-col gap-2 overflow-y-auto rounded-lg pr-2">
           {#each $uploadAssetsStore as uploadAsset (uploadAsset.id)}
             <UploadAssetPreview {uploadAsset} />
           {/each}
@@ -129,7 +129,7 @@
         <button
           in:scale={{ duration: 250, easing: quartInOut }}
           on:click={() => (showDetail = true)}
-          class="absolute -left-4 -top-4 flex h-10 w-10 place-content-center place-items-center rounded-full bg-immich-primary p-5 text-xs text-gray-200"
+          class="absolute -left-4 -top-4 flex h-10 w-10 place-content-center place-items-center rounded-full bg-ram-primary p-5 text-xs text-gray-200"
         >
           {$remainingUploads}
         </button>
@@ -137,7 +137,7 @@
           <button
             in:scale={{ duration: 250, easing: quartInOut }}
             on:click={() => (showDetail = true)}
-            class="absolute -right-4 -top-4 flex h-10 w-10 place-content-center place-items-center rounded-full bg-immich-error p-5 text-xs text-gray-200"
+            class="absolute -right-4 -top-4 flex h-10 w-10 place-content-center place-items-center rounded-full bg-ram-error p-5 text-xs text-gray-200"
           >
             {$errorCounter}
           </button>
@@ -145,7 +145,7 @@
         <button
           in:scale={{ duration: 250, easing: quartInOut }}
           on:click={() => (showDetail = true)}
-          class="flex h-16 w-16 place-content-center place-items-center rounded-full bg-gray-200 p-5 text-sm text-immich-primary shadow-lg dark:bg-gray-600 dark:text-immich-gray"
+          class="flex h-16 w-16 place-content-center place-items-center rounded-full bg-gray-200 p-5 text-sm text-ram-primary shadow-lg dark:bg-gray-600 dark:text-ram-gray"
         >
           <div class="animate-pulse">
             <Icon path={mdiCloudUploadOutline} size="30" />

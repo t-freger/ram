@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/entities/user.entity.dart';
-import 'package:immich_mobile/services/immich_logger.service.dart';
-import 'package:immich_mobile/services/sync.service.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/entities/user.entity.dart';
+import 'package:ram_mobile/services/ram_logger.service.dart';
+import 'package:ram_mobile/services/sync.service.dart';
 import 'package:isar/isar.dart';
 
 import '../../test_utils.dart';
@@ -49,7 +49,7 @@ void main() {
     setUpAll(() async {
       WidgetsFlutterBinding.ensureInitialized();
       db = await TestUtils.initIsar();
-      ImmichLogger();
+      ramLogger();
       db.writeTxnSync(() => db.clearSync());
       Store.init(db);
       await Store.put(StoreKey.currentUser, owner);

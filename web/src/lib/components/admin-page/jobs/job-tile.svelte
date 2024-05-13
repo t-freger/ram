@@ -2,7 +2,7 @@
   import Badge from '$lib/components/elements/badge.svelte';
   import Icon from '$lib/components/elements/icon.svelte';
   import { locale } from '$lib/stores/preferences.store';
-  import { JobCommand, type JobCommandDto, type JobCountsDto, type QueueStatusDto } from '@immich/sdk';
+  import { JobCommand, type JobCommandDto, type JobCountsDto, type QueueStatusDto } from '@ram/sdk';
   import {
     mdiAlertCircle,
     mdiAllInclusive,
@@ -39,7 +39,7 @@
 </script>
 
 <div
-  class="flex flex-col overflow-hidden rounded-2xl bg-gray-100 dark:bg-immich-dark-gray sm:flex-row sm:rounded-[35px]"
+  class="flex flex-col overflow-hidden rounded-2xl bg-gray-100 dark:bg-ram-dark-gray sm:flex-row sm:rounded-[35px]"
 >
   <div class="flex w-full flex-col">
     {#if queueStatus.isPaused}
@@ -48,7 +48,7 @@
       <JobTileStatus color="success">Active</JobTileStatus>
     {/if}
     <div class="flex flex-col gap-2 p-5 sm:p-7 md:p-9">
-      <div class="flex items-center gap-4 text-xl font-semibold text-immich-primary dark:text-immich-dark-primary">
+      <div class="flex items-center gap-4 text-xl font-semibold text-ram-primary dark:text-ram-dark-primary">
         <span class="flex items-center gap-2">
           <Icon path={icon} size="1.25em" class="hidden shrink-0 sm:block" />
           {title.toUpperCase()}
@@ -93,7 +93,7 @@
 
       <div class="mt-2 flex w-full max-w-md flex-col sm:flex-row">
         <div
-          class="{commonClasses} rounded-t-lg bg-immich-primary text-white dark:bg-immich-dark-primary dark:text-immich-dark-gray sm:rounded-l-lg sm:rounded-r-none"
+          class="{commonClasses} rounded-t-lg bg-ram-primary text-white dark:bg-ram-dark-primary dark:text-ram-dark-gray sm:rounded-l-lg sm:rounded-r-none"
         >
           <p>Active</p>
           <p class="text-2xl">
@@ -102,7 +102,7 @@
         </div>
 
         <div
-          class="{commonClasses} flex-row-reverse rounded-b-lg bg-gray-200 text-immich-dark-bg dark:bg-gray-700 dark:text-immich-gray sm:rounded-l-none sm:rounded-r-lg"
+          class="{commonClasses} flex-row-reverse rounded-b-lg bg-gray-200 text-ram-dark-bg dark:bg-gray-700 dark:text-ram-gray sm:rounded-l-none sm:rounded-r-lg"
         >
           <p class="text-2xl">
             {waitingCount.toLocaleString($locale)}

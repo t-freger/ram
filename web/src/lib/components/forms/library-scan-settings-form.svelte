@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { LibraryType, type LibraryResponseDto } from '@immich/sdk';
+  import { LibraryType, type LibraryResponseDto } from '@ram/sdk';
   import { mdiPencilOutline } from '@mdi/js';
   import { createEventDispatcher, onMount } from 'svelte';
   import { handleError } from '../../utils/handle-error';
@@ -128,13 +128,13 @@
 
 <form on:submit|preventDefault={() => handleSubmit()} autocomplete="off" class="m-4 flex flex-col gap-4">
   <table class="w-full text-left">
-    <tbody class="block w-full overflow-y-auto rounded-md border dark:border-immich-dark-gray">
+    <tbody class="block w-full overflow-y-auto rounded-md border dark:border-ram-dark-gray">
       {#each exclusionPatterns as exclusionPattern, listIndex}
         <tr
-          class={`flex h-[80px] w-full place-items-center text-center dark:text-immich-dark-fg ${
+          class={`flex h-[80px] w-full place-items-center text-center dark:text-ram-dark-fg ${
             listIndex % 2 == 0
-              ? 'bg-immich-gray dark:bg-immich-dark-gray/75'
-              : 'bg-immich-bg dark:bg-immich-dark-gray/50'
+              ? 'bg-ram-gray dark:bg-ram-dark-gray/75'
+              : 'bg-ram-bg dark:bg-ram-dark-gray/50'
           }`}
         >
           <td class="w-3/4 text-ellipsis px-4 text-sm">{exclusionPattern}</td>
@@ -153,10 +153,10 @@
         </tr>
       {/each}
       <tr
-        class={`flex h-[80px] w-full place-items-center text-center dark:text-immich-dark-fg ${
+        class={`flex h-[80px] w-full place-items-center text-center dark:text-ram-dark-fg ${
           exclusionPatterns.length % 2 == 0
-            ? 'bg-immich-gray dark:bg-immich-dark-gray/75'
-            : 'bg-immich-bg dark:bg-immich-dark-gray/50'
+            ? 'bg-ram-gray dark:bg-ram-dark-gray/75'
+            : 'bg-ram-bg dark:bg-ram-dark-gray/50'
         }`}
       >
         <td class="w-3/4 text-ellipsis px-4 text-sm">

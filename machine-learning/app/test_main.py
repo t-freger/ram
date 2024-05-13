@@ -291,7 +291,7 @@ class TestBase:
         encoder.download()
 
         mock_snapshot_download.assert_called_once_with(
-            "immich-app/ViT-B-32__openai",
+            "ram-app/ViT-B-32__openai",
             cache_dir=encoder.cache_dir,
             local_dir=encoder.cache_dir,
             local_dir_use_symlinks=False,
@@ -305,7 +305,7 @@ class TestBase:
         encoder.download()
 
         mock_snapshot_download.assert_called_once_with(
-            "immich-app/ViT-B-32__openai",
+            "ram-app/ViT-B-32__openai",
             cache_dir=encoder.cache_dir,
             local_dir=encoder.cache_dir,
             local_dir_use_symlinks=False,

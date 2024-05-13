@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/providers/backup/manual_upload.provider.dart';
-import 'package:immich_mobile/providers/notification_permission.provider.dart';
+import 'package:ram_mobile/providers/backup/manual_upload.provider.dart';
+import 'package:ram_mobile/providers/notification_permission.provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 final localNotificationService = Provider(
@@ -23,9 +23,9 @@ class LocalNotificationService {
   static const manualUploadNotificationID = 4;
   static const manualUploadDetailedNotificationID = 5;
   static const manualUploadChannelName = 'Manual Asset Upload';
-  static const manualUploadChannelID = 'immich/manualUpload';
+  static const manualUploadChannelID = 'ram/manualUpload';
   static const manualUploadChannelNameDetailed = 'Manual Asset Upload Detailed';
-  static const manualUploadDetailedChannelID = 'immich/manualUploadDetailed';
+  static const manualUploadDetailedChannelID = 'ram/manualUploadDetailed';
   static const cancelUploadActionID = 'cancel_upload';
 
   Future<void> setup() async {

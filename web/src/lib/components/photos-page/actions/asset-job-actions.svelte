@@ -6,7 +6,7 @@
   } from '$lib/components/shared-components/notification/notification';
   import { getAssetJobIcon, getAssetJobMessage, getAssetJobName } from '$lib/utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { AssetJobName, AssetTypeEnum, runAssetJobs } from '@immich/sdk';
+  import { AssetJobName, AssetTypeEnum, runAssetJobs } from '@ram/sdk';
   import { getAssetControlContext } from '../asset-select-control-bar.svelte';
 
   export let jobs: AssetJobName[] = [

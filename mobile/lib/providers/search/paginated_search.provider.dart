@@ -1,8 +1,8 @@
-import 'package:immich_mobile/providers/asset_viewer/render_list.provider.dart';
-import 'package:immich_mobile/widgets/asset_grid/asset_grid_data_structure.dart';
-import 'package:immich_mobile/models/search/search_filter.model.dart';
-import 'package:immich_mobile/services/search.service.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/providers/asset_viewer/render_list.provider.dart';
+import 'package:ram_mobile/widgets/asset_grid/asset_grid_data_structure.dart';
+import 'package:ram_mobile/models/search/search_filter.model.dart';
+import 'package:ram_mobile/services/search.service.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'paginated_search.provider.g.dart';

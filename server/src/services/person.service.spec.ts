@@ -15,7 +15,7 @@ import { FaceSearchResult, ISearchRepository } from 'src/interfaces/search.inter
 import { IStorageRepository } from 'src/interfaces/storage.interface';
 import { ISystemConfigRepository } from 'src/interfaces/system-config.interface';
 import { PersonService } from 'src/services/person.service';
-import { CacheControl, ImmichFileResponse } from 'src/utils/file';
+import { CacheControl, ramFileResponse } from 'src/utils/file';
 import { assetStub } from 'test/fixtures/asset.stub';
 import { authStub } from 'test/fixtures/auth.stub';
 import { faceStub } from 'test/fixtures/face.stub';
@@ -184,7 +184,7 @@ describe(PersonService.name, () => {
       personMock.getById.mockResolvedValue(personStub.noName);
       accessMock.person.checkOwnerAccess.mockResolvedValue(new Set(['person-1']));
       await expect(sut.getThumbnail(authStub.admin, 'person-1')).resolves.toEqual(
-        new ImmichFileResponse({
+        new ramFileResponse({
           path: '/path/to/thumbnail.jpg',
           contentType: 'image/jpeg',
           cacheControl: CacheControl.PRIVATE_WITHOUT_CACHE,
@@ -645,7 +645,7 @@ describe(PersonService.name, () => {
       assetMock.getByIds.mockResolvedValue([assetStub.image]);
       await sut.handleDetectFaces({ id: assetStub.image.id });
       expect(machineLearningMock.detectFaces).toHaveBeenCalledWith(
-        'http://immich-machine-learning:3003',
+        'http://ram-machine-learning:3003',
         {
           imagePath: assetStub.image.previewPath,
         },

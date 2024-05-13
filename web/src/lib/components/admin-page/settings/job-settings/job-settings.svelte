@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getJobName } from '$lib/utils';
-  import { JobName, type SystemConfigDto, type SystemConfigJobDto } from '@immich/sdk';
+  import { JobName, type SystemConfigDto, type SystemConfigJobDto } from '@ram/sdk';
   import { isEqual } from 'lodash-es';
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';

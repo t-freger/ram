@@ -8,37 +8,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
 import 'package:timezone/data/latest.dart';
-import 'package:immich_mobile/constants/locales.dart';
-import 'package:immich_mobile/services/background.service.dart';
-import 'package:immich_mobile/entities/backup_album.entity.dart';
-import 'package:immich_mobile/entities/duplicated_asset.entity.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/routing/tab_navigation_observer.dart';
-import 'package:immich_mobile/utils/cache/widgets_binding.dart';
-import 'package:immich_mobile/entities/album.entity.dart';
-import 'package:immich_mobile/entities/android_device_asset.entity.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/entities/etag.entity.dart';
-import 'package:immich_mobile/entities/exif_info.entity.dart';
-import 'package:immich_mobile/entities/ios_device_asset.entity.dart';
-import 'package:immich_mobile/entities/logger_message.entity.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/entities/user.entity.dart';
-import 'package:immich_mobile/providers/app_life_cycle.provider.dart';
-import 'package:immich_mobile/providers/db.provider.dart';
-import 'package:immich_mobile/services/immich_logger.service.dart';
-import 'package:immich_mobile/services/local_notification.service.dart';
-import 'package:immich_mobile/utils/http_ssl_cert_override.dart';
-import 'package:immich_mobile/utils/immich_app_theme.dart';
-import 'package:immich_mobile/utils/migration.dart';
+import 'package:ram_mobile/constants/locales.dart';
+import 'package:ram_mobile/services/background.service.dart';
+import 'package:ram_mobile/entities/backup_album.entity.dart';
+import 'package:ram_mobile/entities/duplicated_asset.entity.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/routing/tab_navigation_observer.dart';
+import 'package:ram_mobile/utils/cache/widgets_binding.dart';
+import 'package:ram_mobile/entities/album.entity.dart';
+import 'package:ram_mobile/entities/android_device_asset.entity.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/entities/etag.entity.dart';
+import 'package:ram_mobile/entities/exif_info.entity.dart';
+import 'package:ram_mobile/entities/ios_device_asset.entity.dart';
+import 'package:ram_mobile/entities/logger_message.entity.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/entities/user.entity.dart';
+import 'package:ram_mobile/providers/app_life_cycle.provider.dart';
+import 'package:ram_mobile/providers/db.provider.dart';
+import 'package:ram_mobile/services/ram_logger.service.dart';
+import 'package:ram_mobile/services/local_notification.service.dart';
+import 'package:ram_mobile/utils/http_ssl_cert_override.dart';
+import 'package:ram_mobile/utils/ram_app_theme.dart';
+import 'package:ram_mobile/utils/migration.dart';
 import 'package:isar/isar.dart';
 import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
 
 void main() async {
-  ImmichWidgetsBinding();
+  ramWidgetsBinding();
 
   final db = await loadDb();
   await initApp();
@@ -65,10 +65,10 @@ Future<void> initApp() async {
     }
   }
 
-  // Initialize Immich Logger Service
-  ImmichLogger();
+  // Initialize ram Logger Service
+  ramLogger();
 
-  var log = Logger("ImmichErrorLogger");
+  var log = Logger("ramErrorLogger");
 
   FlutterError.onError = (details) {
     FlutterError.presentError(details);
@@ -110,14 +110,14 @@ Future<Isar> loadDb() async {
   return db;
 }
 
-class ImmichApp extends ConsumerStatefulWidget {
-  const ImmichApp({super.key});
+class ramApp extends ConsumerStatefulWidget {
+  const ramApp({super.key});
 
   @override
-  ImmichAppState createState() => ImmichAppState();
+  ramAppState createState() => ramAppState();
 }
 
-class ImmichAppState extends ConsumerState<ImmichApp>
+class ramAppState extends ConsumerState<ramApp>
     with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
@@ -194,11 +194,11 @@ class ImmichAppState extends ConsumerState<ImmichApp>
       locale: context.locale,
       debugShowCheckedModeBanner: false,
       home: MaterialApp.router(
-        title: 'Immich',
+        title: 'ram',
         debugShowCheckedModeBanner: false,
-        themeMode: ref.watch(immichThemeProvider),
-        darkTheme: immichDarkTheme,
-        theme: immichLightTheme,
+        themeMode: ref.watch(ramThemeProvider),
+        darkTheme: ramDarkTheme,
+        theme: ramLightTheme,
         routeInformationParser: router.defaultRouteParser(),
         routerDelegate: router.delegate(
           navigatorObservers: () => [TabNavigationObserver(ref: ref)],
@@ -219,7 +219,7 @@ class MainWidget extends StatelessWidget {
       path: translationsPath,
       useFallbackTranslations: true,
       fallbackLocale: locales.values.first,
-      child: const ImmichApp(),
+      child: const ramApp(),
     );
   }
 }

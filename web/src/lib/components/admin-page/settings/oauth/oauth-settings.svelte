@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SystemConfigDto } from '@immich/sdk';
+  import type { SystemConfigDto } from '@ram/sdk';
   import { isEqual } from 'lodash-es';
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
@@ -62,9 +62,9 @@
 <div class="mt-2">
   <div in:fade={{ duration: 500 }}>
     <form autocomplete="off" on:submit|preventDefault class="mx-4 flex flex-col gap-4 py-4">
-      <p class="text-sm dark:text-immich-dark-fg">
+      <p class="text-sm dark:text-ram-dark-fg">
         For more details about this feature, refer to the <a
-          href="https://immich.app/docs/administration/oauth"
+          href="https://ram.app/docs/administration/oauth"
           class="underline"
           target="_blank"
           rel="noreferrer">docs</a
@@ -184,7 +184,7 @@
         <SettingSwitch
           id="mobile-redirect-uri-override"
           title="MOBILE REDIRECT URI OVERRIDE"
-          subtitle="Enable when 'app.immich:/' is an invalid redirect URI."
+          subtitle="Enable when 'app.ram:/' is an invalid redirect URI."
           disabled={disabled || !config.oauth.enabled}
           on:click={() => handleToggleOverride()}
           bind:checked={config.oauth.mobileOverrideEnabled}

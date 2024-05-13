@@ -1,5 +1,5 @@
 import { createEventEmitter } from '$lib/utils/eventemitter';
-import type { AssetResponseDto, ServerVersionResponseDto } from '@immich/sdk';
+import type { AssetResponseDto, ServerVersionResponseDto } from '@ram/sdk';
 import { io, type Socket } from 'socket.io-client';
 import { get, writable } from 'svelte/store';
 import { user } from './user.store';

@@ -3,7 +3,7 @@ import { UserService } from 'src/services/user.service';
 
 @Command({
   name: 'list-users',
-  description: 'List Immich users',
+  description: 'List ram users',
 })
 export class ListUsersCommand extends CommandRunner {
   constructor(private userService: UserService) {

@@ -12,7 +12,7 @@
       <p>
         To re-enable, use a
         <a
-          href="https://immich.app/docs/administration/server-commands"
+          href="https://ram.app/docs/administration/server-commands"
           rel="noreferrer"
           target="_blank"
           class="underline"

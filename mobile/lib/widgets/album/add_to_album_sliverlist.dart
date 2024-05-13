@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/providers/album/album_sort_by_options.provider.dart';
-import 'package:immich_mobile/widgets/album/album_thumbnail_listtile.dart';
-import 'package:immich_mobile/entities/album.entity.dart';
+import 'package:ram_mobile/providers/album/album_sort_by_options.provider.dart';
+import 'package:ram_mobile/widgets/album/album_thumbnail_listtile.dart';
+import 'package:ram_mobile/entities/album.entity.dart';
 
 class AddToAlbumSliverList extends HookConsumerWidget {
   /// The asset to add to an album

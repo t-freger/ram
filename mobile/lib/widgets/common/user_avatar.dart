@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/entities/user.entity.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/entities/store.entity.dart';
+import 'package:ram_mobile/entities/user.entity.dart';
 
 Widget userAvatar(BuildContext context, User u, {double? radius}) {
   final url =
@@ -13,7 +13,7 @@ Widget userAvatar(BuildContext context, User u, {double? radius}) {
     backgroundColor: context.primaryColor.withAlpha(50),
     foregroundImage: CachedNetworkImageProvider(
       url,
-      headers: {"x-immich-user-token": Store.get(StoreKey.accessToken)},
+      headers: {"x-ram-user-token": Store.get(StoreKey.accessToken)},
       cacheKey: "user-${u.id}-profile",
     ),
     // silence errors if user has no profile image, use initials as fallback

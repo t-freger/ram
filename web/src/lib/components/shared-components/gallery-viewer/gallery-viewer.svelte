@@ -4,7 +4,7 @@
   import { assetViewingStore } from '$lib/stores/asset-viewing.store';
   import type { BucketPosition, Viewport } from '$lib/stores/assets.store';
   import { handleError } from '$lib/utils/handle-error';
-  import { type AssetResponseDto } from '@immich/sdk';
+  import { type AssetResponseDto } from '@ram/sdk';
   import { createEventDispatcher, onDestroy } from 'svelte';
   import AssetViewer from '../../asset-viewer/asset-viewer.svelte';
   import justifiedLayout from 'justified-layout';

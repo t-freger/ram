@@ -19,7 +19,7 @@
   import { websocketEvents } from '$lib/stores/websocket';
   import { asByteUnitString } from '$lib/utils/byte-units';
   import { copyToClipboard } from '$lib/utils';
-  import { UserStatus, getAllUsers, type UserResponseDto } from '@immich/sdk';
+  import { UserStatus, getAllUsers, type UserResponseDto } from '@ram/sdk';
   import { mdiClose, mdiContentCopy, mdiDeleteRestore, mdiPencilOutline, mdiTrashCanOutline } from '@mdi/js';
   import { DateTime } from 'luxon';
   import { onMount } from 'svelte';
@@ -168,7 +168,7 @@
 
               <div class="flex justify-center gap-2">
                 <code
-                  class="rounded-md bg-gray-200 px-2 py-1 font-bold text-immich-primary dark:text-immich-dark-primary dark:bg-gray-700"
+                  class="rounded-md bg-gray-200 px-2 py-1 font-bold text-ram-primary dark:text-ram-dark-primary dark:bg-gray-700"
                 >
                   {newPassword}
                 </code>
@@ -190,7 +190,7 @@
 
       <table class="my-5 w-full text-left">
         <thead
-          class="mb-4 flex h-12 w-full rounded-md border bg-gray-50 text-immich-primary dark:border-immich-dark-gray dark:bg-immich-dark-gray dark:text-immich-dark-primary"
+          class="mb-4 flex h-12 w-full rounded-md border bg-gray-50 text-ram-primary dark:border-ram-dark-gray dark:bg-ram-dark-gray dark:text-ram-dark-primary"
         >
           <tr class="flex w-full place-items-center">
             <th class="w-8/12 sm:w-5/12 lg:w-6/12 xl:w-4/12 2xl:w-5/12 text-center text-sm font-medium">Email</th>
@@ -199,24 +199,24 @@
             <th class="w-4/12 lg:w-3/12 xl:w-2/12 text-center text-sm font-medium">Action</th>
           </tr>
         </thead>
-        <tbody class="block w-full overflow-y-auto rounded-md border dark:border-immich-dark-gray">
+        <tbody class="block w-full overflow-y-auto rounded-md border dark:border-ram-dark-gray">
           {#if allUsers}
-            {#each allUsers as immichUser, index}
+            {#each allUsers as ramUser, index}
               <tr
-                class="flex h-[80px] overflow-hidden w-full place-items-center text-center dark:text-immich-dark-fg {immichUser.deletedAt
+                class="flex h-[80px] overflow-hidden w-full place-items-center text-center dark:text-ram-dark-fg {ramUser.deletedAt
                   ? 'bg-red-300 dark:bg-red-900'
                   : index % 2 == 0
-                    ? 'bg-immich-gray dark:bg-immich-dark-gray/75'
-                    : 'bg-immich-bg dark:bg-immich-dark-gray/50'}"
+                    ? 'bg-ram-gray dark:bg-ram-dark-gray/75'
+                    : 'bg-ram-bg dark:bg-ram-dark-gray/50'}"
               >
                 <td class="w-8/12 sm:w-5/12 lg:w-6/12 xl:w-4/12 2xl:w-5/12 text-ellipsis break-all px-2 text-sm"
-                  >{immichUser.email}</td
+                  >{ramUser.email}</td
                 >
-                <td class="hidden sm:block w-3/12 text-ellipsis break-all px-2 text-sm">{immichUser.name}</td>
+                <td class="hidden sm:block w-3/12 text-ellipsis break-all px-2 text-sm">{ramUser.name}</td>
                 <td class="hidden xl:block w-3/12 2xl:w-2/12 text-ellipsis break-all px-2 text-sm">
                   <div class="container mx-auto flex flex-wrap justify-center">
-                    {#if immichUser.quotaSizeInBytes && immichUser.quotaSizeInBytes > 0}
-                      {asByteUnitString(immichUser.quotaSizeInBytes, $locale)}
+                    {#if ramUser.quotaSizeInBytes && ramUser.quotaSizeInBytes > 0}
+                      {asByteUnitString(ramUser.quotaSizeInBytes, $locale)}
                     {:else}
                       <Icon path={mdiClose} size="16" />
                     {/if}
@@ -225,31 +225,31 @@
                 <td
                   class="flex flex-row flex-wrap justify-center gap-x-2 gap-y-1 w-4/12 lg:w-3/12 xl:w-2/12 text-ellipsis break-all text-sm"
                 >
-                  {#if !immichUser.deletedAt}
+                  {#if !ramUser.deletedAt}
                     <CircleIconButton
                       icon={mdiPencilOutline}
                       title="Edit user"
                       color="primary"
                       size="16"
-                      on:click={() => editUserHandler(immichUser)}
+                      on:click={() => editUserHandler(ramUser)}
                     />
-                    {#if immichUser.id !== $user.id}
+                    {#if ramUser.id !== $user.id}
                       <CircleIconButton
                         icon={mdiTrashCanOutline}
                         title="Delete user"
                         color="primary"
                         size="16"
-                        on:click={() => deleteUserHandler(immichUser)}
+                        on:click={() => deleteUserHandler(ramUser)}
                       />
                     {/if}
                   {/if}
-                  {#if immichUser.deletedAt && immichUser.status === UserStatus.Deleted}
+                  {#if ramUser.deletedAt && ramUser.status === UserStatus.Deleted}
                     <CircleIconButton
                       icon={mdiDeleteRestore}
-                      title="Restore user - scheduled removal on {getDeleteDate(immichUser.deletedAt)}"
+                      title="Restore user - scheduled removal on {getDeleteDate(ramUser.deletedAt)}"
                       color="primary"
                       size="16"
-                      on:click={() => restoreUserHandler(immichUser)}
+                      on:click={() => restoreUserHandler(ramUser)}
                     />
                   {/if}
                 </td>

@@ -16,7 +16,7 @@
 
 <div class="mb-4 w-full">
   <div class={`flex h-[26px] place-items-center gap-1`}>
-    <label class={`immich-form-label text-sm`} for={label}>{label}</label>
+    <label class={`ram-form-label text-sm`} for={label}>{label}</label>
     {#if required}
       <div class="text-red-400">*</div>
     {/if}
@@ -32,7 +32,7 @@
   </div>
 
   {#if desc}
-    <p class="immich-form-label pb-2 text-sm" id="{label}-desc">
+    <p class="ram-form-label pb-2 text-sm" id="{label}-desc">
       {desc}
     </p>
   {:else}
@@ -40,7 +40,7 @@
   {/if}
 
   <textarea
-    class="immich-form-input w-full pb-2"
+    class="ram-form-input w-full pb-2"
     aria-describedby={desc ? `${label}-desc` : undefined}
     aria-labelledby="{label}-label"
     id={label}

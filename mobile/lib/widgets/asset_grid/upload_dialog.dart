@@ -1,4 +1,4 @@
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
+import 'package:ram_mobile/widgets/common/confirm_dialog.dart';
 
 class UploadDialog extends ConfirmDialog {
   final Function onUpload;

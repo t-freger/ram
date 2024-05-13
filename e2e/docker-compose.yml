@@ -1,9 +1,9 @@
 version: '3.8'
 
-name: immich-e2e
+name: ram-e2e
 
 x-server-build: &server-common
-  image: immich-server:latest
+  image: ram-server:latest
   build:
     context: ../
     dockerfile: server/Dockerfile
@@ -11,9 +11,9 @@ x-server-build: &server-common
     - DB_HOSTNAME=database
     - DB_USERNAME=postgres
     - DB_PASSWORD=postgres
-    - DB_DATABASE_NAME=immich
-    - IMMICH_MACHINE_LEARNING_ENABLED=false
-    - IMMICH_METRICS=true
+    - DB_DATABASE_NAME=ram
+    - ram_MACHINE_LEARNING_ENABLED=false
+    - ram_METRICS=true
   volumes:
     - upload:/usr/src/app/upload
     - ./test-assets:/test-assets
@@ -22,15 +22,15 @@ x-server-build: &server-common
     - database
 
 services:
-  immich-server:
-    container_name: immich-e2e-server
-    command: ['./start.sh', 'immich']
+  ram-server:
+    container_name: ram-e2e-server
+    command: ['./start.sh', 'ram']
     <<: *server-common
     ports:
       - 2283:3001
 
-  immich-microservices:
-    container_name: immich-e2e-microservices
+  ram-microservices:
+    container_name: ram-e2e-microservices
     command: ['./start.sh', 'microservices']
     <<: *server-common
 
@@ -43,7 +43,7 @@ services:
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
-      POSTGRES_DB: immich
+      POSTGRES_DB: ram
     ports:
       - 5433:5432
 

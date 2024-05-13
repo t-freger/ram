@@ -7,26 +7,26 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/latlngbounds_extension.dart';
-import 'package:immich_mobile/extensions/maplibrecontroller_extensions.dart';
-import 'package:immich_mobile/models/map/map_event.model.dart';
-import 'package:immich_mobile/models/map/map_marker.model.dart';
-import 'package:immich_mobile/providers/map/map_marker.provider.dart';
-import 'package:immich_mobile/providers/map/map_state.provider.dart';
-import 'package:immich_mobile/utils/map_utils.dart';
-import 'package:immich_mobile/widgets/map/map_app_bar.dart';
-import 'package:immich_mobile/widgets/map/map_asset_grid.dart';
-import 'package:immich_mobile/widgets/map/map_bottom_sheet.dart';
-import 'package:immich_mobile/widgets/map/map_theme_override.dart';
-import 'package:immich_mobile/widgets/map/positioned_asset_marker_icon.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/providers/db.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/utils/immich_loading_overlay.dart';
-import 'package:immich_mobile/utils/debounce.dart';
+import 'package:ram_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/extensions/latlngbounds_extension.dart';
+import 'package:ram_mobile/extensions/maplibrecontroller_extensions.dart';
+import 'package:ram_mobile/models/map/map_event.model.dart';
+import 'package:ram_mobile/models/map/map_marker.model.dart';
+import 'package:ram_mobile/providers/map/map_marker.provider.dart';
+import 'package:ram_mobile/providers/map/map_state.provider.dart';
+import 'package:ram_mobile/utils/map_utils.dart';
+import 'package:ram_mobile/widgets/map/map_app_bar.dart';
+import 'package:ram_mobile/widgets/map/map_asset_grid.dart';
+import 'package:ram_mobile/widgets/map/map_bottom_sheet.dart';
+import 'package:ram_mobile/widgets/map/map_theme_override.dart';
+import 'package:ram_mobile/widgets/map/positioned_asset_marker_icon.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/providers/db.provider.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
+import 'package:ram_mobile/utils/ram_loading_overlay.dart';
+import 'package:ram_mobile/utils/debounce.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 @RoutePage()
@@ -223,7 +223,7 @@ class MapPage extends HookConsumerWidget {
       final (location, error) = await MapUtils.checkPermAndGetLocation(context);
       if (error != null) {
         if (error == LocationPermission.unableToDetermine && context.mounted) {
-          ImmichToast.show(
+          ramToast.show(
             context: context,
             gravity: ToastGravity.BOTTOM,
             toastType: ToastType.error,

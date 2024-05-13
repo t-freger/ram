@@ -7,7 +7,7 @@ sidebar_position: 2
 :::note
 If there's a feature you're planning to work on, just give us a heads up in [Discord](https://discord.com/channels/979116623879368755/1071165397228855327) so we can:
 
-1. Let you know if it's something we would accept into Immich
+1. Let you know if it's something we would accept into ram
 2. Provide any guidance on how something like that would ideally be implemented
 3. Ensure nobody is already working on that issue/feature so we don't duplicate effort
 
@@ -20,9 +20,9 @@ Thanks for being interested in contributing 😊
 
 This environment includes the services below. Additional details are available in each service's README.
 
-- Server - [`/server`](https://github.com/immich-app/immich/tree/main/server)
-- Web app - [`/web`](https://github.com/immich-app/immich/tree/main/web)
-- Machine learning - [`/machine-learning`](https://github.com/immich-app/immich/tree/main/machine-learning)
+- Server - [`/server`](https://github.com/ram-app/ram/tree/main/server)
+- Web app - [`/web`](https://github.com/ram-app/ram/tree/main/web)
+- Machine learning - [`/machine-learning`](https://github.com/ram-app/ram/tree/main/machine-learning)
 - Redis
 - PostgreSQL development database with exposed port `5432` so you can use any database client to acess it
 
@@ -51,13 +51,13 @@ You can access the web from `http://your-machine-ip:2283` or `http://localhost:2
 
 If you only want to do web development connected to an existing, remote backend, follow these steps:
 
-1. Build the Immich SDK - `cd open-api/typescript-sdk && npm i && npm run build && cd -`
+1. Build the ram SDK - `cd open-api/typescript-sdk && npm i && npm run build && cd -`
 2. Enter the web directory - `cd web/`
 3. Install web dependencies - `npm i`
 4. Start the web development server
 
 ```bash
-IMMICH_SERVER_URL=https://demo.immich.app/ npm run dev
+ram_SERVER_URL=https://demo.ram.app/ npm run dev
 ```
 
 ### Mobile app
@@ -66,7 +66,7 @@ The mobile app `(/mobile)` will required Flutter toolchain 3.13.x to be installe
 
 Please refer to the [Flutter's official documentation](https://flutter.dev/docs/get-started/install) for more information on setting up the toolchain on your machine.
 
-The mobile app asks you what backend to connect to. You can utilize the demo backend (https://demo.immich.app/) if you don't need to change server code or upload photos. Alternatively, you can run the server yourself per the instructions above.
+The mobile app asks you what backend to connect to. You can utilize the demo backend (https://demo.ram.app/) if you don't need to change server code or upload photos. Alternatively, you can run the server yourself per the instructions above.
 
 ## IDE setup
 

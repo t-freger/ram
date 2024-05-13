@@ -2,7 +2,7 @@
   import CircleIconButton from '$lib/components/elements/buttons/circle-icon-button.svelte';
   import Icon from '$lib/components/elements/icon.svelte';
   import { locale } from '$lib/stores/preferences.store';
-  import type { SessionResponseDto } from '@immich/sdk';
+  import type { SessionResponseDto } from '@ram/sdk';
   import {
     mdiAndroid,
     mdiApple,
@@ -29,7 +29,7 @@
 </script>
 
 <div class="flex w-full flex-row">
-  <div class="hidden items-center justify-center pr-2 text-immich-primary dark:text-immich-dark-primary sm:flex">
+  <div class="hidden items-center justify-center pr-2 text-ram-primary dark:text-ram-dark-primary sm:flex">
     {#if device.deviceOS === 'Android'}
       <Icon path={mdiAndroid} size="40" />
     {:else if device.deviceOS === 'iOS' || device.deviceOS === 'Mac OS'}

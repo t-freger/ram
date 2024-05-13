@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/widgets/asset_grid/immich_asset_grid.dart';
-import 'package:immich_mobile/providers/search/recently_added_asset.provider.dart';
+import 'package:ram_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:ram_mobile/widgets/asset_grid/ram_asset_grid.dart';
+import 'package:ram_mobile/providers/search/recently_added_asset.provider.dart';
 
 @RoutePage()
 class RecentlyAddedPage extends HookConsumerWidget {
@@ -23,7 +23,7 @@ class RecentlyAddedPage extends HookConsumerWidget {
         ),
       ),
       body: recents.widgetWhen(
-        onData: (searchResponse) => ImmichAssetGrid(
+        onData: (searchResponse) => ramAssetGrid(
           assets: searchResponse,
         ),
       ),

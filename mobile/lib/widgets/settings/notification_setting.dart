@@ -1,14 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/notification_permission.provider.dart';
-import 'package:immich_mobile/services/app_settings.service.dart';
-import 'package:immich_mobile/widgets/settings/settings_button_list_tile.dart';
-import 'package:immich_mobile/widgets/settings/settings_slider_list_tile.dart';
-import 'package:immich_mobile/widgets/settings/settings_sub_page_scaffold.dart';
-import 'package:immich_mobile/widgets/settings/settings_switch_list_tile.dart';
-import 'package:immich_mobile/utils/hooks/app_settings_update_hook.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/notification_permission.provider.dart';
+import 'package:ram_mobile/services/app_settings.service.dart';
+import 'package:ram_mobile/widgets/settings/settings_button_list_tile.dart';
+import 'package:ram_mobile/widgets/settings/settings_slider_list_tile.dart';
+import 'package:ram_mobile/widgets/settings/settings_sub_page_scaffold.dart';
+import 'package:ram_mobile/widgets/settings/settings_switch_list_tile.dart';
+import 'package:ram_mobile/utils/hooks/app_settings_update_hook.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class NotificationSetting extends HookConsumerWidget {

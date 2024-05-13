@@ -1,8 +1,8 @@
 import 'package:flutter/painting.dart';
-import 'package:immich_mobile/providers/image/immich_local_image_provider.dart';
-import 'package:immich_mobile/providers/image/immich_local_thumbnail_provider.dart';
-import 'package:immich_mobile/providers/image/immich_remote_image_provider.dart';
-import 'package:immich_mobile/providers/image/immich_remote_thumbnail_provider.dart';
+import 'package:ram_mobile/providers/image/ram_local_image_provider.dart';
+import 'package:ram_mobile/providers/image/ram_local_thumbnail_provider.dart';
+import 'package:ram_mobile/providers/image/ram_remote_image_provider.dart';
+import 'package:ram_mobile/providers/image/ram_remote_thumbnail_provider.dart';
 
 /// [ImageCache] that uses two caches for small and large images
 /// so that a single large image does not evict all small iamges
@@ -35,16 +35,16 @@ final class CustomImageCache implements ImageCache {
   }
 
   /// Gets the cache for the given key
-  /// [_large] is used for [ImmichLocalImageProvider] and [ImmichRemoteImageProvider]
-  /// [_small] is used for [ImmichLocalThumbnailProvider] and [ImmichRemoteThumbnailProvider]
+  /// [_large] is used for [ramLocalImageProvider] and [ramRemoteImageProvider]
+  /// [_small] is used for [ramLocalThumbnailProvider] and [ramRemoteThumbnailProvider]
   ImageCache _cacheForKey(Object key) =>
-      (key is ImmichLocalImageProvider || key is ImmichRemoteImageProvider)
+      (key is ramLocalImageProvider || key is ramRemoteImageProvider)
           ? _large
           : _small;
 
   @override
   bool containsKey(Object key) {
-    // [ImmichLocalImageProvider] and [ImmichRemoteImageProvider] are both
+    // [ramLocalImageProvider] and [ramRemoteImageProvider] are both
     // large size images while the other thumbnail providers are small
     return _cacheForKey(key).containsKey(key);
   }

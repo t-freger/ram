@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/search/people.provider.dart';
-import 'package:immich_mobile/entities/store.entity.dart' as local_store;
-import 'package:immich_mobile/utils/image_url_builder.dart';
+import 'package:ram_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/providers/search/people.provider.dart';
+import 'package:ram_mobile/entities/store.entity.dart' as local_store;
+import 'package:ram_mobile/utils/image_url_builder.dart';
 import 'package:openapi/api.dart';
 
 class PeoplePicker extends HookConsumerWidget {
@@ -19,7 +19,7 @@ class PeoplePicker extends HookConsumerWidget {
     var imageSize = 45.0;
     final people = ref.watch(getAllPeopleProvider);
     final headers = {
-      "x-immich-user-token":
+      "x-ram-user-token":
           local_store.Store.get(local_store.StoreKey.accessToken),
     };
     final selectedPeople = useState<Set<PersonResponseDto>>(filter ?? {});

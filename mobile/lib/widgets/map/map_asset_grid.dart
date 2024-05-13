@@ -4,17 +4,17 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/collection_extensions.dart';
-import 'package:immich_mobile/providers/asset_viewer/render_list.provider.dart';
-import 'package:immich_mobile/widgets/asset_grid/asset_grid_data_structure.dart';
-import 'package:immich_mobile/widgets/asset_grid/immich_asset_grid.dart';
-import 'package:immich_mobile/models/map/map_event.model.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/providers/db.provider.dart';
-import 'package:immich_mobile/widgets/common/drag_sheet.dart';
-import 'package:immich_mobile/utils/color_filter_generator.dart';
-import 'package:immich_mobile/utils/throttle.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/extensions/collection_extensions.dart';
+import 'package:ram_mobile/providers/asset_viewer/render_list.provider.dart';
+import 'package:ram_mobile/widgets/asset_grid/asset_grid_data_structure.dart';
+import 'package:ram_mobile/widgets/asset_grid/ram_asset_grid.dart';
+import 'package:ram_mobile/models/map/map_event.model.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/providers/db.provider.dart';
+import 'package:ram_mobile/widgets/common/drag_sheet.dart';
+import 'package:ram_mobile/utils/color_filter_generator.dart';
+import 'package:ram_mobile/utils/throttle.dart';
 import 'package:logging/logging.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -132,7 +132,7 @@ class MapAssetGrid extends HookConsumerWidget {
                           cachedRenderList.value = renderList;
                           return ValueListenableBuilder(
                             valueListenable: selectedAssets,
-                            builder: (_, value, __) => ImmichAssetGrid(
+                            builder: (_, value, __) => ramAssetGrid(
                               shrinkWrap: true,
                               renderList: renderList,
                               showDragScroll: false,

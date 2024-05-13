@@ -1,14 +1,14 @@
 # OAuth Authentication
 
-This page contains details about using OAuth in Immich.
+This page contains details about using OAuth in ram.
 
 :::tip
-Unable to set `app.immich:/` as a valid redirect URI? See [Mobile Redirect URI](#mobile-redirect-uri) for an alternative solution.
+Unable to set `app.ram:/` as a valid redirect URI? See [Mobile Redirect URI](#mobile-redirect-uri) for an alternative solution.
 :::
 
 ## Overview
 
-Immich supports 3rd party authentication via [OpenID Connect][oidc] (OIDC), an identity layer built on top of OAuth2. OIDC is supported by most identity providers, including:
+ram supports 3rd party authentication via [OpenID Connect][oidc] (OIDC), an identity layer built on top of OAuth2. OIDC is supported by most identity providers, including:
 
 - [Authentik](https://goauthentik.io/integrations/sources/oauth/#openid-connect)
 - [Authelia](https://www.authelia.com/configuration/identity-providers/openid-connect/clients/)
@@ -17,7 +17,7 @@ Immich supports 3rd party authentication via [OpenID Connect][oidc] (OIDC), an i
 
 ## Prerequisites
 
-Before enabling OAuth in Immich, a new client application needs to be configured in the 3rd-party authentication server. While the specifics of this setup vary from provider to provider, the general approach should be the same.
+Before enabling OAuth in ram, a new client application needs to be configured in the 3rd-party authentication server. While the specifics of this setup vary from provider to provider, the general approach should be the same.
 
 1. Create a new (Client) Application
 
@@ -30,15 +30,15 @@ Before enabling OAuth in Immich, a new client application needs to be configured
 
    The **Sign-in redirect URIs** should include:
 
-   - `app.immich:/` - for logging in with OAuth from the [Mobile App](/docs/features/mobile-app.mdx)
+   - `app.ram:/` - for logging in with OAuth from the [Mobile App](/docs/features/mobile-app.mdx)
    - `http://DOMAIN:PORT/auth/login` - for logging in with OAuth from the Web Client
    - `http://DOMAIN:PORT/user-settings` - for manually linking OAuth in the Web Client
 
-   Redirect URIs should contain all the domains you will be using to access Immich. Some examples include:
+   Redirect URIs should contain all the domains you will be using to access ram. Some examples include:
 
    Mobile
 
-   - `app.immich:/` (You **MUST** include this for iOS and Android mobile apps to work properly)
+   - `app.ram:/` (You **MUST** include this for iOS and Android mobile apps to work properly)
 
    Localhost
 
@@ -52,12 +52,12 @@ Before enabling OAuth in Immich, a new client application needs to be configured
 
    Hostname
 
-   - `https://immich.example.com/auth/login`
-   - `https://immich.example.com/user-settings`
+   - `https://ram.example.com/auth/login`
+   - `https://ram.example.com/user-settings`
 
 ## Enable OAuth
 
-Once you have a new OAuth client application configured, Immich can be configured using the Administration Settings page, available on the web (Administration -> Settings).
+Once you have a new OAuth client application configured, ram can be configured using the Administration Settings page, available on the web (Administration -> Settings).
 
 | Setting                                              | Type    | Default              | Description                                                                         |
 | ---------------------------------------------------- | ------- | -------------------- | ----------------------------------------------------------------------------------- |
@@ -68,7 +68,7 @@ Once you have a new OAuth client application configured, Immich can be configure
 | Scope                                                | string  | openid email profile | Full list of scopes to send with the request (space delimited)                      |
 | Signing Algorithm                                    | string  | RS256                | The algorithm used to sign the id token (examples: RS256, HS256)                    |
 | Storage Label Claim                                  | string  | preferred_username   | Claim mapping for the user's storage label**¹**                                     |
-| Storage Quota Claim                                  | string  | immich_quota         | Claim mapping for the user's storage**¹**                                           |
+| Storage Quota Claim                                  | string  | ram_quota         | Claim mapping for the user's storage**¹**                                           |
 | Default Storage Quota (GiB)                          | number  | 0                    | Default quota for user without storage quota claim (Enter 0 for unlimited quota)    |
 | Button Text                                          | string  | Login with OAuth     | Text for the OAuth button on the web                                                |
 | Auto Register                                        | boolean | true                 | When true, will automatically register a user the first time they sign in           |
@@ -85,7 +85,7 @@ Claim is only used on user creation and not synchronized after that.
 The Issuer URL should look something like the following, and return a valid json document.
 
 - `https://accounts.google.com/.well-known/openid-configuration`
-- `http://localhost:9000/application/o/immich/.well-known/openid-configuration`
+- `http://localhost:9000/application/o/ram/.well-known/openid-configuration`
 
 The `.well-known/openid-configuration` part of the url is optional and will be automatically added during discovery.
 :::
@@ -96,16 +96,16 @@ When Auto Launch is enabled, the login page will automatically redirect the user
 
 ## Mobile Redirect URI
 
-The redirect URI for the mobile app is `app.immich:/`, which is a [Custom Scheme](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app). If this custom scheme is an invalid redirect URI for your OAuth Provider, you can work around this by doing the following:
+The redirect URI for the mobile app is `app.ram:/`, which is a [Custom Scheme](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app). If this custom scheme is an invalid redirect URI for your OAuth Provider, you can work around this by doing the following:
 
-1. Configure an http(s) endpoint to forwards requests to `app.immich:/`
+1. Configure an http(s) endpoint to forwards requests to `app.ram:/`
 2. Whitelist the new endpoint as a valid redirect URI with your provider.
 3. Specify the new endpoint as the `Mobile Redirect URI Override`, in the OAuth settings.
 
 With these steps in place, you should be able to use OAuth from the [Mobile App](/docs/features/mobile-app.mdx) without a custom scheme redirect URI.
 
 :::info
-Immich has a route (`/api/oauth/mobile-redirect`) that is already configured to forward requests to `app.immich:/`, and can be used for step 1.
+ram has a route (`/api/oauth/mobile-redirect`) that is already configured to forward requests to `app.ram:/`, and can be used for step 1.
 :::
 
 ## Example Configuration

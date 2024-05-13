@@ -3,7 +3,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { Request, Response } from 'express';
 import { AssetIdsResponseDto } from 'src/dtos/asset-ids.response.dto';
 import { AssetIdsDto } from 'src/dtos/asset.dto';
-import { AuthDto, ImmichCookie } from 'src/dtos/auth.dto';
+import { AuthDto, ramCookie } from 'src/dtos/auth.dto';
 import {
   SharedLinkCreateDto,
   SharedLinkEditDto,
@@ -36,14 +36,14 @@ export class SharedLinkController {
     @Res({ passthrough: true }) res: Response,
     @GetLoginDetails() loginDetails: LoginDetails,
   ): Promise<SharedLinkResponseDto> {
-    const sharedLinkToken = request.cookies?.[ImmichCookie.SHARED_LINK_TOKEN];
+    const sharedLinkToken = request.cookies?.[ramCookie.SHARED_LINK_TOKEN];
     if (sharedLinkToken) {
       dto.token = sharedLinkToken;
     }
     const body = await this.service.getMine(auth, dto);
     return respondWithCookie(res, body, {
       isSecure: loginDetails.isSecure,
-      values: body.token ? [{ key: ImmichCookie.SHARED_LINK_TOKEN, value: body.token }] : [],
+      values: body.token ? [{ key: ramCookie.SHARED_LINK_TOKEN, value: body.token }] : [],
     });
   }
 

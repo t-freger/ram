@@ -1,6 +1,6 @@
 <script lang="ts">
   import Icon from '$lib/components/elements/icon.svelte';
-  import { getAllAlbums, type AlbumResponseDto } from '@immich/sdk';
+  import { getAllAlbums, type AlbumResponseDto } from '@ram/sdk';
   import { mdiPlus } from '@mdi/js';
   import { createEventDispatcher, onMount } from 'svelte';
   import AlbumListItem from '../asset-viewer/album-list-item.svelte';
@@ -69,11 +69,11 @@
       {/each}
     {:else}
       <input
-        class="border-b-4 border-immich-bg bg-immich-bg px-6 py-2 text-2xl focus:border-immich-primary dark:border-immich-dark-gray dark:bg-immich-dark-gray dark:focus:border-immich-dark-primary"
+        class="border-b-4 border-ram-bg bg-ram-bg px-6 py-2 text-2xl focus:border-ram-primary dark:border-ram-dark-gray dark:bg-ram-dark-gray dark:focus:border-ram-dark-primary"
         placeholder="Search"
         bind:value={search}
       />
-      <div class="immich-scrollbar overflow-y-auto">
+      <div class="ram-scrollbar overflow-y-auto">
         <button
           on:click={handleNew}
           class="flex w-full items-center gap-4 px-6 py-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl"

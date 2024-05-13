@@ -4,7 +4,7 @@
   import UserPageLayout from '$lib/components/layouts/user-page-layout.svelte';
   import { AppRoute } from '$lib/constants';
   import { getPeopleThumbnailUrl } from '$lib/utils';
-  import type { SearchExploreResponseDto } from '@immich/sdk';
+  import type { SearchExploreResponseDto } from '@ram/sdk';
   import type { PageData } from './$types';
   import { getMetadataSearchQuery } from '$lib/utils/metadata-search';
 
@@ -43,10 +43,10 @@
   {#if hasPeople}
     <div class="mb-6 mt-2">
       <div class="flex justify-between">
-        <p class="mb-4 font-medium dark:text-immich-dark-fg">People</p>
+        <p class="mb-4 font-medium dark:text-ram-dark-fg">People</p>
         <a
           href={AppRoute.PEOPLE}
-          class="pr-4 text-sm font-medium hover:text-immich-primary dark:text-immich-dark-fg dark:hover:text-immich-dark-primary"
+          class="pr-4 text-sm font-medium hover:text-ram-primary dark:text-ram-dark-fg dark:hover:text-ram-dark-primary"
           draggable="false">View All</a
         >
       </div>
@@ -75,10 +75,10 @@
   {#if places.length > 0}
     <div class="mb-6 mt-2">
       <div class="flex justify-between">
-        <p class="mb-4 font-medium dark:text-immich-dark-fg">Places</p>
+        <p class="mb-4 font-medium dark:text-ram-dark-fg">Places</p>
         <a
           href={AppRoute.PLACES}
-          class="pr-4 text-sm font-medium hover:text-immich-primary dark:text-immich-dark-fg dark:hover:text-immich-dark-primary"
+          class="pr-4 text-sm font-medium hover:text-ram-primary dark:text-ram-dark-fg dark:hover:text-ram-dark-primary"
           draggable="false">View All</a
         >
       </div>
@@ -101,5 +101,5 @@
     </div>
   {/if}
 
-  <hr class="mb-4 dark:border-immich-dark-gray" />
+  <hr class="mb-4 dark:border-ram-dark-gray" />
 </UserPageLayout>

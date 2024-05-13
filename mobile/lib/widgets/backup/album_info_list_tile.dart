@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/models/backup/available_album.model.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/providers/haptic_feedback.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/models/backup/available_album.model.dart';
+import 'package:ram_mobile/providers/backup/backup.provider.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/providers/haptic_feedback.provider.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
 
 class AlbumInfoListTile extends HookConsumerWidget {
   final AvailableAlbum album;
@@ -77,7 +77,7 @@ class AlbumInfoListTile extends HookConsumerWidget {
           // Add to exclude album list
 
           if (album.id == 'isAll' || album.name == 'Recents') {
-            ImmichToast.show(
+            ramToast.show(
               context: context,
               msg: 'Cannot exclude album contains all assets',
               toastType: ToastType.error,

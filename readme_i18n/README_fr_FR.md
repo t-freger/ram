@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login With Custom URL">
+<img src="../design/ram-logo-stacked-light.svg" width="300" title="Login With Custom URL">
 </p>
-<h3 align="center">Immich - Solution de sauvegarde performante et auto-hébergée des photos et des vidéos</h3>
+<h3 align="center">ram - Solution de sauvegarde performante et auto-hébergée des photos et des vidéos</h3>
 <br/>
-<a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Main Screenshot">
+<a href="https://ram.app">
+<img src="../design/ram-screenshots.png" title="Main Screenshot">
 </a>
 <br/>
 <p align="center">
@@ -41,27 +41,27 @@
 
 ## Sommaire
 
-- [Documentation officielle](https://immich.app/docs)
-- [Feuille de route](https://github.com/orgs/immich-app/projects/1)
+- [Documentation officielle](https://ram.app/docs)
+- [Feuille de route](https://github.com/orgs/ram-app/projects/1)
 - [Démo](#demo)
 - [Fonctionnalités](#features)
-- [Introduction](https://immich.app/docs/overview/introduction)
-- [Installation](https://immich.app/docs/install/requirements)
-- [Contribution](https://immich.app/docs/overview/support-the-project)
+- [Introduction](https://ram.app/docs/overview/introduction)
+- [Installation](https://ram.app/docs/install/requirements)
+- [Contribution](https://ram.app/docs/overview/support-the-project)
 
 ## Documentation
 
-Vous pouvez trouver la documentation principale ainsi que les guides d'installation sur https://immich.app/.
+Vous pouvez trouver la documentation principale ainsi que les guides d'installation sur https://ram.app/.
 
 ## Démo
 
-Vous pouvez accéder à la démo Web sur https://demo.immich.app
+Vous pouvez accéder à la démo Web sur https://demo.ram.app
 
-Pour l'application mobile, vous pouvez utiliser `https://demo.immich.app/api` dans le champ 'URL du point d'accès au serveur'
+Pour l'application mobile, vous pouvez utiliser `https://demo.ram.app/api` dans le champ 'URL du point d'accès au serveur'
 
 ```bash title="Demo Credential"
 Les identifiants
-email: demo@immich.app
+email: demo@ram.app
 mot de passe: demo
 ```
 

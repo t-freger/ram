@@ -1,6 +1,6 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
-  import ImmichLogo from './immich-logo.svelte';
+  import ramLogo from './ram-logo.svelte';
   import { page } from '$app/stores';
   import { dragAndDropFilesStore } from '$lib/stores/drag-and-drop-files.store';
   import { fileUploadHandler } from '$lib/utils/file-uploader';
@@ -55,7 +55,7 @@
 {#if dragStartTarget}
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div
-    class="fixed inset-0 z-[1000] flex h-full w-full flex-col items-center justify-center bg-gray-100/90 text-immich-dark-gray dark:bg-immich-dark-bg/90 dark:text-immich-gray"
+    class="fixed inset-0 z-[1000] flex h-full w-full flex-col items-center justify-center bg-gray-100/90 text-ram-dark-gray dark:bg-ram-dark-bg/90 dark:text-ram-gray"
     transition:fade={{ duration: 250 }}
     on:dragover={(e) => {
       // Prevent browser from opening the dropped file.
@@ -63,7 +63,7 @@
       e.preventDefault();
     }}
   >
-    <ImmichLogo noText class="m-16 w-48 animate-bounce" />
+    <ramLogo noText class="m-16 w-48 animate-bounce" />
     <div class="text-2xl">Drop files anywhere to upload</div>
   </div>
 {/if}

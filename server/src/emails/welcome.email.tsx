@@ -20,7 +20,7 @@ import { WelcomeEmailProps } from 'src/interfaces/notification.interface';
 export const WelcomeEmail = ({ baseUrl, displayName, username, password }: WelcomeEmailProps) => (
   <Html>
     <Head />
-    <Preview>You have been invited to a new Immich instance.</Preview>
+    <Preview>You have been invited to a new ram instance.</Preview>
     <Body
       style={{
         margin: 0,
@@ -51,8 +51,8 @@ export const WelcomeEmail = ({ baseUrl, displayName, username, password }: Welco
           }}
         >
           <Img
-            src="https://immich.app/img/immich-logo-inline-light.png"
-            alt="Immich"
+            src="https://ram.app/img/ram-logo-inline-light.png"
+            alt="ram"
             style={{
               height: 'auto',
               margin: '0 auto 48px auto',
@@ -100,14 +100,14 @@ export const WelcomeEmail = ({ baseUrl, displayName, username, password }: Welco
         <Section style={{ textAlign: 'center' }}>
           <Row>
             <Column align="center">
-              <Link href="https://play.google.com/store/apps/details?id=app.alextran.immich">
-                <Img src={`https://immich.app/img/google-play-badge.png`} height="96px" alt="Immich" />
+              <Link href="https://play.google.com/store/apps/details?id=app.alextran.ram">
+                <Img src={`https://ram.app/img/google-play-badge.png`} height="96px" alt="ram" />
               </Link>
-              <Link href="https://apps.apple.com/sg/app/immich/id1613945652">
+              <Link href="https://apps.apple.com/sg/app/ram/id1613945652">
                 <Img
                   // TODO get this as a png
-                  src={`https://immich.app/img/ios-app-store-badge.svg`}
-                  alt="Immich"
+                  src={`https://ram.app/img/ios-app-store-badge.svg`}
+                  alt="ram"
                   style={{ height: '68px', padding: '14px' }}
                 />
               </Link>
@@ -123,7 +123,7 @@ export const WelcomeEmail = ({ baseUrl, displayName, username, password }: Welco
             marginTop: '12px',
           }}
         >
-          <Link href="https://immich.app">Immich</Link> project is available under GNU AGPL v3 license.
+          <Link href="https://ram.app">ram</Link> project is available under GNU AGPL v3 license.
         </Text>
       </Container>
     </Body>
@@ -131,7 +131,7 @@ export const WelcomeEmail = ({ baseUrl, displayName, username, password }: Welco
 );
 
 WelcomeEmail.PreviewProps = {
-  baseUrl: 'https://demo.immich.app/auth/login',
+  baseUrl: 'https://demo.ram.app/auth/login',
   displayName: 'Alan Turing',
   username: 'alanturing',
   password: 'mysuperpassword',

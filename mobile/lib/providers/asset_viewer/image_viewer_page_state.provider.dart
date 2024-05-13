@@ -2,14 +2,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/services/album.service.dart';
-import 'package:immich_mobile/models/asset_viewer/asset_viewer_page_state.model.dart';
-import 'package:immich_mobile/services/image_viewer.service.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/services/share.service.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/widgets/common/share_dialog.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/services/album.service.dart';
+import 'package:ram_mobile/models/asset_viewer/asset_viewer_page_state.model.dart';
+import 'package:ram_mobile/services/image_viewer.service.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/services/share.service.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
+import 'package:ram_mobile/widgets/common/share_dialog.dart';
 
 class ImageViewerStateNotifier extends StateNotifier<AssetViewerPageState> {
   final ImageViewerService _imageViewerService;
@@ -29,7 +29,7 @@ class ImageViewerStateNotifier extends StateNotifier<AssetViewerPageState> {
   void downloadAsset(Asset asset, BuildContext context) async {
     state = state.copyWith(downloadAssetStatus: DownloadAssetStatus.loading);
 
-    ImmichToast.show(
+    ramToast.show(
       context: context,
       msg: 'image_viewer_page_state_provider_download_started'.tr(),
       toastType: ToastType.info,
@@ -41,7 +41,7 @@ class ImageViewerStateNotifier extends StateNotifier<AssetViewerPageState> {
     if (isSuccess) {
       state = state.copyWith(downloadAssetStatus: DownloadAssetStatus.success);
 
-      ImmichToast.show(
+      ramToast.show(
         context: context,
         msg: 'image_viewer_page_state_provider_download_success'.tr(),
         toastType: ToastType.success,
@@ -50,7 +50,7 @@ class ImageViewerStateNotifier extends StateNotifier<AssetViewerPageState> {
       _albumService.refreshDeviceAlbums();
     } else {
       state = state.copyWith(downloadAssetStatus: DownloadAssetStatus.error);
-      ImmichToast.show(
+      ramToast.show(
         context: context,
         msg: 'image_viewer_page_state_provider_download_error'.tr(),
         toastType: ToastType.error,
@@ -68,7 +68,7 @@ class ImageViewerStateNotifier extends StateNotifier<AssetViewerPageState> {
         _shareService.shareAsset(asset).then(
           (bool status) {
             if (!status) {
-              ImmichToast.show(
+              ramToast.show(
                 context: context,
                 msg: 'image_viewer_page_state_provider_share_error'.tr(),
                 toastType: ToastType.error,

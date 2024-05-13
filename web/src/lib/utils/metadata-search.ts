@@ -1,5 +1,5 @@
 import { QueryParameter } from '$lib/constants';
-import type { MetadataSearchDto } from '@immich/sdk';
+import type { MetadataSearchDto } from '@ram/sdk';
 
 export function getMetadataSearchQuery(metadata: MetadataSearchDto) {
   const searchParams = new URLSearchParams({

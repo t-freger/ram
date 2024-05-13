@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/extensions/response_extensions.dart';
-import 'package:immich_mobile/models/map/map_state.model.dart';
-import 'package:immich_mobile/providers/app_settings.provider.dart';
-import 'package:immich_mobile/services/app_settings.service.dart';
-import 'package:immich_mobile/providers/api.provider.dart';
+import 'package:ram_mobile/extensions/response_extensions.dart';
+import 'package:ram_mobile/models/map/map_state.model.dart';
+import 'package:ram_mobile/providers/app_settings.provider.dart';
+import 'package:ram_mobile/services/app_settings.service.dart';
+import 'package:ram_mobile/providers/api.provider.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 import 'package:path_provider/path_provider.dart';

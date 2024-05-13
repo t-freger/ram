@@ -9,7 +9,7 @@ import {
   defaults,
   getSupportedMediaTypes,
   type AssetFileUploadResponseDto,
-} from '@immich/sdk';
+} from '@ram/sdk';
 import { tick } from 'svelte';
 import { getServerErrorMessage, handleError } from './handle-error';
 

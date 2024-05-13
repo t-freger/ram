@@ -17,7 +17,7 @@
     {#if showResetToDefault}
       <button
         on:click={() => dispatch('reset', { default: true })}
-        class="bg-none text-sm font-medium text-immich-primary hover:text-immich-primary/75 dark:text-immich-dark-primary hover:dark:text-immich-dark-primary/75"
+        class="bg-none text-sm font-medium text-ram-primary hover:text-ram-primary/75 dark:text-ram-dark-primary hover:dark:text-ram-dark-primary/75"
       >
         Reset to default
       </button>

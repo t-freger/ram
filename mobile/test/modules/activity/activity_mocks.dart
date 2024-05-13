@@ -1,7 +1,7 @@
-import 'package:immich_mobile/models/activities/activity.model.dart';
-import 'package:immich_mobile/providers/activity.provider.dart';
-import 'package:immich_mobile/providers/activity_statistics.provider.dart';
-import 'package:immich_mobile/services/activity.service.dart';
+import 'package:ram_mobile/models/activities/activity.model.dart';
+import 'package:ram_mobile/providers/activity.provider.dart';
+import 'package:ram_mobile/providers/activity_statistics.provider.dart';
+import 'package:ram_mobile/services/activity.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 class ActivityServiceMock extends Mock implements ActivityService {}

@@ -4,7 +4,7 @@
   import { locale } from '$lib/stores/preferences.store';
   import { asByteUnitString } from '$lib/utils/byte-units';
   import { fade } from 'svelte/transition';
-  import ImmichLogo from './immich-logo.svelte';
+  import ramLogo from './ram-logo.svelte';
   import { getFilenameExtension } from '$lib/utils/asset-utils';
   import { uploadAssetsStore } from '$lib/stores/upload';
   import Icon from '$lib/components/elements/icon.svelte';
@@ -22,16 +22,16 @@
 <div
   in:fade={{ duration: 250 }}
   out:fade={{ duration: 100 }}
-  class="flex flex-col rounded-lg bg-immich-bg text-xs dark:bg-immich-dark-bg"
+  class="flex flex-col rounded-lg bg-ram-bg text-xs dark:bg-ram-dark-bg"
 >
   <div class="grid grid-cols-[65px_auto_auto]">
     <div class="relative h-[65px]">
       <div in:fade={{ duration: 250 }}>
-        <ImmichLogo noText class="h-[65px] w-[65px] rounded-bl-lg rounded-tl-lg object-cover p-2" />
+        <ramLogo noText class="h-[65px] w-[65px] rounded-bl-lg rounded-tl-lg object-cover p-2" />
       </div>
-      <div class="absolute bottom-0 left-0 h-[25px] w-full rounded-bl-md bg-immich-primary/30">
+      <div class="absolute bottom-0 left-0 h-[25px] w-full rounded-bl-md bg-ram-primary/30">
         <p
-          class="absolute bottom-1 right-1 stroke-immich-primary object-right-bottom font-semibold uppercase text-white/95 dark:text-gray-100"
+          class="absolute bottom-1 right-1 stroke-ram-primary object-right-bottom font-semibold uppercase text-white/95 dark:text-gray-100"
         >
           .{getFilenameExtension(uploadAsset.file.name)}
         </p>
@@ -40,16 +40,16 @@
     <div class="flex flex-col justify-between p-2 pr-2">
       <input
         disabled
-        class="w-full rounded-md border bg-gray-100 p-1 px-2 text-[10px] dark:border-immich-dark-gray dark:bg-gray-900"
+        class="w-full rounded-md border bg-gray-100 p-1 px-2 text-[10px] dark:border-ram-dark-gray dark:bg-gray-900"
         value={`[${asByteUnitString(uploadAsset.file.size, $locale)}] ${uploadAsset.file.name}`}
       />
 
       <div
-        class="relative mt-[5px] h-[15px] w-full rounded-md bg-gray-300 text-white dark:bg-immich-dark-gray"
+        class="relative mt-[5px] h-[15px] w-full rounded-md bg-gray-300 text-white dark:bg-ram-dark-gray"
         class:dark:text-black={uploadAsset.state === UploadState.STARTED}
       >
         {#if uploadAsset.state === UploadState.STARTED}
-          <div class="h-[15px] rounded-md bg-immich-primary transition-all" style={`width: ${uploadAsset.progress}%`} />
+          <div class="h-[15px] rounded-md bg-ram-primary transition-all" style={`width: ${uploadAsset.progress}%`} />
           <p class="absolute top-0 h-full w-full text-center text-[10px]">
             {#if uploadAsset.message}
               {uploadAsset.message}
@@ -58,13 +58,13 @@
             {/if}
           </p>
         {:else if uploadAsset.state === UploadState.PENDING}
-          <div class="h-[15px] rounded-md bg-immich-dark-gray transition-all dark:bg-immich-gray" style="width: 100%" />
+          <div class="h-[15px] rounded-md bg-ram-dark-gray transition-all dark:bg-ram-gray" style="width: 100%" />
           <p class="absolute top-0 h-full w-full text-center text-[10px]">Pending</p>
         {:else if uploadAsset.state === UploadState.ERROR}
-          <div class="h-[15px] rounded-md bg-immich-error transition-all" style="width: 100%" />
+          <div class="h-[15px] rounded-md bg-ram-error transition-all" style="width: 100%" />
           <p class="absolute top-0 h-full w-full text-center text-[10px]">Error</p>
         {:else if uploadAsset.state === UploadState.DUPLICATED}
-          <div class="h-[15px] rounded-md bg-immich-warning transition-all" style="width: 100%" />
+          <div class="h-[15px] rounded-md bg-ram-warning transition-all" style="width: 100%" />
           <p class="absolute top-0 h-full w-full text-center text-[10px]">
             Skipped
             {#if uploadAsset.message}
@@ -72,7 +72,7 @@
             {/if}
           </p>
         {:else if uploadAsset.state === UploadState.DONE}
-          <div class="h-[15px] rounded-md bg-immich-success transition-all" style="width: 100%" />
+          <div class="h-[15px] rounded-md bg-ram-success transition-all" style="width: 100%" />
           <p class="absolute top-0 h-full w-full text-center text-[10px]">
             Uploaded
             {#if uploadAsset.message}
@@ -89,14 +89,14 @@
           title="Retry upload"
           class="flex h-full w-full place-content-center place-items-center text-sm"
         >
-          <span class="text-immich-dark-gray dark:text-immich-dark-fg"><Icon path={mdiRefresh} size="20" /></span>
+          <span class="text-ram-dark-gray dark:text-ram-dark-fg"><Icon path={mdiRefresh} size="20" /></span>
         </button>
         <button
           on:click={() => uploadAssetsStore.removeUploadAsset(uploadAsset.id)}
           title="Dismiss error"
           class="flex h-full w-full place-content-center place-items-center text-sm"
         >
-          <span class="text-immich-error"><Icon path={mdiCancel} size="20" /></span>
+          <span class="text-ram-error"><Icon path={mdiCancel} size="20" /></span>
         </button>
       </div>
     {/if}
@@ -104,7 +104,7 @@
 
   {#if uploadAsset.state === UploadState.ERROR}
     <div class="flex flex-row justify-between">
-      <p class="w-full rounded-md p-1 px-2 text-justify text-[10px] text-immich-error">
+      <p class="w-full rounded-md p-1 px-2 text-justify text-[10px] text-ram-error">
         {uploadAsset.error}
       </p>
     </div>

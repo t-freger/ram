@@ -4,16 +4,16 @@ import 'package:flutter_test/flutter_test.dart';
 import '../test_utils/general_helper.dart';
 
 void main() async {
-  await ImmichTestHelper.initialize();
+  await ramTestHelper.initialize();
 
   group("Login input validation test", () {
-    immichWidgetTest("Test leading/trailing whitespace",
+    ramWidgetTest("Test leading/trailing whitespace",
         (tester, helper) async {
       await helper.loginHelper.waitForLoginScreen();
       await helper.loginHelper.acknowledgeNewServerVersion();
 
       await helper.loginHelper.enterCredentials(
-        email: " demo@immich.app",
+        email: " demo@ram.app",
       );
 
       await tester.pump(const Duration(milliseconds: 300));
@@ -24,7 +24,7 @@ void main() async {
       );
 
       await helper.loginHelper.enterCredentials(
-        email: "demo@immich.app ",
+        email: "demo@ram.app ",
       );
 
       await tester.pump(const Duration(milliseconds: 300));
@@ -35,12 +35,12 @@ void main() async {
       );
     });
 
-    immichWidgetTest("Test invalid email", (tester, helper) async {
+    ramWidgetTest("Test invalid email", (tester, helper) async {
       await helper.loginHelper.waitForLoginScreen();
       await helper.loginHelper.acknowledgeNewServerVersion();
 
       await helper.loginHelper.enterCredentials(
-        email: "demo.immich.app",
+        email: "demo.ram.app",
       );
 
       await tester.pump(const Duration(milliseconds: 300));

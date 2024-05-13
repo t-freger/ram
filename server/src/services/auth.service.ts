@@ -17,8 +17,8 @@ import { UserCore } from 'src/cores/user.core';
 import {
   AuthDto,
   ChangePasswordDto,
-  ImmichCookie,
-  ImmichHeader,
+  ramCookie,
+  ramHeader,
   LoginCredentialDto,
   LogoutResponseDto,
   OAuthAuthorizeResponseDto,
@@ -149,13 +149,13 @@ export class AuthService {
   }
 
   async validate(headers: IncomingHttpHeaders, params: Record<string, string>): Promise<AuthDto> {
-    const shareKey = (headers[ImmichHeader.SHARED_LINK_KEY] || params.key) as string;
-    const session = (headers[ImmichHeader.USER_TOKEN] ||
-      headers[ImmichHeader.SESSION_TOKEN] ||
+    const shareKey = (headers[ramHeader.SHARED_LINK_KEY] || params.key) as string;
+    const session = (headers[ramHeader.USER_TOKEN] ||
+      headers[ramHeader.SESSION_TOKEN] ||
       params.sessionKey ||
       this.getBearerToken(headers) ||
       this.getCookieToken(headers)) as string;
-    const apiKey = (headers[ImmichHeader.API_KEY] || params.apiKey) as string;
+    const apiKey = (headers[ramHeader.API_KEY] || params.apiKey) as string;
 
     if (shareKey) {
       return this.validateSharedLink(shareKey);
@@ -338,7 +338,7 @@ export class AuthService {
 
   private getCookieToken(headers: IncomingHttpHeaders): string | null {
     const cookies = cookieParser.parse(headers.cookie || '');
-    return cookies[ImmichCookie.ACCESS_TOKEN] || null;
+    return cookies[ramCookie.ACCESS_TOKEN] || null;
   }
 
   async validateSharedLink(key: string | string[]): Promise<AuthDto> {

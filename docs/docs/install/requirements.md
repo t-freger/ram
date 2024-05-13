@@ -4,7 +4,7 @@ sidebar_position: 10
 
 # Requirements
 
-Hardware and software requirements for Immich
+Hardware and software requirements for ram
 
 ## Software
 
@@ -12,7 +12,7 @@ Hardware and software requirements for Immich
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
 :::note
-Immich requires the command `docker compose` - the similarly named `docker-compose` is [deprecated](https://docs.docker.com/compose/migrate/) and is no longer compatible with Immich.
+ram requires the command `docker compose` - the similarly named `docker-compose` is [deprecated](https://docs.docker.com/compose/migrate/) and is no longer compatible with ram.
 :::
 
 ## Hardware

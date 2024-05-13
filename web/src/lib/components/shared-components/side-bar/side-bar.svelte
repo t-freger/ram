@@ -1,7 +1,7 @@
 <script lang="ts">
   import { locale, sidebarSettings } from '$lib/stores/preferences.store';
   import { featureFlags } from '$lib/stores/server-config.store';
-  import { getAlbumCount, getAssetStatistics } from '@immich/sdk';
+  import { getAlbumCount, getAssetStatistics } from '@ram/sdk';
   import {
     mdiAccount,
     mdiAccountOutline,
@@ -103,7 +103,7 @@
       </SideBarLink>
     {/if}
 
-    <div class="text-xs transition-all duration-200 dark:text-immich-dark-fg">
+    <div class="text-xs transition-all duration-200 dark:text-ram-dark-fg">
       <p class="hidden p-6 group-hover:sm:block md:block">LIBRARY</p>
       <hr class="mx-4 mb-[31px] mt-8 block group-hover:sm:hidden md:hidden" />
     </div>

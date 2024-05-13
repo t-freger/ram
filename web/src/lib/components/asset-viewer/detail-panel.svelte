@@ -17,7 +17,7 @@
     updateAsset,
     type AlbumResponseDto,
     type AssetResponseDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import {
     mdiCalendar,
     mdiCameraIris,
@@ -167,10 +167,10 @@
   }
 </script>
 
-<section class="relative p-2 dark:bg-immich-dark-bg dark:text-immich-dark-fg">
+<section class="relative p-2 dark:bg-ram-dark-bg dark:text-ram-dark-fg">
   <div class="flex place-items-center gap-2">
     <CircleIconButton icon={mdiClose} title="Close" on:click={() => dispatch('close')} />
-    <p class="text-lg text-immich-fg dark:text-immich-dark-fg">Info</p>
+    <p class="text-lg text-ram-fg dark:text-ram-dark-fg">Info</p>
   </div>
 
   {#if asset.isOffline}
@@ -179,7 +179,7 @@
         <div class="rounded-t bg-red-500 px-4 py-2 font-bold text-white">Asset offline</div>
         <div class="rounded-b border border-t-0 border-red-400 bg-red-100 px-4 py-3 text-red-700">
           <p>
-            This asset is offline. Immich can not access its file location. Please ensure the asset is available and
+            This asset is offline. ram can not access its file location. Please ensure the asset is available and
             then rescan the library.
           </p>
         </div>
@@ -194,7 +194,7 @@
           disabled={!isOwner || isSharedLink()}
           bind:this={textArea}
           class="max-h-[500px]
-      w-full resize-none border-b border-gray-500 bg-transparent text-base text-black outline-none transition-all focus:border-b-2 focus:border-immich-primary disabled:border-none dark:text-white dark:focus:border-immich-dark-primary immich-scrollbar"
+      w-full resize-none border-b border-gray-500 bg-transparent text-base text-black outline-none transition-all focus:border-b-2 focus:border-ram-primary disabled:border-none dark:text-white dark:focus:border-ram-dark-primary ram-scrollbar"
           placeholder={isOwner ? 'Add a description' : ''}
           on:focusout={handleFocusOut}
           on:input={() => autoGrowHeight(textArea)}
@@ -318,8 +318,8 @@
         class="flex w-full text-left justify-between place-items-start gap-4 py-4"
         on:click={() => (isOwner ? (isShowChangeDate = true) : null)}
         title={isOwner ? 'Edit date' : ''}
-        class:hover:dark:text-immich-dark-primary={isOwner}
-        class:hover:text-immich-primary={isOwner}
+        class:hover:dark:text-ram-dark-primary={isOwner}
+        class:hover:text-ram-primary={isOwner}
       >
         <div class="flex gap-4">
           <div>
@@ -459,8 +459,8 @@
         class="flex w-full text-left justify-between place-items-start gap-4 py-4"
         on:click={() => (isOwner ? (isShowChangeLocation = true) : null)}
         title={isOwner ? 'Edit location' : ''}
-        class:hover:dark:text-immich-dark-primary={isOwner}
-        class:hover:text-immich-primary={isOwner}
+        class:hover:dark:text-ram-dark-primary={isOwner}
+        class:hover:text-ram-primary={isOwner}
       >
         <div class="flex gap-4">
           <div><Icon path={mdiMapMarkerOutline} size="24" /></div>
@@ -489,7 +489,7 @@
     {:else if !asset.exifInfo?.city && isOwner}
       <button
         type="button"
-        class="flex w-full text-left justify-between place-items-start gap-4 py-4 rounded-lg hover:dark:text-immich-dark-primary hover:text-immich-primary"
+        class="flex w-full text-left justify-between place-items-start gap-4 py-4 rounded-lg hover:dark:text-ram-dark-primary hover:text-ram-primary"
         on:click={() => (isShowChangeLocation = true)}
         title="Add location"
       >
@@ -549,7 +549,7 @@
             <a
               href="https://www.openstreetmap.org/?mlat={lat}&mlon={lon}&zoom=15#map=15/{lat}/{lon}"
               target="_blank"
-              class="font-medium text-immich-primary"
+              class="font-medium text-ram-primary"
             >
               Open in OpenStreetMap
             </a>
@@ -561,7 +561,7 @@
 {/if}
 
 {#if currentAlbum && currentAlbum.sharedUsers.length > 0 && asset.owner}
-  <section class="px-6 dark:text-immich-dark-fg mt-4">
+  <section class="px-6 dark:text-ram-dark-fg mt-4">
     <p class="text-sm">SHARED BY</p>
     <div class="flex gap-4 pt-4">
       <div>
@@ -578,7 +578,7 @@
 {/if}
 
 {#if albums.length > 0}
-  <section class="p-6 dark:text-immich-dark-fg">
+  <section class="p-6 dark:text-ram-dark-fg">
     <p class="pb-4 text-sm">APPEARS IN</p>
     {#each albums as album}
       <a data-sveltekit-preload-data="hover" href={`/albums/${album.id}`}>
@@ -594,7 +594,7 @@
           </div>
 
           <div class="mb-auto mt-auto">
-            <p class="dark:text-immich-dark-primary">{album.albumName}</p>
+            <p class="dark:text-ram-dark-primary">{album.albumName}</p>
             <div class="flex flex-col gap-0 text-sm">
               <div>
                 <span>{album.assetCount} items</span>

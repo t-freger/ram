@@ -7,26 +7,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/collection_extensions.dart';
-import 'package:immich_mobile/providers/album/album.provider.dart';
-import 'package:immich_mobile/providers/album/shared_album.provider.dart';
-import 'package:immich_mobile/services/album.service.dart';
-import 'package:immich_mobile/services/asset_stack.service.dart';
-import 'package:immich_mobile/providers/backup/manual_upload.provider.dart';
-import 'package:immich_mobile/models/asset_selection_state.dart';
-import 'package:immich_mobile/providers/multiselect.provider.dart';
-import 'package:immich_mobile/widgets/asset_grid/asset_grid_data_structure.dart';
-import 'package:immich_mobile/widgets/asset_grid/immich_asset_grid.dart';
-import 'package:immich_mobile/widgets/asset_grid/control_bottom_app_bar.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/entities/album.entity.dart';
-import 'package:immich_mobile/entities/asset.entity.dart';
-import 'package:immich_mobile/providers/asset.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/utils/immich_loading_overlay.dart';
-import 'package:immich_mobile/utils/selection_handlers.dart';
+import 'package:ram_mobile/extensions/collection_extensions.dart';
+import 'package:ram_mobile/providers/album/album.provider.dart';
+import 'package:ram_mobile/providers/album/shared_album.provider.dart';
+import 'package:ram_mobile/services/album.service.dart';
+import 'package:ram_mobile/services/asset_stack.service.dart';
+import 'package:ram_mobile/providers/backup/manual_upload.provider.dart';
+import 'package:ram_mobile/models/asset_selection_state.dart';
+import 'package:ram_mobile/providers/multiselect.provider.dart';
+import 'package:ram_mobile/widgets/asset_grid/asset_grid_data_structure.dart';
+import 'package:ram_mobile/widgets/asset_grid/ram_asset_grid.dart';
+import 'package:ram_mobile/widgets/asset_grid/control_bottom_app_bar.dart';
+import 'package:ram_mobile/routing/router.dart';
+import 'package:ram_mobile/entities/album.entity.dart';
+import 'package:ram_mobile/entities/asset.entity.dart';
+import 'package:ram_mobile/providers/asset.provider.dart';
+import 'package:ram_mobile/providers/user.provider.dart';
+import 'package:ram_mobile/widgets/common/ram_loading_indicator.dart';
+import 'package:ram_mobile/widgets/common/ram_toast.dart';
+import 'package:ram_mobile/utils/ram_loading_overlay.dart';
+import 'package:ram_mobile/utils/selection_handlers.dart';
 
 class MultiselectGrid extends HookConsumerWidget {
   const MultiselectGrid({
@@ -60,7 +60,7 @@ class MultiselectGrid extends HookConsumerWidget {
   final bool editEnabled;
   final Widget? emptyIndicator;
   Widget buildDefaultLoadingIndicator() =>
-      const Center(child: ImmichLoadingIndicator());
+      const Center(child: ramLoadingIndicator());
 
   Widget buildEmptyIndicator() =>
       emptyIndicator ?? Center(child: const Text("no_assets_to_show").tr());
@@ -102,7 +102,7 @@ class MultiselectGrid extends HookConsumerWidget {
     }
 
     errorBuilder(String? msg) => msg != null && msg.isNotEmpty
-        ? () => ImmichToast.show(
+        ? () => ramToast.show(
               context: context,
               msg: msg,
               gravity: ToastGravity.BOTTOM,
@@ -192,7 +192,7 @@ class MultiselectGrid extends HookConsumerWidget {
         if (isDeleted) {
           final assetOrAssets = toDelete.length > 1 ? 'assets' : 'asset';
           final trashOrRemoved = force ? 'deleted permanently' : 'trashed';
-          ImmichToast.show(
+          ramToast.show(
             context: context,
             msg: '${selection.value.length} $assetOrAssets $trashOrRemoved',
             gravity: ToastGravity.BOTTOM,
@@ -214,7 +214,7 @@ class MultiselectGrid extends HookConsumerWidget {
             .deleteLocalOnlyAssets(localIds, onlyBackedUp: onlyBackedUp);
         if (isDeleted) {
           final assetOrAssets = localIds.length > 1 ? 'assets' : 'asset';
-          ImmichToast.show(
+          ramToast.show(
             context: context,
             msg:
                 '${localIds.length} $assetOrAssets removed permanently from your device',
@@ -241,10 +241,10 @@ class MultiselectGrid extends HookConsumerWidget {
         if (isDeleted) {
           final assetOrAssets = toDelete.length > 1 ? 'assets' : 'asset';
           final trashOrRemoved = force ? 'deleted permanently' : 'trashed';
-          ImmichToast.show(
+          ramToast.show(
             context: context,
             msg:
-                '${toDelete.length} $assetOrAssets $trashOrRemoved from the Immich server',
+                '${toDelete.length} $assetOrAssets $trashOrRemoved from the ram server',
             gravity: ToastGravity.BOTTOM,
           );
         }
@@ -284,7 +284,7 @@ class MultiselectGrid extends HookConsumerWidget {
 
         if (result != null) {
           if (result.alreadyInAlbum.isNotEmpty) {
-            ImmichToast.show(
+            ramToast.show(
               context: context,
               msg: "home_page_add_to_album_conflicts".tr(
                 namedArgs: {
@@ -295,7 +295,7 @@ class MultiselectGrid extends HookConsumerWidget {
               ),
             );
           } else {
-            ImmichToast.show(
+            ramToast.show(
               context: context,
               msg: "home_page_add_to_album_success".tr(
                 namedArgs: {
@@ -412,7 +412,7 @@ class MultiselectGrid extends HookConsumerWidget {
                 data: (data) => data.isEmpty &&
                         (buildLoadingIndicator != null || topWidget == null)
                     ? (buildLoadingIndicator ?? buildEmptyIndicator)()
-                    : ImmichAssetGrid(
+                    : ramAssetGrid(
                         renderList: data,
                         listener: selectionListener,
                         selectionActive: selectionEnabledHook.value,
@@ -437,7 +437,7 @@ class MultiselectGrid extends HookConsumerWidget {
               onDeleteServer: deleteEnabled ? onDeleteRemote : null,
 
               /// local file deletion is allowed irrespective of [deleteEnabled] since it has
-              /// nothing to do with the state of the asset in the Immich server
+              /// nothing to do with the state of the asset in the ram server
               onDeleteLocal: onDeleteLocal,
               onAddToAlbum: onAddToAlbum,
               onCreateNewAlbum: onCreateNewAlbum,

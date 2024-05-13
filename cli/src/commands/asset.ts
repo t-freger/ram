@@ -8,7 +8,7 @@ import {
   defaults,
   getAllAlbums,
   getSupportedMediaTypes,
-} from '@immich/sdk';
+} from '@ram/sdk';
 import byteSize from 'byte-size';
 import { Presets, SingleBar } from 'cli-progress';
 import { chunk } from 'lodash-es';

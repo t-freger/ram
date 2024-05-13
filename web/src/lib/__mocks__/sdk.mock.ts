@@ -1,8 +1,8 @@
-import * as sdk from '@immich/sdk';
+import * as sdk from '@ram/sdk';
 import type { Mock, MockedObject } from 'vitest';
 
-vi.mock('@immich/sdk', async (originalImport) => {
-  const module = await originalImport<typeof import('@immich/sdk')>();
+vi.mock('@ram/sdk', async (originalImport) => {
+  const module = await originalImport<typeof import('@ram/sdk')>();
 
   const mocks: Record<string, Mock> = {};
   for (const [key, value] of Object.entries(module)) {

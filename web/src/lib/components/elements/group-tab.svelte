@@ -4,7 +4,7 @@
   export let onSelect: (selected: string) => void;
 </script>
 
-<div class="flex bg-gray-200 dark:bg-immich-dark-gray rounded-2xl h-full">
+<div class="flex bg-gray-200 dark:bg-ram-dark-gray rounded-2xl h-full">
   {#each filters as filter, index}
     <button
       class="text-sm px-4 {filter === selected

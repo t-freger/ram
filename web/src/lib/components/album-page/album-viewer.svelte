@@ -3,7 +3,7 @@
   import { assetViewingStore } from '$lib/stores/asset-viewing.store';
   import { dragAndDropFilesStore } from '$lib/stores/drag-and-drop-files.store';
   import { fileUploadHandler, openFileUploadDialog } from '$lib/utils/file-uploader';
-  import type { AlbumResponseDto, SharedLinkResponseDto, UserResponseDto } from '@immich/sdk';
+  import type { AlbumResponseDto, SharedLinkResponseDto, UserResponseDto } from '@ram/sdk';
   import { createAssetInteractionStore } from '../../stores/asset-interaction.store';
   import { AssetStore } from '../../stores/assets.store';
   import { downloadAlbum } from '../../utils/asset-utils';
@@ -12,7 +12,7 @@
   import AssetGrid from '../photos-page/asset-grid.svelte';
   import AssetSelectControlBar from '../photos-page/asset-select-control-bar.svelte';
   import ControlAppBar from '../shared-components/control-app-bar.svelte';
-  import ImmichLogo from '../shared-components/immich-logo.svelte';
+  import ramLogo from '../shared-components/ram-logo.svelte';
   import ThemeButton from '../shared-components/theme-button.svelte';
   import { shortcut } from '$lib/utils/shortcut';
   import { mdiFileImagePlusOutline, mdiFolderDownloadOutline } from '@mdi/js';
@@ -67,7 +67,7 @@
     <ControlAppBar showBackButton={false}>
       <svelte:fragment slot="leading">
         <a data-sveltekit-preload-data="hover" class="ml-4" href="/">
-          <ImmichLogo class="h-[24px] w-[24px] max-w-none md:w-auto md:h-10 md:max-w-full" noText={innerWidth < 768} />
+          <ramLogo class="h-[24px] w-[24px] max-w-none md:w-auto md:h-10 md:max-w-full" noText={innerWidth < 768} />
         </a>
       </svelte:fragment>
 
@@ -90,12 +90,12 @@
   {/if}
 </header>
 
-<main class="relative h-screen overflow-hidden bg-immich-bg px-6 pt-[var(--navbar-height)] dark:bg-immich-dark-bg">
+<main class="relative h-screen overflow-hidden bg-ram-bg px-6 pt-[var(--navbar-height)] dark:bg-ram-dark-bg">
   <AssetGrid {album} {assetStore} {assetInteractionStore}>
     <section class="pt-24">
       <!-- ALBUM TITLE -->
       <h1
-        class="bg-immich-bg text-6xl text-immich-primary outline-none transition-all dark:bg-immich-dark-bg dark:text-immich-dark-primary"
+        class="bg-ram-bg text-6xl text-ram-primary outline-none transition-all dark:bg-ram-dark-bg dark:text-ram-dark-primary"
       >
         {album.albumName}
       </h1>

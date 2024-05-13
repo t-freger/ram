@@ -1,11 +1,11 @@
 # See:
-# - https://immich.app/docs/developer/setup
-# - https://immich.app/docs/developer/troubleshooting
+# - https://ram.app/docs/developer/setup
+# - https://ram.app/docs/developer/troubleshooting
 
-name: immich-dev
+name: ram-dev
 
 x-server-build: &server-common
-  image: immich-server-dev:latest
+  image: ram-server-dev:latest
   build:
     context: ../
     dockerfile: server/Dockerfile
@@ -26,9 +26,9 @@ x-server-build: &server-common
       hard: 1048576
 
 services:
-  immich-server:
-    container_name: immich_server
-    command: ['/usr/src/app/bin/immich-dev', 'immich']
+  ram-server:
+    container_name: ram_server
+    command: ['/usr/src/app/bin/ram-dev', 'ram']
     <<: *server-common
     ports:
       - 3001:3001
@@ -37,9 +37,9 @@ services:
       - redis
       - database
 
-  immich-microservices:
-    container_name: immich_microservices
-    command: ['/usr/src/app/bin/immich-dev', 'microservices']
+  ram-microservices:
+    container_name: ram_microservices
+    command: ['/usr/src/app/bin/ram-dev', 'microservices']
     <<: *server-common
     # extends:
     #   file: hwaccel.transcoding.yml
@@ -48,14 +48,14 @@ services:
       - 9231:9230
     depends_on:
       - database
-      - immich-server
+      - ram-server
 
-  immich-web:
-    container_name: immich_web
-    image: immich-web-dev:latest
+  ram-web:
+    container_name: ram_web
+    image: ram-web-dev:latest
     build:
       context: ../web
-    command: ['/usr/src/app/bin/immich-web']
+    command: ['/usr/src/app/bin/ram-web']
     env_file:
       - .env
     ports:
@@ -71,11 +71,11 @@ services:
         hard: 1048576
     restart: unless-stopped
     depends_on:
-      - immich-server
+      - ram-server
 
-  immich-machine-learning:
-    container_name: immich_machine_learning
-    image: immich-machine-learning-dev:latest
+  ram-machine-learning:
+    container_name: ram_machine_learning
+    image: ram-machine-learning-dev:latest
     # extends:
     #   file: hwaccel.ml.yml
     #   service: cpu # set to one of [armnn, cuda, openvino, openvino-wsl] for accelerated inference
@@ -96,11 +96,11 @@ services:
     restart: unless-stopped
 
   redis:
-    container_name: immich_redis
+    container_name: ram_redis
     image: redis:6.2-alpine@sha256:84882e87b54734154586e5f8abd4dce69fe7311315e2fc6d67c29614c8de2672
 
   database:
-    container_name: immich_postgres
+    container_name: ram_postgres
     image: tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0
     env_file:
       - .env
@@ -115,9 +115,9 @@ services:
       - 5432:5432
     command: ["postgres", "-c" ,"shared_preload_libraries=vectors.so", "-c", 'search_path="$$user", public, vectors', "-c", "logging_collector=on", "-c", "max_wal_size=2GB", "-c", "shared_buffers=512MB", "-c", "wal_compression=on"]
 
-  # set IMMICH_METRICS=true in .env to enable metrics
-  # immich-prometheus:
-  #   container_name: immich_prometheus
+  # set ram_METRICS=true in .env to enable metrics
+  # ram-prometheus:
+  #   container_name: ram_prometheus
   #   ports:
   #     - 9090:9090
   #   image: prom/prometheus
@@ -126,9 +126,9 @@ services:
   #     - prometheus-data:/prometheus
 
   # first login uses admin/admin
-  # add data source for http://immich-prometheus:9090 to get started
-  # immich-grafana:
-  #   container_name: immich_grafana
+  # add data source for http://ram-prometheus:9090 to get started
+  # ram-grafana:
+  #   container_name: ram_grafana
   #   command: ['./run.sh', '-disable-reporting']
   #   ports:
   #     - 3000:3000

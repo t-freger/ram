@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login With Custom URL">
+<img src="../design/ram-logo-stacked-light.svg" width="300" title="Login With Custom URL">
 </p>
-<h3 align="center">Immich - Высокопроизводительное решение для автономоного создания фото и видео архивов</h3>
+<h3 align="center">ram - Высокопроизводительное решение для автономоного создания фото и видео архивов</h3>
 <br/>
-<a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Main Screenshot">
+<a href="https://ram.app">
+<img src="../design/ram-screenshots.png" title="Main Screenshot">
 </a>
 <br/>
 <p align="center">
@@ -42,27 +42,27 @@
 
 ## Содержание
 
-- [Официальная документация](https://immich.app/docs)
-- [План разработки](https://github.com/orgs/immich-app/projects/1)
+- [Официальная документация](https://ram.app/docs)
+- [План разработки](https://github.com/orgs/ram-app/projects/1)
 - [Демо](#demo)
 - [Возможности](#features)
-- [Введение](https://immich.app/docs/overview/introduction)
-- [Инсталяция](https://immich.app/docs/install/requirements)
-- [Гайд по доработке проекта](https://immich.app/docs/overview/support-the-project)
+- [Введение](https://ram.app/docs/overview/introduction)
+- [Инсталяция](https://ram.app/docs/install/requirements)
+- [Гайд по доработке проекта](https://ram.app/docs/overview/support-the-project)
 
 ## Документация
 
-Вы можете найти основную документация, включая инструкции по установке по ссылке https://immich.app/.
+Вы можете найти основную документация, включая инструкции по установке по ссылке https://ram.app/.
 
 ## Демо
 
-Вы можете посмотреть  веб демо по ссылке https://demo.immich.app
+Вы можете посмотреть  веб демо по ссылке https://demo.ram.app
 
-Для мобильного приложения вы можете использовать адрес `https://demo.immich.app/api` в поле `Server Endpoint URL`
+Для мобильного приложения вы можете использовать адрес `https://demo.ram.app/api` в поле `Server Endpoint URL`
 
 ```bash title="Демо доступ"
 Реквизиты доступа
-логин/почта: demo@immich.app
+логин/почта: demo@ram.app
 пароль: demo
 ```
 
@@ -102,6 +102,6 @@ Spec: Free-tier Oracle VM - Amsterdam - 2.4Ghz quad-core ARM64 CPU, 24GB RAM
 | Колллажи                                            | Да         | Да  |
 
 ## Авторы
-<a href="https://github.com/alextran1502/immich/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=immich-app/immich" width="100%"/>
+<a href="https://github.com/alextran1502/ram/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ram-app/ram" width="100%"/>
 </a>

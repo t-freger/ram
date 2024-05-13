@@ -1,6 +1,6 @@
-import 'package:immich_mobile/models/activities/activity.model.dart';
-import 'package:immich_mobile/providers/activity_service.provider.dart';
-import 'package:immich_mobile/providers/activity_statistics.provider.dart';
+import 'package:ram_mobile/models/activities/activity.model.dart';
+import 'package:ram_mobile/providers/activity_service.provider.dart';
+import 'package:ram_mobile/providers/activity_statistics.provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'activity.provider.g.dart';

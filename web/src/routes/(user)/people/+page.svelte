@@ -26,7 +26,7 @@
     updatePerson,
     type PeopleUpdateItem,
     type PersonResponseDto,
-  } from '@immich/sdk';
+  } from '@ram/sdk';
   import { mdiAccountOff, mdiEyeOutline } from '@mdi/js';
   import { onMount } from 'svelte';
   import type { PageData } from './$types';
@@ -456,9 +456,9 @@
     <FullScreenModal id="change-name-modal" title="Change name" onClose={() => (showChangeNameModal = false)}>
       <form on:submit|preventDefault={submitNameChange} autocomplete="off" id="change-name-form">
         <div class="flex flex-col gap-2">
-          <label class="immich-form-label" for="name">Name</label>
+          <label class="ram-form-label" for="name">Name</label>
           <input
-            class="immich-form-input"
+            class="ram-form-input"
             id="name"
             name="name"
             type="text"

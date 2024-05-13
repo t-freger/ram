@@ -1,5 +1,5 @@
 import { authenticate } from '$lib/utils/auth';
-import { getApiKeys, getSessions } from '@immich/sdk';
+import { getApiKeys, getSessions } from '@ram/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async () => {

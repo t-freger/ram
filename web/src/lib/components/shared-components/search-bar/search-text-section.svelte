@@ -21,7 +21,7 @@
 </script>
 
 <fieldset>
-  <legend class="immich-form-label">Search type</legend>
+  <legend class="ram-form-label">Search type</legend>
   <div class="flex flex-wrap gap-x-5 gap-y-2 mt-1 mb-2">
     <RadioButton
       name="query-type"
@@ -41,9 +41,9 @@
 </fieldset>
 
 {#if selectedOption === TextSearchOptions.Context}
-  <label for="context-input" class="immich-form-label">Search by context</label>
+  <label for="context-input" class="ram-form-label">Search by context</label>
   <input
-    class="immich-form-input hover:cursor-text w-full !mt-1"
+    class="ram-form-input hover:cursor-text w-full !mt-1"
     type="text"
     id="context-input"
     name="context"
@@ -51,9 +51,9 @@
     bind:value={context}
   />
 {:else}
-  <label for="file-name-input" class="immich-form-label">Search by file name or extension</label>
+  <label for="file-name-input" class="ram-form-label">Search by file name or extension</label>
   <input
-    class="immich-form-input hover:cursor-text w-full !mt-1"
+    class="ram-form-input hover:cursor-text w-full !mt-1"
     type="text"
     id="file-name-input"
     name="file-name"

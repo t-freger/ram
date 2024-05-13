@@ -20,7 +20,7 @@
   import { AssetStore } from '$lib/stores/assets.store';
   import { featureFlags, serverConfig } from '$lib/stores/server-config.store';
   import { handleError } from '$lib/utils/handle-error';
-  import { emptyTrash, restoreTrash } from '@immich/sdk';
+  import { emptyTrash, restoreTrash } from '@ram/sdk';
   import { mdiDeleteOutline, mdiHistory } from '@mdi/js';
   import type { PageData } from './$types';
   import { handlePromiseError } from '$lib/utils';
@@ -113,7 +113,7 @@
     onClose={() => (isShowEmptyConfirmation = false)}
   >
     <svelte:fragment slot="prompt">
-      <p>Are you sure you want to empty the trash? This will remove all the assets in trash permanently from Immich.</p>
+      <p>Are you sure you want to empty the trash? This will remove all the assets in trash permanently from ram.</p>
       <p><b>You cannot undo this action!</b></p>
     </svelte:fragment>
   </ConfirmDialogue>

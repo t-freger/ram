@@ -13,15 +13,15 @@ import { performance } from 'node:perf_hooks';
 import { excludePaths, serverVersion } from 'src/constants';
 import { DecorateAll } from 'src/decorators';
 
-let metricsEnabled = process.env.IMMICH_METRICS === 'true';
+let metricsEnabled = process.env.ram_METRICS === 'true';
 export const hostMetrics =
-  process.env.IMMICH_HOST_METRICS == null ? metricsEnabled : process.env.IMMICH_HOST_METRICS === 'true';
+  process.env.ram_HOST_METRICS == null ? metricsEnabled : process.env.ram_HOST_METRICS === 'true';
 export const apiMetrics =
-  process.env.IMMICH_API_METRICS == null ? metricsEnabled : process.env.IMMICH_API_METRICS === 'true';
+  process.env.ram_API_METRICS == null ? metricsEnabled : process.env.ram_API_METRICS === 'true';
 export const repoMetrics =
-  process.env.IMMICH_IO_METRICS == null ? metricsEnabled : process.env.IMMICH_IO_METRICS === 'true';
+  process.env.ram_IO_METRICS == null ? metricsEnabled : process.env.ram_IO_METRICS === 'true';
 export const jobMetrics =
-  process.env.IMMICH_JOB_METRICS == null ? metricsEnabled : process.env.IMMICH_JOB_METRICS === 'true';
+  process.env.ram_JOB_METRICS == null ? metricsEnabled : process.env.ram_JOB_METRICS === 'true';
 
 metricsEnabled ||= hostMetrics || apiMetrics || repoMetrics || jobMetrics;
 if (!metricsEnabled && process.env.OTEL_SDK_DISABLED === undefined) {
@@ -33,11 +33,11 @@ const aggregation = new metrics.ExplicitBucketHistogramAggregation(
   true,
 );
 
-const metricsPort = Number.parseInt(process.env.IMMICH_METRICS_PORT ?? '8081');
+const metricsPort = Number.parseInt(process.env.ram_METRICS_PORT ?? '8081');
 
 export const otelSDK = new NodeSDK({
   resource: new resources.Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: `immich`,
+    [SemanticResourceAttributes.SERVICE_NAME]: `ram`,
     [SemanticResourceAttributes.SERVICE_VERSION]: serverVersion.toString(),
   }),
   metricReader: new PrometheusExporter({ port: metricsPort }),
@@ -91,7 +91,7 @@ function ExecutionTimeHistogram({
           const end = performance.now();
           if (!histogram) {
             histogram = contextBase.metrics
-              .getMeter('immich')
+              .getMeter('ram')
               .createHistogram(metricName, { description: metricDescription, unit, valueType });
           }
           histogram.record(end - start, {});

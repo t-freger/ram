@@ -52,13 +52,13 @@ To change these settings click on the 3 dots on the right -> options.
 
 :::info Known bug
 Currently it is not possible to remove people through the options.
-This is a [known problem and it has a temporary solution](https://github.com/immich-app/immich/issues/7954)
+This is a [known problem and it has a temporary solution](https://github.com/ram-app/ram/issues/7954)
 :::
 
 ## Share Album via Link
 
 :::info
-When wanting to share with people outside the home network via a link, Immich needs to be exposed to the world wide web, read more to [learn the ways to do this](/docs/guides/remote-access.md).
+When wanting to share with people outside the home network via a link, ram needs to be exposed to the world wide web, read more to [learn the ways to do this](/docs/guides/remote-access.md).
 :::
 
 1. Enter the shared album.
@@ -98,7 +98,7 @@ For temporary sharing, you can add an expiration date to assets shared this way.
 
 A user can copy, delete and change the link settings he created for specific albums or assets, in order to do so;
 
-1. Go to the Immich home page.
+1. Go to the ram home page.
 2. Select the Sharing category.
 3. On the top right, select Shared links.
 
@@ -170,7 +170,7 @@ To change these settings click on the 3 dots on the top right -> options.
 ## Share Album via Link
 
 :::info
-When wanting to share with people outside the home network via a link, Immich needs to be exposed to the world wide web, read more to [learn the ways to do this](/docs/guides/remote-access.md).
+When wanting to share with people outside the home network via a link, ram needs to be exposed to the world wide web, read more to [learn the ways to do this](/docs/guides/remote-access.md).
 :::
 
 1. Enter the shared album.

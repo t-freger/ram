@@ -1,5 +1,5 @@
 import { AppRoute } from '$lib/constants';
-import { getServerConfig } from '@immich/sdk';
+import { getServerConfig } from '@ram/sdk';
 import { redirect } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 

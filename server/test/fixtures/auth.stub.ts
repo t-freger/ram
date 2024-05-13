@@ -4,8 +4,8 @@ import { SharedLinkEntity } from 'src/entities/shared-link.entity';
 import { UserEntity } from 'src/entities/user.entity';
 
 export const adminSignupStub = {
-  name: 'Immich Admin',
-  email: 'admin@immich.app',
+  name: 'ram Admin',
+  email: 'admin@ram.app',
   password: 'Password123',
 };
 
@@ -16,7 +16,7 @@ export const userSignupStub = {
 
 export const loginStub = {
   admin: {
-    email: 'admin@immich.app',
+    email: 'admin@ram.app',
     password: 'Password123',
   },
 };
@@ -32,7 +32,7 @@ export const authStub = {
   user1: Object.freeze<AuthDto>({
     user: {
       id: 'user-id',
-      email: 'immich@test.com',
+      email: 'ram@test.com',
       isAdmin: false,
     } as UserEntity,
     session: {
@@ -42,7 +42,7 @@ export const authStub = {
   user2: Object.freeze<AuthDto>({
     user: {
       id: 'user-2',
-      email: 'user2@immich.app',
+      email: 'user2@ram.app',
       isAdmin: false,
     } as UserEntity,
     session: {
@@ -52,7 +52,7 @@ export const authStub = {
   external1: Object.freeze<AuthDto>({
     user: {
       id: 'user-id',
-      email: 'immich@test.com',
+      email: 'ram@test.com',
       isAdmin: false,
     } as UserEntity,
     session: {
@@ -120,19 +120,19 @@ export const loginResponseStub = {
   admin: {
     response: {
       accessToken: expect.any(String),
-      name: 'Immich Admin',
+      name: 'ram Admin',
       isAdmin: true,
       profileImagePath: '',
       shouldChangePassword: true,
-      userEmail: 'admin@immich.app',
+      userEmail: 'admin@ram.app',
       userId: expect.any(String),
     },
   },
   user1oauth: {
     accessToken: 'cmFuZG9tLWJ5dGVz',
     userId: 'user-id',
-    userEmail: 'immich@test.com',
-    name: 'immich_name',
+    userEmail: 'ram@test.com',
+    name: 'ram_name',
     profileImagePath: '',
     isAdmin: false,
     shouldChangePassword: false,
@@ -140,8 +140,8 @@ export const loginResponseStub = {
   user1password: {
     accessToken: 'cmFuZG9tLWJ5dGVz',
     userId: 'user-id',
-    userEmail: 'immich@test.com',
-    name: 'immich_name',
+    userEmail: 'ram@test.com',
+    name: 'ram_name',
     profileImagePath: '',
     isAdmin: false,
     shouldChangePassword: false,

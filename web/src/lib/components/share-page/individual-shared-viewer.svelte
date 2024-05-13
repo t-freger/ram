@@ -6,7 +6,7 @@
   import { downloadArchive } from '$lib/utils/asset-utils';
   import { fileUploadHandler, openFileUploadDialog } from '$lib/utils/file-uploader';
   import { handleError } from '$lib/utils/handle-error';
-  import { addSharedLinkAssets, type AssetResponseDto, type SharedLinkResponseDto } from '@immich/sdk';
+  import { addSharedLinkAssets, type AssetResponseDto, type SharedLinkResponseDto } from '@ram/sdk';
   import { mdiArrowLeft, mdiFileImagePlusOutline, mdiFolderDownloadOutline, mdiSelectAll } from '@mdi/js';
   import CircleIconButton from '../elements/buttons/circle-icon-button.svelte';
   import DownloadAction from '../photos-page/actions/download-action.svelte';
@@ -14,7 +14,7 @@
   import AssetSelectControlBar from '../photos-page/asset-select-control-bar.svelte';
   import ControlAppBar from '../shared-components/control-app-bar.svelte';
   import GalleryViewer from '../shared-components/gallery-viewer/gallery-viewer.svelte';
-  import ImmichLogo from '../shared-components/immich-logo.svelte';
+  import ramLogo from '../shared-components/ram-logo.svelte';
   import { NotificationType, notificationController } from '../shared-components/notification/notification';
   import type { Viewport } from '$lib/stores/assets.store';
 
@@ -36,7 +36,7 @@
   });
 
   const downloadAssets = async () => {
-    await downloadArchive(`immich-shared.zip`, { assetIds: assets.map((asset) => asset.id) });
+    await downloadArchive(`ram-shared.zip`, { assetIds: assets.map((asset) => asset.id) });
   };
 
   const handleUploadAssets = async (files: File[] = []) => {
@@ -71,12 +71,12 @@
 
 <svelte:window bind:innerWidth />
 
-<section class="bg-immich-bg dark:bg-immich-dark-bg">
+<section class="bg-ram-bg dark:bg-ram-dark-bg">
   {#if isMultiSelectionMode}
     <AssetSelectControlBar assets={selectedAssets} clearSelect={() => (selectedAssets = new Set())}>
       <CircleIconButton title="Select all" icon={mdiSelectAll} on:click={handleSelectAll} />
       {#if sharedLink?.allowDownload}
-        <DownloadAction filename="immich-shared.zip" />
+        <DownloadAction filename="ram-shared.zip" />
       {/if}
       {#if isOwned}
         <RemoveFromSharedLink bind:sharedLink />
@@ -86,7 +86,7 @@
     <ControlAppBar on:close={() => goto(AppRoute.PHOTOS)} backIcon={mdiArrowLeft} showBackButton={false}>
       <svelte:fragment slot="leading">
         <a data-sveltekit-preload-data="hover" class="ml-4" href="/">
-          <ImmichLogo class="h-[24px] w-[24px] max-w-none md:w-auto md:h-10 md:max-w-full" noText={innerWidth < 768} />
+          <ramLogo class="h-[24px] w-[24px] max-w-none md:w-auto md:h-10 md:max-w-full" noText={innerWidth < 768} />
         </a>
       </svelte:fragment>
 

@@ -1,5 +1,5 @@
 import { notificationController, NotificationType } from '$lib/components/shared-components/notification/notification';
-import { deleteAssets as deleteBulk, type AssetResponseDto } from '@immich/sdk';
+import { deleteAssets as deleteBulk, type AssetResponseDto } from '@ram/sdk';
 import { handleError } from './handle-error';
 
 export type OnDelete = (assetIds: string[]) => void;

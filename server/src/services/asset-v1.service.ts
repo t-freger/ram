@@ -35,7 +35,7 @@ import { ILoggerRepository } from 'src/interfaces/logger.interface';
 import { IStorageRepository } from 'src/interfaces/storage.interface';
 import { IUserRepository } from 'src/interfaces/user.interface';
 import { UploadFile } from 'src/services/asset.service';
-import { CacheControl, ImmichFileResponse, getLivePhotoMotionFilename } from 'src/utils/file';
+import { CacheControl, ramFileResponse, getLivePhotoMotionFilename } from 'src/utils/file';
 import { mimeTypes } from 'src/utils/mime-types';
 import { fromChecksum } from 'src/utils/request';
 import { QueryFailedError } from 'typeorm';
@@ -115,7 +115,7 @@ export class AssetServiceV1 {
     return assets.map((asset) => mapAsset(asset, { withStack: true, auth }));
   }
 
-  async serveThumbnail(auth: AuthDto, assetId: string, dto: GetAssetThumbnailDto): Promise<ImmichFileResponse> {
+  async serveThumbnail(auth: AuthDto, assetId: string, dto: GetAssetThumbnailDto): Promise<ramFileResponse> {
     await this.access.requirePermission(auth, Permission.ASSET_VIEW, assetId);
 
     const asset = await this.assetRepositoryV1.get(assetId);
@@ -125,14 +125,14 @@ export class AssetServiceV1 {
 
     const filepath = this.getThumbnailPath(asset, dto.format);
 
-    return new ImmichFileResponse({
+    return new ramFileResponse({
       path: filepath,
       contentType: mimeTypes.lookup(filepath),
       cacheControl: CacheControl.PRIVATE_WITH_CACHE,
     });
   }
 
-  public async serveFile(auth: AuthDto, assetId: string, dto: ServeFileDto): Promise<ImmichFileResponse> {
+  public async serveFile(auth: AuthDto, assetId: string, dto: ServeFileDto): Promise<ramFileResponse> {
     // this is not quite right as sometimes this returns the original still
     await this.access.requirePermission(auth, Permission.ASSET_VIEW, assetId);
 
@@ -148,7 +148,7 @@ export class AssetServiceV1 {
         ? this.getServePath(asset, dto, allowOriginalFile)
         : asset.encodedVideoPath || asset.originalPath;
 
-    return new ImmichFileResponse({
+    return new ramFileResponse({
       path: filepath,
       contentType: mimeTypes.lookup(filepath),
       cacheControl: CacheControl.PRIVATE_WITH_CACHE,

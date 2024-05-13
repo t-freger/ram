@@ -6,7 +6,7 @@ import { resolve } from 'node:path';
 import { ADDED_IN_PREFIX, DEPRECATED_IN_PREFIX, LIFECYCLE_EXTENSION, NEXT_RELEASE } from 'src/constants';
 import { Version } from 'src/utils/version';
 
-const outputPath = resolve(process.cwd(), '../open-api/immich-openapi-specs.json');
+const outputPath = resolve(process.cwd(), '../open-api/ram-openapi-specs.json');
 const spec = JSON.parse(readFileSync(outputPath).toString()) as OpenAPIObject;
 
 type Items = {

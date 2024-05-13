@@ -15,7 +15,7 @@ import { ILoggerRepository } from 'src/interfaces/logger.interface';
 import { IStorageRepository } from 'src/interfaces/storage.interface';
 import { ISystemConfigRepository } from 'src/interfaces/system-config.interface';
 import { IUserRepository, UserFindOptions } from 'src/interfaces/user.interface';
-import { CacheControl, ImmichFileResponse } from 'src/utils/file';
+import { CacheControl, ramFileResponse } from 'src/utils/file';
 
 @Injectable()
 export class UserService {
@@ -122,13 +122,13 @@ export class UserService {
     await this.jobRepository.queue({ name: JobName.DELETE_FILES, data: { files: [user.profileImagePath] } });
   }
 
-  async getProfileImage(id: string): Promise<ImmichFileResponse> {
+  async getProfileImage(id: string): Promise<ramFileResponse> {
     const user = await this.findOrFail(id, {});
     if (!user.profileImagePath) {
       throw new NotFoundException('User does not have a profile image');
     }
 
-    return new ImmichFileResponse({
+    return new ramFileResponse({
       path: user.profileImagePath,
       contentType: 'image/jpeg',
       cacheControl: CacheControl.NONE,

@@ -1,10 +1,10 @@
-A command-line interface for interfacing with the self-hosted photo manager [Immich](https://immich.app/).
+A command-line interface for interfacing with the self-hosted photo manager [ram](https://ram.app/).
 
-Please see the [Immich CLI documentation](https://immich.app/docs/features/command-line-interface).
+Please see the [ram CLI documentation](https://ram.app/docs/features/command-line-interface).
 
 # For developers
 
-To run the Immich CLI from source, run the following in the cli folder:
+To run the ram CLI from source, run the following in the cli folder:
 
     $ npm run build
     $ ts-node .

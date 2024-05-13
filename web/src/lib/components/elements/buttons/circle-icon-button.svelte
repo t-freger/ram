@@ -22,13 +22,13 @@
   export { className as class };
 
   const colorClasses: Record<Color, string> = {
-    transparent: 'bg-transparent hover:bg-[#d3d3d3] dark:text-immich-dark-fg',
-    opaque: 'bg-transparent hover:bg-immich-bg/30 text-white hover:dark:text-white',
+    transparent: 'bg-transparent hover:bg-[#d3d3d3] dark:text-ram-dark-fg',
+    opaque: 'bg-transparent hover:bg-ram-bg/30 text-white hover:dark:text-white',
     light: 'bg-white hover:bg-[#d3d3d3]',
     dark: 'bg-[#202123] hover:bg-[#d3d3d3]',
-    gray: 'bg-[#d3d3d3] hover:bg-[#e2e7e9] text-immich-dark-gray hover:text-black',
+    gray: 'bg-[#d3d3d3] hover:bg-[#e2e7e9] text-ram-dark-gray hover:text-black',
     primary:
-      'bg-immich-primary dark:bg-immich-dark-primary hover:bg-immich-primary/75 hover:dark:bg-immich-dark-primary/80 text-white dark:text-immich-dark-gray',
+      'bg-ram-primary dark:bg-ram-dark-primary hover:bg-ram-primary/75 hover:dark:bg-ram-dark-primary/80 text-white dark:text-ram-dark-gray',
   };
 
   $: colorClass = colorClasses[color];
@@ -40,7 +40,7 @@
   {type}
   style:width={buttonSize ? buttonSize + 'px' : ''}
   style:height={buttonSize ? buttonSize + 'px' : ''}
-  class="flex place-content-center place-items-center rounded-full {colorClass} p-{padding} transition-all hover:dark:text-immich-dark-gray {className} {mobileClass}"
+  class="flex place-content-center place-items-center rounded-full {colorClass} p-{padding} transition-all hover:dark:text-ram-dark-gray {className} {mobileClass}"
   on:click
 >
   <Icon path={icon} {size} ariaLabel={title} {viewBox} color="currentColor" />

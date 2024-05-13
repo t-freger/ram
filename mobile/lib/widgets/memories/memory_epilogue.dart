@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/constants/immich_colors.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
+import 'package:ram_mobile/constants/ram_colors.dart';
+import 'package:ram_mobile/extensions/build_context_extensions.dart';
 
 class MemoryEpilogue extends StatefulWidget {
   final Function()? onStartOver;
@@ -51,7 +51,7 @@ class _MemoryEpilogueState extends State<MemoryEpilogue>
               children: [
                 const Icon(
                   Icons.check_circle_outline_sharp,
-                  color: immichDarkThemePrimaryColor,
+                  color: ramDarkThemePrimaryColor,
                   size: 64.0,
                 ),
                 const SizedBox(height: 16.0),
@@ -74,7 +74,7 @@ class _MemoryEpilogueState extends State<MemoryEpilogue>
                   child: Text(
                     "memories_start_over",
                     style: context.textTheme.displayMedium?.copyWith(
-                      color: immichDarkThemePrimaryColor,
+                      color: ramDarkThemePrimaryColor,
                     ),
                   ).tr(),
                 ),

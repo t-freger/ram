@@ -14,7 +14,7 @@
 
 <script lang="ts">
   import { locale } from '$lib/stores/preferences.store';
-  import type { AssetResponseDto } from '@immich/sdk';
+  import type { AssetResponseDto } from '@ram/sdk';
   import { mdiClose } from '@mdi/js';
   import ControlAppBar from '../shared-components/control-app-bar.svelte';
 
@@ -31,7 +31,7 @@
 </script>
 
 <ControlAppBar on:close={clearSelect} backIcon={mdiClose} tailwindClasses="bg-white shadow-md">
-  <p class="font-medium text-immich-primary dark:text-immich-dark-primary" slot="leading">
+  <p class="font-medium text-ram-primary dark:text-ram-dark-primary" slot="leading">
     Selected {assets.size.toLocaleString($locale)}
   </p>
   <slot slot="trailing" />
